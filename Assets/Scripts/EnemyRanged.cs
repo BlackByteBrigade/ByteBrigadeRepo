@@ -5,8 +5,8 @@ using UnityEngine;
 public abstract class EnemyRanged : Enemy
 {
 
-    public GameObject Projectile { get; set; }
-    public int RangedDmg { get; set; }
+    public GameObject Projectile;
+    public int RangedDmg;
 
     public abstract void Fire();
 
@@ -15,12 +15,12 @@ public abstract class EnemyRanged : Enemy
     // Start is called before the first frame update
     void Start()
     {
-        
+        ((Enemy)this).Start();
     }
 
     // Update is called once per frame
-    void Update()
+    public void Update()
     {
-        
+        ((Enemy)this).Update();
     }
 }
