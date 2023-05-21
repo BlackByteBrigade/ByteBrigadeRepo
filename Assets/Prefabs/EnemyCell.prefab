@@ -262,6 +262,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5974503518593719193}
   - component: {fileID: 7581985312480334866}
+  - component: {fileID: 9015988872948910472}
   m_Layer: 0
   m_Name: EnemyCell
   m_TagString: Untagged
@@ -290,7 +291,7 @@ Transform:
   - {fileID: 1992989822768905153}
   - {fileID: 1133190127479669727}
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &7581985312480334866
 SpriteRenderer:
@@ -344,6 +345,41 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!58 &9015988872948910472
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3282764629523550160}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.04, y: -0.08}
+  serializedVersion: 2
+  m_Radius: 1.1
 --- !u!1 &3613742577250065829
 GameObject:
   m_ObjectHideFlags: 0
