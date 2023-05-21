@@ -7,8 +7,8 @@ public class EnemyPartCollection : MonoBehaviour
 {
     //EnemyPart counting variables
     private const string ENEMY_PART_TAG = "EnemyPart";
-    private int enemyPart = 0;
-    [SerializeField] private int totalEnemyPartsToBeCollected;
+    private int enemyPartCollected = 0;
+    private int totalEnemyPartsToBeCollected;
 
 
     //UI link to change enemy part counter
@@ -17,6 +17,7 @@ public class EnemyPartCollection : MonoBehaviour
 
     private void Start() 
     {
+        CountNumberofEnemyPartsInLevel();
         UpdateEnemyPartUICounter();
     }
 
@@ -26,15 +27,22 @@ public class EnemyPartCollection : MonoBehaviour
         if (collision.gameObject.CompareTag(ENEMY_PART_TAG))
         {
             Destroy(collision.gameObject);
-            enemyPart++;
+            enemyPartCollected++;
         }
 
         UpdateEnemyPartUICounter();
     }
 
+    private void CountNumberofEnemyPartsInLevel(){
+        GameObject[] enemyParts = GameObject.FindGameObjectsWithTag(ENEMY_PART_TAG);
+        foreach (GameObject enemyPart in enemyParts){
+            totalEnemyPartsToBeCollected++;
+        }
+    }
+
     //updates the counter on the player HUD for enemy parts
     private void UpdateEnemyPartUICounter()
     {
-        enemyPartUICounter.text = enemyPart + "/" + totalEnemyPartsToBeCollected;
+        enemyPartUICounter.text = enemyPartCollected + "/" + totalEnemyPartsToBeCollected;
     }
 }
