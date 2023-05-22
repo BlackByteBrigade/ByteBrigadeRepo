@@ -9,6 +9,7 @@ public class PlayerMovement : MonoBehaviour
     public float movementMaxSpeed;
 
     public float movementDrag;
+    public float idleSpeed; 
 
     [Header("Dash")]
     public float dashSpeed;
@@ -16,7 +17,8 @@ public class PlayerMovement : MonoBehaviour
     public float dashCooldown;
 
     // dont want to have too many things in the inspector
-    private Rigidbody2D body;
+    public Rigidbody2D Body { get; set; }
+    public Player Player { get; set; }
 
     private Vector2 movementInput;
     private bool isDashing = false;
@@ -24,7 +26,13 @@ public class PlayerMovement : MonoBehaviour
 
     private void Awake()
     {
-        body = GetComponent<Rigidbody2D>();
+        InitializeComponents();
+    }
+
+    private void InitializeComponents()
+    {
+        Body = GetComponent<Rigidbody2D>();
+        Player = GetComponent<Player>();
     }
 
     private void FixedUpdate()
@@ -44,33 +52,39 @@ public class PlayerMovement : MonoBehaviour
     private void UpdateMovement()
     {
         // need to get speed before our changes for later use
-        float currentSpeed = body.velocity.magnitude;
+        float currentSpeed = Body.velocity.magnitude;
 
-        body.velocity += movementInput * (movementSpeed * Time.fixedDeltaTime);
+        if (Player.State != PlayerState.Dashing)
+        {
+            // only change moving and idling states if we are not currently dashing
+            Player.State = Body.velocity.magnitude < idleSpeed ? PlayerState.Idling : PlayerState.Moving;
+        }
+
+        Body.velocity += movementInput * (movementSpeed * Time.fixedDeltaTime);
 
         if (movementInput.magnitude < 0.5f)
         {
             // only add drag if we aren't pressing anything
-            body.velocity -= body.velocity.normalized * (movementDrag * Time.fixedDeltaTime);
+            Body.velocity -= Body.velocity.normalized * (movementDrag * Time.fixedDeltaTime);
         }
-        else if (body.velocity.magnitude > movementMaxSpeed)
+        else if (Body.velocity.magnitude > movementMaxSpeed)
         {
             // this is the later use -- makes sure we dont accelerate further if we are above max speed
-            body.velocity = body.velocity.normalized * Mathf.Min(currentSpeed, body.velocity.magnitude);
+            Body.velocity = Body.velocity.normalized * Mathf.Min(currentSpeed, Body.velocity.magnitude);
         }
     }
 
     private IEnumerator Dash()
     {
-        isDashing = true;
+        Player.State = PlayerState.Dashing;
         canDash = false;
 
-        Vector2 dashDir = movementInput.magnitude > 0.5f ? movementInput : body.velocity.normalized;
-        body.velocity = dashDir * dashSpeed;
+        Vector2 dashDir = movementInput.magnitude > 0.5f ? movementInput : Body.velocity.normalized;
+        Body.velocity = dashDir * dashSpeed;
 
         yield return new WaitForSeconds(dashTime);
 
-        isDashing = false;
+        Player.State = PlayerState.Moving;
 
         yield return new WaitForSeconds(dashCooldown);
 

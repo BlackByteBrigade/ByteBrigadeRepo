@@ -253,6 +253,7 @@ MonoBehaviour:
   movementSpeed: 9
   movementMaxSpeed: 5
   movementDrag: 2
+  idleSpeed: 1
   dashSpeed: 10
   dashTime: 0.2
   dashCooldown: 1
@@ -268,7 +269,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0d06f110b63f96b4ead159936ce3de29, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  movement: {fileID: 5487916336176206421}
+  health: 0
 --- !u!50 &1654881058111624555
 Rigidbody2D:
   serializedVersion: 4
@@ -308,7 +309,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3111bffa5f8041049a2488e941e61840, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  totalEnemyPartsToBeCollected: 0
   enemyPartUICounter: {fileID: 7538390843602152156}
 --- !u!114 &942778425464030531
 MonoBehaviour:
@@ -353,8 +353,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1605dda8dfd412a4aa6abb6f0bec8783, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bounce: 50
+  radius: 0.5
+  collisionLayer:
+    serializedVersion: 2
+    m_Bits: 0
+  flex: 1
   rigidness: 5
+  bounce: 50
+  stretch: 1
   bones:
   - {fileID: 0}
   - {fileID: 0}
