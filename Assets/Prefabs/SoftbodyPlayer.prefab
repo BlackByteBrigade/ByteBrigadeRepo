@@ -150,9 +150,10 @@ GameObject:
   - component: {fileID: 8690009685752638063}
   - component: {fileID: 942778425464030531}
   - component: {fileID: 262827092268153745}
+  - component: {fileID: 9169833707860237669}
   m_Layer: 0
   m_Name: SoftbodyPlayer
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -250,11 +251,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 26112783466855f46befa1e15245ffb5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  movementSpeed: 9
+  movementSpeed: 10
   movementMaxSpeed: 5
   movementDrag: 2
   idleSpeed: 1
-  dashSpeed: 10
+  dashSpeed: 8
   dashTime: 0.2
   dashCooldown: 1
 --- !u!114 &6115647759194690706
@@ -269,7 +270,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0d06f110b63f96b4ead159936ce3de29, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 0
+  health: 10
 --- !u!50 &1654881058111624555
 Rigidbody2D:
   serializedVersion: 4
@@ -356,11 +357,11 @@ MonoBehaviour:
   radius: 0.5
   collisionLayer:
     serializedVersion: 2
-    m_Bits: 0
-  flex: 1
+    m_Bits: 55
+  flex: 50
   rigidness: 5
-  bounce: 50
-  stretch: 1
+  bounce: 2
+  stretch: 0.5
   bones:
   - {fileID: 0}
   - {fileID: 0}
@@ -374,6 +375,41 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+--- !u!58 &9169833707860237669
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3298211051596704996}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 6200000, guid: e4db497ab10a0644d8a4a1a13f76f6c9, type: 2}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.25
 --- !u!1 &3627047352444318267
 GameObject:
   m_ObjectHideFlags: 0
