@@ -1,14 +1,19 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using Assets.Scripts;
 using UnityEngine;
 
-public abstract class EnemyRanged : Enemy
+public abstract class EnemyRanged : EnermyAttacking
 {
 
     public GameObject Projectile;
-    public int RangedDmg;
 
-    public abstract void Fire();
+    public void Fire()
+    {
+        //we call attack to handle cooldown
+       Attack();
+    }
 
    
 
