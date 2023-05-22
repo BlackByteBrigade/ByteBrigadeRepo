@@ -23,7 +23,7 @@ public class EnermyProjectile : MonoBehaviour
     {
         if (_isTriggered)
         {
-            transform.position += transform.forward * Time.deltaTime * MovementSpeed;
+            transform.position += transform.up * Time.deltaTime * MovementSpeed;
             if (Vector2.Distance(transform.position, _startPoint) > 25)
             {
                 Destroy(gameObject);

@@ -29,10 +29,20 @@ public class Enemy : Cell
     private DateTime BecameVulnerable;
     public int DurationVulnerable;
 
+    //movement
+    public Rigidbody2D MyRigidbody { get; set; }
+    public bool HandleBasicMovement;
+    public float MoveRadius;
+    public float MoveSpeed;
+    private Vector3 SpawnPos;
+    private DateTime startedMoveing;
+    private DateTime stoppedMoving;
 
     // Start is called before the first frame update
     public void Start()
     {
+        MyRigidbody = gameObject.GetComponent<Rigidbody2D>();
+        SpawnPos = transform.position;
         Player = GameObject.Find("Player");
         Debug.Log("Hello World");
         Debug.Log(Player);
@@ -49,6 +59,19 @@ public class Enemy : Cell
         {
             BecameVulnerable = default;
             IsInVulnerableState = false;
+        }
+
+        HandleMovement();
+    }
+
+    public void HandleMovement()
+    {
+        if (HandleBasicMovement)
+        {
+            MyRigidbody.velocity = transform.right * MoveSpeed;
+            //MyRigidbody.velocity = transform.right * MoveSpeed * -1;
+            //MyRigidbody.velocity = transform.up * MoveSpeed;
+            //MyRigidbody.velocity = transform.up * MoveSpeed * -1;
         }
     }
 
