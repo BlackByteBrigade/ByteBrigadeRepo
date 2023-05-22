@@ -1,6 +1,4 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 using Random = System.Random;
@@ -9,9 +7,10 @@ public class Enemy : Cell
 {
     public GameObject Player { get; set; }
     public Collider2D Weakspot;
-
+    
     public bool IsInVulnerableState;
     public int DmgFromTouching;
+    
     public float DistanceToPlayer { get; set; }
     public float ReactsToPlayerDistance;
     public float AlarmedByPlayerDistance;
@@ -23,7 +22,8 @@ public class Enemy : Cell
     private int _numberofAlertStates;
     private DateTime _lastAlertRise { get; set; }
 
-    private bool Has3SecondsPassedSinceLastAlertRise => (_lastAlertRise == default(DateTime) || (DateTime.Now - _lastAlertRise).TotalSeconds > 3);
+    private bool Has3SecondsPassedSinceLastAlertRise =>
+        (_lastAlertRise == default(DateTime) || (DateTime.Now - _lastAlertRise).TotalSeconds > 3);
 
 
     private DateTime BecameVulnerable;
@@ -31,21 +31,12 @@ public class Enemy : Cell
 
     //movement
     public Rigidbody2D MyRigidbody { get; set; }
-    public bool HandleBasicMovement;
-    public float MoveRadius;
-    public float MoveSpeed;
-    private Vector3 SpawnPos;
-    private DateTime startedMoveing;
-    private DateTime stoppedMoving;
 
     // Start is called before the first frame update
     public void Start()
     {
         MyRigidbody = gameObject.GetComponent<Rigidbody2D>();
-        SpawnPos = transform.position;
         Player = GameObject.Find("Player");
-        Debug.Log("Hello World");
-        Debug.Log(Player);
         _rand = new Random(DateTime.Now.Millisecond);
         _numberofAlertStates = Enum.GetNames(typeof(Alertness)).Length;
     }
@@ -61,19 +52,12 @@ public class Enemy : Cell
             IsInVulnerableState = false;
         }
 
-        HandleMovement();
-    }
-
-    public void HandleMovement()
-    {
-        if (HandleBasicMovement)
+        if (AlertnessLevel >= Alertness.Noticed)
         {
-            MyRigidbody.velocity = transform.right * MoveSpeed;
-            //MyRigidbody.velocity = transform.right * MoveSpeed * -1;
-            //MyRigidbody.velocity = transform.up * MoveSpeed;
-            //MyRigidbody.velocity = transform.up * MoveSpeed * -1;
+            AudioManager.instance.PlayCombatMusic();
         }
     }
+
 
     public void BecameVulnerableNow()
     {
@@ -89,7 +73,8 @@ public class Enemy : Cell
             _lastAlertRise = DateTime.Now;
             //Debug.Log($"AlertnessLevel increased to {AlertnessLevel:G}");
         }
-        else if (DistanceToPlayer <= ReactsToPlayerDistance && Has3SecondsPassedSinceLastAlertRise && _rand.Next(0, 10) % 4 == 0)
+        else if (DistanceToPlayer <= ReactsToPlayerDistance && Has3SecondsPassedSinceLastAlertRise &&
+                 _rand.Next(0, 10) % 4 == 0)
         {
             CountdownTillRestAlertnessRemaining = CountdownTillRestAlertness;
             _lastAlertRise = DateTime.Now;
@@ -103,7 +88,6 @@ public class Enemy : Cell
         {
             AlertnessLevel--;
             //Debug.Log($"AlertnessLevel decreased to {AlertnessLevel:G}");
-
         }
 
         if (CountdownTillRestAlertnessRemaining > 0)
@@ -117,9 +101,15 @@ public class Enemy : Cell
         var playerScript = Player.GetComponent<Player>();
         //Debug.Log($"Bump!");
         //we go though any because we don't want to dmg the player if the player is touching the enemy in a weakened state 
-        if (collision.contacts.Any(contact => contact.collider == Weakspot || contact.otherCollider == Weakspot) && IsInVulnerableState && playerScript.State == PlayerState.Dashing)
+        if (collision.contacts.Any(contact => contact.collider == Weakspot || contact.otherCollider == Weakspot) &&
+            IsInVulnerableState && playerScript.State == PlayerState.Dashing)
         {
-            TakeDamage(100); //todo get amount of dmg from player object 
+            var dmg = 100;
+            if (health <= dmg)
+            {
+                AudioManager.instance.PlayMusic();
+            }
+            TakeDamage(dmg); //todo get amount of dmg from player object 
         }
         else if (collision.contacts.Any(contact => contact.otherCollider == Player || contact.collider == Player))
         {
