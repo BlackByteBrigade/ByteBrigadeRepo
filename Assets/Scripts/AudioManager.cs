@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using UnityEngine;
 
 public class AudioManager : MonoBehaviour
@@ -83,13 +84,32 @@ public class AudioManager : MonoBehaviour
         {
             shouldPlayMusic = true;
             shouldPlayCombatMusic = false;
+
+            if (playingCombatMusic)
+            {
+                StartCoroutine(FadeOutsource(playlistCombat[currentPlayingIndex].source));
+            }
+
             // pick a random song from our playlist
             currentPlayingIndex = UnityEngine.Random.Range(0, playlist.Length- 1);
             playlist[currentPlayingIndex].source.volume = playlist[0].volume * mvol; // set the volume
             playlist[currentPlayingIndex].source.Play(); // play it
+            
             playingCombatMusic = false;
         }
 
+    }
+
+    public IEnumerator FadeOutsource(AudioSource audioSource)
+    {
+        var origVolume = audioSource.volume;
+        for (int i = 0; i < 15; i++)
+        {
+            audioSource.volume -= origVolume / 15f;
+            yield return new WaitForSeconds(0.20f);
+        }
+        audioSource.Stop();
+        audioSource.volume = origVolume;
     }
 
     public void PlayCombatMusic()
@@ -98,6 +118,12 @@ public class AudioManager : MonoBehaviour
         {
             shouldPlayCombatMusic = true;
             shouldPlayMusic = false;
+
+            if (!playingCombatMusic)
+            {
+                playlist[currentPlayingIndex].source.Stop(); // stop ambient music
+            }
+
             // pick a random song from our combat playlist
             currentPlayingIndex = UnityEngine.Random.Range(0, playlistCombat.Length- 1);
             playlistCombat[currentPlayingIndex].source.volume = playlist[0].volume * mvol; // set the volume
