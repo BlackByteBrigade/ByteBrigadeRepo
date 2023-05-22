@@ -114,15 +114,16 @@ public class Enemy : Cell
 
     public void OnCollisionEnter2D(Collision2D collision)
     {
+        var playerScript = Player.GetComponent<Player>();
         //Debug.Log($"Bump!");
         //we go though any because we don't want to dmg the player if the player is touching the enemy in a weakened state 
-        if (collision.contacts.Any(contact => contact.collider == Weakspot || contact.otherCollider == Weakspot) && IsInVulnerableState)
+        if (collision.contacts.Any(contact => contact.collider == Weakspot || contact.otherCollider == Weakspot) && IsInVulnerableState && playerScript.State == PlayerState.Dashing)
         {
             TakeDamage(100); //todo get amount of dmg from player object 
         }
         else if (collision.contacts.Any(contact => contact.otherCollider == Player || contact.collider == Player))
         {
-            Player.GetComponent<Player>().TakeDamage(DmgFromTouching);
+            playerScript.TakeDamage(DmgFromTouching);
         }
     }
 
