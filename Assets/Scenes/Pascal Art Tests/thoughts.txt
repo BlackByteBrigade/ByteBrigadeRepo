@@ -1,31 +1,21 @@
 
 
 
-problems
+background options
 
-    how to communicate enemy as vulnerable/ hurtful?
-    how to communicate powerups?
-    how to communicate enemy parts?
-    what is the story / goal of the game?
+    sprite tiling
 
+    "holes" + shader gradients
+        set world position
 
+    "holes" + predefined gradients
 
+    walls = spriteshape/ splines + blocking
 
-ideas
-    "orange" special enemies drop powerups
-        => glowing nucleus!
-    
-    tentacles = hurtful
-    
-    everything "jelly looking" is "dashable" without taking damage
-        => like Celeste?
-        => plasma particles to indicate it's taking damage
-    
+    predrawn walls
 
     
-enemies
-    [x] goomba
-    [x] dasher
-    [x] shooter
-    [ ] spiky
-    [ ] giant enemy 
+
+    sharp holes
+
+

@@ -232,27 +232,6 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
-    - serializedVersion: 2
-      name: enemies_6
-      rect:
-        serializedVersion: 2
-        x: 458
-        y: 45
-        width: 7
-        height: 7
-      alignment: 9
-      pivot: {x: 0.5, y: 0.68}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 2b92c490e35435f4ea0d83af6d70c033
-      internalID: -626328492
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -264,6 +243,7 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
+      enemies_0: -1851466834
       enemies_6: -626328492
       enemies_ExposedCore: 1634644197
       enemies_Spike1: -1570496957

@@ -69,7 +69,7 @@ public class EnemyWurm : Enemy
         
         countup += Time.deltaTime;
         //check the length of the list
-        Debug.Log(PositionHistory.Count);
+        // Debug.Log(PositionHistory.Count);
 
         if (PositionHistory.Count >= maxHistorySize)
         {

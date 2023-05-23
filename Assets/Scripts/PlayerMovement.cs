@@ -79,6 +79,8 @@ public class PlayerMovement : MonoBehaviour
         Player.State = PlayerState.Dashing;
         canDash = false;
 
+        AudioManager.instance.PlaySound("Dash");
+
         Vector2 dashDir = movementInput.magnitude > 0.5f ? movementInput : Body.velocity.normalized;
         Body.velocity = dashDir * dashSpeed;
 

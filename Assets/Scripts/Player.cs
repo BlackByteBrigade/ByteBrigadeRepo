@@ -43,6 +43,17 @@ public class Player : Cell
         dnaUpgrade = Instantiate(newDNA, transform);
         dnaUpgrade.ApplyUpgrade(this);
     }
+
+    // On Damage Effects
+    public override bool TakeDamage(int damage) {
+        bool isDead = base.TakeDamage(damage);
+        if (!isDead)
+            AudioManager.instance.PlaySound("PlayerHurt");
+        else
+            AudioManager.instance.PlaySound("PlayerDeath");
+
+        return isDead;
+    }
 }
 
 public enum PlayerState

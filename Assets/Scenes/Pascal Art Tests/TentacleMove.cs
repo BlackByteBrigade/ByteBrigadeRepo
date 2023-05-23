@@ -7,6 +7,7 @@ public class TentacleMove : MonoBehaviour
     [SerializeField] float amplitude = 1f;
     [SerializeField] float frequency = 1f;
     [SerializeField] float speed = 1f;
+    [SerializeField] bool alongXAxis = true;
     
 
     LineRenderer line;
@@ -26,11 +27,19 @@ public class TentacleMove : MonoBehaviour
 
         for (int i = 0; i < numSegments; i++) {
             Vector3 pos = line.GetPosition(i);
-            float _i = (float)i / (numSegments - 1);
-            float t = _i + dt;
-            float x = Mathf.Sin(t * frequency * Mathf.PI * 2f) * amplitude* Mathf.Pow(_i,0.5f);
-            // float y = Mathf.Sin(t * frequency * Mathf.PI * 2f) * amplitude;
-            float y = pos.y;
+            float ratio = (float)i / (numSegments - 1);
+            float scale = Mathf.Pow(ratio, 0.5f);
+            float t = ratio - dt;
+
+            float x,y;
+
+            if (alongXAxis) {
+                x = Mathf.Sin(t * frequency * Mathf.PI * 2f) * amplitude* scale;
+                y = pos.y;
+            } else {
+                x = pos.x;
+                y = Mathf.Sin(t * frequency * Mathf.PI * 2f) * amplitude* scale;
+            }
 
             line.SetPosition(i, new Vector3(x, y, 0f));
         }
