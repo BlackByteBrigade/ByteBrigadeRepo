@@ -256,8 +256,8 @@ MonoBehaviour:
   movementDrag: 2
   idleSpeed: 1
   dashSpeed: 8
-  dashTime: 0.2
-  dashCooldown: 1
+  dashTime: 0.5
+  dashCooldown: 0.5
 --- !u!114 &6115647759194690706
 MonoBehaviour:
   m_ObjectHideFlags: 0

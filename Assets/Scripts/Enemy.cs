@@ -111,7 +111,8 @@ public class Enemy : Cell
             }
             TakeDamage(dmg); //todo get amount of dmg from player object 
         }
-        else if (collision.contacts.Any(contact => contact.otherCollider == Player || contact.collider == Player))
+        //else if (collision.contacts.Any(contact => contact.otherCollider == Player || contact.collider == Player)) // this didnt work since it was comparing a collider to a gameobject
+        else if (collision.gameObject.CompareTag("Player")) // this will detect if it collides with any player colliders
         {
             playerScript.TakeDamage(DmgFromTouching);
         }
