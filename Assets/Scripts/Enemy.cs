@@ -44,7 +44,8 @@ public class Enemy : Cell
     // Update is called once per frame
     public void Update()
     {
-        DistanceToPlayer = Vector2.Distance(transform.position, Player.transform.position);
+        if (Player != null)
+            DistanceToPlayer = Vector2.Distance(transform.position, Player.transform.position);
         HandleAlertness();
         if (BecameVulnerable != default && (DateTime.Now - BecameVulnerable).TotalSeconds >= DurationVulnerable)
         {

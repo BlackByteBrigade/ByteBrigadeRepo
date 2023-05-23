@@ -1,0 +1,31 @@
+
+
+
+problems
+
+    how to communicate enemy as vulnerable/ hurtful?
+    how to communicate powerups?
+    how to communicate enemy parts?
+    what is the story / goal of the game?
+
+
+
+
+ideas
+    "orange" special enemies drop powerups
+        => glowing nucleus!
+    
+    tentacles = hurtful
+    
+    everything "jelly looking" is "dashable" without taking damage
+        => like Celeste?
+        => plasma particles to indicate it's taking damage
+    
+
+    
+enemies
+    [x] goomba
+    [x] dasher
+    [x] shooter
+    [ ] spiky
+    [ ] giant enemy 
