@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -5,6 +6,7 @@ using UnityEngine;
 public class Cell : MonoBehaviour
 {
     public int health;
+    public event Action<Cell> OnDeath;
 
     /// <summary>
     /// Cell takes specified damage
@@ -26,6 +28,7 @@ public class Cell : MonoBehaviour
 
     public virtual void Die()
     {
+        OnDeath?.Invoke(this);
         Destroy(gameObject);
     }
 }

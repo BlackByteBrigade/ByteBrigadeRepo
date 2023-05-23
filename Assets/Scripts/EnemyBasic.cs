@@ -1,54 +1,50 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
-public class EnemyBasic : Enemy
+public class EnemyBasic : EnemyPathing
 {
+    [Header("Basic Enemy")]
     [SerializeField] private float moveDistance;
     [SerializeField] private float moveSpeed;
     [SerializeField] private float driftSpeed;
-    [SerializeField] private float targetRadius;
     [SerializeField] private Animator anim;
 
-    [SerializeField] private Transform[] path;
 
     private Rigidbody2D body;
-    private Vector2 targetPos;
-    private int pathIndex = 0;
 
-    private void Start()
+    public void Start()
     {
         base.Start();
         body = GetComponent<Rigidbody2D>();
-        TargetNextPoint();
+
+        // starts the movement cycle
         StartCoroutine(Move());
     }
 
     private IEnumerator Move()
     {
-        Vector2 currentPos = transform.position;
-        Vector2 prevTargetPos = path[(pathIndex - 1 < 0 ? path.Length : pathIndex) - 1].position;
-        Vector2 targetDir = (targetPos - currentPos).normalized;
+        Vector2 currentPos = transform.position; // easier to deal with the position as a vector2
+        Vector2 prevTargetPos = path[(PathIndex - 1 < 0 ? path.Length : PathIndex) - 1].position;
+        Vector2 targetDir = (TargetPos - currentPos).normalized;
 
+        // face and move towards target
         body.velocity = targetDir * driftSpeed;
         transform.position += (Vector3)targetDir * moveDistance;
         transform.up = -targetDir;
 
-        anim.Play("move", -1, 0f);
+        anim.Play("move", -1, 0f); // plays move animation from the start
 
         yield return new WaitForSeconds(moveSpeed);
 
-        if (Vector2.Dot(targetPos - (Vector2)transform.position, targetPos - prevTargetPos) < 0)
+        if (Vector2.Dot(TargetPos - (Vector2)transform.position, TargetPos - prevTargetPos) < 0)
         {
+            // only move on to the next point on the path if the previous point is behind us
             TargetNextPoint();
         }
 
+        // resets the cycle
         StartCoroutine(Move());
-    }
-
-    private void TargetNextPoint()
-    {
-        pathIndex = (pathIndex + 1) % path.Length;
-        targetPos = (Vector2)path[pathIndex].position + Random.insideUnitCircle * targetRadius;
     }
 }
