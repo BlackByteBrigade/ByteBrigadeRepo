@@ -28,7 +28,7 @@ public class EnemyPartCollection : MonoBehaviour
         {
             Destroy(collision.gameObject);
             enemyPartCollected++;
-            AudioManager.instance.PlaySound("CollectEnemyPart");
+            AudioManager.instance.PlaySfX(SoundEffects.CollectingEnemyPart);
         }
 
         UpdateEnemyPartUICounter();

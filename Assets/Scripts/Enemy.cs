@@ -55,7 +55,8 @@ public class Enemy : Cell
 
         if (AlertnessLevel >= Alertness.Noticed)
         {
-            AudioManager.instance.PlayCombatMusic();
+            //combat music is area music just louder
+            AudioManager.instance.PlayLoudAreaMusic();
         }
     }
 
@@ -108,7 +109,7 @@ public class Enemy : Cell
             var dmg = 100;
             if (health <= dmg)
             {
-                AudioManager.instance.PlayMusic();
+                AudioManager.instance.PlayRegularVolumeAreaMusic(); //todo this needs to be in the Game Manager -> Scan if any enemy is in > "Alertness.Noticed" state, if not exec this
             }
             TakeDamage(dmg); //todo get amount of dmg from player object 
         }

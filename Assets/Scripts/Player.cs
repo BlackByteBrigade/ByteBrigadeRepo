@@ -48,9 +48,9 @@ public class Player : Cell
     public override bool TakeDamage(int damage) {
         bool isDead = base.TakeDamage(damage);
         if (!isDead)
-            AudioManager.instance.PlaySound("PlayerHurt");
+            AudioManager.instance.PlaySfX(SoundEffects.PlayerTakingDamage);
         else
-            AudioManager.instance.PlaySound("PlayerDeath");
+            AudioManager.instance.PlaySfX(SoundEffects.PlayerDeath);
 
         return isDead;
     }

@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.12731713, g: 0.13414736, b: 0.12107852, a: 1}
+  m_IndirectSpecularColor: {r: 0.12731749, g: 0.13414757, b: 0.1210787, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -448,6 +448,11 @@ MonoBehaviour:
   AttackCooldown: 0
   Projectile: {fileID: 3298211051596704996, guid: 363d4beba861a5d478fdc066383b578a,
     type: 3}
+  _numberOfprojectiles: 12
+  radiusOffset: 1.8
+  projectileSize: 1
+  eyeRenderer: {fileID: 0}
+  exposedCoreSprite: {fileID: 0}
 --- !u!58 &298042458 stripped
 CircleCollider2D:
   m_CorrespondingSourceObject: {fileID: 9015988872948910472, guid: 01186e01ce8840f458ac5efd76b31624,
@@ -1602,10 +1607,45 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 384714768038023958, guid: 01186e01ce8840f458ac5efd76b31624,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1768104719037673258, guid: 01186e01ce8840f458ac5efd76b31624,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2083822893846542489, guid: 01186e01ce8840f458ac5efd76b31624,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3282764629523550160, guid: 01186e01ce8840f458ac5efd76b31624,
         type: 3}
       propertyPath: m_Name
       value: EnemyCell
+      objectReference: {fileID: 0}
+    - target: {fileID: 3613742577250065829, guid: 01186e01ce8840f458ac5efd76b31624,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4735332378956501548, guid: 01186e01ce8840f458ac5efd76b31624,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5649200860486921844, guid: 01186e01ce8840f458ac5efd76b31624,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5698010348381879972, guid: 01186e01ce8840f458ac5efd76b31624,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5974503518593719193, guid: 01186e01ce8840f458ac5efd76b31624,
         type: 3}
@@ -1615,7 +1655,7 @@ PrefabInstance:
     - target: {fileID: 5974503518593719193, guid: 01186e01ce8840f458ac5efd76b31624,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: -5.35
       objectReference: {fileID: 0}
     - target: {fileID: 5974503518593719193, guid: 01186e01ce8840f458ac5efd76b31624,
         type: 3}
@@ -1668,6 +1708,11 @@ PrefabInstance:
       value: 
       objectReference: {fileID: -384887849, guid: 8549a038274182a4680d9e05597318e3,
         type: 3}
+    - target: {fileID: 8870019516152569197, guid: 01186e01ce8840f458ac5efd76b31624,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -3830,7 +3875,70 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 844282d8498b6994da35dea04c97d993, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sounds: []
+  sounds:
+  - name: Enemy_Death_1
+    clip: {fileID: 8300000, guid: 4f962605f106530498df930d7f504200, type: 3}
+    volume: 0.872
+    pitch: 0
+    source: {fileID: 0}
+    loop: 0
+    Area: 0
+  - name: Enemy_Death_2
+    clip: {fileID: 8300000, guid: 9cb5a359e8e38eb4caaad15078b5abab, type: 3}
+    volume: 0.918
+    pitch: 0
+    source: {fileID: 0}
+    loop: 0
+    Area: 0
+  - name: Enemy_Death_3
+    clip: {fileID: 8300000, guid: 811052e07036cb24eba3557523c04d70, type: 3}
+    volume: 0.959
+    pitch: 0
+    source: {fileID: 0}
+    loop: 0
+    Area: 0
+  - name: Enemy_Death_4
+    clip: {fileID: 8300000, guid: 7faa52f4b488ec24c97ccf1bfb328587, type: 3}
+    volume: 0.959
+    pitch: 0
+    source: {fileID: 0}
+    loop: 0
+    Area: 0
+  - name: Pew Pew
+    clip: {fileID: 8300000, guid: 6b0654e5eea7d734a8b5271055df8487, type: 3}
+    volume: 0.959
+    pitch: 0
+    source: {fileID: 0}
+    loop: 0
+    Area: 0
+  - name: Pickup DNA
+    clip: {fileID: 8300000, guid: 3cc94b2944901ab42973dc5d80609911, type: 3}
+    volume: 0.959
+    pitch: 0
+    source: {fileID: 0}
+    loop: 0
+    Area: 0
+  - name: Puckup Enemy Part
+    clip: {fileID: 8300000, guid: a80e343ca78793746bc649ee32188735, type: 3}
+    volume: 0.959
+    pitch: 0
+    source: {fileID: 0}
+    loop: 0
+    Area: 0
+  - name: Take Damage
+    clip: {fileID: 8300000, guid: 5a2af1c78ce973147a24246a362f2ff9, type: 3}
+    volume: 0.959
+    pitch: 0
+    source: {fileID: 0}
+    loop: 0
+    Area: 0
+  - name: Dash
+    clip: {fileID: 8300000, guid: bcce5614f28f29d4b96e413a403859b5, type: 3}
+    volume: 0.959
+    pitch: 0
+    source: {fileID: 0}
+    loop: 0
+    Area: 0
   playlist:
   - name: ambient1
     clip: {fileID: 8300000, guid: 78aa3bd449a1f564db754829404fbee4, type: 3}
@@ -3838,13 +3946,17 @@ MonoBehaviour:
     pitch: 0
     source: {fileID: 0}
     loop: 0
-  playlistCombat:
-  - name: Combat1
+    Area: 2
+  playlistAreas:
+  - name: Area1
     clip: {fileID: 8300000, guid: 77d08af85f3a8494b93f642414b48037, type: 3}
-    volume: 0.954
+    volume: 0.5
     pitch: 0
     source: {fileID: 0}
-    loop: 0
+    loop: 1
+    Area: 3
+  Narration: []
+  lastPlayedOrigCombatVolume: 0
 --- !u!4 &2020019483
 Transform:
   m_ObjectHideFlags: 0

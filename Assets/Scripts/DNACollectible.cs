@@ -11,7 +11,7 @@ public class DNACollectible : MonoBehaviour
         if (collision.gameObject.CompareTag("Player"))
         {
             Player.instance.ChangeDNA(dnaUpgrade);
-            AudioManager.instance.PlaySound("CollectDNA");
+            AudioManager.instance.PlaySfX(SoundEffects.CollectingDna);
             Destroy(gameObject);
         }
     }
