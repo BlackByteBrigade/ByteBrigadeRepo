@@ -38,7 +38,7 @@ public class PlayerMovement : MonoBehaviour
     private void FixedUpdate()
     {
         // we do main movement on fixed update because we are simply updating velocity, which is only updated on fixed updates anyways
-        if (!isDashing) UpdateMovement();
+        UpdateMovement();
     }
 
     private void Update()
