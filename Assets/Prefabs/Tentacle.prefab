@@ -77,7 +77,7 @@ LineRenderer:
   m_SortingOrder: 0
   m_Positions:
   - {x: 0, y: 0, z: 0}
-  - {x: 2, y: 0, z: 0}
+  - {x: 1.5, y: 0, z: 0}
   m_Parameters:
     serializedVersion: 3
     widthMultiplier: 1
@@ -171,4 +171,6 @@ MonoBehaviour:
   lineRenderer: {fileID: 986712463960541769}
   segmentLength: 0.2
   smoothSpeed: 0.02
-  drag: 2
+  drag: 15
+  wiggleMagnitude: 10
+  wiggleSpeed: 3
