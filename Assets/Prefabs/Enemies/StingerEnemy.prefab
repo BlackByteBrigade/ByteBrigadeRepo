@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 6952899367907465342}
   - component: {fileID: 727068535657923141}
   - component: {fileID: 673672401553692821}
+  - component: {fileID: 5594602333522666867}
   m_Layer: 0
   m_Name: StingerEnemy
   m_TagString: Untagged
@@ -113,6 +114,7 @@ MonoBehaviour:
   durationBetweenDashes: 5
   dashDelay: 0.5
   dashSound: {fileID: 673672401553692821}
+  tail: {fileID: 4211857251549442353}
 --- !u!82 &673672401553692821
 AudioSource:
   m_ObjectHideFlags: 0
@@ -209,6 +211,22 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &5594602333522666867
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 666442271317403593}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a5162815c8775584ea33751005861a77, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mode: 1
+  enemy: {fileID: 727068535657923141}
+  drawReactionDistance: 1
+  drawAlarmDistance: 1
 --- !u!1 &2351145827012323004
 GameObject:
   m_ObjectHideFlags: 0
@@ -221,7 +239,7 @@ GameObject:
   - component: {fileID: 4211857251549442353}
   - component: {fileID: 7139386950627285962}
   m_Layer: 0
-  m_Name: Line
+  m_Name: Tail
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
