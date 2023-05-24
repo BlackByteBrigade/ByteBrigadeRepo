@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using DG.Tweening;
 
 public class Patrol : MonoBehaviour
 {
@@ -12,14 +13,16 @@ public class Patrol : MonoBehaviour
     [SerializeField] private Transform anchorPoint;
 
     private Vector3 beforeMovementPosition;
-    private Quaternion beforeMovementRotation;
-    private Quaternion targetRotation;
+
     private Vector2 movementVector;
     private Vector3 oldDirectionVector;
     private Vector3 directionVector;
+
     private float movementCounter;
-    private float timeCounter;
+    private float waitTimeCounter;
     private bool isReached;
+
+    private bool isRotating;
 
     private void Update()
     {
@@ -27,32 +30,36 @@ public class Patrol : MonoBehaviour
     }
     private void Patrolling()
     {
-        if (isReached && timeBtwMoves < timeCounter)
+        if (isReached && timeBtwMoves < waitTimeCounter)
         {
-            DirectionDecider();
             isReached = false;
+            DirectionDecider();
+ 
         }
         else if (!isReached)
         {
             transform.position = Vector2.Lerp(beforeMovementPosition, movementVector, movementCurve.Evaluate(movementCounter));
             movementCounter += Time.deltaTime / timeToReach;
 
-            if (Vector2.Distance(transform.position, movementVector) < 0.1f)
+            if (Vector2.Distance(transform.position, movementVector) < Mathf.Epsilon)
             {
-                movementCounter = 0;
                 isReached = true;
+                movementCounter = 0;
             }
         }
         else
         {
-            timeCounter += Time.deltaTime;
-            transform.rotation = Quaternion.Lerp(beforeMovementRotation, targetRotation, timeCounter / timeBtwMoves);
+            if (!isRotating)
+            {
+                transform.up = -(transform.position - (Vector3)movementVector).normalized;
+                isRotating = true;
+            }
+            waitTimeCounter += Time.deltaTime;
         }
     }
     private void DirectionDecider()
     {
         beforeMovementPosition = transform.position;
-        beforeMovementRotation = transform.rotation;
 
         if (Vector2.Distance(transform.position, anchorPoint.transform.position) > maxDistance)
         {
@@ -87,24 +94,22 @@ public class Patrol : MonoBehaviour
 
             if (listOfDirections.Count == 0)
             {
-                movementVector = transform.position;
+                movementVector = transform.position;                  //If there is no place to go
             }
             else
             {
-                directionVector = (Vector3)listOfDirections[Random.Range(0, listOfDirections.Count)];
+               directionVector = (Vector3)listOfDirections[Random.Range(0, listOfDirections.Count)];
 
                 if (directionVector == oldDirectionVector)
                 {
-                    timeCounter = Mathf.Infinity;
+                    waitTimeCounter = Mathf.Infinity;
                 }
                 else
                 {
-                    timeCounter = 0;
+                    oldDirectionVector = directionVector;
+                    waitTimeCounter = 0;
                 }
-                oldDirectionVector = directionVector;
                 movementVector = transform.position + directionVector * distanceToMove;
-                var targetDir = movementVector - (Vector2)transform.position;
-                targetRotation = Quaternion.LookRotation(targetDir, Vector3.forward);
             }
             listOfDirections.Clear();
         }

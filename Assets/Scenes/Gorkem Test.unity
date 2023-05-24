@@ -194,7 +194,7 @@ MonoBehaviour:
   m_Follow: {fileID: 2024345193}
   m_Lens:
     FieldOfView: 60
-    OrthographicSize: 7.7056932
+    OrthographicSize: 10.8
     NearClipPlane: 0.3
     FarClipPlane: 1000
     Dutch: 0
@@ -545,29 +545,29 @@ MonoBehaviour:
     - serializedVersion: 3
       time: 0
       value: 0
-      inSlope: 2.417901
-      outSlope: 2.417901
-      tangentMode: 34
+      inSlope: 2
+      outSlope: 2
+      tangentMode: 0
       weightedMode: 0
       inWeight: 0
-      outWeight: 0.33333334
+      outWeight: 0
     - serializedVersion: 3
-      time: 0.2582908
-      value: 0.6245216
-      inSlope: 1.4620675
-      outSlope: 1.4620675
-      tangentMode: 34
+      time: 0.25890192
+      value: 0.6379093
+      inSlope: 1.4266722
+      outSlope: 1.4266722
+      tangentMode: 0
       weightedMode: 0
       inWeight: 0.33333334
       outWeight: 0.33333334
     - serializedVersion: 3
       time: 1
       value: 1
-      inSlope: 0.50623393
-      outSlope: 0.50623393
-      tangentMode: 34
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
       weightedMode: 0
-      inWeight: 0.33333334
+      inWeight: 0
       outWeight: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
@@ -715,7 +715,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 7.7056932
+  orthographic size: 10.8
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -1656,8 +1656,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   distanceToMove: 8
-  timeToReach: 1
-  timeBtwMoves: 0.5
+  timeToReach: 2
+  timeBtwMoves: 0.2
   maxDistance: 20
   movementCurve:
     serializedVersion: 2
@@ -1672,8 +1672,8 @@ MonoBehaviour:
       inWeight: 0
       outWeight: 0
     - serializedVersion: 3
-      time: 0.24932349
-      value: 0.721012
+      time: 0.23864233
+      value: 0.8131751
       inSlope: 1.4202027
       outSlope: 1.4202027
       tangentMode: 0
@@ -1681,14 +1681,23 @@ MonoBehaviour:
       inWeight: 0.33333334
       outWeight: 0.33333334
     - serializedVersion: 3
-      time: 0.7232726
-      value: 0.95797426
-      inSlope: 0.049228925
-      outSlope: 0.049228925
+      time: 0.47192216
+      value: 0.9412542
+      inSlope: 0.3709332
+      outSlope: 0.3709332
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.14938834
+      outWeight: 0.1323362
+    - serializedVersion: 3
+      time: 0.72888786
+      value: 0.98356324
+      inSlope: 0.12881173
+      outSlope: 0.12881173
       tangentMode: 0
       weightedMode: 0
       inWeight: 0.33333334
-      outWeight: 0.33333334
+      outWeight: 0.12991017
     - serializedVersion: 3
       time: 1
       value: 1
@@ -1873,6 +1882,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: EnemyCell
+      objectReference: {fileID: 0}
+    - target: {fileID: 3282764629523550160, guid: 01186e01ce8840f458ac5efd76b31624,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5974503518593719193, guid: 01186e01ce8840f458ac5efd76b31624,
         type: 3}
