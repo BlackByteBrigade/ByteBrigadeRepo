@@ -4,11 +4,19 @@ using UnityEngine;
 
 public class Patrol : MonoBehaviour
 {
-    [SerializeField] float distanceToMove;
-    [SerializeField] float speed;
-    [SerializeField] float timeBtwMoves;
+    [SerializeField] private float distanceToMove;
+    [SerializeField] private float timeToReach;
+    [SerializeField] private float timeBtwMoves;
+    [SerializeField] private float maxDistance;
+    [SerializeField] private AnimationCurve movementCurve;
+    [SerializeField] private Transform anchorPoint;
+
+    private Vector3 beforeMovementPosition;
     private Vector2 movementVector;
-    float timeCounter;
+    private Vector3 oldDirectionVector;
+    private Vector3 directionVector;
+    private float movementCounter;
+    private float timeCounter;
     private bool isReached;
 
     private void Update()
@@ -21,13 +29,15 @@ public class Patrol : MonoBehaviour
         {
             DirectionDecider();
             isReached = false;
-            timeCounter = 0;
         }
         else if (!isReached)
         {
-            transform.position = Vector2.MoveTowards(transform.position, movementVector, speed * Time.deltaTime);
+            transform.position = Vector2.Lerp(beforeMovementPosition, movementVector, movementCurve.Evaluate(movementCounter));
+            movementCounter += Time.deltaTime / timeToReach;
+            print(movementCounter);
             if (Vector2.Distance(transform.position, movementVector) < 0.1f)
             {
+                movementCounter = 0;
                 isReached = true;
             }
         }
@@ -38,39 +48,60 @@ public class Patrol : MonoBehaviour
     }
     private void DirectionDecider()
     {
-        var RaycastHitUp = Physics2D.Raycast(transform.position, Vector2.up, distanceToMove);
-        var RaycastHitDown = Physics2D.Raycast(transform.position, Vector2.down, distanceToMove);
-        var RaycastHitLeft = Physics2D.Raycast(transform.position, Vector2.left, distanceToMove);
-        var RaycastHitRight = Physics2D.Raycast(transform.position, Vector2.right, distanceToMove);
+        beforeMovementPosition = transform.position;
 
-        var listOfDirections = new List<Vector2>();
-
-        if (RaycastHitUp.collider == null)
+        if (Vector2.Distance(transform.position, anchorPoint.transform.position) > maxDistance)
         {
-            listOfDirections.Add(Vector2.up);
-        }
-        if (RaycastHitDown.collider == null)
-        {
-            listOfDirections.Add(Vector2.down);
-        }
-        if (RaycastHitLeft.collider == null)
-        {
-            listOfDirections.Add(Vector2.left);
-        }
-        if (RaycastHitRight.collider == null)
-        {
-            listOfDirections.Add(Vector2.right);
-        }
-
-        if (listOfDirections.Count == 0)
-        {
-            movementVector = transform.position;
+            var anchorDir = (anchorPoint.transform.position - transform.position).normalized;
+            movementVector = transform.position + anchorDir * distanceToMove;
         }
         else
         {
-            movementVector = transform.position + (Vector3)listOfDirections[Random.Range(0, listOfDirections.Count)] * distanceToMove;
-        }
+            var RaycastHitUp = Physics2D.Raycast(transform.position, Vector2.up, distanceToMove);
+            var RaycastHitDown = Physics2D.Raycast(transform.position, Vector2.down, distanceToMove);
+            var RaycastHitLeft = Physics2D.Raycast(transform.position, Vector2.left, distanceToMove);
+            var RaycastHitRight = Physics2D.Raycast(transform.position, Vector2.right, distanceToMove);
 
-        listOfDirections.Clear();
+            var listOfDirections = new List<Vector2>();
+
+            if (RaycastHitUp.collider == null)
+            {
+                listOfDirections.Add(Vector2.up);
+            }
+            if (RaycastHitDown.collider == null)
+            {
+                listOfDirections.Add(Vector2.down);
+            }
+            if (RaycastHitLeft.collider == null)
+            {
+                listOfDirections.Add(Vector2.left);
+            }
+            if (RaycastHitRight.collider == null)
+            {
+                listOfDirections.Add(Vector2.right);
+            }
+
+            if (listOfDirections.Count == 0)
+            {
+                movementVector = transform.position;
+            }
+            else
+            {
+                directionVector = (Vector3)listOfDirections[Random.Range(0, listOfDirections.Count)];
+
+                if (directionVector == oldDirectionVector)
+                {
+                    timeCounter = Mathf.Infinity;
+                    print(5);
+                }
+                else
+                {
+                    timeCounter = 0;
+                }
+                oldDirectionVector = directionVector;
+                movementVector = transform.position + directionVector * distanceToMove;
+            }
+            listOfDirections.Clear();
+        }
     }
 }
