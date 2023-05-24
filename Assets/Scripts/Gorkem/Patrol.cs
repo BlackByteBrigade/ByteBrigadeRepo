@@ -34,7 +34,7 @@ public class Patrol : MonoBehaviour
         {
             transform.position = Vector2.Lerp(beforeMovementPosition, movementVector, movementCurve.Evaluate(movementCounter));
             movementCounter += Time.deltaTime / timeToReach;
-            print(movementCounter);
+
             if (Vector2.Distance(transform.position, movementVector) < 0.1f)
             {
                 movementCounter = 0;
