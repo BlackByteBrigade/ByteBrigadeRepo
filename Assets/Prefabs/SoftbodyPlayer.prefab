@@ -355,10 +355,10 @@ GameObject:
   - component: {fileID: 5487916336176206421}
   - component: {fileID: 6115647759194690706}
   - component: {fileID: 1654881058111624555}
-  - component: {fileID: 8690009685752638063}
   - component: {fileID: 942778425464030531}
   - component: {fileID: 262827092268153745}
   - component: {fileID: 9169833707860237669}
+  - component: {fileID: 5210180834225398805}
   m_Layer: 3
   m_Name: SoftbodyPlayer
   m_TagString: Player
@@ -509,19 +509,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!114 &8690009685752638063
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3298211051596704996}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3111bffa5f8041049a2488e941e61840, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  enemyPartUICounter: {fileID: 7538390843602152156}
 --- !u!114 &942778425464030531
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -621,6 +608,18 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.25
+--- !u!114 &5210180834225398805
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3298211051596704996}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 778c4baa74a78f142810e2aae05f9268, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &3627047352444318267
 GameObject:
   m_ObjectHideFlags: 0

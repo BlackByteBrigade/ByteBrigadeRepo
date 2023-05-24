@@ -438,6 +438,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 20
+  invulnerableTime: 0.1
   Weakspot: {fileID: 298042458}
   IsInVulnerableState: 0
   DmgFromTouching: 20
@@ -2740,6 +2741,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1434946610}
+  - component: {fileID: 1434946612}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -2762,6 +2764,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1434946612
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1434946609}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 96d8a51b8a1778d4b846d98bbe8a0111, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1435930498
 GameObject:
   m_ObjectHideFlags: 0
@@ -2989,7 +3003,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 8690009685752638063, guid: d2e910a6e12e27c4d94b6635576ea6ac, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
