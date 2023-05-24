@@ -16,6 +16,7 @@ public class PlayerMovement : MonoBehaviour
     public float dashTime;
     public float dashCooldown;
     public bool isDashCancelable = true;
+    public SpriteRenderer dashVFXSprite;
 
     // dont want to have too many things in the inspector
     public Rigidbody2D Body { get; set; }
@@ -29,6 +30,7 @@ public class PlayerMovement : MonoBehaviour
     private void Awake()
     {
         InitializeComponents();
+        EndDashVFX();
     }
 
     private void InitializeComponents()
@@ -85,10 +87,13 @@ public class PlayerMovement : MonoBehaviour
 
         AudioManager.instance.PlaySfX(SoundEffects.PlayerDash);
 
-        Sprite.color = Color.red; // TODO make visual better for dash
+        // Sprite.color = Color.red; // TODO make visual better for dash
+        
 
         Vector2 dashDir = movementInput.magnitude > 0.5f ? movementInput : Body.velocity.normalized;
         Body.velocity = dashDir * dashSpeed;
+
+        StartDashVFX();
 
         yield return new WaitForSeconds(dashTime);
 
@@ -99,10 +104,24 @@ public class PlayerMovement : MonoBehaviour
         canDash = true;
     }
 
+    private void StartDashVFX() {
+        dashVFXSprite.enabled = true;
+        float angle = Mathf.Atan2(Body.velocity.y, Body.velocity.x) * Mathf.Rad2Deg;
+        // float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
+        angle += (-60f); //TEMP sprite angle offset
+        // dashVFXSprite.transform.Rotate(0, 0, angle);
+        dashVFXSprite.transform.eulerAngles = new Vector3(0, 0, angle);
+    }
+
+    private void EndDashVFX() {
+        dashVFXSprite.enabled = false;
+    }
+
     private void EndDash()
     {
         Player.State = PlayerState.Moving;
-        Sprite.color = TMP_originalColor;// TODO make better visual for when dash ends
+        // Sprite.color = TMP_originalColor;// TODO make better visual for when dash ends
+        EndDashVFX();
     }
 
     public void CancelDash()
