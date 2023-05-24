@@ -28,7 +28,12 @@ public class Cell : MonoBehaviour
 
     public virtual void Die()
     {
-        OnDeath?.Invoke(this);
+        RaiseOnDeathEvent();
         Destroy(gameObject);
+    }
+
+    protected void RaiseOnDeathEvent()
+    {
+        OnDeath?.Invoke(this);
     }
 }

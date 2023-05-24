@@ -54,6 +54,17 @@ public class Player : Cell
 
         return isDead;
     }
+
+    public override void Die()
+    {
+        RaiseOnDeathEvent();
+
+        gameObject.SetActive(false);
+
+        // TODO add partcies + dropping held enemy parts
+
+        GameManager.instance.RespawnPlayer();
+    }
 }
 
 public enum PlayerState
