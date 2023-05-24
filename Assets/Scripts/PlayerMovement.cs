@@ -15,14 +15,16 @@ public class PlayerMovement : MonoBehaviour
     public float dashSpeed;
     public float dashTime;
     public float dashCooldown;
+    public bool isDashCancelable = true;
 
     // dont want to have too many things in the inspector
     public Rigidbody2D Body { get; set; }
     public Player Player { get; set; }
+    public SpriteRenderer Sprite { get; set; }
 
     private Vector2 movementInput;
-    private bool isDashing = false;
     private bool canDash = true;
+    private Color TMP_originalColor;
 
     private void Awake()
     {
@@ -33,6 +35,8 @@ public class PlayerMovement : MonoBehaviour
     {
         Body = GetComponent<Rigidbody2D>();
         Player = GetComponent<Player>();
+        Sprite = GetComponent<SpriteRenderer>();
+        TMP_originalColor = Sprite.color;
     }
 
     private void FixedUpdate()
@@ -81,15 +85,31 @@ public class PlayerMovement : MonoBehaviour
 
         AudioManager.instance.PlaySfX(SoundEffects.PlayerDash);
 
+        Sprite.color = Color.red; // TODO make visual better for dash
+
         Vector2 dashDir = movementInput.magnitude > 0.5f ? movementInput : Body.velocity.normalized;
         Body.velocity = dashDir * dashSpeed;
 
         yield return new WaitForSeconds(dashTime);
 
-        Player.State = PlayerState.Moving;
+        EndDash();
 
         yield return new WaitForSeconds(dashCooldown);
 
         canDash = true;
+    }
+
+    private void EndDash()
+    {
+        Player.State = PlayerState.Moving;
+        Sprite.color = TMP_originalColor;// TODO make better visual for when dash ends
+    }
+
+    public void CancelDash()
+    {
+        if (isDashCancelable)
+        {
+            EndDash();
+        }
     }
 }

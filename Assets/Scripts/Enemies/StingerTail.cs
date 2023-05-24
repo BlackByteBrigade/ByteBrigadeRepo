@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TentacleMove : MonoBehaviour
+public class StingerTail : MonoBehaviour
 {
     [SerializeField] float amplitude = 1f;
     [SerializeField] float frequency = 1f;

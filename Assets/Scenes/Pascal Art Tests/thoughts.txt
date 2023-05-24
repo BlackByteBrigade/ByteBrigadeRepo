@@ -1,21 +1,11 @@
 
 
 
-background options
 
-    sprite tiling
-
-    "holes" + shader gradients
-        set world position
-
-    "holes" + predefined gradients
-
-    walls = spriteshape/ splines + blocking
-
-    predrawn walls
-
+Todo
+    stinger script
+    background options
+    dendretic cell look
+    UI icons
     
-
-    sharp holes
-
 

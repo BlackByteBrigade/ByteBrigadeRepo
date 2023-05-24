@@ -6,7 +6,12 @@ using UnityEngine;
 public class Cell : MonoBehaviour
 {
     public int health;
+    [Tooltip("Time just after a hit where you cant get hit again")]
+    public float invulnerableTime = 0.1f;
     public event Action<Cell> OnDeath;
+
+    public bool IsInvulnerable { get; private set; }
+    public bool IsDead { get; private set; }
 
     /// <summary>
     /// Cell takes specified damage
@@ -15,20 +20,29 @@ public class Cell : MonoBehaviour
     /// <returns>Whether or not the enemy died</returns>
     public virtual bool TakeDamage(int damage)
     {
-        health = Mathf.Max(health - damage, 0); // so that health never goes below zero (for player healthbar to not go below zero)
+        if (IsInvulnerable || IsDead) return IsDead; // dont want to go forward if we have already died/are currently invulnerable
 
-        bool isDead = health <= 0;
-        if (isDead)
+        health = Mathf.Max(health - damage, 0); // so that health never goes below zero (for player healthbar to not go below zero)
+        IsInvulnerable = true;
+        Invoke(nameof(MakeVulnerable), invulnerableTime);
+
+        IsDead = health <= 0;
+        if (IsDead)
         {
+            OnDeath?.Invoke(this);
             Die();
         }
 
-        return isDead;
+        return IsDead;
+    }
+
+    private void MakeVulnerable()
+    {
+        IsInvulnerable = false;
     }
 
     public virtual void Die()
     {
-        OnDeath?.Invoke(this);
         Destroy(gameObject);
     }
 }
