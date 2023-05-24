@@ -24,6 +24,7 @@ public class DashUpgrade : DNAUpgrade
         player.Movement.movementMaxSpeed = movementMaxSpeed;
         player.Movement.dashSpeed = dashSpeed;
         player.Movement.dashTime = dashTime;
+        player.Movement.isDashCancelable = false;
     }
 
     public override void RemoveUpgrade(Player player)
@@ -32,5 +33,6 @@ public class DashUpgrade : DNAUpgrade
         player.Movement.movementMaxSpeed = oldMovementMaxSpeed;
         player.Movement.dashSpeed = oldDashSpeed;
         player.Movement.dashTime = oldDashTime;
+        player.Movement.isDashCancelable = true;
     }
 }

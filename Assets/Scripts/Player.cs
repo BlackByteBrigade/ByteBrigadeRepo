@@ -8,6 +8,9 @@ public class Player : Cell
 {
     public static Player instance = null;
 
+    [Tooltip("Amount of damage from dash")]
+    public int dashDamage;
+
     public PlayerMovement Movement { get; set; }
     public PlayerState State { get; set; }
     public DNAUpgrade dnaUpgrade { get; set; }
@@ -44,6 +47,13 @@ public class Player : Cell
         dnaUpgrade.ApplyUpgrade(this);
     }
 
+    public void Attack(Enemy enemy)
+    {
+        enemy.TakeDamage(dashDamage);
+        Movement.CancelDash();
+        base.TakeDamage(0);
+    }
+
     // On Damage Effects
     public override bool TakeDamage(int damage) {
         bool isDead = base.TakeDamage(damage);
@@ -57,8 +67,6 @@ public class Player : Cell
 
     public override void Die()
     {
-        RaiseOnDeathEvent();
-
         gameObject.SetActive(false);
 
         // TODO add partcies + dropping held enemy parts
