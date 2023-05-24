@@ -3328,6 +3328,11 @@ PrefabInstance:
       propertyPath: m_Material
       value: 
       objectReference: {fileID: 6200000, guid: 3fa393d47a3bb04498417e4e74736dd5, type: 2}
+    - target: {fileID: 657806109331309438, guid: d2e910a6e12e27c4d94b6635576ea6ac,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1214702726761209641, guid: d2e910a6e12e27c4d94b6635576ea6ac,
         type: 3}
       propertyPath: m_Layer
@@ -3453,6 +3458,16 @@ PrefabInstance:
       propertyPath: m_Material
       value: 
       objectReference: {fileID: 6200000, guid: 3fa393d47a3bb04498417e4e74736dd5, type: 2}
+    - target: {fileID: 5399974302393280727, guid: d2e910a6e12e27c4d94b6635576ea6ac,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6502625940122221499, guid: d2e910a6e12e27c4d94b6635576ea6ac,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6505808961096877861, guid: d2e910a6e12e27c4d94b6635576ea6ac,
         type: 3}
       propertyPath: m_Material
@@ -3538,6 +3553,21 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 7590057016436001863, guid: d2e910a6e12e27c4d94b6635576ea6ac,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7626498586326644073, guid: d2e910a6e12e27c4d94b6635576ea6ac,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7777272288843836165, guid: d2e910a6e12e27c4d94b6635576ea6ac,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7941144105957838197, guid: d2e910a6e12e27c4d94b6635576ea6ac,
         type: 3}
       propertyPath: m_Layer
@@ -3553,6 +3583,11 @@ PrefabInstance:
       propertyPath: m_Material
       value: 
       objectReference: {fileID: 6200000, guid: 3fa393d47a3bb04498417e4e74736dd5, type: 2}
+    - target: {fileID: 8046561585743856444, guid: d2e910a6e12e27c4d94b6635576ea6ac,
+        type: 3}
+      propertyPath: m_Color.r
+      value: 0.30980393
+      objectReference: {fileID: 0}
     - target: {fileID: 8296666646566350251, guid: d2e910a6e12e27c4d94b6635576ea6ac,
         type: 3}
       propertyPath: m_Layer
@@ -3881,13 +3916,9 @@ MonoBehaviour:
     pitch: 0
     source: {fileID: 0}
     loop: 0
-  playlistCombat:
-  - name: Combat1
-    clip: {fileID: 8300000, guid: 77d08af85f3a8494b93f642414b48037, type: 3}
-    volume: 0.954
-    pitch: 0
-    source: {fileID: 0}
-    loop: 0
+    Area: 0
+  playlistAreas: []
+  Narration: []
 --- !u!4 &1515602164
 Transform:
   m_ObjectHideFlags: 0

@@ -77,7 +77,7 @@ LineRenderer:
   m_SortingOrder: 0
   m_Positions:
   - {x: 0, y: 0, z: 0}
-  - {x: 1.5, y: 0, z: 0}
+  - {x: 1.2, y: 0, z: 0}
   m_Parameters:
     serializedVersion: 3
     widthMultiplier: 1
@@ -167,9 +167,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ea1bee693802f784cbc9e7a1a7b4ffde, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  length: 6
+  length: 12
   lineRenderer: {fileID: 986712463960541769}
-  segmentLength: 0.2
+  segmentLength: 0.075
   smoothSpeed: 0.02
   drag: 15
   wiggleMagnitude: 10
