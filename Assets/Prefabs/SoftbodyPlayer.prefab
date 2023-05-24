@@ -466,6 +466,7 @@ MonoBehaviour:
   dashSpeed: 8
   dashTime: 0.5
   dashCooldown: 0.5
+  isDashCancelable: 1
 --- !u!114 &6115647759194690706
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -479,6 +480,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 10
+  invulnerableTime: 0.1
+  dashDamage: 100
 --- !u!50 &1654881058111624555
 Rigidbody2D:
   serializedVersion: 4
