@@ -27,7 +27,6 @@ public class Tentacle2 : MonoBehaviour
     public enum State { Idle = 0, Moving = 1 }
 
     [SerializeField] Rigidbody2D Body;
-    [SerializeField] float scale = 0.4f;
 
     [SerializeField] Gradient gradientIdle;
     [SerializeField] Gradient gradientMoving;
@@ -43,8 +42,7 @@ public class Tentacle2 : MonoBehaviour
         segmentVels = new Vector3[length];
         startAngle = Random.Range(0, 360);
 
-        segmentLengthMoving = segmentLength / scale;
-        segmentLengthIdle /= scale;
+        segmentLengthMoving = segmentLength;
 
         EnterIdleState();
         ResetLine();
@@ -116,11 +114,11 @@ public class Tentacle2 : MonoBehaviour
         lineRenderer.SetPositions(segmentPoses);
     }
 
-    void OnDrawGizmos() {
+    void OnDrawGizmosSelected() {
 
         Gizmos.color = Color.yellow;
         Gizmos.matrix = transform.localToWorldMatrix;
-        float width = length * segmentLength;
+        float width = length * segmentLength / 0.4f;
 
         Vector3 size = new Vector3(width, 0.4f, 0);
         Gizmos.DrawWireCube(new Vector3(width/2f, 0, 0), size);

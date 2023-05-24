@@ -105,6 +105,7 @@ public class PlayerMovement : MonoBehaviour
     }
 
     private void StartDashVFX() {
+        if (dashVFXSprite == null) return;
         dashVFXSprite.enabled = true;
         float angle = Mathf.Atan2(Body.velocity.y, Body.velocity.x) * Mathf.Rad2Deg;
         // float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
@@ -114,6 +115,7 @@ public class PlayerMovement : MonoBehaviour
     }
 
     private void EndDashVFX() {
+        if (dashVFXSprite == null) return;
         dashVFXSprite.enabled = false;
     }
 

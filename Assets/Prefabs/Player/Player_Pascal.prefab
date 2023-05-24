@@ -103,7 +103,7 @@ MonoBehaviour:
     serializedVersion: 2
     key0: {r: 0.34901962, g: 0.9803922, b: 0.9803922, a: 1}
     key1: {r: 0.34901962, g: 0.9803922, b: 0.9803922, a: 1}
-    key2: {r: 0, g: 0, b: 0, a: 0}
+    key2: {r: 0, g: 0, b: 0, a: 0.39215687}
     key3: {r: 0, g: 0, b: 0, a: 0}
     key4: {r: 0, g: 0, b: 0, a: 0}
     key5: {r: 0, g: 0, b: 0, a: 0}
@@ -118,8 +118,8 @@ MonoBehaviour:
     ctime6: 0
     ctime7: 0
     atime0: 0
-    atime1: 65535
-    atime2: 0
+    atime1: 15035
+    atime2: 65535
     atime3: 0
     atime4: 0
     atime5: 0
@@ -128,7 +128,7 @@ MonoBehaviour:
     m_Mode: 0
     m_ColorSpace: -1
     m_NumColorKeys: 2
-    m_NumAlphaKeys: 2
+    m_NumAlphaKeys: 3
   gradientMoving:
     serializedVersion: 2
     key0: {r: 0.34901962, g: 0.9803922, b: 0.9803922, a: 1}
@@ -244,7 +244,7 @@ LineRenderer:
       serializedVersion: 2
       key0: {r: 0.34901962, g: 0.9803922, b: 0.9803922, a: 1}
       key1: {r: 0.34901962, g: 0.9803922, b: 0.9803922, a: 1}
-      key2: {r: 0, g: 0, b: 0, a: 0}
+      key2: {r: 0, g: 0, b: 0, a: 0.39215687}
       key3: {r: 0, g: 0, b: 0, a: 0}
       key4: {r: 0, g: 0, b: 0, a: 0}
       key5: {r: 0, g: 0, b: 0, a: 0}
@@ -259,8 +259,8 @@ LineRenderer:
       ctime6: 0
       ctime7: 0
       atime0: 0
-      atime1: 65535
-      atime2: 0
+      atime1: 15035
+      atime2: 65535
       atime3: 0
       atime4: 0
       atime5: 0
@@ -269,7 +269,7 @@ LineRenderer:
       m_Mode: 0
       m_ColorSpace: -1
       m_NumColorKeys: 2
-      m_NumAlphaKeys: 2
+      m_NumAlphaKeys: 3
     numCornerVertices: 0
     numCapVertices: 6
     alignment: 0
@@ -436,7 +436,7 @@ MonoBehaviour:
     serializedVersion: 2
     key0: {r: 0.34901962, g: 0.9803922, b: 0.9803922, a: 1}
     key1: {r: 0.34901962, g: 0.9803922, b: 0.9803922, a: 1}
-    key2: {r: 0, g: 0, b: 0, a: 0}
+    key2: {r: 0, g: 0, b: 0, a: 0.39215687}
     key3: {r: 0, g: 0, b: 0, a: 0}
     key4: {r: 0, g: 0, b: 0, a: 0}
     key5: {r: 0, g: 0, b: 0, a: 0}
@@ -451,8 +451,8 @@ MonoBehaviour:
     ctime6: 0
     ctime7: 0
     atime0: 0
-    atime1: 65535
-    atime2: 0
+    atime1: 15035
+    atime2: 65535
     atime3: 0
     atime4: 0
     atime5: 0
@@ -461,7 +461,7 @@ MonoBehaviour:
     m_Mode: 0
     m_ColorSpace: -1
     m_NumColorKeys: 2
-    m_NumAlphaKeys: 2
+    m_NumAlphaKeys: 3
   gradientMoving:
     serializedVersion: 2
     key0: {r: 0.34901962, g: 0.9803922, b: 0.9803922, a: 1}
@@ -577,7 +577,7 @@ LineRenderer:
       serializedVersion: 2
       key0: {r: 0.34901962, g: 0.9803922, b: 0.9803922, a: 1}
       key1: {r: 0.34901962, g: 0.9803922, b: 0.9803922, a: 1}
-      key2: {r: 0, g: 0, b: 0, a: 0}
+      key2: {r: 0, g: 0, b: 0, a: 0.39215687}
       key3: {r: 0, g: 0, b: 0, a: 0}
       key4: {r: 0, g: 0, b: 0, a: 0}
       key5: {r: 0, g: 0, b: 0, a: 0}
@@ -592,8 +592,8 @@ LineRenderer:
       ctime6: 0
       ctime7: 0
       atime0: 0
-      atime1: 65535
-      atime2: 0
+      atime1: 15035
+      atime2: 65535
       atime3: 0
       atime4: 0
       atime5: 0
@@ -602,7 +602,7 @@ LineRenderer:
       m_Mode: 0
       m_ColorSpace: -1
       m_NumColorKeys: 2
-      m_NumAlphaKeys: 2
+      m_NumAlphaKeys: 3
     numCornerVertices: 0
     numCapVertices: 6
     alignment: 0
@@ -959,7 +959,7 @@ MonoBehaviour:
     serializedVersion: 2
     key0: {r: 0.34901962, g: 0.9803922, b: 0.9803922, a: 1}
     key1: {r: 0.34901962, g: 0.9803922, b: 0.9803922, a: 1}
-    key2: {r: 0, g: 0, b: 0, a: 0}
+    key2: {r: 0, g: 0, b: 0, a: 0.39215687}
     key3: {r: 0, g: 0, b: 0, a: 0}
     key4: {r: 0, g: 0, b: 0, a: 0}
     key5: {r: 0, g: 0, b: 0, a: 0}
@@ -974,8 +974,8 @@ MonoBehaviour:
     ctime6: 0
     ctime7: 0
     atime0: 0
-    atime1: 65535
-    atime2: 0
+    atime1: 15035
+    atime2: 65535
     atime3: 0
     atime4: 0
     atime5: 0
@@ -984,7 +984,7 @@ MonoBehaviour:
     m_Mode: 0
     m_ColorSpace: -1
     m_NumColorKeys: 2
-    m_NumAlphaKeys: 2
+    m_NumAlphaKeys: 3
   gradientMoving:
     serializedVersion: 2
     key0: {r: 0.34901962, g: 0.9803922, b: 0.9803922, a: 1}
@@ -1100,7 +1100,7 @@ LineRenderer:
       serializedVersion: 2
       key0: {r: 0.34901962, g: 0.9803922, b: 0.9803922, a: 1}
       key1: {r: 0.34901962, g: 0.9803922, b: 0.9803922, a: 1}
-      key2: {r: 0, g: 0, b: 0, a: 0}
+      key2: {r: 0, g: 0, b: 0, a: 0.39215687}
       key3: {r: 0, g: 0, b: 0, a: 0}
       key4: {r: 0, g: 0, b: 0, a: 0}
       key5: {r: 0, g: 0, b: 0, a: 0}
@@ -1115,8 +1115,8 @@ LineRenderer:
       ctime6: 0
       ctime7: 0
       atime0: 0
-      atime1: 65535
-      atime2: 0
+      atime1: 15035
+      atime2: 65535
       atime3: 0
       atime4: 0
       atime5: 0
@@ -1125,7 +1125,7 @@ LineRenderer:
       m_Mode: 0
       m_ColorSpace: -1
       m_NumColorKeys: 2
-      m_NumAlphaKeys: 2
+      m_NumAlphaKeys: 3
     numCornerVertices: 0
     numCapVertices: 6
     alignment: 0
@@ -1567,7 +1567,7 @@ MonoBehaviour:
     serializedVersion: 2
     key0: {r: 0.34901962, g: 0.9803922, b: 0.9803922, a: 1}
     key1: {r: 0.34901962, g: 0.9803922, b: 0.9803922, a: 1}
-    key2: {r: 0, g: 0, b: 0, a: 0}
+    key2: {r: 0, g: 0, b: 0, a: 0.39215687}
     key3: {r: 0, g: 0, b: 0, a: 0}
     key4: {r: 0, g: 0, b: 0, a: 0}
     key5: {r: 0, g: 0, b: 0, a: 0}
@@ -1582,8 +1582,8 @@ MonoBehaviour:
     ctime6: 0
     ctime7: 0
     atime0: 0
-    atime1: 65535
-    atime2: 0
+    atime1: 15035
+    atime2: 65535
     atime3: 0
     atime4: 0
     atime5: 0
@@ -1592,7 +1592,7 @@ MonoBehaviour:
     m_Mode: 0
     m_ColorSpace: -1
     m_NumColorKeys: 2
-    m_NumAlphaKeys: 2
+    m_NumAlphaKeys: 3
   gradientMoving:
     serializedVersion: 2
     key0: {r: 0.34901962, g: 0.9803922, b: 0.9803922, a: 1}
@@ -1708,7 +1708,7 @@ LineRenderer:
       serializedVersion: 2
       key0: {r: 0.34901962, g: 0.9803922, b: 0.9803922, a: 1}
       key1: {r: 0.34901962, g: 0.9803922, b: 0.9803922, a: 1}
-      key2: {r: 0, g: 0, b: 0, a: 0}
+      key2: {r: 0, g: 0, b: 0, a: 0.39215687}
       key3: {r: 0, g: 0, b: 0, a: 0}
       key4: {r: 0, g: 0, b: 0, a: 0}
       key5: {r: 0, g: 0, b: 0, a: 0}
@@ -1723,8 +1723,8 @@ LineRenderer:
       ctime6: 0
       ctime7: 0
       atime0: 0
-      atime1: 65535
-      atime2: 0
+      atime1: 15035
+      atime2: 65535
       atime3: 0
       atime4: 0
       atime5: 0
@@ -1733,7 +1733,7 @@ LineRenderer:
       m_Mode: 0
       m_ColorSpace: -1
       m_NumColorKeys: 2
-      m_NumAlphaKeys: 2
+      m_NumAlphaKeys: 3
     numCornerVertices: 0
     numCapVertices: 6
     alignment: 0
@@ -1805,7 +1805,7 @@ MonoBehaviour:
     serializedVersion: 2
     key0: {r: 0.34901962, g: 0.9803922, b: 0.9803922, a: 1}
     key1: {r: 0.34901962, g: 0.9803922, b: 0.9803922, a: 1}
-    key2: {r: 0, g: 0, b: 0, a: 0}
+    key2: {r: 0, g: 0, b: 0, a: 0.39215687}
     key3: {r: 0, g: 0, b: 0, a: 0}
     key4: {r: 0, g: 0, b: 0, a: 0}
     key5: {r: 0, g: 0, b: 0, a: 0}
@@ -1820,8 +1820,8 @@ MonoBehaviour:
     ctime6: 0
     ctime7: 0
     atime0: 0
-    atime1: 65535
-    atime2: 0
+    atime1: 15035
+    atime2: 65535
     atime3: 0
     atime4: 0
     atime5: 0
@@ -1830,7 +1830,7 @@ MonoBehaviour:
     m_Mode: 0
     m_ColorSpace: -1
     m_NumColorKeys: 2
-    m_NumAlphaKeys: 2
+    m_NumAlphaKeys: 3
   gradientMoving:
     serializedVersion: 2
     key0: {r: 0.34901962, g: 0.9803922, b: 0.9803922, a: 1}
@@ -1946,7 +1946,7 @@ LineRenderer:
       serializedVersion: 2
       key0: {r: 0.34901962, g: 0.9803922, b: 0.9803922, a: 1}
       key1: {r: 0.34901962, g: 0.9803922, b: 0.9803922, a: 1}
-      key2: {r: 0, g: 0, b: 0, a: 0}
+      key2: {r: 0, g: 0, b: 0, a: 0.39215687}
       key3: {r: 0, g: 0, b: 0, a: 0}
       key4: {r: 0, g: 0, b: 0, a: 0}
       key5: {r: 0, g: 0, b: 0, a: 0}
@@ -1961,8 +1961,8 @@ LineRenderer:
       ctime6: 0
       ctime7: 0
       atime0: 0
-      atime1: 65535
-      atime2: 0
+      atime1: 15035
+      atime2: 65535
       atime3: 0
       atime4: 0
       atime5: 0
@@ -1971,7 +1971,7 @@ LineRenderer:
       m_Mode: 0
       m_ColorSpace: -1
       m_NumColorKeys: 2
-      m_NumAlphaKeys: 2
+      m_NumAlphaKeys: 3
     numCornerVertices: 0
     numCapVertices: 6
     alignment: 0
@@ -2270,7 +2270,6 @@ GameObject:
   - component: {fileID: 7615725053878573790}
   - component: {fileID: 4854803041254772039}
   - component: {fileID: 949673349641784462}
-  - component: {fileID: 7900647658635646443}
   - component: {fileID: 961510884283983382}
   - component: {fileID: 2919411805492370010}
   - component: {fileID: 7143136859682591877}
@@ -2417,19 +2416,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!114 &7900647658635646443
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5432526820493999406}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3111bffa5f8041049a2488e941e61840, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  enemyPartUICounter: {fileID: 336046411163373800}
 --- !u!114 &961510884283983382
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2589,7 +2575,7 @@ MonoBehaviour:
     serializedVersion: 2
     key0: {r: 0.34901962, g: 0.9803922, b: 0.9803922, a: 1}
     key1: {r: 0.34901962, g: 0.9803922, b: 0.9803922, a: 1}
-    key2: {r: 0, g: 0, b: 0, a: 0}
+    key2: {r: 0, g: 0, b: 0, a: 0.39215687}
     key3: {r: 0, g: 0, b: 0, a: 0}
     key4: {r: 0, g: 0, b: 0, a: 0}
     key5: {r: 0, g: 0, b: 0, a: 0}
@@ -2604,8 +2590,8 @@ MonoBehaviour:
     ctime6: 0
     ctime7: 0
     atime0: 0
-    atime1: 65535
-    atime2: 0
+    atime1: 15035
+    atime2: 65535
     atime3: 0
     atime4: 0
     atime5: 0
@@ -2614,7 +2600,7 @@ MonoBehaviour:
     m_Mode: 0
     m_ColorSpace: -1
     m_NumColorKeys: 2
-    m_NumAlphaKeys: 2
+    m_NumAlphaKeys: 3
   gradientMoving:
     serializedVersion: 2
     key0: {r: 0.34901962, g: 0.9803922, b: 0.9803922, a: 1}
@@ -2730,7 +2716,7 @@ LineRenderer:
       serializedVersion: 2
       key0: {r: 0.34901962, g: 0.9803922, b: 0.9803922, a: 1}
       key1: {r: 0.34901962, g: 0.9803922, b: 0.9803922, a: 1}
-      key2: {r: 0, g: 0, b: 0, a: 0}
+      key2: {r: 0, g: 0, b: 0, a: 0.39215687}
       key3: {r: 0, g: 0, b: 0, a: 0}
       key4: {r: 0, g: 0, b: 0, a: 0}
       key5: {r: 0, g: 0, b: 0, a: 0}
@@ -2745,8 +2731,8 @@ LineRenderer:
       ctime6: 0
       ctime7: 0
       atime0: 0
-      atime1: 65535
-      atime2: 0
+      atime1: 15035
+      atime2: 65535
       atime3: 0
       atime4: 0
       atime5: 0
@@ -2755,7 +2741,7 @@ LineRenderer:
       m_Mode: 0
       m_ColorSpace: -1
       m_NumColorKeys: 2
-      m_NumAlphaKeys: 2
+      m_NumAlphaKeys: 3
     numCornerVertices: 0
     numCapVertices: 6
     alignment: 0
@@ -3217,18 +3203,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cee968904efe9174eab7070c7dbf6187, type: 3}
---- !u!114 &336046411163373800 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 3558446059110202180, guid: cee968904efe9174eab7070c7dbf6187,
-    type: 3}
-  m_PrefabInstance: {fileID: 3876407101149866924}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!224 &8267288896952131672 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 5147769178841287668, guid: cee968904efe9174eab7070c7dbf6187,
