@@ -12,6 +12,8 @@ public class Patrol : MonoBehaviour
     [SerializeField] private Transform anchorPoint;
 
     private Vector3 beforeMovementPosition;
+    private Quaternion beforeMovementRotation;
+    private Quaternion targetRotation;
     private Vector2 movementVector;
     private Vector3 oldDirectionVector;
     private Vector3 directionVector;
@@ -44,11 +46,13 @@ public class Patrol : MonoBehaviour
         else
         {
             timeCounter += Time.deltaTime;
+            transform.rotation = Quaternion.Lerp(beforeMovementRotation, targetRotation, timeCounter / timeBtwMoves);
         }
     }
     private void DirectionDecider()
     {
         beforeMovementPosition = transform.position;
+        beforeMovementRotation = transform.rotation;
 
         if (Vector2.Distance(transform.position, anchorPoint.transform.position) > maxDistance)
         {
@@ -92,7 +96,6 @@ public class Patrol : MonoBehaviour
                 if (directionVector == oldDirectionVector)
                 {
                     timeCounter = Mathf.Infinity;
-                    print(5);
                 }
                 else
                 {
@@ -100,6 +103,8 @@ public class Patrol : MonoBehaviour
                 }
                 oldDirectionVector = directionVector;
                 movementVector = transform.position + directionVector * distanceToMove;
+                var targetDir = movementVector - (Vector2)transform.position;
+                targetRotation = Quaternion.LookRotation(targetDir, Vector3.forward);
             }
             listOfDirections.Clear();
         }
