@@ -6,23 +6,38 @@ using Random = UnityEngine.Random;
 
 public sealed class EnemyVirus : EnemyRanged
 {
+
+
+    [Header("Projectiles")]
+    [SerializeField] int _numberOfprojectiles = 12;
+    [SerializeField] float radiusOffset = 1.8f;
+    [SerializeField] float projectileSize = 1f;
+
+    [Header("Visuals")]
+    [SerializeField] SpriteRenderer eyeRenderer;
+    [SerializeField] Sprite exposedCoreSprite;
+
+
+
     private bool HasProjectiles;
-
     private List<GameObject> _projectiles;
-    private int _numberOfprojectiles = 12;
-
     private Transform _sourrounderParentTransform;
+    private Sprite coreSprite;
+    private SpriteRenderer renderer;
 
-    // Start is called before the first frame update
+
     void Start()
     {
         _sourrounderParentTransform = this.transform;
+        renderer = GetComponent<SpriteRenderer>();
+        coreSprite = renderer.sprite;
+
         ((EnemyRanged)this).Start();
         _projectiles = new List<GameObject>();
         InitProjectiles();
     }
 
-    // Update is called once per frame
+   
     void Update()
     {
         ((EnemyRanged)this).Update();
@@ -50,30 +65,41 @@ public sealed class EnemyVirus : EnemyRanged
             angleSteps.Add(angleStep * i);
         }
 
-        var point = GetComponent<Renderer>().bounds.center;
+
+        float scaleX = transform.localScale.x;
+        float scaleY = transform.localScale.y;
+        
+        // var point = GetComponent<Renderer>().bounds.center;
+        var point = renderer.bounds.center;
+        HasProjectiles = _numberOfprojectiles > 0;
+        UpdateSprite();
+
         for (var i = 0; i < _numberOfprojectiles; i++)
         {
             var index = Random.Range(0, angleSteps.Count - 1);
             var angle = angleSteps[index];
             angleSteps.RemoveAt(index);
 
-            var radius = 1.8f;
             var angle1 = Math.Cos(ToRadians(angle + i));
             var angle2 = Math.Sin(ToRadians(angle + i));
-            var pointx = radius * angle1 + transform.position.x;
-            var pointy = radius * angle2 + transform.position.y;
+            var pointx = radiusOffset * angle1 * scaleX + transform.position.x;
+            var pointy = radiusOffset * angle2 * scaleY + transform.position.y;
             var projposition = new Vector3((float)(pointx), (float)(pointy), 0);
             var rot = Quaternion.FromToRotation(Vector3.forward, point);
             //var projectile = Instantiate(Projectile, projposition, Quaternion.identity);
             var projectile = Instantiate(Projectile, projposition, rot);
 
+
             projectile.transform.SetParent(_sourrounderParentTransform);
+            projectile.transform.localScale = Vector3.one * projectileSize;
             projectile.transform.up = -(transform.position - projectile.transform.position).normalized;
             _projectiles.Add(projectile);
-            HasProjectiles = true;
+            
         
             yield return new WaitForSeconds(0.12f);
         }
+
+       
     }
 
     public void InitProjectiles()
@@ -94,7 +120,13 @@ public sealed class EnemyVirus : EnemyRanged
         _projectiles.Clear();
         BecameVulnerableNow();
         base.Fire();
+        UpdateSprite();
     }
+
+    void UpdateSprite() {
+        renderer.sprite = HasProjectiles ? coreSprite : exposedCoreSprite;
+    }
+
 
     public void OnCollisionEnter2D(Collision2D collision)
     {

@@ -44,7 +44,8 @@ public class Enemy : Cell
     // Update is called once per frame
     public void Update()
     {
-        DistanceToPlayer = Vector2.Distance(transform.position, Player.transform.position);
+        if (Player != null)
+            DistanceToPlayer = Vector2.Distance(transform.position, Player.transform.position);
         HandleAlertness();
         if (BecameVulnerable != default && (DateTime.Now - BecameVulnerable).TotalSeconds >= DurationVulnerable)
         {
@@ -54,7 +55,8 @@ public class Enemy : Cell
 
         if (AlertnessLevel >= Alertness.Noticed)
         {
-            AudioManager.instance.PlayCombatMusic();
+            //combat music is area music just louder
+            AudioManager.instance.PlayLoudAreaMusic();
         }
     }
 
@@ -107,11 +109,12 @@ public class Enemy : Cell
             var dmg = 100;
             if (health <= dmg)
             {
-                AudioManager.instance.PlayMusic();
+                AudioManager.instance.PlayRegularVolumeAreaMusic(); //todo this needs to be in the Game Manager -> Scan if any enemy is in > "Alertness.Noticed" state, if not exec this
             }
             TakeDamage(dmg); //todo get amount of dmg from player object 
         }
-        else if (collision.contacts.Any(contact => contact.otherCollider == Player || contact.collider == Player))
+        //else if (collision.contacts.Any(contact => contact.otherCollider == Player || contact.collider == Player)) // this didnt work since it was comparing a collider to a gameobject
+        else if (collision.gameObject.CompareTag("Player")) // this will detect if it collides with any player colliders
         {
             playerScript.TakeDamage(DmgFromTouching);
         }

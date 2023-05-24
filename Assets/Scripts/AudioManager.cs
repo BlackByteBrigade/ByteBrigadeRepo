@@ -4,26 +4,29 @@ using UnityEngine;
 
 public class AudioManager : MonoBehaviour
 {
-    public Sound[] sounds;      // store all our sounds
+    public Sound[] sounds;      // store all our sounds (sfx)
     public Sound[] playlist;    // store all our music
-    public Sound[] playlistCombat;    // store all our music
+    public Sound[] playlistAreas;    // store all our music
+    public Sound[] Narration;    // store all our narration
 
     private int currentPlayingIndex = 999; // set high to signify no song playing
 
     // a play music flag so we can stop playing music during cutscenes etc
     private bool shouldPlayMusic = false;
-    private bool shouldPlayCombatMusic = false;
+    private bool shouldPlayAreaMusic = false;
 
     public static AudioManager instance; // will hold a reference to the first AudioManager created
 
     private float mvol; // Global music volume
     private float evol; // Global effects volume
 
-    private bool playingCombatMusic;
+    private bool playingAreaMusic;
+    private float _lastPlayedOrigAreaVolume;
+
     private void Start()
     {
         //start the music
-        PlayMusic();
+        PlayRegularVolumeAreaMusic();
     }
 
 
@@ -48,7 +51,7 @@ public class AudioManager : MonoBehaviour
 
         createAudioSources(sounds, evol);     // create sources for effects
         createAudioSources(playlist, mvol);   // create sources for music
-        createAudioSources(playlistCombat, mvol);   // create sources for combat music
+        createAudioSources(playlistAreas, mvol);   // create sources for combat music
 
     }
 
@@ -66,13 +69,53 @@ public class AudioManager : MonoBehaviour
         }
     }
 
-    public void PlaySound(string name)
+    /// <summary>
+    /// First tries to find a sound with a matching name attribute; if not tries to find a clip with <see cref="name"/>
+    /// </summary>
+    /// <param name="sounds"></param>
+    /// <param name="name"></param>
+    /// <returns></returns>
+    public Sound FindSound(Sound[] sounds, string name)
+    {
+        return Array.Find(sounds, sound => sound.name.Equals(name, StringComparison.CurrentCultureIgnoreCase)) ??
+               Array.Find(sounds, sound => sound.clip.name.Equals(name, StringComparison.CurrentCultureIgnoreCase));
+    }
+
+    public void PlaySfX(SoundEffects soundEffect)
     {
         // here we get the Sound from our array with the name passed in the methods parameters
-        Sound s = Array.Find(sounds, sound => sound.name == name);
+        var s = FindSound(sounds, soundEffect.MapToName());
         if (s == null)
         {
             Debug.LogError("Unable to play sound " + name);
+            return;
+        }
+        s.source.Play(); // play the sound
+    }
+
+    public void PlaySound(string name)
+    {
+        // here we get the Sound from our array with the name passed in the methods parameters
+        var s = FindSound(sounds, name);
+        if (s == null)
+        {
+            Debug.LogError("Unable to play sound " + name);
+            return;
+        }
+        s.source.Play(); // play the sound
+    }
+
+    /// <summary>
+    /// Insert the <see cref="name"/> To play the narration with that given name
+    /// </summary>
+    /// <param name="name"></param>
+    public void PlayNarration(string name)
+    {
+        // here we get the Sound from our array with the name passed in the methods parameters
+        var s = FindSound(Narration, name);
+        if (s == null)
+        {
+            Debug.LogError("Unable to play narration " + name);
             return;
         }
         s.source.Play(); // play the sound
@@ -83,11 +126,11 @@ public class AudioManager : MonoBehaviour
         if (shouldPlayMusic == false)
         {
             shouldPlayMusic = true;
-            shouldPlayCombatMusic = false;
+            shouldPlayAreaMusic = false;
 
-            if (playingCombatMusic)
+            if (playingAreaMusic)
             {
-                StartCoroutine(FadeOutsource(playlistCombat[currentPlayingIndex].source));
+                StartCoroutine(FadeOutsource(playlistAreas[currentPlayingIndex].source));
             }
 
             // pick a random song from our playlist
@@ -95,7 +138,7 @@ public class AudioManager : MonoBehaviour
             playlist[currentPlayingIndex].source.volume = playlist[0].volume * mvol; // set the volume
             playlist[currentPlayingIndex].source.Play(); // play it
             
-            playingCombatMusic = false;
+            playingAreaMusic = false;
         }
 
     }
@@ -114,29 +157,74 @@ public class AudioManager : MonoBehaviour
 
     public void PlayCombatMusic()
     {
-        if (shouldPlayCombatMusic == false)
+        if (shouldPlayAreaMusic == false)
         {
-            shouldPlayCombatMusic = true;
+            shouldPlayAreaMusic = true;
             shouldPlayMusic = false;
 
-            if (!playingCombatMusic)
+            if (!playingAreaMusic && currentPlayingIndex<999)
             {
                 playlist[currentPlayingIndex].source.Stop(); // stop ambient music
             }
 
             // pick a random song from our combat playlist
-            currentPlayingIndex = UnityEngine.Random.Range(0, playlistCombat.Length- 1);
-            playlistCombat[currentPlayingIndex].source.volume = playlist[0].volume * mvol; // set the volume
-            playlistCombat[currentPlayingIndex].source.Play(); // play it
-            playingCombatMusic = true;
+            currentPlayingIndex = UnityEngine.Random.Range(0, playlistAreas.Length- 1);
+            playlistAreas[currentPlayingIndex].source.volume = playlistAreas[0].volume * mvol; // set the volume
+            playlistAreas[currentPlayingIndex].source.Play(); // play it
+            playingAreaMusic = true;
         }
-        
+    }
+
+    public void PlayLoudAreaMusic()
+    {
+        if (!playingAreaMusic)
+        {
+            PlayCombatMusic();
+        }
+
+        _lastPlayedOrigAreaVolume = playlistAreas[currentPlayingIndex].source.volume;
+        StartCoroutine(FadeToVolume(playlistAreas[currentPlayingIndex].source, 1f, mvol));
+    }
+
+    public void PlayRegularVolumeAreaMusic()
+    {
+        if (!playingAreaMusic)
+        {
+            PlayCombatMusic();
+        }
+
+        if (_lastPlayedOrigAreaVolume != default(float))
+        {
+            StartCoroutine(FadeToVolume(playlistAreas[currentPlayingIndex].source, _lastPlayedOrigAreaVolume , mvol));
+        }
+    }
+
+
+    public IEnumerator FadeToVolume(AudioSource audioSource, float volume, float multiplier, float TimeToReachNewVolumeInSeconds = 3)
+    {
+        volume *= multiplier;
+        //Debug.Log("Target volume:" +volume);
+        var origVolume = audioSource.volume;
+
+        //we only want to fade if we can hear a difference
+        if ((Math.Abs(volume - origVolume) < 0.05)) 
+            yield break;
+
+        var diff = Math.Abs(volume - origVolume);
+        var waittime = diff / TimeToReachNewVolumeInSeconds;
+        var isLouder = volume > origVolume;
+        do
+        {
+            if (isLouder) audioSource.volume += waittime *0.1f;
+            else audioSource.volume -= waittime * 0.1f;
+            yield return new WaitForSeconds(0.33f-waittime);
+        } while (isLouder ? audioSource.volume >= volume : audioSource.volume <= volume);
     }
 
     // stop music
     public void StopMusic()
     {
-        if (shouldPlayMusic == true)
+        if (shouldPlayMusic)
         {
             shouldPlayMusic = false;
             currentPlayingIndex = 999; // reset playlist counter
@@ -145,17 +233,17 @@ public class AudioManager : MonoBehaviour
 
     void Update()
     {
-        if (playingCombatMusic)
+        if (playingAreaMusic)
         {
             // if we are playing a track from the playlist && it has stopped playing
-            if (currentPlayingIndex != 999 && !playlistCombat[currentPlayingIndex].source.isPlaying)
+            if (currentPlayingIndex != 999 && !playlistAreas[currentPlayingIndex].source.isPlaying)
             {
                 currentPlayingIndex++; // set next index
-                if (currentPlayingIndex >= playlistCombat.Length)
+                if (currentPlayingIndex >= playlistAreas.Length)
                 { //have we went too high
                     currentPlayingIndex = 0; // reset list when max reached
                 }
-                playlistCombat[currentPlayingIndex].source.Play(); // play that funky music
+                playlistAreas[currentPlayingIndex].source.Play(); // play that funky music
             }
         }
         else

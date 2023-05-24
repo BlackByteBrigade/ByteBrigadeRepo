@@ -1,0 +1,21 @@
+
+
+
+background options
+
+    sprite tiling
+
+    "holes" + shader gradients
+        set world position
+
+    "holes" + predefined gradients
+
+    walls = spriteshape/ splines + blocking
+
+    predrawn walls
+
+    
+
+    sharp holes
+
+

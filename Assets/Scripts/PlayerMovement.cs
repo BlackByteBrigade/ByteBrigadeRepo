@@ -38,7 +38,7 @@ public class PlayerMovement : MonoBehaviour
     private void FixedUpdate()
     {
         // we do main movement on fixed update because we are simply updating velocity, which is only updated on fixed updates anyways
-        if (!isDashing) UpdateMovement();
+        UpdateMovement();
     }
 
     private void Update()
@@ -78,6 +78,8 @@ public class PlayerMovement : MonoBehaviour
     {
         Player.State = PlayerState.Dashing;
         canDash = false;
+
+        AudioManager.instance.PlaySfX(SoundEffects.PlayerDash);
 
         Vector2 dashDir = movementInput.magnitude > 0.5f ? movementInput : Body.velocity.normalized;
         Body.velocity = dashDir * dashSpeed;
