@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[SelectionBase]
 [RequireComponent(typeof(PlayerMovement))]
 public class Player : Cell
 {
