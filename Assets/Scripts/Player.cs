@@ -16,11 +16,15 @@ public class Player : Cell
     public PlayerState State { get; set; }
     public DNAUpgrade dnaUpgrade { get; set; }
 
+    int maxHealth;
+
     private void Awake()
     {
         if (instance == null)
         {
             instance = this;
+            maxHealth = Mathf.Max(health, 1);
+
 
             InitializeComponents();
         }
@@ -71,9 +75,10 @@ public class Player : Cell
     // On Damage Effects
     public override bool TakeDamage(int damage) {
         bool isDead = base.TakeDamage(damage);
-        if (!isDead)
+        if (!isDead) {
             AudioManager.instance.PlaySfX(SoundEffects.PlayerTakingDamage);
-        else
+            PlayerHUD.instance.UpdateHealthbar(health/ (float) maxHealth);
+        } else
             AudioManager.instance.PlaySfX(SoundEffects.PlayerDeath);
 
         return isDead;
