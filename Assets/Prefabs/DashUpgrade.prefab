@@ -30,7 +30,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &766133348062222268
 MonoBehaviour:
@@ -46,5 +46,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   movementSpeed: 16
   movementMaxSpeed: 7
-  dashSpeed: 12
-  dashTime: 0.4
+  dashSpeed: 10
+  dashTime: 0.7

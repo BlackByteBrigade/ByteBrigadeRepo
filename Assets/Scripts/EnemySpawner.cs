@@ -46,6 +46,7 @@ public class EnemySpawner : MonoBehaviour
         if (enemy is EnemyPathing) // configures the path for pathing enemies
         {
             (enemy as EnemyPathing).path = group.pathRoot.GetComponentsInChildren<Transform>().Where(t => t != group.pathRoot).ToArray();
+            (enemy as EnemyPathing).targetRadius = group.pathTargetRadius;
         }
     }
 
@@ -74,6 +75,7 @@ public struct EnemyGroup
     public int numEnemies;
     public Enemy enemyPrefab;
     public Transform pathRoot;
+    public float pathTargetRadius;
 
     [HideInInspector] public List<Enemy> enemies;
 }
