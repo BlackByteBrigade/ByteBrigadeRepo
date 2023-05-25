@@ -65,6 +65,7 @@ public class InventoryManager : MonoBehaviour
             }
             if(itemInInventrory != null && itemInInventrory.itemAmount <= 0){
                 playerInventoryList.Remove(itemInInventrory);
+                
             }
         
         }
