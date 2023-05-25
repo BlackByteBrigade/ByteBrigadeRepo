@@ -12,8 +12,8 @@ public class GameManager : MonoBehaviour
 
     //States of the game
     private enum State{
-        PlayingGameSceneHUB,
-        PlayingGameSceneSkinWound,
+        IntroTutorial,
+        PlayingGame,
         GameWin,
         GameOver,
     }
@@ -33,17 +33,17 @@ public class GameManager : MonoBehaviour
         DontDestroyOnLoad(gameObject); 
 
 
-        //game starts in main menu
-        gameState = State.PlayingGameSceneHUB;
+        //game starts in IntroTutorial
+        gameState = State.IntroTutorial;
     }
 
 
     private void Update() {
         //Game flow of states
         switch(gameState){
-            case State.PlayingGameSceneHUB:
+            case State.IntroTutorial:
                 break;
-            case State.PlayingGameSceneSkinWound:
+            case State.PlayingGame:
                 break;
             case State.GameWin:
                 break;
@@ -55,13 +55,13 @@ public class GameManager : MonoBehaviour
     //Function below are scripts to check game state
 
     //Check if game is in Scene HUB
-    public bool IsPlayingGameSceneHUB(){
-        return gameState == State.PlayingGameSceneHUB;
+    public bool IsPlayingIntroTutorial(){
+        return gameState == State.IntroTutorial;
     }
 
     //Check if game is in scene skin wound
-    public bool IsPlayingGameSceneSkinWound(){
-        return gameState == State.PlayingGameSceneSkinWound;
+    public bool IsPlayingGame(){
+        return gameState == State.PlayingGame;
     }
 
     //Check if game is over

@@ -13,15 +13,18 @@ public class MainMenuUI : MonoBehaviour
     private void Awake() {
         playButton.onClick.AddListener(() => {
             //Play game
+            Debug.Log("Play Game");
 
         });
         settingsButton.onClick.AddListener(() => {
             //game settings
+            Debug.Log("settings");
 
         });
         quitButton.onClick.AddListener(() => {
             //Exit Game
             Application.Quit();
+            Debug.Log("Quit Game");
         });
 
     }
