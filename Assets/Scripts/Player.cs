@@ -20,7 +20,6 @@ public class Player : Cell
     {
         if (instance == null)
         {
-            Debug.Log("a");
             instance = this;
 
             InitializeComponents();
@@ -33,8 +32,19 @@ public class Player : Cell
 
     private void InitializeComponents()
     {
-        dnaUpgrade = null;
         Movement = GetComponent<PlayerMovement>();
+    }
+
+    private void Start()
+    {
+        if (PlayerManager.Instance.currentDNAUpgrade != null)
+        {
+            ChangeDNA(PlayerManager.Instance.currentDNAUpgrade);
+        }
+        else
+        {
+            dnaUpgrade = null;
+        }
     }
 
     public void ChangeDNA(DNAUpgrade newDNA)
@@ -46,6 +56,7 @@ public class Player : Cell
             Destroy(dnaUpgrade);
         }
 
+        PlayerManager.Instance.currentDNAUpgrade = newDNA;
         dnaUpgrade = Instantiate(newDNA, transform);
         dnaUpgrade.ApplyUpgrade(this);
     }
@@ -70,11 +81,12 @@ public class Player : Cell
 
     public override void Die()
     {
+        PlayerManager.Instance.currentDNAUpgrade = null;
         gameObject.SetActive(false);
 
         // TODO add partcies + dropping held enemy parts
 
-        GameManager.Instance.RespawnPlayer();
+        PlayerManager.Instance.RespawnPlayer();
     }
 }
 

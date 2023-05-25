@@ -7,12 +7,6 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager Instance {get; private set;}
 
-    [Header("Scenes")]
-    public string hubScene;
-
-    [Header("Respawning")]
-    public float respawnTime;
-
     //States of the game
     private enum State{
         PlayingGameSceneHUB,
@@ -53,16 +47,6 @@ public class GameManager : MonoBehaviour
             case State.GameOver:
                 break;
         }
-    }
-
-    public void RespawnPlayer()
-    {
-        Invoke(nameof(LoadHubScene), respawnTime);
-    }
-
-    private void LoadHubScene()
-    {
-        SceneManager.LoadScene(hubScene);
     }
 
     //Function below are scripts to check game state

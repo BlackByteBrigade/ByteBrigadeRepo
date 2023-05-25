@@ -8887,6 +8887,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4854803041254772039, guid: 64834dcae3f4b5345a9f4b504a86e255,
+        type: 3}
+      propertyPath: health
+      value: 100
+      objectReference: {fileID: 0}
     - target: {fileID: 5432526820493999406, guid: 64834dcae3f4b5345a9f4b504a86e255,
         type: 3}
       propertyPath: m_Name
@@ -9590,8 +9595,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 96d8a51b8a1778d4b846d98bbe8a0111, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hubScene: 
-  respawnTime: 0
 --- !u!1 &983188708
 GameObject:
   m_ObjectHideFlags: 0
