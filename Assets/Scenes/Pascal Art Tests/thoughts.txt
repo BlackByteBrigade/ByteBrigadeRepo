@@ -7,5 +7,44 @@ Todo
     background options
     dendretic cell look
     UI icons
+
+
+skin
+    epidermis
+    dermis
+        epiphilial down growth
+        connective tissu
+        hair
+            muscle
+            oil glands
+        sweat glands
+
+
+art
+    epidermis
+    nerves
+    blood vents
+    hall 
+
+titles
     
+
+    Cells (foundation of life)
+    Nucleus
+    Life (at its basics)
+    the stuff that makes you live
+    Genome 
+    Plasma
+    DNA
+    infection 
+    Enzyme
+    Antibody / Antigen
+    pathogens
+    leukocytes (white blood cells)
+    invaders 
+
+
+    In Vivo (https://en.wikipedia.org/wiki/In_vivo)
+
+
 

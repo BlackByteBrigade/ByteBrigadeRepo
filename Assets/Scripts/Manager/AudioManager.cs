@@ -181,6 +181,11 @@ public class AudioManager : MonoBehaviour
         {
             PlayCombatMusic();
         }
+        if (currentPlayingIndex >= playlistAreas.Length-1)
+        {
+            // Debug.LogError("error");
+            return;
+        }
 
         _lastPlayedOrigAreaVolume = playlistAreas[currentPlayingIndex].source.volume;
         StartCoroutine(FadeToVolume(playlistAreas[currentPlayingIndex].source, 1f, mvol));
