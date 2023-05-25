@@ -1,4 +1,3 @@
-
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -6,6 +5,8 @@ using UnityEngine;
 
 public class PlayerItemController : MonoBehaviour
 {  
+
+
 
     private void OnTriggerEnter2D(Collider2D collision) {
 
@@ -26,11 +27,27 @@ public class PlayerItemController : MonoBehaviour
             
         }
 
-        //Drop off enemy part - 
+        //Drop off enemy part to the HUB collection point
         if(collision.GetComponent<EnemyPartDropOff>() != null){
-            
             // Access the inventory instance
             InventoryManager InventoryManager = InventoryManager.Instance;
+
+            if(InventoryManager.GetItemAmountForType(Item.ItemType.EnemyPart) > 0){
+                
+                //what item to remove
+                Item enemyPartItem = new Item { itemType = Item.ItemType.EnemyPart, itemAmount = 1 };
+
+                while (InventoryManager.GetItemAmountForType(Item.ItemType.EnemyPart) > 0){
+                    //Add to Enemy part Drop Off
+                    collision.GetComponent<EnemyPartDropOff>().DropOffEnemyPart();
+                
+                    //remove item from inventory
+                    InventoryManager.RemoveItem(enemyPartItem);
+                }
+
+            }
+
+            
         }
     }
 }

@@ -6,7 +6,7 @@ public class EnemyPathing : Enemy
 {
     [Header("Pathing")]
     public Transform[] path;
-    [SerializeField] private float targetRadius;
+    public float targetRadius;
 
     public Vector2 TargetPos { get; set; } // the next position we are moving to
     public int PathIndex { get; set; }

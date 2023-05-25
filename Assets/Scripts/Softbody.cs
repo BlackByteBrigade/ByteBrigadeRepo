@@ -46,6 +46,7 @@ public class Softbody : MonoBehaviour
         int hits = Physics2D.OverlapCircleNonAlloc(transform.position, radius, colliders, collisionLayer);
         for (int i = 0; i < hits; i++)
         {
+            if (colliders[i].isTrigger) continue;
             Vector2 hitOffset = (Vector2)transform.position - colliders[i].ClosestPoint(transform.position);
             body.velocity += hitOffset.normalized * (Time.fixedDeltaTime * bounce / Mathf.Max(hitOffset.magnitude * hitOffset.magnitude, 0.01f));
         }

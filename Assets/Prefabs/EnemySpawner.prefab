@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &8933151984565387499
+--- !u!1 &3014836392829990126
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,43 +8,47 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 334253818430548043}
-  - component: {fileID: 766133348062222268}
+  - component: {fileID: 1073987246286265783}
+  - component: {fileID: 7694812753334961562}
   m_Layer: 0
-  m_Name: DashUpgrade
+  m_Name: EnemySpawner
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &334253818430548043
+--- !u!4 &1073987246286265783
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8933151984565387499}
+  m_GameObject: {fileID: 3014836392829990126}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 13.194232, y: 3.2760398, z: 0.35882875}
+  m_LocalPosition: {x: 13.93, y: 4.14, z: -0.68200904}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &766133348062222268
+--- !u!114 &7694812753334961562
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8933151984565387499}
+  m_GameObject: {fileID: 3014836392829990126}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b89de24db8dd8a24991e92bfe905f58d, type: 3}
+  m_Script: {fileID: 11500000, guid: 6e0560cbb68ae18448e7c09672ce42b6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  movementSpeed: 16
-  movementMaxSpeed: 7
-  dashSpeed: 10
-  dashTime: 0.7
+  enemyGroups:
+  - numEnemies: 4
+    enemyPrefab: {fileID: 1608251747811562003, guid: 1936a0dc540e62a4abbf3282813845b7,
+      type: 3}
+    pathRoot: {fileID: 0}
+    enemies: []
+  spawnRadius: 5
+  timeBetweenRespawns: 5

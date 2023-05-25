@@ -30,11 +30,11 @@ Transform:
   m_GameObject: {fileID: 7549149773302452642}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 10.47, y: 2.93, z: 0}
-  m_LocalScale: {x: 0.3, y: 0.3, z: 0.3}
+  m_LocalScale: {x: 0.2, y: 0.2, z: 0.2}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &840122518083770636
 SpriteRenderer:
@@ -122,6 +122,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 1
+  invulnerableTime: 0.1
   Weakspot: {fileID: 7423847626384043056}
   IsInVulnerableState: 1
   DmgFromTouching: 15
@@ -129,15 +130,19 @@ MonoBehaviour:
   AlarmedByPlayerDistance: 30
   CountdownTillRestAlertness: 4
   DurationVulnerable: 0
-  moveDistance: 0.8
-  moveSpeed: 1
-  driftSpeed: 1
-  targetRadius: 2
-  anim: {fileID: 5968640901170291931}
+  upgradeCollectiblePrefab: {fileID: 3985933236073633054, guid: 6f3fffdf514e69041888fb1b452bb476,
+    type: 3}
+  upgradeType: {fileID: 766133348062222268, guid: d3ca19d55e6bdc54daecb3d1f06fb6bb,
+    type: 3}
   path:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  targetRadius: 2
+  moveDistance: 0.55
+  moveSpeed: 1
+  driftSpeed: 1
+  anim: {fileID: 5968640901170291931}
 --- !u!58 &7423847626384043056
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -189,7 +194,7 @@ Rigidbody2D:
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 0
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 3fa393d47a3bb04498417e4e74736dd5, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0

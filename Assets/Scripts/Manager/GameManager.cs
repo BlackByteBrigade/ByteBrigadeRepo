@@ -1,10 +1,17 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
-public class _GameManager : MonoBehaviour
+public class GameManager : MonoBehaviour
 {
-    public static _GameManager Instance {get; private set;}
+    public static GameManager Instance {get; private set;}
+
+    [Header("Scenes")]
+    public string hubScene;
+
+    [Header("Respawning")]
+    public float respawnTime;
 
     //States of the game
     private enum State{
@@ -48,6 +55,15 @@ public class _GameManager : MonoBehaviour
         }
     }
 
+    public void RespawnPlayer()
+    {
+        Invoke(nameof(LoadHubScene), respawnTime);
+    }
+
+    private void LoadHubScene()
+    {
+        SceneManager.LoadScene(hubScene);
+    }
 
     //Function below are scripts to check game state
 
@@ -70,8 +86,4 @@ public class _GameManager : MonoBehaviour
     public bool IsGameOver(){
         return gameState == State.GameOver;
     }
-
-
 }
-
-

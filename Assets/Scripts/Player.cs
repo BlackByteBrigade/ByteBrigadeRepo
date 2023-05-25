@@ -20,6 +20,7 @@ public class Player : Cell
     {
         if (instance == null)
         {
+            Debug.Log("a");
             instance = this;
 
             InitializeComponents();
@@ -40,6 +41,7 @@ public class Player : Cell
     {
         if (dnaUpgrade != null)
         {
+            if (newDNA.GetType() == dnaUpgrade.GetType()) return;
             dnaUpgrade.RemoveUpgrade(this);
             Destroy(dnaUpgrade);
         }
@@ -72,7 +74,7 @@ public class Player : Cell
 
         // TODO add partcies + dropping held enemy parts
 
-        GameManager.instance.RespawnPlayer();
+        GameManager.Instance.RespawnPlayer();
     }
 }
 

@@ -29,6 +29,11 @@ public class Enemy : Cell
     private DateTime BecameVulnerable;
     public int DurationVulnerable;
 
+    [Header("DNA Upgrade")]
+    [SerializeField] private DNACollectible upgradeCollectiblePrefab;
+    [Tooltip("The prefab for the type of upgrade dropped. Make this null if this enemy doesn't drop an upgrade")]
+    [SerializeField] private DNAUpgrade upgradeType;
+
     //movement
     public Rigidbody2D MyRigidbody { get; set; }
 
@@ -103,7 +108,7 @@ public class Enemy : Cell
         var playerScript = Player.GetComponent<Player>();
         //Debug.Log($"Bump!");
         //we go though any because we don't want to dmg the player if the player is touching the enemy in a weakened state 
-        if (collision.contacts.Any(contact => contact.collider == Weakspot || contact.otherCollider == Weakspot) &&
+        if (collision.contacts.Any(contact => contact.collider == Weakspot || contact.otherCollider == Weakspot) && collision.gameObject.CompareTag("Player") &&
             IsInVulnerableState && playerScript.State == PlayerState.Dashing)
         {
             var dmg = 100;
@@ -118,6 +123,16 @@ public class Enemy : Cell
         {
             playerScript.TakeDamage(DmgFromTouching);
         }
+    }
+
+    public override void Die()
+    {
+        if (upgradeType != null)
+        {
+            DNACollectible collectible = Instantiate(upgradeCollectiblePrefab, transform.position, Quaternion.identity);
+            collectible.dnaUpgrade = upgradeType;
+        }
+        base.Die();
     }
 
     public enum Alertness

@@ -3,7 +3,11 @@ guid: 2baa97384975b1748b93489e0c3e7a74
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - Weakspot: {instanceID: 0}
+  - upgradeCollectiblePrefab: {fileID: 3985933236073633054, guid: 6f3fffdf514e69041888fb1b452bb476,
+      type: 3}
+  - upgradeType: {instanceID: 0}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 
