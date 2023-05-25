@@ -40,6 +40,7 @@ public class Player : Cell
     {
         if (dnaUpgrade != null)
         {
+            if (newDNA.GetType() == dnaUpgrade.GetType()) return;
             dnaUpgrade.RemoveUpgrade(this);
             Destroy(dnaUpgrade);
         }

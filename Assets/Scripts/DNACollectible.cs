@@ -29,6 +29,7 @@ public class DNACollectible : MonoBehaviour
     {
         if (canPickup && collision.gameObject.CompareTag("Player"))
         {
+            canPickup = false;
             Player.instance.ChangeDNA(dnaUpgrade);
             AudioManager.instance.PlaySfX(SoundEffects.CollectingDna);
             Destroy(gameObject);

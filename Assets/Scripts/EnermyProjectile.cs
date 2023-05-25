@@ -38,8 +38,7 @@ public class EnermyProjectile : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D collision)
     {
-        var playerCollider = _player.GetComponent<CircleCollider2D>();
-        if (collision.contacts.Any(contact => contact.otherCollider == playerCollider || contact.collider == playerCollider))
+        if (collision.gameObject.CompareTag("Player"))
         {
             _player.GetComponent<Player>().TakeDamage(Damage);
         }

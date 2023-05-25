@@ -98,7 +98,6 @@ MonoBehaviour:
   wiggleSpeed: 2.9
   state: 0
   Body: {fileID: 949673349641784462}
-  scale: 1
   gradientIdle:
     serializedVersion: 2
     key0: {r: 0.34901962, g: 0.9803922, b: 0.9803922, a: 1}
@@ -374,7 +373,7 @@ Rigidbody2D:
     m_Bits: 0
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 4
 --- !u!1 &1842440852290559060
 GameObject:
@@ -431,7 +430,6 @@ MonoBehaviour:
   wiggleSpeed: 2.95
   state: 0
   Body: {fileID: 949673349641784462}
-  scale: 1
   gradientIdle:
     serializedVersion: 2
     key0: {r: 0.34901962, g: 0.9803922, b: 0.9803922, a: 1}
@@ -707,7 +705,7 @@ Rigidbody2D:
     m_Bits: 0
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 4
 --- !u!1 &2372760371559616982
 GameObject:
@@ -802,7 +800,7 @@ Rigidbody2D:
     m_Bits: 0
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 4
 --- !u!1 &2612734823372878425
 GameObject:
@@ -897,7 +895,7 @@ Rigidbody2D:
     m_Bits: 0
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 4
 --- !u!1 &3158003394681693039
 GameObject:
@@ -954,7 +952,6 @@ MonoBehaviour:
   wiggleSpeed: 3.05
   state: 0
   Body: {fileID: 949673349641784462}
-  scale: 1
   gradientIdle:
     serializedVersion: 2
     key0: {r: 0.34901962, g: 0.9803922, b: 0.9803922, a: 1}
@@ -1230,7 +1227,7 @@ Rigidbody2D:
     m_Bits: 0
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 4
 --- !u!1 &3416579589458615701
 GameObject:
@@ -1325,7 +1322,7 @@ Rigidbody2D:
     m_Bits: 0
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 4
 --- !u!1 &3583029344579324396
 GameObject:
@@ -1420,7 +1417,7 @@ Rigidbody2D:
     m_Bits: 0
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 4
 --- !u!1 &5108362386494703317
 GameObject:
@@ -1562,7 +1559,6 @@ MonoBehaviour:
   wiggleSpeed: 3
   state: 0
   Body: {fileID: 949673349641784462}
-  scale: 1
   gradientIdle:
     serializedVersion: 2
     key0: {r: 0.34901962, g: 0.9803922, b: 0.9803922, a: 1}
@@ -1800,7 +1796,6 @@ MonoBehaviour:
   wiggleSpeed: 3.1
   state: 0
   Body: {fileID: 949673349641784462}
-  scale: 1
   gradientIdle:
     serializedVersion: 2
     key0: {r: 0.34901962, g: 0.9803922, b: 0.9803922, a: 1}
@@ -2076,7 +2071,7 @@ Rigidbody2D:
     m_Bits: 0
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 4
 --- !u!1 &5224480049894933602
 GameObject:
@@ -2171,7 +2166,7 @@ Rigidbody2D:
     m_Bits: 0
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 4
 --- !u!1 &5399093180607606639
 GameObject:
@@ -2388,7 +2383,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 10
   invulnerableTime: 0.1
-  dashDamage: 0
+  dashDamage: 100
 --- !u!50 &949673349641784462
 Rigidbody2D:
   serializedVersion: 4
@@ -2414,8 +2409,8 @@ Rigidbody2D:
     m_Bits: 0
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 0
+  m_CollisionDetection: 1
+  m_Constraints: 4
 --- !u!114 &961510884283983382
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2459,14 +2454,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1605dda8dfd412a4aa6abb6f0bec8783, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  radius: 0.5
+  radius: 0.25
   collisionLayer:
     serializedVersion: 2
     m_Bits: 55
-  flex: 50
-  rigidness: 5
+  flex: 500
+  rigidness: 50
   bounce: 2
-  stretch: 0.5
+  stretch: 0.3
   bones:
   - {fileID: 3953791001984800036}
   - {fileID: 1214911848052585437}
@@ -2570,7 +2565,6 @@ MonoBehaviour:
   wiggleSpeed: 3.07
   state: 0
   Body: {fileID: 949673349641784462}
-  scale: 1
   gradientIdle:
     serializedVersion: 2
     key0: {r: 0.34901962, g: 0.9803922, b: 0.9803922, a: 1}
@@ -2846,7 +2840,7 @@ Rigidbody2D:
     m_Bits: 0
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 4
 --- !u!1 &6359541139037982051
 GameObject:
@@ -2941,7 +2935,7 @@ Rigidbody2D:
     m_Bits: 0
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 4
 --- !u!1 &7555539270475929357
 GameObject:
@@ -3036,7 +3030,7 @@ Rigidbody2D:
     m_Bits: 0
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 4
 --- !u!1 &7636752111250931910
 GameObject:

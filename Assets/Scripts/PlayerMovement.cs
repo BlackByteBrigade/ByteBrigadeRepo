@@ -92,6 +92,7 @@ public class PlayerMovement : MonoBehaviour
 
         Vector2 dashDir = movementInput.magnitude > 0.5f ? movementInput : Body.velocity.normalized;
         Body.velocity = dashDir * dashSpeed;
+        Body.mass = float.MaxValue;
 
         StartDashVFX();
 
@@ -122,6 +123,7 @@ public class PlayerMovement : MonoBehaviour
     private void EndDash()
     {
         Player.State = PlayerState.Moving;
+        Body.mass = 1;
         // Sprite.color = TMP_originalColor;// TODO make better visual for when dash ends
         EndDashVFX();
     }
@@ -130,6 +132,7 @@ public class PlayerMovement : MonoBehaviour
     {
         if (isDashCancelable)
         {
+            Body.velocity = Vector2.zero;
             EndDash();
         }
     }

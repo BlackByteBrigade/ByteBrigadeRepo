@@ -33,7 +33,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &8870225296122341477
 SpriteRenderer:
@@ -76,8 +76,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 3625043607559282579, guid: 045b15ec09bba42448d89db77fa6f20a,
-    type: 3}
+  m_Sprite: {fileID: 21300000, guid: 20f618d3137039744ae30e3c40f05887, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -124,7 +123,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 0.5}
+    oldSize: {x: 2.56, y: 2.56}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -147,6 +146,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dnaUpgrade: {fileID: 766133348062222268, guid: d3ca19d55e6bdc54daecb3d1f06fb6bb,
     type: 3}
+  launchDist: 2
+  cantPickupTime: 1
 --- !u!50 &267657171462134375
 Rigidbody2D:
   serializedVersion: 4
