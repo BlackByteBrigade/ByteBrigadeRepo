@@ -6,9 +6,10 @@ using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance {get; private set;}
-    
+
     public int storedEnemyParts;
     public List<int> collectedEnemyParts = new List<int>();
+    public int NumberOfEnemiesFocusedOnPlayer { get; set; }
 
     //States of the game
     private enum State{
@@ -73,4 +74,21 @@ public class GameManager : MonoBehaviour
     public bool IsGameOver(){
         return gameState == State.GameOver;
     }
+
+    public void RegisterEnemyNoticed()
+    {
+        if (NumberOfEnemiesFocusedOnPlayer < 0)
+            NumberOfEnemiesFocusedOnPlayer = 0;
+        if (NumberOfEnemiesFocusedOnPlayer == 0)
+            AudioManager.instance.PlayLoudAreaMusic();
+        NumberOfEnemiesFocusedOnPlayer++;
+    }
+
+    public void UnregisterNoticedEnemy()
+    {
+        if (NumberOfEnemiesFocusedOnPlayer == 1)
+            AudioManager.instance.PlayRegularVolumeAreaMusic();
+        NumberOfEnemiesFocusedOnPlayer--;
+    }
+
 }
