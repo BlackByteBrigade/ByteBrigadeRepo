@@ -6,6 +6,9 @@ using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance {get; private set;}
+    
+    public int storedEnemyParts;
+    public List<int> collectedEnemyParts = new List<int>();
 
     //States of the game
     private enum State{
