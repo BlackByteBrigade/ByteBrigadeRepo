@@ -57,12 +57,6 @@ public class Enemy : Cell
             BecameVulnerable = default;
             IsInVulnerableState = false;
         }
-
-        if (AlertnessLevel >= Alertness.Noticed)
-        {
-            //combat music is area music just louder
-            AudioManager.instance.PlayLoudAreaMusic();
-        }
     }
 
 
@@ -76,9 +70,12 @@ public class Enemy : Cell
     {
         if (DistanceToPlayer <= AlarmedByPlayerDistance)
         {
+            if (AlertnessLevel == Alertness.Idle)
+            {
+                GameManager.Instance.RegisterEnemyNoticed();
+            }
             AlertnessLevel = Alertness.Engaged;
             _lastAlertRise = DateTime.Now;
-            //Debug.Log($"AlertnessLevel increased to {AlertnessLevel:G}");
         }
         else if (DistanceToPlayer <= ReactsToPlayerDistance && Has3SecondsPassedSinceLastAlertRise &&
                  _rand.Next(0, 10) % 4 == 0)
@@ -87,14 +84,16 @@ public class Enemy : Cell
             _lastAlertRise = DateTime.Now;
             if ((int)AlertnessLevel < _numberofAlertStates)
             {
+                if (AlertnessLevel == Alertness.Idle)
+                {
+                    GameManager.Instance.RegisterEnemyNoticed();
+                }
                 AlertnessLevel++;
-                //Debug.Log($"AlertnessLevel increased to {AlertnessLevel:G}");
             }
         }
         else if (AlertnessLevel > 0 && CountdownTillRestAlertnessRemaining <= 0)
         {
             AlertnessLevel--;
-            //Debug.Log($"AlertnessLevel decreased to {AlertnessLevel:G}");
         }
 
         if (CountdownTillRestAlertnessRemaining > 0)
@@ -114,7 +113,7 @@ public class Enemy : Cell
             var dmg = 100;
             if (health <= dmg)
             {
-                AudioManager.instance.PlayRegularVolumeAreaMusic(); //todo this needs to be in the Game Manager -> Scan if any enemy is in > "Alertness.Noticed" state, if not exec this
+                GameManager.Instance.UnregisterNoticedEnemy();
             }
             playerScript.Attack(this);
         }
@@ -127,7 +126,7 @@ public class Enemy : Cell
 
     public override void Die()
     {
-        if (upgradeType != null)
+        if (upgradeType != null && PlayerManager.Instance.currentDNAUpgrade != upgradeType)
         {
             DNACollectible collectible = Instantiate(upgradeCollectiblePrefab, transform.position, Quaternion.identity);
             collectible.dnaUpgrade = upgradeType;

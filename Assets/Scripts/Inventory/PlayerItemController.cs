@@ -22,6 +22,8 @@ public class PlayerItemController : MonoBehaviour
             //Play sound effect
             AudioManager.instance.PlaySfX(SoundEffects.CollectingEnemyPart);
 
+            collision.GetComponent<CollectableItem>().PickUp();
+
             // Destroy the collected item object in the world
             Destroy(collision.gameObject);
             

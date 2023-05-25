@@ -4,12 +4,10 @@ using UnityEngine;
 
 public class EnemyPartDropOff : MonoBehaviour
 {
-    private int numberOfEnemyPartsDroppedOffSoFar;
-
     public void DropOffEnemyPart(){
 
         //Add to number of part dropped off
-        numberOfEnemyPartsDroppedOffSoFar++;
+        GameManager.Instance.storedEnemyParts++;
     }
     
 }
