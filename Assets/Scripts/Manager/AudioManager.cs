@@ -24,13 +24,6 @@ public class AudioManager : MonoBehaviour
     public static float VolumeSFX => instance == null ? 1f : instance.evol;
 
     private bool playingAreaMusic;
-    private float _lastPlayedOrigAreaVolume;
-
-    private void Start()
-    {
-        //start the music
-        PlayRegularVolumeAreaMusic();
-    }
 
 
     private void Awake()
@@ -137,7 +130,7 @@ public class AudioManager : MonoBehaviour
             }
 
             // pick a random song from our playlist
-            currentPlayingIndex = UnityEngine.Random.Range(0, playlist.Length- 1);
+            currentPlayingIndex = UnityEngine.Random.Range(0, playlist.Length);
             playlist[currentPlayingIndex].source.volume = playlist[0].volume * mvol; // set the volume
             playlist[currentPlayingIndex].source.Play(); // play it
             
@@ -158,7 +151,7 @@ public class AudioManager : MonoBehaviour
         audioSource.volume = origVolume;
     }
 
-    public void PlayCombatMusic()
+    private void PlayCombatMusic()
     {
         if (shouldPlayAreaMusic == false)
         {
@@ -171,7 +164,7 @@ public class AudioManager : MonoBehaviour
             }
 
             // pick a random song from our combat playlist
-            currentPlayingIndex = UnityEngine.Random.Range(0, playlistAreas.Length- 1);
+            currentPlayingIndex = UnityEngine.Random.Range(0, playlistAreas.Length);
             playlistAreas[currentPlayingIndex].source.volume = playlistAreas[0].volume * mvol; // set the volume
             playlistAreas[currentPlayingIndex].source.Play(); // play it
             playingAreaMusic = true;
@@ -190,21 +183,40 @@ public class AudioManager : MonoBehaviour
             return;
         }
 
-        _lastPlayedOrigAreaVolume = playlistAreas[currentPlayingIndex].source.volume;
         StartCoroutine(FadeToVolume(playlistAreas[currentPlayingIndex].source, 1f, mvol));
     }
 
-    public void PlayRegularVolumeAreaMusic()
+    public void PlayRegularVolumeAreaMusic(bool forcePlayAnother = false)
     {
         if (!playingAreaMusic)
         {
             PlayCombatMusic();
         }
-
-        if (_lastPlayedOrigAreaVolume != default(float))
+        else if (forcePlayAnother)
         {
-            StartCoroutine(FadeToVolume(playlistAreas[currentPlayingIndex].source, _lastPlayedOrigAreaVolume , mvol));
+            //we can add this so if the player uses a teleporter also gets a new track
+            // pick a random song from our combat playlist
+            if (!playingAreaMusic && currentPlayingIndex < 999)
+            {
+                playlist[currentPlayingIndex].source.Stop(); // stop ambient music
+            }
+            else if(currentPlayingIndex < 999)
+            {
+                playlistAreas[currentPlayingIndex].source.Stop(); //stop area music
+            }
+            int newIndex;
+            do
+            {
+                newIndex = UnityEngine.Random.Range(0, playlistAreas.Length);
+            } while (newIndex == currentPlayingIndex);
+            currentPlayingIndex = newIndex;
+            playlistAreas[currentPlayingIndex].source.volume = playlistAreas[currentPlayingIndex].volume * mvol; // set the volume
+            playlistAreas[currentPlayingIndex].source.Play(); // play it
+            playingAreaMusic = true;
+            return;
         }
+
+        StartCoroutine(FadeToVolume(playlistAreas[currentPlayingIndex].source, playlistAreas[currentPlayingIndex].volume, mvol));
     }
 
 
