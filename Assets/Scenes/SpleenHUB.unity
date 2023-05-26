@@ -1351,6 +1351,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hubScene: SpleenHUB
+  maxHealth: 0
+  currentHealth: 0
   respawnTime: 1
   enemyPartDropPrefab: {fileID: -2541115740644371208, guid: 7d3a8e1d89e910c42b549c3d257e3e2f,
     type: 3}
@@ -1638,6 +1640,27 @@ MonoBehaviour:
     source: {fileID: 0}
     loop: 0
     Area: 0
+  - name: Hand In
+    clip: {fileID: 8300000, guid: 405d8f8396370fc4bbbb5d3e0fac2c3b, type: 3}
+    volume: 0.959
+    pitch: 0
+    source: {fileID: 0}
+    loop: 0
+    Area: 0
+  - name: Splash Screen
+    clip: {fileID: 8300000, guid: 2144a4d94d4560c4b85d499b3695c14f, type: 3}
+    volume: 0.959
+    pitch: 0
+    source: {fileID: 0}
+    loop: 0
+    Area: 0
+  - name: Teleport
+    clip: {fileID: 8300000, guid: 07e4b4146b94d084cb2b755c21c41520, type: 3}
+    volume: 0.959
+    pitch: 0
+    source: {fileID: 0}
+    loop: 0
+    Area: 0
   playlist:
   - name: ambient1
     clip: {fileID: 8300000, guid: 78aa3bd449a1f564db754829404fbee4, type: 3}
@@ -1649,6 +1672,13 @@ MonoBehaviour:
   playlistAreas:
   - name: Area1
     clip: {fileID: 8300000, guid: 77d08af85f3a8494b93f642414b48037, type: 3}
+    volume: 0.5
+    pitch: 0
+    source: {fileID: 0}
+    loop: 1
+    Area: 3
+  - name: Area1
+    clip: {fileID: 8300000, guid: ac3db00eb44100543b775074bc7b2a8c, type: 3}
     volume: 0.5
     pitch: 0
     source: {fileID: 0}
