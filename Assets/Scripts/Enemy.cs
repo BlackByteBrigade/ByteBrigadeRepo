@@ -7,6 +7,7 @@ public class Enemy : Cell
 {
     public GameObject Player { get; set; }
     public Collider2D Weakspot;
+    public SpriteHandler spriteHandler;
     
     public bool IsInVulnerableState;
     public int DmgFromTouching;
@@ -17,6 +18,7 @@ public class Enemy : Cell
     public Alertness AlertnessLevel { get; set; }
     public float CountdownTillRestAlertness;
     public float CountdownTillRestAlertnessRemaining { get; set; }
+
 
     private Random _rand;
     private int _numberofAlertStates;
@@ -107,6 +109,10 @@ public class Enemy : Cell
     }
 
 
+
+
+
+    // -------------- COLLISIONS ----------------------
     
     public void OnCollisionEnter2D(Collision2D collision)
     {
@@ -126,9 +132,7 @@ public class Enemy : Cell
         //else if (collision.contacts.Any(contact => contact.otherCollider == Player || contact.collider == Player)) // this didnt work since it was comparing a collider to a gameobject
         else if (collision.gameObject.CompareTag("Player")) // this will detect if it collides with any player colliders
         {
-            // Deprecated?
-            playerScript.TakeDamage(DmgFromTouching);
-            OnDealDamage();
+            DealDamage(playerScript);
         }
     }
 
@@ -139,10 +143,13 @@ public class Enemy : Cell
         var playerScript = Player.GetComponent<Player>();
         if (collision.gameObject.CompareTag("Player") && playerScript.State != PlayerState.Dashing)
         {
-            playerScript.TakeDamage(DmgFromTouching);
-            OnDealDamage();
-
+            DealDamage(playerScript);
         }
+    }
+
+    protected virtual void DealDamage(Player playerScript) {
+        playerScript.TakeDamage(DmgFromTouching);
+        OnDealDamage();
     }
 
     // virtual method for child classes to access damage effects (sound, vfx etc.)

@@ -5,10 +5,14 @@ using UnityEngine;
 
 public class Cell : MonoBehaviour
 {
+
+    // signals
+    public Action<int> a_TakeDamage;    // int: damageTaken
+    public event Action<Cell> OnDeath;
+
     public int health;
     [Tooltip("Time just after a hit where you cant get hit again")]
     public float invulnerableTime = 0.1f;
-    public event Action<Cell> OnDeath;
 
     public bool IsInvulnerable { get; private set; }
     public bool IsDead { get; private set; }
@@ -25,6 +29,7 @@ public class Cell : MonoBehaviour
         health = Mathf.Max(health - damage, 0); // so that health never goes below zero (for player healthbar to not go below zero)
         IsInvulnerable = true;
         Invoke(nameof(MakeVulnerable), invulnerableTime);
+        a_TakeDamage?.Invoke(damage); // signal for all subscribers
 
         IsDead = health <= 0;
         if (IsDead)

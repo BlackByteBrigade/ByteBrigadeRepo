@@ -24,7 +24,6 @@ public class AudioPlayer : MonoBehaviour
 
 
     void CreateAudioComponent(Sound sound) {
-        Debug.Log($"create audio component {sound.name}");
         sound.source = gameObject.AddComponent<AudioSource>();
         sound.source.clip = sound.clip;
         sound.source.volume = sound.volume * AudioManager.VolumeSFX;

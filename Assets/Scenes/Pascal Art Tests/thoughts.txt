@@ -1,11 +1,16 @@
 
 
-stuff done
-    audioplayer
-    nerve damage
-    bloodvents
-    plasma prefab
-    new demo level
+
+what to change in test scene:
+    audio listener to player
+    remove Audiolistener from main camera 
+    add CameraShake script to virtual camera
+    virtual camera > noise: set from None to Basic Multichannel
+                            then beneath noise Profile: set to 6D Shake
+
+
+
+
 
 
 

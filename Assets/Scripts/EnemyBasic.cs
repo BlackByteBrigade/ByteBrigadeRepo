@@ -25,6 +25,8 @@ public class EnemyBasic : EnemyPathing
 
     private IEnumerator Move()
     {
+        if(IsDead) yield break;
+
         Vector2 currentPos = transform.position; // easier to deal with the position as a vector2
         Vector2 prevTargetPos = path[(PathIndex - 1 < 0 ? path.Length : PathIndex) - 1].position;
         Vector2 targetDir = (TargetPos - currentPos).normalized;

@@ -77,6 +77,7 @@ public class Player : Cell
 
     // On Damage Effects
     public override bool TakeDamage(int damage) {
+        CameraShake.Shake();
         bool isDead = base.TakeDamage(damage);
         PlayerManager.Instance.currentHealth = health;
         if (!isDead) {
