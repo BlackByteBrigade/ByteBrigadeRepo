@@ -226,3 +226,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   newSoftbodyFlex: 350
   newRadius: 0.1
+  newMat: {fileID: 6200000, guid: 186afc915505b7a44988d5a460052713, type: 2}

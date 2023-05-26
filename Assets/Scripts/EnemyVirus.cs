@@ -26,6 +26,8 @@ public sealed class EnemyVirus : EnemyRanged
     private SpriteRenderer renderer;
 
 
+
+
     void Start()
     {
         _sourrounderParentTransform = this.transform;
@@ -76,7 +78,7 @@ public sealed class EnemyVirus : EnemyRanged
 
         for (var i = 0; i < _numberOfprojectiles; i++)
         {
-            var index = Random.Range(0, angleSteps.Count - 1);
+            var index = Random.Range(0, angleSteps.Count);
             var angle = angleSteps[index];
             angleSteps.RemoveAt(index);
 

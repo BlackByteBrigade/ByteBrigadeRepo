@@ -45,6 +45,7 @@ public enum SoundEffects
     MainMenuSelection,
     LogoSound,
     PewPew,
+    Teleporting
 }
 
 public static class AudioHelper
@@ -62,7 +63,7 @@ public static class AudioHelper
                 return "Take_Damage";
             case SoundEffects.EnemyDeath:
                 var enemyDieSounds = AudioManager.instance.sounds.Where(o => o.clip.name.IndexOf("Enemy_Death_",StringComparison.CurrentCultureIgnoreCase)>=0).ToList();
-                return enemyDieSounds[Random.Range(0, enemyDieSounds.Count - 1)].name;
+                return enemyDieSounds[Random.Range(0, enemyDieSounds.Count)].name;
             case SoundEffects.PlayerDeath:
                 return "Player Death"; //todo
             case SoundEffects.CollectingEnemyPart:
@@ -72,13 +73,15 @@ public static class AudioHelper
             case SoundEffects.Collision:
                 return "Collision"; //todo
             case SoundEffects.DropingOffEnememyParts:
-                return "DropingOffEnememyParts"; //todo
+                return "Hand In";
             case SoundEffects.MainMenuSelection:
                 return "MainMenuSelection"; //todo
             case SoundEffects.LogoSound:
-                return "LogoSound"; //todo
+                return "Splash Screen";
             case SoundEffects.PewPew:
                 return "Harpoony_Thing";
+            case SoundEffects.Teleporting:
+                return "Teleporting";
         }
         return soundEffect.ToString("G");
     }
