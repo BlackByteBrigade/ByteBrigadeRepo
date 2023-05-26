@@ -13,6 +13,9 @@ public class PlayerManager : MonoBehaviour
     [Header("Scenes")]
     public string hubScene;
 
+    public int maxHealth;
+    public int currentHealth;
+
     [Header("Respawning")]
     public float respawnTime;
     public CollectableItem enemyPartDropPrefab;
@@ -72,6 +75,7 @@ public class PlayerManager : MonoBehaviour
 
     private void LoadHubScene()
     {
+        currentHealth = maxHealth;
         SceneManager.LoadScene(hubScene);
     }
 

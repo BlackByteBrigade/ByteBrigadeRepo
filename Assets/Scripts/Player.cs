@@ -19,14 +19,11 @@ public class Player : Cell
 
     public CircleCollider2D mainCollider;
 
-    int maxHealth;
-
     private void Awake()
     {
         if (instance == null)
         {
             instance = this;
-            maxHealth = Mathf.Max(health, 1);
 
             InitializeComponents();
         }
@@ -44,6 +41,9 @@ public class Player : Cell
 
     private void Start()
     {
+        health = PlayerManager.Instance.currentHealth;
+        PlayerHUD.instance.UpdateHealthbar(health / (float)PlayerManager.Instance.maxHealth);
+
         if (PlayerManager.Instance.currentDNAUpgrade != null)
         {
             ChangeDNA(PlayerManager.Instance.currentDNAUpgrade);
@@ -78,9 +78,10 @@ public class Player : Cell
     // On Damage Effects
     public override bool TakeDamage(int damage) {
         bool isDead = base.TakeDamage(damage);
+        PlayerManager.Instance.currentHealth = health;
         if (!isDead) {
             AudioManager.instance.PlaySfX(SoundEffects.PlayerTakingDamage);
-            PlayerHUD.instance.UpdateHealthbar(health/ (float) maxHealth);
+            PlayerHUD.instance.UpdateHealthbar(health/ (float)PlayerManager.Instance.maxHealth);
         } else
             AudioManager.instance.PlaySfX(SoundEffects.PlayerDeath);
 
