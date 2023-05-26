@@ -11,7 +11,7 @@ public class CollectableItem : MonoBehaviour
     [SerializeField] int itemAmount;
 
     [Tooltip("only applies for dropped enemy parts - defines how far they spread from the dead body")]
-    [SerializeField] float dropDist;
+    [SerializeField] float dropSpeed;
 
     [HideInInspector] public bool dropped = false;
 
@@ -25,7 +25,7 @@ public class CollectableItem : MonoBehaviour
         else if (dropped && itemType == Item.ItemType.EnemyPart)
         {
             // if we are a dropped enemy part, we need to spread out so we dont clump at the same position
-            transform.DOMove(transform.position + (Vector3)Random.insideUnitCircle * dropDist, 1).SetEase(Ease.OutCubic);
+            GetComponent<Rigidbody2D>().velocity = Random.insideUnitCircle * dropSpeed;
         }
     }
 

@@ -58,7 +58,7 @@ public class BloodCellSpawner : MonoBehaviour
         List<GameObject> toBeRemoved = new();
 
         foreach (var bloodCell in bloodCells) {
-            if (bloodCell.transform.position.y > mainCamera.orthographicSize + despawnOffset)
+            if (bloodCell.transform.position.y > mainCamera.transform.position.y + mainCamera.orthographicSize + despawnOffset)
                 toBeRemoved.Add(bloodCell);
             
         }

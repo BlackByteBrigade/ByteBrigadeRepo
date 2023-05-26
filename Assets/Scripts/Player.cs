@@ -14,7 +14,10 @@ public class Player : Cell
 
     public PlayerMovement Movement { get; set; }
     public PlayerState State { get; set; }
+    public Softbody Softbody { get; set; }
     public DNAUpgrade dnaUpgrade { get; set; }
+
+    public CircleCollider2D mainCollider;
 
     int maxHealth;
 
@@ -24,7 +27,6 @@ public class Player : Cell
         {
             instance = this;
             maxHealth = Mathf.Max(health, 1);
-
 
             InitializeComponents();
         }
@@ -37,6 +39,7 @@ public class Player : Cell
     private void InitializeComponents()
     {
         Movement = GetComponent<PlayerMovement>();
+        Softbody = GetComponent<Softbody>();
     }
 
     private void Start()
@@ -57,7 +60,7 @@ public class Player : Cell
         {
             if (newDNA.GetType() == dnaUpgrade.GetType()) return;
             dnaUpgrade.RemoveUpgrade(this);
-            Destroy(dnaUpgrade);
+            Destroy(dnaUpgrade.gameObject);
         }
 
         PlayerManager.Instance.currentDNAUpgrade = newDNA;
@@ -86,10 +89,11 @@ public class Player : Cell
 
     public override void Die()
     {
+        Teleporter.currentDestinationId = -1;
         PlayerManager.Instance.currentDNAUpgrade = null;
         gameObject.SetActive(false);
 
-        // TODO add partcies + dropping held enemy parts
+        // TODO add partcies
 
         PlayerManager.Instance.RespawnPlayer();
     }

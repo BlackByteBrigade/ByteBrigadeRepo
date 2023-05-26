@@ -6,7 +6,7 @@ using DG.Tweening;
 public class DNACollectible : MonoBehaviour
 {
     public DNAUpgrade dnaUpgrade;
-    public float launchDist = 2;
+    public float launchSpeed = 2;
     public float cantPickupTime = 1;
 
     private bool canPickup = false;
@@ -15,7 +15,7 @@ public class DNACollectible : MonoBehaviour
     {
         if (Player.instance != null)
         {
-            transform.DOMove(transform.position + (transform.position - Player.instance.transform.position).normalized * launchDist, cantPickupTime).SetEase(Ease.OutCubic);
+            GetComponent<Rigidbody2D>().velocity = (transform.position - Player.instance.transform.position).normalized * launchSpeed;
         }
         Invoke(nameof(CanPickup), cantPickupTime);
     }
