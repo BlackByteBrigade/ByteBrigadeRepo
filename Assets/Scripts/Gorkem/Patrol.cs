@@ -1,7 +1,5 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using DG.Tweening;
 
 public class Patrol : MonoBehaviour
 {
@@ -31,7 +29,6 @@ public class Patrol : MonoBehaviour
 
     private float movementCounter;
     private float waitTimeCounter;
-    private bool isReached;
 
     private Quaternion toRotate;
     [SerializeField] float rotationSpeed;
@@ -135,7 +132,7 @@ public class Patrol : MonoBehaviour
             {
                 waitTimeCounter = 0;
             }
-                state = PatrolStates.Prep;
+            state = PatrolStates.Prep;
             oldDirectionVector = directionVector;
         }
     }
