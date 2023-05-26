@@ -21,8 +21,8 @@ public class Patrol : MonoBehaviour
     [SerializeField] private float floatingSpeed;
 
     private PatrolStates state;
-    private Vector3 beforeMovementPosition;
 
+    private Vector3 beforeMovementPosition;
     private Vector2 movementVector;
     private Vector3 oldDirectionVector;
     private Vector3 directionVector;
@@ -32,10 +32,14 @@ public class Patrol : MonoBehaviour
 
     private Quaternion toRotate;
     [SerializeField] float rotationSpeed;
+
+    LayerMask mask;
     private void Awake()
     {
         state = PatrolStates.Decide;
         anchorPoint = transform.position;
+        mask = LayerMask.GetMask("Level");
+
     }
 
     private void Update()
@@ -89,7 +93,6 @@ public class Patrol : MonoBehaviour
         }
         else
         {
-            LayerMask mask = LayerMask.GetMask("Level");
             var RaycastHitUp = Physics2D.Raycast(transform.position, Vector2.up, distanceToMove, mask);
             var RaycastHitDown = Physics2D.Raycast(transform.position, Vector2.down, distanceToMove , mask);
             var RaycastHitLeft = Physics2D.Raycast(transform.position, Vector2.left, distanceToMove , mask);
