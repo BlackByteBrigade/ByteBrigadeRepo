@@ -15,10 +15,11 @@ public class Patrol : MonoBehaviour
     [SerializeField] private float timeBtwMoves;
     [SerializeField] private float maxDistance;
     [SerializeField] private AnimationCurve movementCurve;
-    [SerializeField] private Transform anchorPoint;
+    [SerializeField] private Vector3 anchorPoint;
     [SerializeField] private bool canMoveContinuously;
     [SerializeField] private bool isFloating;
     [SerializeField] private float floatingSpeed;
+    [SerializeField] private Collider2D ColliderToIgnore;
 
     private PatrolStates state;
     private Vector3 beforeMovementPosition;
@@ -35,6 +36,7 @@ public class Patrol : MonoBehaviour
     private void Awake()
     {
         state = PatrolStates.Decide;
+        anchorPoint = transform.position;
     }
 
     private void Update()
@@ -81,33 +83,33 @@ public class Patrol : MonoBehaviour
     }
     private void DirectionDecider()
     {
-        if (Vector2.Distance(transform.position, anchorPoint.transform.position) > maxDistance)
+        if (Vector2.Distance(transform.position, anchorPoint) > maxDistance)
         {
-            var anchorDir = (anchorPoint.transform.position - transform.position).normalized;
+            var anchorDir = (anchorPoint - transform.position).normalized;
             movementVector = transform.position + anchorDir * distanceToMove;
         }
         else
         {
-            var RaycastHitUp = Physics2D.Raycast(transform.position, Vector2.up, distanceToMove);
-            var RaycastHitDown = Physics2D.Raycast(transform.position, Vector2.down, distanceToMove);
-            var RaycastHitLeft = Physics2D.Raycast(transform.position, Vector2.left, distanceToMove);
-            var RaycastHitRight = Physics2D.Raycast(transform.position, Vector2.right, distanceToMove);
+            var RaycastHitUp = Physics2D.Raycast(transform.position, Vector2.up, distanceToMove,6);
+            var RaycastHitDown = Physics2D.Raycast(transform.position, Vector2.down, distanceToMove, 6);
+            var RaycastHitLeft = Physics2D.Raycast(transform.position, Vector2.left, distanceToMove, 6);
+            var RaycastHitRight = Physics2D.Raycast(transform.position, Vector2.right, distanceToMove, 6);
 
             var listOfDirections = new List<Vector2>();
 
-            if (RaycastHitUp.collider == null)
+            if (IsNullOrNotSpecifiedCollider(RaycastHitUp))
             {
                 listOfDirections.Add(Vector2.up);
             }
-            if (RaycastHitDown.collider == null)
+            if (IsNullOrNotSpecifiedCollider(RaycastHitDown))
             {
                 listOfDirections.Add(Vector2.down);
             }
-            if (RaycastHitLeft.collider == null)
+            if (IsNullOrNotSpecifiedCollider(RaycastHitLeft))
             {
                 listOfDirections.Add(Vector2.left);
             }
-            if (RaycastHitRight.collider == null)
+            if (IsNullOrNotSpecifiedCollider(RaycastHitRight))
             {
                 listOfDirections.Add(Vector2.right);
             }
@@ -135,5 +137,10 @@ public class Patrol : MonoBehaviour
             state = PatrolStates.Prep;
             oldDirectionVector = directionVector;
         }
+    }
+
+    private  bool IsNullOrNotSpecifiedCollider(RaycastHit2D RaycastHitUp)
+    {
+        return RaycastHitUp.collider == null || RaycastHitUp.collider == ColliderToIgnore;
     }
 }

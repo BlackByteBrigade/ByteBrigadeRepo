@@ -255,6 +255,10 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 5813192829546246185}
+    - targetCorrespondingSourceObject: {fileID: 3282764629523550160, guid: 01186e01ce8840f458ac5efd76b31624,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 9140153705367126527}
   m_SourcePrefab: {fileID: 100100000, guid: 01186e01ce8840f458ac5efd76b31624, type: 3}
 --- !u!58 &1933243631779781358 stripped
 CircleCollider2D:
@@ -349,3 +353,48 @@ MonoBehaviour:
   enemy: {fileID: 370120527711684078}
   drawReactionDistance: 1
   drawAlarmDistance: 1
+--- !u!114 &9140153705367126527
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5351896775220026550}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d3fe8eae6178ee146bf6ec555f90872c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  distanceToMove: 5
+  timeToReach: 3
+  timeBtwMoves: 4
+  maxDistance: 10
+  movementCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 2
+      outSlope: 2
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  anchorPoint: {x: 0, y: 0, z: 0}
+  canMoveContinuously: 1
+  isFloating: 0
+  floatingSpeed: 0.1
+  rotationSpeed: 450

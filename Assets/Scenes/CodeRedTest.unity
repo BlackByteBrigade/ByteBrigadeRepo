@@ -134,7 +134,7 @@ GameObject:
   - component: {fileID: 4944640}
   - component: {fileID: 4944639}
   - component: {fileID: 4944638}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Rocks_4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -542,7 +542,7 @@ GameObject:
   - component: {fileID: 40663632}
   - component: {fileID: 40663631}
   - component: {fileID: 40663630}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Closed Sprite Shape
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1134,7 +1134,7 @@ GameObject:
   - component: {fileID: 126784451}
   - component: {fileID: 126784453}
   - component: {fileID: 126784452}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: electricity1_0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1326,7 +1326,7 @@ GameObject:
   - component: {fileID: 158827205}
   - component: {fileID: 158827204}
   - component: {fileID: 158827203}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Closed Sprite Shape (8)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2009,7 +2009,7 @@ GameObject:
   - component: {fileID: 313870038}
   - component: {fileID: 313870041}
   - component: {fileID: 313870042}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Nerve
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2421,7 +2421,7 @@ GameObject:
   - component: {fileID: 359820227}
   - component: {fileID: 359820229}
   - component: {fileID: 359820228}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: electricity2_0 (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7696,7 +7696,7 @@ GameObject:
   - component: {fileID: 509063941}
   - component: {fileID: 509063940}
   - component: {fileID: 509063942}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Closed Sprite Shape (5)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8061,7 +8061,7 @@ GameObject:
   - component: {fileID: 521059499}
   - component: {fileID: 521059502}
   - component: {fileID: 521059503}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Nerve (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8327,7 +8327,7 @@ GameObject:
   - component: {fileID: 532948011}
   - component: {fileID: 532948010}
   - component: {fileID: 532948009}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Closed Sprite Shape (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8846,7 +8846,7 @@ GameObject:
   - component: {fileID: 556121584}
   - component: {fileID: 556121586}
   - component: {fileID: 556121585}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: electricity2_0 (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9137,7 +9137,7 @@ GameObject:
   - component: {fileID: 655527813}
   - component: {fileID: 655527816}
   - component: {fileID: 655527817}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Nerve (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9676,6 +9676,99 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 295190830496576197}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &726408289
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 3828846387750111487, guid: e2fa55048a395ba4a84ee635d663bbe5,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 3828846387750111487, guid: e2fa55048a395ba4a84ee635d663bbe5,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 619.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 3828846387750111487, guid: e2fa55048a395ba4a84ee635d663bbe5,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -11.9
+      objectReference: {fileID: 0}
+    - target: {fileID: 3828846387750111487, guid: e2fa55048a395ba4a84ee635d663bbe5,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.0229432
+      objectReference: {fileID: 0}
+    - target: {fileID: 3828846387750111487, guid: e2fa55048a395ba4a84ee635d663bbe5,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3828846387750111487, guid: e2fa55048a395ba4a84ee635d663bbe5,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3828846387750111487, guid: e2fa55048a395ba4a84ee635d663bbe5,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3828846387750111487, guid: e2fa55048a395ba4a84ee635d663bbe5,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3828846387750111487, guid: e2fa55048a395ba4a84ee635d663bbe5,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3828846387750111487, guid: e2fa55048a395ba4a84ee635d663bbe5,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3828846387750111487, guid: e2fa55048a395ba4a84ee635d663bbe5,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5351896775220026550, guid: e2fa55048a395ba4a84ee635d663bbe5,
+        type: 3}
+      propertyPath: m_Name
+      value: w
+      objectReference: {fileID: 0}
+    - target: {fileID: 9140153705367126527, guid: e2fa55048a395ba4a84ee635d663bbe5,
+        type: 3}
+      propertyPath: movementCurve.m_Curve.Array.data[0].inSlope
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 9140153705367126527, guid: e2fa55048a395ba4a84ee635d663bbe5,
+        type: 3}
+      propertyPath: movementCurve.m_Curve.Array.data[1].inSlope
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9140153705367126527, guid: e2fa55048a395ba4a84ee635d663bbe5,
+        type: 3}
+      propertyPath: movementCurve.m_Curve.Array.data[0].outSlope
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 9140153705367126527, guid: e2fa55048a395ba4a84ee635d663bbe5,
+        type: 3}
+      propertyPath: movementCurve.m_Curve.Array.data[1].outSlope
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: e2fa55048a395ba4a84ee635d663bbe5, type: 3}
 --- !u!1 &768461278
 GameObject:
   m_ObjectHideFlags: 0
@@ -9687,7 +9780,7 @@ GameObject:
   - component: {fileID: 768461279}
   - component: {fileID: 768461281}
   - component: {fileID: 768461280}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: electricity1_0 (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10389,7 +10482,7 @@ GameObject:
   - component: {fileID: 950376831}
   - component: {fileID: 950376830}
   - component: {fileID: 950376829}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Closed Sprite Shape (6)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -11843,7 +11936,7 @@ GameObject:
   - component: {fileID: 1164254571}
   - component: {fileID: 1164254570}
   - component: {fileID: 1164254572}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Open Sprite Shape
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -12928,7 +13021,7 @@ GameObject:
   - component: {fileID: 1388717303}
   - component: {fileID: 1388717305}
   - component: {fileID: 1388717304}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: electricity1_0 (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -13192,7 +13285,7 @@ GameObject:
   - component: {fileID: 1454562292}
   - component: {fileID: 1454562294}
   - component: {fileID: 1454562293}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: electricity1_0 (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -13377,7 +13470,7 @@ GameObject:
   - component: {fileID: 1485583579}
   - component: {fileID: 1485583578}
   - component: {fileID: 1485583577}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Closed Sprite Shape (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -13859,7 +13952,7 @@ GameObject:
   - component: {fileID: 1490351118}
   - component: {fileID: 1490351120}
   - component: {fileID: 1490351119}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: electricity2_0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -14266,7 +14359,7 @@ GameObject:
   - component: {fileID: 1558640647}
   - component: {fileID: 1558640646}
   - component: {fileID: 1558640645}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Closed Sprite Shape (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -15291,6 +15384,79 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1806442120}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &1663966141
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 3828846387750111487, guid: e2fa55048a395ba4a84ee635d663bbe5,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 3828846387750111487, guid: e2fa55048a395ba4a84ee635d663bbe5,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 609.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 3828846387750111487, guid: e2fa55048a395ba4a84ee635d663bbe5,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -11.9
+      objectReference: {fileID: 0}
+    - target: {fileID: 3828846387750111487, guid: e2fa55048a395ba4a84ee635d663bbe5,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.0229432
+      objectReference: {fileID: 0}
+    - target: {fileID: 3828846387750111487, guid: e2fa55048a395ba4a84ee635d663bbe5,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3828846387750111487, guid: e2fa55048a395ba4a84ee635d663bbe5,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3828846387750111487, guid: e2fa55048a395ba4a84ee635d663bbe5,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3828846387750111487, guid: e2fa55048a395ba4a84ee635d663bbe5,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3828846387750111487, guid: e2fa55048a395ba4a84ee635d663bbe5,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3828846387750111487, guid: e2fa55048a395ba4a84ee635d663bbe5,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3828846387750111487, guid: e2fa55048a395ba4a84ee635d663bbe5,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5351896775220026550, guid: e2fa55048a395ba4a84ee635d663bbe5,
+        type: 3}
+      propertyPath: m_Name
+      value: SpikeBall Variant
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: e2fa55048a395ba4a84ee635d663bbe5, type: 3}
 --- !u!1 &1667734942
 GameObject:
   m_ObjectHideFlags: 0
@@ -15374,7 +15540,7 @@ GameObject:
   - component: {fileID: 1720283509}
   - component: {fileID: 1720283508}
   - component: {fileID: 1720283510}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Closed Sprite Shape (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -16177,7 +16343,7 @@ GameObject:
   - component: {fileID: 1824659651}
   - component: {fileID: 1824659650}
   - component: {fileID: 1824659649}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Closed Sprite Shape (7)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -16678,7 +16844,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1863303492}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: WALLS
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -16852,7 +17018,7 @@ GameObject:
   - component: {fileID: 1956148151}
   - component: {fileID: 1956148150}
   - component: {fileID: 1956148149}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Open Sprite Shape (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -17305,7 +17471,7 @@ GameObject:
   - component: {fileID: 1995447311}
   - component: {fileID: 1995447313}
   - component: {fileID: 1995447312}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: electricity1_0 (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -17682,7 +17848,7 @@ GameObject:
   - component: {fileID: 2098441038}
   - component: {fileID: 2098441037}
   - component: {fileID: 2098441036}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Rocks_3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -17922,7 +18088,7 @@ GameObject:
   - component: {fileID: 2104574507}
   - component: {fileID: 2104574509}
   - component: {fileID: 2104574508}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: electricity2_0 (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}

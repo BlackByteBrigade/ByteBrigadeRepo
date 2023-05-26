@@ -26,6 +26,8 @@ public sealed class EnemyVirus : EnemyRanged
     private SpriteRenderer renderer;
 
 
+
+
     void Start()
     {
         _sourrounderParentTransform = this.transform;
