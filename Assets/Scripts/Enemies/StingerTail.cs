@@ -4,44 +4,77 @@ using UnityEngine;
 
 public class StingerTail : MonoBehaviour
 {
-    [SerializeField] float amplitude = 1f;
-    [SerializeField] float frequency = 1f;
-    [SerializeField] float speed = 1f;
-    [SerializeField] bool alongXAxis = true;
+
+    [System.Serializable]
+    public struct TentacleParameters {
+        public float amplitude;
+        public float speed;
+        public float frequency;
+        public float stretch;
+    }
+
+    [SerializeField] TentacleParameters parameters_Idle;
+    [SerializeField] TentacleParameters parameters_WindUp;
+    [SerializeField] TentacleParameters parameters_Dash;
+
+
+    [SerializeField] Axis alongAxis = Axis.X;
     
 
     LineRenderer line;
     int numSegments = 1;
+    Vector3[] segmentPositions;
     float dt = 0;
+    TentacleParameters parameters;
 
+    public enum Axis {X = 0, Y = 1 }
 
 
     void Start() {
+        parameters = parameters_Idle;
         line = GetComponent<LineRenderer>();
         numSegments = line.positionCount;
+        segmentPositions = new Vector3[numSegments];
+        line.GetPositions(segmentPositions);
     }
+
+
 
     void Update() {
 
-        dt += Time.deltaTime * speed;
+        dt += Time.deltaTime * parameters.speed;
 
         for (int i = 0; i < numSegments; i++) {
-            Vector3 pos = line.GetPosition(i);
+            Vector3 pos = segmentPositions[i]; //line.GetPosition(i);
             float ratio = (float)i / (numSegments - 1);
             float scale = Mathf.Pow(ratio, 0.5f);
             float t = ratio - dt;
 
             float x,y;
 
-            if (alongXAxis) {
-                x = Mathf.Sin(t * frequency * Mathf.PI * 2f) * amplitude* scale;
-                y = pos.y;
+            if (alongAxis == Axis.X) {
+                x = pos.x * parameters.stretch;
+                y = Mathf.Sin(t * parameters.frequency * Mathf.PI * 2f) * parameters.amplitude* scale;
             } else {
-                x = pos.x;
-                y = Mathf.Sin(t * frequency * Mathf.PI * 2f) * amplitude* scale;
+                x = Mathf.Sin(t * parameters.frequency * Mathf.PI * 2f) * parameters.amplitude* scale;
+                y = pos.y * parameters.stretch;
             }
 
             line.SetPosition(i, new Vector3(x, y, 0f));
         }
+    }
+
+
+
+    public void SetIdle() {
+        parameters = parameters_Idle;
+    }
+
+    public void WindUp() {
+        parameters = parameters_WindUp;
+    }
+
+    public void Dash() {
+        parameters = parameters_Dash;
     }
 }

@@ -1,12 +1,13 @@
 
 
+stuff done
+    audioplayer
+    nerve damage
+    bloodvents
+    plasma prefab
+    new demo level
 
 
-Todo
-    stinger script
-    background options
-    dendretic cell look
-    UI icons
 
 
 skin

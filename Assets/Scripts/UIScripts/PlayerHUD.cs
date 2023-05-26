@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 
 // Author: Pascal
@@ -10,8 +11,12 @@ using UnityEngine.UI;
 public class PlayerHUD : MonoBehaviour
 {
     [SerializeField] Image healthbarFillImage;
+    [SerializeField] TMP_Text plasmaCounter;
 
     public static PlayerHUD instance;
+
+    // TEMP: counts plasma coins collected
+    int plasma;
 
     void Awake() {
 
@@ -28,5 +33,10 @@ public class PlayerHUD : MonoBehaviour
 
     public void UpdateHealthbar(float value) {
         healthbarFillImage.fillAmount = value;
+    }
+
+    public void AddPlasma(int amount) {
+        plasma += amount;
+        plasmaCounter.text = plasma.ToString();
     }
 }

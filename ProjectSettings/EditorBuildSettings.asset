@@ -14,4 +14,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/SpleenHUB.unity
     guid: 3918230ed46eda44dbc09d4a5aea84ff
+  - enabled: 1
+    path: Assets/Scenes/Pascal Art Tests/Art_Test.unity
+    guid: f332ad3f8939a8a45bd01822b08cc889
   m_configObjects: {}

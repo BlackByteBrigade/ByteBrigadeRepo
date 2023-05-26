@@ -7,20 +7,29 @@ using UnityEngine;
 
 public class BloodCellSpawner : MonoBehaviour
 {
+    [SerializeField] int dmgFromTouching = 30;
     [SerializeField] GameObject bloodCellPrefab;
     [SerializeField] float spawnInterval = 1f;
     [SerializeField] Vector2 spawnRectDimensions;
-    [SerializeField] float despawnOffset = 2f;
     [SerializeField] float speed = 1f;
+    [Tooltip("How far should a blood cell travel from spawn")]
+    [SerializeField] float maxDistanceTravelled = 100f;
+    [SerializeField] Sound ambientSound;
 
-    Camera mainCamera;
+    
     float spawnTimer;
     List<GameObject> bloodCells;
+    AudioPlayer audioPlayer;
 
-    private void Start() {
+    void Start() {
+
+        if (TryGetComponent<AudioPlayer>(out audioPlayer)) {
+            audioPlayer.AddSound(ambientSound);
+            audioPlayer.Play(ambientSound);
+        }
         bloodCells = new();
-        mainCamera = Camera.main;
         spawnTimer = spawnInterval;
+
     }
 
     void Update() {
@@ -37,7 +46,7 @@ public class BloodCellSpawner : MonoBehaviour
 
     void UpdateBloodCells() {
         foreach (var bloodCell in bloodCells) {
-            bloodCell.transform.position += Vector3.up * speed * Time.deltaTime;
+            bloodCell.transform.position += transform.up * speed * Time.deltaTime;
         }
     }
 
@@ -50,6 +59,8 @@ public class BloodCellSpawner : MonoBehaviour
 
         var obj = Instantiate(bloodCellPrefab, Vector3.zero , Quaternion.identity, transform);
         obj.transform.localPosition = spawnPosition;
+        Enemy enemy = obj.GetComponent<Enemy>();
+        enemy.DmgFromTouching = dmgFromTouching;
         bloodCells.Add(obj);
     }
 
@@ -57,7 +68,8 @@ public class BloodCellSpawner : MonoBehaviour
         List<GameObject> toBeRemoved = new();
 
         foreach (var bloodCell in bloodCells) {
-            if (bloodCell.transform.position.y > mainCamera.transform.position.y + mainCamera.orthographicSize + despawnOffset)
+            float distance = Vector3.Distance(bloodCell.transform.position,transform.position);
+            if ( distance > maxDistanceTravelled)
                 toBeRemoved.Add(bloodCell);
             
         }

@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 1915376466511907539}
   - component: {fileID: 5292578205041100504}
   - component: {fileID: 1151859954127872455}
+  - component: {fileID: 3742867716331546926}
   m_Layer: 0
   m_Name: BloodSpawner
   m_TagString: Untagged
@@ -49,9 +50,17 @@ MonoBehaviour:
   bloodCellPrefab: {fileID: 5839895967178472650, guid: 569e9a76099991e479e3b711d9772206,
     type: 3}
   spawnInterval: 0.5
-  spawnRect: {x: 4, y: 4}
-  despawnOffset: 0
+  spawnRectDimensions: {x: 3, y: 4}
   speed: 5
+  maxDistanceTravelled: 20
+  ambientSound:
+    name: Ambient
+    clip: {fileID: 8300000, guid: 3faa48c7019b21741b9710c47a32a1db, type: 3}
+    volume: 1
+    pitch: 1
+    source: {fileID: 0}
+    loop: 1
+    Area: 0
 --- !u!212 &1151859954127872455
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -104,6 +113,19 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &3742867716331546926
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 488935743097111445}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dc17ed3029f925e46a85a162386f9d35, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sounds: []
 --- !u!1 &560895288335222876
 GameObject:
   m_ObjectHideFlags: 0
@@ -115,7 +137,7 @@ GameObject:
   - component: {fileID: 1012308574888540084}
   - component: {fileID: 6034977701152953778}
   m_Layer: 0
-  m_Name: spawner
+  m_Name: Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

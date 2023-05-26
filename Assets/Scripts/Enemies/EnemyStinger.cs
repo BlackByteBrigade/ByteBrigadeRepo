@@ -21,7 +21,7 @@ using DG.Tweening;
     
     Engaged:
 
-        Turning
+        WindUp
             1. rotate towards player
                 if angle > threshold swim in a tight radius
                 else turn on spot
@@ -41,7 +41,7 @@ using DG.Tweening;
             6. if player out of range 
                 => return to anchorpoint
             7. if player still within range
-                => Turning state
+                => WindUp state
 
 */
 
@@ -58,35 +58,42 @@ public class EnemyStinger : Enemy
     [SerializeField] float durationBetweenDashes = 5f;
     [Tooltip("Time between end of turning and start of dash")] 
     [SerializeField] float dashDelay = 0.5f;
+    [SerializeField] Sound dashSound;
+    [SerializeField] int dashDamage;
 
     [SerializeField] StingerTail tail;
 
-    // TEMP
-    [SerializeField] AudioSource dashSound;
 
 
     
-
+    AudioPlayer audioPlayer;
     Transform playerTransform;
     Vector3 anchorPosition;
+    int idleDamage;
+    Vector3 savedTargetPosition;
     State state = State.Idle;
     enum State {
         Idle = 0,
-        Turning = 1,
+        WindUp = 1,
         Dashing = 2,
         Recovering = 3,
     }
     
-    // should be "protected override"
-    new void Start() {
+    public void Start() {
+        
+        if (TryGetComponent<AudioPlayer>(out audioPlayer)) {
+            // audioPlayer.AddSound(ambientSound);
+            audioPlayer.AddSound(dashSound);
+        }
 
         anchorPosition = transform.position;
+        idleDamage = DmgFromTouching;
         base.Start(); // enemy needs public virtual void Start
         playerTransform = Player.transform;
+        tail.SetIdle();
     }
 
-    // should be "protected override"
-    new void Update() {
+    public void Update() {
         base.Update(); // enemy needs public virtual void Update
         if (AlertnessLevel >= Alertness.Engaged && state == State.Idle)
             // System.Action callback = ()=> DashTowardsPlayer();
@@ -96,44 +103,52 @@ public class EnemyStinger : Enemy
 
 
 
-
-
-    void RotateTowardsPlayer(System.Action callback = null) {
-        state = State.Turning;
-        Vector3 targetDirection = playerTransform.position - transform.position;
-        float targetAngle = Mathf.Atan2(targetDirection.y, targetDirection.x) * Mathf.Rad2Deg;
+    // Wind Up
+    void RotateTowardsPlayer() {
+        state = State.WindUp;
+        tail.WindUp();
+        savedTargetPosition = playerTransform.position - transform.position;
+        float targetAngle = Mathf.Atan2(savedTargetPosition.y, savedTargetPosition.x) * Mathf.Rad2Deg;
         transform.DORotate(new Vector3(0f, 0f, targetAngle), 1f)
             .SetEase(Ease.OutQuad)
             .OnComplete( 
-                // () => { if (callback != null) callback(); }
-                () => DashTowardsPlayer(targetDirection)
+                () => Invoke(nameof(DashTowardsPlayer), dashDelay)
             );
     }
 
-    void DashTowardsPlayer(Vector3 targetDirection, System.Action callback = null) {
+    // Dash
+    void DashTowardsPlayer() {
         state = State.Dashing;
-        Vector3 targetPos = transform.position + targetDirection.normalized * dashDistance;
+        tail.Dash();
+        DmgFromTouching = dashDamage;
+
+        Vector3 targetPos = transform.position + savedTargetPosition.normalized * dashDistance;
         float _time = dashDistance / dashSpeed;
         transform.DOMove(targetPos, _time)
             .SetEase(Ease.InQuad)
-            .SetDelay(dashDelay)
+            // .SetDelay(dashDelay)
             .OnComplete(
                 () => Recover()
             );
 
-        Invoke(nameof(PlayDashSound), dashDelay-0.1f);
+        PlayDashSound();
+        // Invoke(nameof(PlayDashSound), dashDelay-0.1f);
     }
 
-    void PlayDashSound() => dashSound.Play();
+    void PlayDashSound() => audioPlayer?.Play(dashSound);
 
 
     void Recover() {
+        tail.SetIdle();
+        DmgFromTouching = idleDamage;
         state = State.Recovering;
         Invoke(nameof(SetIdle), durationBetweenDashes);
     }
 
     void SetIdle() {
+        tail.SetIdle();
         state = State.Idle;
+        DmgFromTouching = idleDamage;
     }
 
 

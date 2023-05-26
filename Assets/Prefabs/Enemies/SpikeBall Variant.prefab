@@ -251,6 +251,10 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 7941889133673939940}
+    - targetCorrespondingSourceObject: {fileID: 3282764629523550160, guid: 01186e01ce8840f458ac5efd76b31624,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 5813192829546246185}
   m_SourcePrefab: {fileID: 100100000, guid: 01186e01ce8840f458ac5efd76b31624, type: 3}
 --- !u!58 &1933243631779781358 stripped
 CircleCollider2D:
@@ -283,6 +287,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 20
+  invulnerableTime: 0.1
   Weakspot: {fileID: 1933243631779781358}
   IsInVulnerableState: 0
   DmgFromTouching: 20
@@ -290,6 +295,8 @@ MonoBehaviour:
   AlarmedByPlayerDistance: 2
   CountdownTillRestAlertness: 5
   DurationVulnerable: 3
+  upgradeCollectiblePrefab: {fileID: 0}
+  upgradeType: {fileID: 0}
   AttackCooldown: 0
   Projectile: {fileID: 3298211051596704996, guid: 9104e3240a9845c40a2439ebf1423a9a,
     type: 3}
@@ -326,3 +333,19 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &5813192829546246185
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5351896775220026550}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a5162815c8775584ea33751005861a77, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mode: 1
+  enemy: {fileID: 370120527711684078}
+  drawReactionDistance: 1
+  drawAlarmDistance: 1

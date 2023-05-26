@@ -20,6 +20,9 @@ public class AudioManager : MonoBehaviour
     private float mvol; // Global music volume
     private float evol; // Global effects volume
 
+    public static float VolumeMusic => instance == null ? 1f : instance.mvol;
+    public static float VolumeSFX => instance == null ? 1f : instance.evol;
+
     private bool playingAreaMusic;
     private float _lastPlayedOrigAreaVolume;
 

@@ -106,6 +106,8 @@ public class Enemy : Cell
         }
     }
 
+
+    
     public void OnCollisionEnter2D(Collision2D collision)
     {
         var playerScript = Player.GetComponent<Player>();
@@ -124,9 +126,13 @@ public class Enemy : Cell
         //else if (collision.contacts.Any(contact => contact.otherCollider == Player || contact.collider == Player)) // this didnt work since it was comparing a collider to a gameobject
         else if (collision.gameObject.CompareTag("Player")) // this will detect if it collides with any player colliders
         {
+            // Deprecated?
             playerScript.TakeDamage(DmgFromTouching);
+            OnDealDamage();
         }
     }
+
+    
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -134,8 +140,13 @@ public class Enemy : Cell
         if (collision.gameObject.CompareTag("Player") && playerScript.State != PlayerState.Dashing)
         {
             playerScript.TakeDamage(DmgFromTouching);
+            OnDealDamage();
+
         }
     }
+
+    // virtual method for child classes to access damage effects (sound, vfx etc.)
+    protected virtual void OnDealDamage() {}
 
     public override void Die()
     {
