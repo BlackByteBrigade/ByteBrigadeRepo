@@ -573,6 +573,10 @@ MonoBehaviour:
     m_PostInfinity: 2
     m_RotationOrder: 4
   anchorPoint: {fileID: 2024345193}
+  canMoveContinuously: 0
+  isFloating: 0
+  floatingSpeed: 0
+  rotationSpeed: 0
 --- !u!1001 &319000360
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1409,6 +1413,14 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 537445648}
+    - targetCorrespondingSourceObject: {fileID: 666442271317403593, guid: 1777bb7634b4f5340baa98e817500eef,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 537445655}
+    - targetCorrespondingSourceObject: {fileID: 666442271317403593, guid: 1777bb7634b4f5340baa98e817500eef,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 537445654}
   m_SourcePrefab: {fileID: 100100000, guid: 1777bb7634b4f5340baa98e817500eef, type: 3}
 --- !u!1 &510015919
 GameObject:
@@ -1657,7 +1669,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   distanceToMove: 8
   timeToReach: 2
-  timeBtwMoves: 0.2
+  timeBtwMoves: 2
   maxDistance: 20
   movementCurve:
     serializedVersion: 2
@@ -1672,45 +1684,120 @@ MonoBehaviour:
       inWeight: 0
       outWeight: 0
     - serializedVersion: 3
-      time: 0.23864233
-      value: 0.8131751
-      inSlope: 1.4202027
-      outSlope: 1.4202027
+      time: 0.44182903
+      value: 0.81479985
+      inSlope: 0.42835426
+      outSlope: 0.42835426
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.067998104
+    - serializedVersion: 3
+      time: 0.74928814
+      value: 0.9136519
+      inSlope: 0.34098476
+      outSlope: 0.34098476
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.13174333
+    - serializedVersion: 3
+      time: 0.8506552
+      value: 0.94367826
+      inSlope: 0.29325625
+      outSlope: 0.29325625
       tangentMode: 0
       weightedMode: 0
       inWeight: 0.33333334
       outWeight: 0.33333334
     - serializedVersion: 3
-      time: 0.47192216
-      value: 0.9412542
-      inSlope: 0.3709332
-      outSlope: 0.3709332
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.14938834
-      outWeight: 0.1323362
-    - serializedVersion: 3
-      time: 0.72888786
-      value: 0.98356324
-      inSlope: 0.12881173
-      outSlope: 0.12881173
+      time: 0.936873
+      value: 0.97441965
+      inSlope: 0.45010483
+      outSlope: 0.45010483
       tangentMode: 0
       weightedMode: 0
       inWeight: 0.33333334
-      outWeight: 0.12991017
+      outWeight: 0.5399223
     - serializedVersion: 3
       time: 1
       value: 1
-      inSlope: 0
-      outSlope: 0
+      inSlope: 0.3009188
+      outSlope: 0.3009188
       tangentMode: 0
       weightedMode: 0
-      inWeight: 0
+      inWeight: 0.5390121
       outWeight: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
   anchorPoint: {fileID: 2024345193}
+  canMoveContinuously: 0
+  isFloating: 1
+  floatingSpeed: 1
+  rotationSpeed: 500
+--- !u!50 &537445654
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 537445642}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
+--- !u!70 &537445655
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 537445642}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.49, y: 0}
+  m_Size: {x: 2.36, y: 0.95}
+  m_Direction: 1
 --- !u!1 &619690277
 GameObject:
   m_ObjectHideFlags: 0
@@ -1886,7 +1973,7 @@ PrefabInstance:
     - target: {fileID: 3282764629523550160, guid: 01186e01ce8840f458ac5efd76b31624,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5974503518593719193, guid: 01186e01ce8840f458ac5efd76b31624,
         type: 3}

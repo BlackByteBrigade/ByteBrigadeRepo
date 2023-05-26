@@ -5,13 +5,24 @@ using DG.Tweening;
 
 public class Patrol : MonoBehaviour
 {
+    private enum PatrolStates
+    {
+        Decide,
+        Prep,
+        Movement,
+        Wait
+    }
     [SerializeField] private float distanceToMove;
     [SerializeField] private float timeToReach;
     [SerializeField] private float timeBtwMoves;
     [SerializeField] private float maxDistance;
     [SerializeField] private AnimationCurve movementCurve;
     [SerializeField] private Transform anchorPoint;
+    [SerializeField] private bool canMoveContinuously;
+    [SerializeField] private bool isFloating;
+    [SerializeField] private float floatingSpeed;
 
+    private PatrolStates state;
     private Vector3 beforeMovementPosition;
 
     private Vector2 movementVector;
@@ -22,45 +33,57 @@ public class Patrol : MonoBehaviour
     private float waitTimeCounter;
     private bool isReached;
 
-    private bool isRotating;
+    private Quaternion toRotate;
+    [SerializeField] float rotationSpeed;
+    private void Awake()
+    {
+        state = PatrolStates.Decide;
+    }
 
     private void Update()
     {
-        Patrolling();
-    }
-    private void Patrolling()
-    {
-        if (isReached && timeBtwMoves < waitTimeCounter)
+        print(state);
+        switch (state)
         {
-            isReached = false;
-            DirectionDecider();
- 
-        }
-        else if (!isReached)
-        {
-            transform.position = Vector2.Lerp(beforeMovementPosition, movementVector, movementCurve.Evaluate(movementCounter));
-            movementCounter += Time.deltaTime / timeToReach;
+            case PatrolStates.Decide:
+                DirectionDecider();
+                break;
+            case PatrolStates.Prep:
+                transform.rotation = Quaternion.RotateTowards(transform.rotation, toRotate, rotationSpeed * Time.deltaTime);
 
-            if (Vector2.Distance(transform.position, movementVector) < Mathf.Epsilon)
-            {
-                isReached = true;
-                movementCounter = 0;
-            }
-        }
-        else
-        {
-            if (!isRotating)
-            {
-                transform.up = -(transform.position - (Vector3)movementVector).normalized;
-                isRotating = true;
-            }
-            waitTimeCounter += Time.deltaTime;
+                if (transform.rotation == toRotate)
+                {
+                    beforeMovementPosition = transform.position;
+                    state = PatrolStates.Movement;
+                }
+                break;
+
+            case PatrolStates.Movement:
+                transform.position = Vector2.Lerp(beforeMovementPosition, movementVector, movementCurve.Evaluate(movementCounter));
+                movementCounter += Time.deltaTime / timeToReach;
+
+                if (Vector2.Distance(transform.position, movementVector) < Mathf.Epsilon)
+                {
+                    movementCounter = 0;
+                    state = PatrolStates.Wait;
+                }
+                break;
+
+            case PatrolStates.Wait:
+                waitTimeCounter += Time.deltaTime;
+                if (isFloating)
+                {
+                    transform.position += oldDirectionVector * floatingSpeed * Time.deltaTime;
+                }
+                if (waitTimeCounter > timeBtwMoves)
+                {
+                    state = PatrolStates.Decide;
+                }
+                break;
         }
     }
     private void DirectionDecider()
     {
-        beforeMovementPosition = transform.position;
-
         if (Vector2.Distance(transform.position, anchorPoint.transform.position) > maxDistance)
         {
             var anchorDir = (anchorPoint.transform.position - transform.position).normalized;
@@ -98,20 +121,22 @@ public class Patrol : MonoBehaviour
             }
             else
             {
-               directionVector = (Vector3)listOfDirections[Random.Range(0, listOfDirections.Count)];
+                directionVector = (Vector3)listOfDirections[Random.Range(0, listOfDirections.Count)];
+                toRotate = Quaternion.LookRotation(Vector3.forward, directionVector);
 
-                if (directionVector == oldDirectionVector)
-                {
-                    waitTimeCounter = Mathf.Infinity;
-                }
-                else
-                {
-                    oldDirectionVector = directionVector;
-                    waitTimeCounter = 0;
-                }
                 movementVector = transform.position + directionVector * distanceToMove;
             }
             listOfDirections.Clear();
+            if (directionVector == oldDirectionVector && canMoveContinuously)
+            {
+                waitTimeCounter = Mathf.Infinity;
+            }
+            else
+            {
+                waitTimeCounter = 0;
+            }
+                state = PatrolStates.Prep;
+            oldDirectionVector = directionVector;
         }
     }
 }
