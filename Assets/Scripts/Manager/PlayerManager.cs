@@ -49,12 +49,7 @@ public class PlayerManager : MonoBehaviour
     {
         if (SceneManager.GetActiveScene().name == bodyScene)
         {
-            foreach (EnemyPartDrop drop in enemyPartsOnBody)
-            {
-                CollectableItem item = Instantiate(enemyPartDropPrefab, drop.location, Quaternion.identity);
-                item.id = drop.id;
-                item.dropped = true;
-            }
+            SpawnDroppedEnemyParts();
         }
     }
 
@@ -70,12 +65,24 @@ public class PlayerManager : MonoBehaviour
             enemyPartsOnBody.Add(new EnemyPartDrop() { id = offset + i, location = Player.instance.transform.position });
         }
 
+        SpawnDroppedEnemyParts();
+
         Invoke(nameof(LoadHubScene), respawnTime);
     }
 
     private void LoadHubScene()
     {
         SceneManager.LoadScene(hubScene);
+    }
+
+    private void SpawnDroppedEnemyParts()
+    {
+        foreach (EnemyPartDrop drop in enemyPartsOnBody)
+        {
+            CollectableItem item = Instantiate(enemyPartDropPrefab, drop.location, Quaternion.identity);
+            item.id = drop.id;
+            item.dropped = true;
+        }
     }
 }
 

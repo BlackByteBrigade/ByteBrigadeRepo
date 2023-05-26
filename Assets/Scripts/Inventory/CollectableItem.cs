@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using DG.Tweening;
 
 public class CollectableItem : MonoBehaviour
 {
@@ -9,13 +10,22 @@ public class CollectableItem : MonoBehaviour
     [SerializeField] Item.ItemType itemType;
     [SerializeField] int itemAmount;
 
+    [Tooltip("only applies for dropped enemy parts - defines how far they spread from the dead body")]
+    [SerializeField] float dropDist;
+
     [HideInInspector] public bool dropped = false;
 
     private void Start()
     {
         if (!dropped && itemType == Item.ItemType.EnemyPart && GameManager.Instance.collectedEnemyParts.Contains(id))
         {
+            // if this enemy part was already collected, destroy this
             Destroy(gameObject);
+        }
+        else if (dropped && itemType == Item.ItemType.EnemyPart)
+        {
+            // if we are a dropped enemy part, we need to spread out so we dont clump at the same position
+            transform.DOMove(transform.position + (Vector3)Random.insideUnitCircle * dropDist, 1).SetEase(Ease.OutCubic);
         }
     }
 
@@ -26,13 +36,16 @@ public class CollectableItem : MonoBehaviour
     public void PickUp()
     {
         if (itemType != Item.ItemType.EnemyPart) return;
+        // only continue with this logic if this is an enemy part
 
         if (dropped)
         {
+            // if this was dropped by the player, then now that we picked it up it needs to be removed from the list of parts dropped
             PlayerManager.Instance.enemyPartsOnBody.Remove(PlayerManager.Instance.enemyPartsOnBody.Where(part => part.id == id).FirstOrDefault());
         }
         else
         {
+            // just make sure we know we collected this enemy part so we can keep it gone when we reload this scene
             GameManager.Instance.collectedEnemyParts.Add(id);
         }
     }
