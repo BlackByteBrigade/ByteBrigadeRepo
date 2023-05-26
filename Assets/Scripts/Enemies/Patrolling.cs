@@ -19,11 +19,10 @@ public class Patrol : MonoBehaviour
     [SerializeField] private bool canMoveContinuously;
     [SerializeField] private bool isFloating;
     [SerializeField] private float floatingSpeed;
-    [SerializeField] private Collider2D ColliderToIgnore;
 
     private PatrolStates state;
-    private Vector3 beforeMovementPosition;
 
+    private Vector3 beforeMovementPosition;
     private Vector2 movementVector;
     private Vector3 oldDirectionVector;
     private Vector3 directionVector;
@@ -33,10 +32,14 @@ public class Patrol : MonoBehaviour
 
     private Quaternion toRotate;
     [SerializeField] float rotationSpeed;
+
+    LayerMask mask;
     private void Awake()
     {
         state = PatrolStates.Decide;
         anchorPoint = transform.position;
+        mask = LayerMask.GetMask("Level");
+
     }
 
     private void Update()
@@ -90,10 +93,10 @@ public class Patrol : MonoBehaviour
         }
         else
         {
-            var RaycastHitUp = Physics2D.Raycast(transform.position, Vector2.up, distanceToMove,6);
-            var RaycastHitDown = Physics2D.Raycast(transform.position, Vector2.down, distanceToMove, 6);
-            var RaycastHitLeft = Physics2D.Raycast(transform.position, Vector2.left, distanceToMove, 6);
-            var RaycastHitRight = Physics2D.Raycast(transform.position, Vector2.right, distanceToMove, 6);
+            var RaycastHitUp = Physics2D.Raycast(transform.position, Vector2.up, distanceToMove, mask);
+            var RaycastHitDown = Physics2D.Raycast(transform.position, Vector2.down, distanceToMove , mask);
+            var RaycastHitLeft = Physics2D.Raycast(transform.position, Vector2.left, distanceToMove , mask);
+            var RaycastHitRight = Physics2D.Raycast(transform.position, Vector2.right, distanceToMove, mask);
 
             var listOfDirections = new List<Vector2>();
 
@@ -141,6 +144,6 @@ public class Patrol : MonoBehaviour
 
     private  bool IsNullOrNotSpecifiedCollider(RaycastHit2D RaycastHitUp)
     {
-        return RaycastHitUp.collider == null || RaycastHitUp.collider == ColliderToIgnore;
+        return RaycastHitUp.collider == null;
     }
 }
