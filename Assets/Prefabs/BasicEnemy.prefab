@@ -140,8 +140,8 @@ MonoBehaviour:
   - {fileID: 0}
   targetRadius: 2
   moveDistance: 0.55
-  moveSpeed: 1
-  driftSpeed: 1
+  moveSpeed: 0.7
+  driftSpeed: 1.7
   anim: {fileID: 5968640901170291931}
 --- !u!58 &7423847626384043056
 CircleCollider2D:

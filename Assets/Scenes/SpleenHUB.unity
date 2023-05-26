@@ -1279,6 +1279,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 96d8a51b8a1778d4b846d98bbe8a0111, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  storedEnemyParts: 0
+  collectedEnemyParts: 
 --- !u!4 &1455632128 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8635655572585716640, guid: b3d50c933e132454193219216caa20b3,
@@ -1348,8 +1350,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0f2b8cafa3aedaa4b9de5f26cb1ee977, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hubScene: MainScene
-  respawnTime: 0
+  hubScene: SpleenHUB
+  respawnTime: 1
+  enemyPartDropPrefab: {fileID: -2541115740644371208, guid: 7d3a8e1d89e910c42b549c3d257e3e2f,
+    type: 3}
 --- !u!4 &1826607148
 Transform:
   m_ObjectHideFlags: 0

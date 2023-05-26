@@ -37,9 +37,26 @@ public class EnemySpawner : MonoBehaviour
         SpawnEnemy(group);
     }
 
+    private Vector2 FindSpawnLocation()
+    {
+        Vector2 spawnLocation = Vector2.zero;
+
+        int maxTries = 30;
+        for (int i = 0; i < maxTries; i++)
+        {
+            spawnLocation = transform.position + (Vector3)Random.insideUnitCircle * spawnRadius;
+            if (Player.instance == null || Vector2.Distance(Player.instance.transform.position, spawnLocation) > spawnRadius)
+            {
+                break;
+            }
+        }
+
+        return spawnLocation;
+    }
+
     private void SpawnEnemy(EnemyGroup group)
     {
-        Enemy enemy = Instantiate(group.enemyPrefab, transform.position + (Vector3)Random.insideUnitCircle * spawnRadius, Quaternion.identity);
+        Enemy enemy = Instantiate(group.enemyPrefab, FindSpawnLocation(), Quaternion.identity);
         enemy.OnDeath += OnEnemyDie; // we need to know when the cell dies so we can respawn it
         group.enemies.Add(enemy); // keeps track of the newly spawned enemy
 

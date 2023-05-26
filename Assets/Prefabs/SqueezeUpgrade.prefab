@@ -66,7 +66,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -707401125, guid: 3751a48a33ca6c74eb4a221903049626, type: 3}
+  m_Sprite: {fileID: 516108713, guid: 3751a48a33ca6c74eb4a221903049626, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -188,9 +188,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 334253818430548043}
-  - component: {fileID: 766133348062222268}
+  - component: {fileID: 5386985033976745917}
   m_Layer: 0
-  m_Name: DashUpgrade
+  m_Name: SqueezeUpgrade
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -212,7 +212,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &766133348062222268
+--- !u!114 &5386985033976745917
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -221,11 +221,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 8933151984565387499}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b89de24db8dd8a24991e92bfe905f58d, type: 3}
+  m_Script: {fileID: 11500000, guid: 43d04f90b9a39b74f8f59031900464d2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  movementSpeed: 12
-  movementMaxSpeed: 6
-  dashSpeed: 8
-  dashTime: 0.7
-  dashCooldown: 0.5
+  newSoftbodyFlex: 350
+  newRadius: 0.1

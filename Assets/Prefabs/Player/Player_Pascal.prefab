@@ -2381,9 +2381,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0d06f110b63f96b4ead159936ce3de29, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 10
+  health: 100
   invulnerableTime: 0.1
   dashDamage: 100
+  mainCollider: {fileID: 7143136859682591877}
 --- !u!50 &949673349641784462
 Rigidbody2D:
   serializedVersion: 4
@@ -2454,7 +2455,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1605dda8dfd412a4aa6abb6f0bec8783, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  radius: 0.25
+  radius: 0.2
   collisionLayer:
     serializedVersion: 2
     m_Bits: 55
@@ -2509,7 +2510,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 0.25
+  m_Radius: 0.35
 --- !u!1 &5599980674524121337
 GameObject:
   m_ObjectHideFlags: 0

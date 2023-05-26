@@ -14,17 +14,16 @@ public class Player : Cell
 
     public PlayerMovement Movement { get; set; }
     public PlayerState State { get; set; }
+    public Softbody Softbody { get; set; }
     public DNAUpgrade dnaUpgrade { get; set; }
 
-    int maxHealth;
+    public CircleCollider2D mainCollider;
 
     private void Awake()
     {
         if (instance == null)
         {
             instance = this;
-            maxHealth = Mathf.Max(health, 1);
-
 
             InitializeComponents();
         }
@@ -37,10 +36,14 @@ public class Player : Cell
     private void InitializeComponents()
     {
         Movement = GetComponent<PlayerMovement>();
+        Softbody = GetComponent<Softbody>();
     }
 
     private void Start()
     {
+        health = PlayerManager.Instance.currentHealth;
+        PlayerHUD.instance.UpdateHealthbar(health / (float)PlayerManager.Instance.maxHealth);
+
         if (PlayerManager.Instance.currentDNAUpgrade != null)
         {
             ChangeDNA(PlayerManager.Instance.currentDNAUpgrade);
@@ -57,7 +60,7 @@ public class Player : Cell
         {
             if (newDNA.GetType() == dnaUpgrade.GetType()) return;
             dnaUpgrade.RemoveUpgrade(this);
-            Destroy(dnaUpgrade);
+            Destroy(dnaUpgrade.gameObject);
         }
 
         PlayerManager.Instance.currentDNAUpgrade = newDNA;
@@ -75,9 +78,10 @@ public class Player : Cell
     // On Damage Effects
     public override bool TakeDamage(int damage) {
         bool isDead = base.TakeDamage(damage);
+        PlayerManager.Instance.currentHealth = health;
         if (!isDead) {
             AudioManager.instance.PlaySfX(SoundEffects.PlayerTakingDamage);
-            PlayerHUD.instance.UpdateHealthbar(health/ (float) maxHealth);
+            PlayerHUD.instance.UpdateHealthbar(health/ (float)PlayerManager.Instance.maxHealth);
         } else
             AudioManager.instance.PlaySfX(SoundEffects.PlayerDeath);
 
@@ -86,10 +90,11 @@ public class Player : Cell
 
     public override void Die()
     {
+        Teleporter.currentDestinationId = -1;
         PlayerManager.Instance.currentDNAUpgrade = null;
         gameObject.SetActive(false);
 
-        // TODO add partcies + dropping held enemy parts
+        // TODO add partcies
 
         PlayerManager.Instance.RespawnPlayer();
     }

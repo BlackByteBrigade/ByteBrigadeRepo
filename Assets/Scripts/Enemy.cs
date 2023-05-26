@@ -37,11 +37,15 @@ public class Enemy : Cell
     //movement
     public Rigidbody2D MyRigidbody { get; set; }
 
+    private void Awake()
+    {
+        Player = GameObject.Find("Player");
+    }
+
     // Start is called before the first frame update
     public void Start()
     {
         MyRigidbody = gameObject.GetComponent<Rigidbody2D>();
-        Player = GameObject.Find("Player");
         _rand = new Random(DateTime.Now.Millisecond);
         _numberofAlertStates = Enum.GetNames(typeof(Alertness)).Length;
     }
@@ -119,6 +123,15 @@ public class Enemy : Cell
         }
         //else if (collision.contacts.Any(contact => contact.otherCollider == Player || contact.collider == Player)) // this didnt work since it was comparing a collider to a gameobject
         else if (collision.gameObject.CompareTag("Player")) // this will detect if it collides with any player colliders
+        {
+            playerScript.TakeDamage(DmgFromTouching);
+        }
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        var playerScript = Player.GetComponent<Player>();
+        if (collision.gameObject.CompareTag("Player") && playerScript.State != PlayerState.Dashing)
         {
             playerScript.TakeDamage(DmgFromTouching);
         }
