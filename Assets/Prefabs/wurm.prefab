@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 5517891080513718753}
   - component: {fileID: 5715879410593152036}
   - component: {fileID: 4204654553128729928}
+  - component: {fileID: 5470232536030670847}
   m_Layer: 0
   m_Name: wurm
   m_TagString: Untagged
@@ -128,6 +129,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 0
+  invulnerableTime: 0.1
   Weakspot: {fileID: 0}
   IsInVulnerableState: 0
   DmgFromTouching: 0
@@ -135,9 +137,23 @@ MonoBehaviour:
   AlarmedByPlayerDistance: 0
   CountdownTillRestAlertness: 0
   DurationVulnerable: 0
+  upgradeCollectiblePrefab: {fileID: 0}
+  upgradeType: {fileID: 0}
   speed: 280
   turnspeed: 180
   bodyparts: []
+  PositionHistory: []
+  QuaternionsHistory: []
+  bodypart: {fileID: 8944087565583444781, guid: 4b1fba6574183d844a554521156a3cfe,
+    type: 3}
+  weakbodyPart: {fileID: 2357265127146240579, guid: 4162161a698831b4482831f8da1c4649,
+    type: 3}
+  bodyNum: 7
+  weakBodyIndex: 3
+  maxHistorySize: 250
+  Gap: 30
+  timeGap: 0.01
+  countup: 0
 --- !u!60 &4204654553128729928
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -186,3 +202,48 @@ PolygonCollider2D:
       - {x: -0.5, y: -0.28866667}
       - {x: 0.5, y: -0.28866667}
   m_UseDelaunayMesh: 0
+--- !u!114 &5470232536030670847
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 497614508307442933}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d3fe8eae6178ee146bf6ec555f90872c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  distanceToMove: 10
+  timeToReach: 3
+  timeBtwMoves: 0
+  maxDistance: 30
+  movementCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 1
+      outSlope: 1
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 1
+      outSlope: 1
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  anchorPoint: {x: 0, y: 0, z: 0}
+  canMoveContinuously: 1
+  isFloating: 0
+  floatingSpeed: 0.5
+  rotationSpeed: 450
