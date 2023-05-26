@@ -6,20 +6,24 @@ public class SqueezeUpgrade : DNAUpgrade
 {
     public float newSoftbodyFlex;
     public float newRadius;
+    public PhysicsMaterial2D newMat;
 
     private float oldRadius;
     private float oldSoftbodyRadius;
     private float oldSoftbodyFlex;
+    private PhysicsMaterial2D oldMat;
 
     public override void ApplyUpgrade(Player player)
     {
         oldRadius = player.mainCollider.radius;
         oldSoftbodyFlex = player.Softbody.flex;
         oldSoftbodyRadius = player.Softbody.radius;
+        oldMat = player.mainCollider.attachedRigidbody.sharedMaterial;
 
         player.mainCollider.radius = newRadius;
         player.Softbody.radius = newRadius;
         player.Softbody.flex = newSoftbodyFlex;
+        player.mainCollider.attachedRigidbody.sharedMaterial = newMat;
     }
 
     public override void RemoveUpgrade(Player player)
@@ -27,5 +31,6 @@ public class SqueezeUpgrade : DNAUpgrade
         player.mainCollider.radius = oldRadius;
         player.Softbody.flex = oldSoftbodyFlex;
         player.Softbody.radius = oldSoftbodyRadius;
+        player.mainCollider.attachedRigidbody.sharedMaterial = oldMat;
     }
 }
