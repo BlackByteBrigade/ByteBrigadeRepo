@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.12731749, g: 0.13414757, b: 0.1210787, a: 1}
+  m_IndirectSpecularColor: {r: 0.12731713, g: 0.13414736, b: 0.12107852, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -2993,6 +2993,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 96d8a51b8a1778d4b846d98bbe8a0111, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  storedEnemyParts: 0
+  collectedEnemyParts: 
 --- !u!1 &1435930498
 GameObject:
   m_ObjectHideFlags: 0
@@ -4038,6 +4040,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hubScene: MainScene
   respawnTime: 0
+  enemyPartDropPrefab: {fileID: 0}
 --- !u!4 &1826607148
 Transform:
   m_ObjectHideFlags: 0
@@ -4317,131 +4320,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1994849271}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &2020019481
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 2020019483}
-  - component: {fileID: 2020019482}
-  m_Layer: 0
-  m_Name: AudioManager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &2020019482
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2020019481}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 844282d8498b6994da35dea04c97d993, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  sounds:
-  - name: Enemy_Death_1
-    clip: {fileID: 8300000, guid: 4f962605f106530498df930d7f504200, type: 3}
-    volume: 0.872
-    pitch: 0
-    source: {fileID: 0}
-    loop: 0
-    Area: 0
-  - name: Enemy_Death_2
-    clip: {fileID: 8300000, guid: 9cb5a359e8e38eb4caaad15078b5abab, type: 3}
-    volume: 0.918
-    pitch: 0
-    source: {fileID: 0}
-    loop: 0
-    Area: 0
-  - name: Enemy_Death_3
-    clip: {fileID: 8300000, guid: 811052e07036cb24eba3557523c04d70, type: 3}
-    volume: 0.959
-    pitch: 0
-    source: {fileID: 0}
-    loop: 0
-    Area: 0
-  - name: Enemy_Death_4
-    clip: {fileID: 8300000, guid: 7faa52f4b488ec24c97ccf1bfb328587, type: 3}
-    volume: 0.959
-    pitch: 0
-    source: {fileID: 0}
-    loop: 0
-    Area: 0
-  - name: Pew Pew
-    clip: {fileID: 8300000, guid: 6b0654e5eea7d734a8b5271055df8487, type: 3}
-    volume: 0.959
-    pitch: 0
-    source: {fileID: 0}
-    loop: 0
-    Area: 0
-  - name: Pickup DNA
-    clip: {fileID: 8300000, guid: 3cc94b2944901ab42973dc5d80609911, type: 3}
-    volume: 0.959
-    pitch: 0
-    source: {fileID: 0}
-    loop: 0
-    Area: 0
-  - name: Puckup Enemy Part
-    clip: {fileID: 8300000, guid: a80e343ca78793746bc649ee32188735, type: 3}
-    volume: 0.959
-    pitch: 0
-    source: {fileID: 0}
-    loop: 0
-    Area: 0
-  - name: Take Damage
-    clip: {fileID: 8300000, guid: 5a2af1c78ce973147a24246a362f2ff9, type: 3}
-    volume: 0.959
-    pitch: 0
-    source: {fileID: 0}
-    loop: 0
-    Area: 0
-  - name: Dash
-    clip: {fileID: 8300000, guid: bcce5614f28f29d4b96e413a403859b5, type: 3}
-    volume: 0.959
-    pitch: 0
-    source: {fileID: 0}
-    loop: 0
-    Area: 0
-  playlist:
-  - name: ambient1
-    clip: {fileID: 8300000, guid: 78aa3bd449a1f564db754829404fbee4, type: 3}
-    volume: 0.828
-    pitch: 0
-    source: {fileID: 0}
-    loop: 0
-    Area: 2
-  playlistAreas:
-  - name: Area1
-    clip: {fileID: 8300000, guid: 77d08af85f3a8494b93f642414b48037, type: 3}
-    volume: 0.5
-    pitch: 0
-    source: {fileID: 0}
-    loop: 1
-    Area: 3
-  Narration: []
---- !u!4 &2020019483
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2020019481}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 4.2524147, y: 0.4842224, z: 0.5334511}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 13
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2089179431
 GameObject:
   m_ObjectHideFlags: 0
@@ -4601,6 +4479,79 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1001 &3705854206251529231
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4314576143661175499, guid: 396675a2d55448947bd8aec68147f35d,
+        type: 3}
+      propertyPath: m_Name
+      value: AudioManager
+      objectReference: {fileID: 0}
+    - target: {fileID: 8113486752859978913, guid: 396675a2d55448947bd8aec68147f35d,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 13
+      objectReference: {fileID: 0}
+    - target: {fileID: 8113486752859978913, guid: 396675a2d55448947bd8aec68147f35d,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 4.2524147
+      objectReference: {fileID: 0}
+    - target: {fileID: 8113486752859978913, guid: 396675a2d55448947bd8aec68147f35d,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.4842224
+      objectReference: {fileID: 0}
+    - target: {fileID: 8113486752859978913, guid: 396675a2d55448947bd8aec68147f35d,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.5334511
+      objectReference: {fileID: 0}
+    - target: {fileID: 8113486752859978913, guid: 396675a2d55448947bd8aec68147f35d,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8113486752859978913, guid: 396675a2d55448947bd8aec68147f35d,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8113486752859978913, guid: 396675a2d55448947bd8aec68147f35d,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8113486752859978913, guid: 396675a2d55448947bd8aec68147f35d,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8113486752859978913, guid: 396675a2d55448947bd8aec68147f35d,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8113486752859978913, guid: 396675a2d55448947bd8aec68147f35d,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8113486752859978913, guid: 396675a2d55448947bd8aec68147f35d,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 396675a2d55448947bd8aec68147f35d, type: 3}
 --- !u!4 &4478418560873093595 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4279882214730312271, guid: 34e2b41379bdb414caf85397d0479920,

@@ -11,4 +11,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/CodeRedTest.unity
     guid: cfd9e783efd918b4ca866c93ac29faa9
+  - enabled: 1
+    path: Assets/Scenes/Pascal Art Tests/Art_Test.unity
+    guid: f332ad3f8939a8a45bd01822b08cc889
   m_configObjects: {}

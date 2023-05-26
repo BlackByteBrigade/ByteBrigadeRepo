@@ -9,7 +9,7 @@ public class BloodCellSpawner : MonoBehaviour
 {
     [SerializeField] GameObject bloodCellPrefab;
     [SerializeField] float spawnInterval = 1f;
-    [SerializeField] Vector2 spawnRect;
+    [SerializeField] Vector2 spawnRectDimensions;
     [SerializeField] float despawnOffset = 2f;
     [SerializeField] float speed = 1f;
 
@@ -43,9 +43,8 @@ public class BloodCellSpawner : MonoBehaviour
 
     void SpawnBloodCell() {
         Vector3 spawnPosition = new Vector3(
-            Random.Range(-spawnRect.x/2f, spawnRect.x/2f),
-            Random.Range(-spawnRect.y/2f, spawnRect.y/2f),
-            // -mainCamera.orthographicSize - despawnOffset,
+            Random.Range(-spawnRectDimensions.x/2f, spawnRectDimensions.x/2f),
+            Random.Range(-spawnRectDimensions.y/2f, spawnRectDimensions.y/2f),
             0f
         );
 
@@ -71,7 +70,7 @@ public class BloodCellSpawner : MonoBehaviour
 
     void OnDrawGizmos() {
         Gizmos.color = Color.red;
-        Vector3 size = new Vector3(spawnRect.x, spawnRect.y, 0);
+        Vector3 size = new Vector3(spawnRectDimensions.x, spawnRectDimensions.y, 0);
         Gizmos.DrawWireCube(transform.position, size);
     }
 }

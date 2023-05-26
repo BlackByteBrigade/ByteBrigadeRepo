@@ -86,8 +86,6 @@ public class PlayerMovement : MonoBehaviour
         canDash = false;
 
         AudioManager.instance.PlaySfX(SoundEffects.PlayerDash);
-
-        // Sprite.color = Color.red; // TODO make visual better for dash
         
 
         Vector2 dashDir = movementInput.magnitude > 0.5f ? movementInput : Body.velocity.normalized;
@@ -109,9 +107,7 @@ public class PlayerMovement : MonoBehaviour
         if (dashVFXSprite == null) return;
         dashVFXSprite.enabled = true;
         float angle = Mathf.Atan2(Body.velocity.y, Body.velocity.x) * Mathf.Rad2Deg;
-        // float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
         angle += (-60f); //TEMP sprite angle offset
-        // dashVFXSprite.transform.Rotate(0, 0, angle);
         dashVFXSprite.transform.eulerAngles = new Vector3(0, 0, angle);
     }
 
@@ -124,7 +120,6 @@ public class PlayerMovement : MonoBehaviour
     {
         Player.State = PlayerState.Moving;
         Body.mass = 1;
-        // Sprite.color = TMP_originalColor;// TODO make better visual for when dash ends
         EndDashVFX();
     }
 

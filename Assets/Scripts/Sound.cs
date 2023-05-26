@@ -23,10 +23,10 @@ public class Sound
 public enum Areas
 {
 
-    DoesNotApply,
-    Menu,
-    Hub,
-    Area1,
+    DoesNotApply = 0,
+    Menu = 1,
+    Hub = 2,
+    Area1 = 3,
 
 }
 
