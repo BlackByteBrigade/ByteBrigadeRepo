@@ -78,12 +78,13 @@ public class Player : Cell
     // On Damage Effects
     public override bool TakeDamage(int damage) {
         CameraShake.Shake();
+        bool wasInvulnerable = IsInvulnerable;
         bool isDead = base.TakeDamage(damage);
         PlayerManager.Instance.currentHealth = health;
-        if (!isDead) {
+        if (!isDead && !wasInvulnerable) {
             AudioManager.instance.PlaySfX(SoundEffects.PlayerTakingDamage);
             PlayerHUD.instance.UpdateHealthbar(health/ (float)PlayerManager.Instance.maxHealth);
-        } else
+        } else if (isDead)
             AudioManager.instance.PlaySfX(SoundEffects.PlayerDeath);
 
         return isDead;

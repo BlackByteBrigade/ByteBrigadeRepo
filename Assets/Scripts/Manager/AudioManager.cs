@@ -83,7 +83,7 @@ public class AudioManager : MonoBehaviour
         var s = FindSound(sounds, soundEffect.MapToName());
         if (s == null)
         {
-            Debug.LogError("Unable to play sound " + name);
+            Debug.LogError("Unable to play sound " + soundEffect.MapToName());
             return;
         }
         s.source.Play(); // play the sound
