@@ -37,7 +37,7 @@ Transform:
   - {fileID: 8570124963457192431}
   - {fileID: 4682647554347796646}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &727068535657923141
 MonoBehaviour:
@@ -56,7 +56,7 @@ MonoBehaviour:
   Weakspot: {fileID: 2327215526984390159}
   spriteHandler: {fileID: 0}
   IsInVulnerableState: 0
-  DmgFromTouching: 50
+  DmgFromTouching: 5
   ReactsToPlayerDistance: 5
   AlarmedByPlayerDistance: 7
   CountdownTillRestAlertness: 0
@@ -75,7 +75,7 @@ MonoBehaviour:
     source: {fileID: 0}
     loop: 0
     Area: 0
-  dashDamage: 0
+  dashDamage: 50
   tail: {fileID: 4211857251549442353}
 --- !u!114 &5594602333522666867
 MonoBehaviour:

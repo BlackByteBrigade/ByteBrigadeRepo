@@ -84,6 +84,7 @@ public class PlayerMovement : MonoBehaviour
     {
         Player.State = PlayerState.Dashing;
         canDash = false;
+        Player.OnDashReady?.Invoke(false);
 
         AudioManager.instance.PlaySfX(SoundEffects.PlayerDash);
         
@@ -101,6 +102,7 @@ public class PlayerMovement : MonoBehaviour
         yield return new WaitForSeconds(dashCooldown);
 
         canDash = true;
+        Player.OnDashReady?.Invoke(true);
     }
 
     private void StartDashVFX() {

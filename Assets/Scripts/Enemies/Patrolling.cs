@@ -44,7 +44,7 @@ public class Patrol : MonoBehaviour
 
     private void Update()
     {
-        print(state);
+        // print(state);
         switch (state)
         {
             case PatrolStates.Decide:

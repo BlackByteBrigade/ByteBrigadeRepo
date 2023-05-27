@@ -7,6 +7,8 @@ using UnityEngine;
 [RequireComponent(typeof(PlayerMovement))]
 public class Player : Cell
 {
+
+    public Action<bool> OnDashReady; // bool: isDashReady?
     public static Player instance = null;
 
     [Tooltip("Amount of damage from dash")]
