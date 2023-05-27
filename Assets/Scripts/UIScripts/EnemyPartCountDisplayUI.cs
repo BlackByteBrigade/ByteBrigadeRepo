@@ -38,7 +38,7 @@ public class EnemyPartCountDisplayUI : MonoBehaviour
     private void CountNumberofEnemyPartsInLevel(){
         GameObject[] enemyParts = GameObject.FindGameObjectsWithTag(ENEMY_PART_TAG);
         foreach (GameObject enemyPart in enemyParts){
-            GameManager.Instance.totalEnemyPartsToBeCollected++;
+            GameManager.Instance.totalEnemyPartsToBeCollectedCurrLevel++;
         }
     }
 
@@ -47,6 +47,6 @@ public class EnemyPartCountDisplayUI : MonoBehaviour
         InventoryManager InventoryManager = InventoryManager.Instance;
 
         //Update enemy part Counter text
-        enemyPartCounterText.text = InventoryManager.GetItemAmountForType(itemBeingCollected) + "/" + GameManager.Instance.totalEnemyPartsToBeCollected;
+        enemyPartCounterText.text = InventoryManager.GetItemAmountForType(itemBeingCollected) + "/" + GameManager.Instance.totalEnemyPartsToBeCollectedCurrLevel;
     }
 }
