@@ -54,21 +54,6 @@ public class PlayerHUD : MonoBehaviour
     }
     private void Update()
     {
-        if (Input.GetKeyUp(KeyCode.W))
-        {
-            test += 0.1f;
-            UpdateHealthbar(test);
-            AddPlasma(1);
-            addPart(1);
-        }
-
-        if (Input.GetKeyUp(KeyCode.S))
-        {
-            test -= 0.1f;
-            UpdateHealthbar(test);
-            deletePlasma(1);
-            deletePart(1);
-        }
         renderHud();
     }
 
