@@ -2382,7 +2382,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 100
-  invulnerableTime: 0.1
+  invulnerableTime: 0.5
   dashDamage: 100
   mainCollider: {fileID: 7143136859682591877}
 --- !u!50 &949673349641784462

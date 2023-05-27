@@ -19,6 +19,8 @@ public class Softbody : MonoBehaviour
 
     private List<Vector3> bonePositions = new List<Vector3>();
 
+    private const float TOO_FAR = 5f;
+
     private void Awake()
     {
         body = GetComponent<Rigidbody2D>();
@@ -32,6 +34,12 @@ public class Softbody : MonoBehaviour
     {
         for (int i = 0; i < bones.Count; i++)
         {
+            if (Vector2.Distance(bones[i].transform.localPosition, bonePositions[i]) > TOO_FAR)
+            {
+                bones[i].transform.localPosition = bonePositions[i];
+                bones[i].velocity = Vector2.zero;
+            }
+
             Vector3 currentPos = bones[i].transform.localPosition;
             Vector3 currentVel = bones[i].velocity;
             Vector2 headToCenterForce = -currentPos * Mathf.Max(currentPos.magnitude * currentPos.magnitude - 5f, 0); // makes sure that if a bone gets stuck on a corner it goes to the center of the object

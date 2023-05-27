@@ -14,6 +14,7 @@ public class CollectableItem : MonoBehaviour
     [SerializeField] float dropSpeed;
 
     [HideInInspector] public bool dropped = false;
+    [HideInInspector] public bool pickedUpAlready = false;
 
     private void Start()
     {
@@ -35,6 +36,8 @@ public class CollectableItem : MonoBehaviour
 
     public void PickUp()
     {
+        pickedUpAlready = true;
+
         if (itemType != Item.ItemType.EnemyPart) return;
         // only continue with this logic if this is an enemy part
 
