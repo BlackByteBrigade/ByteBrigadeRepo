@@ -5,6 +5,8 @@ using TMPro;
 
 public class Tutorial : MonoBehaviour
 {
+    
+    
     //use to start tutorial mode on and off
     public bool gameBeginsStartTutorial = true;
 
@@ -74,6 +76,10 @@ public class Tutorial : MonoBehaviour
             //pause at beginning before jumping straight into voice
             timerMax = waitTimeBeforeStartingNarrationOne;
             startTimer = true;
+            var player = GameObject.Find("Player");
+            var playerSpriteRenderComponent = player.GetComponent<SpriteRenderer>();
+            playerSpriteRenderComponent.enabled = false;
+
         }
 
         //Voice narrator: “today we will have a look at...”
@@ -116,8 +122,9 @@ public class Tutorial : MonoBehaviour
         
         //[Zooms out]
         if (index == 5){
-            //TODO; zoom
+            //TODO; zoom - start camera
             Debug.Log("camera zoom");
+            
             index++;
         }        
         
@@ -136,16 +143,29 @@ public class Tutorial : MonoBehaviour
         if (index == 7){
             //Dialogue 
             if(firstTimeDialoguePlaying == true){
+                var player = GameObject.Find("Player");
+
+                
+                //slight movement before start
+                var playerMovementComponent = player.GetComponent<PlayerMovement>();
+                playerMovementComponent.Body.velocity = new Vector2(0,-0.3f) *Time.fixedDeltaTime;
                 tutorialDialogue.ShowDialogueBox(0);
                 firstTimeDialoguePlaying = false;
             }
             //Space bar ends dialogue, go to next step
             if(Input.GetKeyDown(KeyCode.Space)){
                 tutorialDialogue.HideDialogueBox();
-                index++;
+
+                var player = GameObject.Find("Player");
+
+                //make player appear
+                var playerSpriteRenderComponent = player.GetComponent<SpriteRenderer>();
+                playerSpriteRenderComponent.enabled = true;
 
                 //reset firstTimeDialoguePlaying for next dialogue
                 firstTimeDialoguePlaying = true;
+
+                index++;
             }
         }
         
