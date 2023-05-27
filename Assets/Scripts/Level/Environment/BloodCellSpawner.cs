@@ -58,6 +58,7 @@ public class BloodCellSpawner : MonoBehaviour
         );
 
         var obj = Instantiate(bloodCellPrefab, Vector3.zero , Quaternion.identity, transform);
+        obj.transform.up = transform.up;
         obj.transform.localPosition = spawnPosition;
         Enemy enemy = obj.GetComponent<Enemy>();
         enemy.DmgFromTouching = dmgFromTouching;

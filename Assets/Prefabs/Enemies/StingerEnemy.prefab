@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 5594602333522666867}
   - component: {fileID: 8874187585940078032}
   - component: {fileID: 2327215526984390159}
+  - component: {fileID: 4202498573324957905}
   m_Layer: 0
   m_Name: StingerEnemy
   m_TagString: Untagged
@@ -37,7 +38,7 @@ Transform:
   - {fileID: 8570124963457192431}
   - {fileID: 4682647554347796646}
   m_Father: {fileID: 0}
-  m_RootOrder: -1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &727068535657923141
 MonoBehaviour:
@@ -55,8 +56,8 @@ MonoBehaviour:
   invulnerableTime: 0.1
   Weakspot: {fileID: 2327215526984390159}
   spriteHandler: {fileID: 0}
-  IsInVulnerableState: 0
-  DmgFromTouching: 5
+  IsInVulnerableState: 1
+  DmgFromTouching: 50
   ReactsToPlayerDistance: 5
   AlarmedByPlayerDistance: 7
   CountdownTillRestAlertness: 0
@@ -75,7 +76,7 @@ MonoBehaviour:
     source: {fileID: 0}
     loop: 0
     Area: 0
-  dashDamage: 50
+  dashDamage: 0
   tail: {fileID: 4211857251549442353}
 --- !u!114 &5594602333522666867
 MonoBehaviour:
@@ -135,12 +136,39 @@ CapsuleCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0.524286, y: -0.000000019925004}
   m_Size: {x: 2.540012, y: 0.856968}
   m_Direction: 1
+--- !u!50 &4202498573324957905
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 666442271317403593}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 1
+  m_Constraints: 0
 --- !u!1 &2351145827012323004
 GameObject:
   m_ObjectHideFlags: 0

@@ -11,8 +11,9 @@ public class PlayerItemController : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision) {
 
         //Collect item - add to inventory and destroy object in world
-        if (collision.GetComponent<CollectableItem>() != null){   //Touching collectable item
-            
+        if (collision.GetComponent<CollectableItem>() != null && !collision.GetComponent<CollectableItem>().pickedUpAlready)
+        {   //Touching collectable item
+
             // Access the inventory instance
             InventoryManager InventoryManager = InventoryManager.Instance;
 
