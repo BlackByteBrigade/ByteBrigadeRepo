@@ -2300,6 +2300,7 @@ MonoBehaviour:
   health: 1000
   invulnerableTime: 1000
   Weakspot: {fileID: 0}
+  spriteHandler: {fileID: 0}
   IsInVulnerableState: 0
   DmgFromTouching: 30
   ReactsToPlayerDistance: 0
@@ -8278,6 +8279,7 @@ MonoBehaviour:
   health: 1000
   invulnerableTime: 1000
   Weakspot: {fileID: 0}
+  spriteHandler: {fileID: 0}
   IsInVulnerableState: 0
   DmgFromTouching: 30
   ReactsToPlayerDistance: 0
@@ -9355,6 +9357,7 @@ MonoBehaviour:
   health: 1000
   invulnerableTime: 1000
   Weakspot: {fileID: 0}
+  spriteHandler: {fileID: 0}
   IsInVulnerableState: 0
   DmgFromTouching: 30
   ReactsToPlayerDistance: 0
@@ -10399,8 +10402,13 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7615725053878573790, guid: 64834dcae3f4b5345a9f4b504a86e255,
         type: 3}
+      propertyPath: dashTime
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7615725053878573790, guid: 64834dcae3f4b5345a9f4b504a86e255,
+        type: 3}
       propertyPath: dashSpeed
-      value: 6.5
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 7615725053878573790, guid: 64834dcae3f4b5345a9f4b504a86e255,
         type: 3}
@@ -10409,18 +10417,33 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7615725053878573790, guid: 64834dcae3f4b5345a9f4b504a86e255,
         type: 3}
+      propertyPath: dashImpact
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 7615725053878573790, guid: 64834dcae3f4b5345a9f4b504a86e255,
+        type: 3}
       propertyPath: dashCooldown
-      value: 1
+      value: 0.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 7615725053878573790, guid: 64834dcae3f4b5345a9f4b504a86e255,
+        type: 3}
+      propertyPath: movementDrag
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 7615725053878573790, guid: 64834dcae3f4b5345a9f4b504a86e255,
         type: 3}
       propertyPath: movementSpeed
-      value: 8
+      value: 25
+      objectReference: {fileID: 0}
+    - target: {fileID: 7615725053878573790, guid: 64834dcae3f4b5345a9f4b504a86e255,
+        type: 3}
+      propertyPath: afterDashSpeed
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 7615725053878573790, guid: 64834dcae3f4b5345a9f4b504a86e255,
         type: 3}
       propertyPath: movementMaxSpeed
-      value: 4.5
+      value: 5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -10974,7 +10997,7 @@ PrefabInstance:
     - target: {fileID: 497614508307442933, guid: b0172f3dd40a23a4bb96071ac673852d,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5715879410593152036, guid: b0172f3dd40a23a4bb96071ac673852d,
         type: 3}
@@ -15534,6 +15557,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: SpikeBall Variant
+      objectReference: {fileID: 0}
+    - target: {fileID: 5351896775220026550, guid: e2fa55048a395ba4a84ee635d663bbe5,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

@@ -71,7 +71,7 @@ public class Player : Cell
     public void Attack(Enemy enemy)
     {
         enemy.TakeDamage(dashDamage);
-        Movement.CancelDash();
+        Movement.CancelDash(enemy);
         base.TakeDamage(0);
     }
 

@@ -2365,6 +2365,8 @@ MonoBehaviour:
   movementDrag: 2
   idleSpeed: 1
   dashSpeed: 8
+  afterDashSpeed: 8
+  dashImpact: 0
   dashTime: 0.5
   dashCooldown: 0.5
   isDashCancelable: 1

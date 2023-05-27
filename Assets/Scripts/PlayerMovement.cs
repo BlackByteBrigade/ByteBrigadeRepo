@@ -13,6 +13,8 @@ public class PlayerMovement : MonoBehaviour
 
     [Header("Dash")]
     public float dashSpeed;
+    public float afterDashSpeed;
+    public float dashImpact;
     public float dashTime;
     public float dashCooldown;
     public bool isDashCancelable = true;
@@ -52,7 +54,7 @@ public class PlayerMovement : MonoBehaviour
         movementInput = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical")).normalized;
 
         // we check for dashes every frame so that we dont accidentally miss a frame when we are pressing space
-        if (canDash && Input.GetKeyDown(KeyCode.Space)) StartCoroutine(Dash());
+        if (canDash && Input.GetMouseButtonDown(0)) StartCoroutine(Dash());
     }
 
     private void UpdateMovement()
@@ -70,7 +72,6 @@ public class PlayerMovement : MonoBehaviour
 
         if (movementInput.magnitude < 0.5f)
         {
-            // only add drag if we aren't pressing anything
             Body.velocity -= Body.velocity.normalized * (movementDrag * Time.fixedDeltaTime);
         }
         else if (Body.velocity.magnitude > movementMaxSpeed)
@@ -86,9 +87,11 @@ public class PlayerMovement : MonoBehaviour
         canDash = false;
 
         AudioManager.instance.PlaySfX(SoundEffects.PlayerDash);
-        
 
-        Vector2 dashDir = movementInput.magnitude > 0.5f ? movementInput : Body.velocity.normalized;
+
+        Vector3 mousePos = Input.mousePosition;
+        mousePos.z = -Camera.main.transform.position.z;
+        Vector2 dashDir = (Camera.main.ScreenToWorldPoint(mousePos) - transform.position).normalized;
         Body.velocity = dashDir * dashSpeed;
         Body.mass = float.MaxValue;
 
@@ -96,6 +99,7 @@ public class PlayerMovement : MonoBehaviour
 
         yield return new WaitForSeconds(dashTime);
 
+        Body.velocity = Body.velocity.normalized * Mathf.Min(Body.velocity.magnitude, afterDashSpeed);
         EndDash();
 
         yield return new WaitForSeconds(dashCooldown);
@@ -123,11 +127,11 @@ public class PlayerMovement : MonoBehaviour
         EndDashVFX();
     }
 
-    public void CancelDash()
+    public void CancelDash(Enemy enemy)
     {
         if (isDashCancelable)
         {
-            Body.velocity = Vector2.zero;
+            Body.velocity = -Body.velocity.normalized * dashImpact;
             EndDash();
         }
     }
