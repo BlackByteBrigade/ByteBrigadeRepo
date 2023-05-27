@@ -1,19 +1,23 @@
 using System;
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using Random = UnityEngine.Random;
 
 public class GameManager : MonoBehaviour
 {
-    public static GameManager Instance {get; private set;}
+    public static GameManager Instance { get; private set; }
+
+    public int totalEnemyPartsToBeCollectedCurrLevel = 0;
+    public int totalEnemyPartsToBeCollectedTotal = 50; //todo !!! set this !!!
 
     public int storedEnemyParts;
     public List<int> collectedEnemyParts = new List<int>();
     public int NumberOfEnemiesFocusedOnPlayer { get; set; }
 
     //States of the game
-    private enum State{
+    private enum State
+    {
         IntroTutorial,
         PlayingGame,
         Paused,
@@ -27,23 +31,108 @@ public class GameManager : MonoBehaviour
     private DateTime _lastLoadedLevelDateTime { get; set; }
     private Scene _currScene { get; set; }
 
-    private void Awake() {
+    #region Narration
+
+    public bool narrationHasSeenEnemyPart { get; set; }
+    public bool narrationHasPickedUpEnemyPart { get; set; }
+
+    public bool narrationHasSeenPowerUp { get; set; }
+    public bool narrationHasTakenWorldDmg { get; set; }
+
+    private DateTime _lastEnemyPartDropOff { get; set; }
+    private short _lastEnemyPartDropOffNarrationPlayed = 0;
+
+    #endregion
+
+    public void PlayerCloseToEnemyPart()
+    {
+        if (narrationHasSeenEnemyPart)
+            return;
+
+        narrationHasSeenEnemyPart = true;
+        AudioManager.instance.PlayNarration("narrationFirstSeenEnemyPart");
+    }
+
+    public void EnemyDropsPowerUp()
+    {
+        if (narrationHasSeenPowerUp)
+            return;
+
+        narrationHasSeenPowerUp = true;
+        AudioManager.instance.PlayNarration("narrationFirstSeenPowerUp");
+    }
+
+    public void PlayerTakesWorldDmg()
+    {
+        if (narrationHasTakenWorldDmg)
+            return;
+        narrationHasTakenWorldDmg = true;
+        AudioManager.instance.PlayNarration("narrationFirstTakenWorldDmg");
+    }
+
+    public void PlayerPicksUpEnemyPart()
+    {
+        //Play sound effect
+        AudioManager.instance.PlaySfX(SoundEffects.CollectingEnemyPart);
+
+        if (narrationHasPickedUpEnemyPart)
+            return;
+        narrationHasPickedUpEnemyPart = true;
+        //Invoke("MyFunction", 3);
+        AudioManager.instance.PlayNarration("narrationFirstPickedUpEnemyPart");
+    }
+
+    public void PlayerDropsOffEnemyParts(int amount)
+    {
+        //Add to number of part dropped off
+        storedEnemyParts += amount;
+
+        //check if all enemy parts have been collected
+        if (storedEnemyParts >= totalEnemyPartsToBeCollectedTotal)
+        {
+            // Game over; player has collected all enemy parts
+            AudioManager.instance.PlayNarration($"narrationLastDropOffEnemyPart");
+            gameState = State.GameWin;
+            return;
+        }
+
+        if (_lastEnemyPartDropOff == default || (DateTime.Now - _lastEnemyPartDropOff).TotalMinutes > 1)
+        {
+            //Play sound effect
+            AudioManager.instance.PlaySfX(SoundEffects.DropingOffEnememyParts);
+
+            if (narrationHasPickedUpEnemyPart)
+                return;
+            narrationHasPickedUpEnemyPart = true;
+
+            //loop narrations
+            AudioManager.instance.PlayNarration($"narrationDropOffEnemyPart_{++_lastEnemyPartDropOffNarrationPlayed}");
+            if (_lastEnemyPartDropOffNarrationPlayed >= 4)
+                _lastEnemyPartDropOffNarrationPlayed = 0;
+        }
+    }
+
+   
+
+    private void Awake()
+    {
         //Instance check of _GameManager
-        if (Instance == null){     
-            Instance = this;        
-        } else {
-            Destroy(gameObject);    
-            return;                 
+        if (Instance == null)
+        {
+            Instance = this;
+        }
+        else
+        {
+            Destroy(gameObject);
+            return;
         }
 
         // do not destroy me when a new scene loads
-        DontDestroyOnLoad(gameObject); 
+        DontDestroyOnLoad(gameObject);
 
 
         //game starts in IntroTutorial
         gameState = State.IntroTutorial;
-
-       
     }
 
     private void Start()
@@ -81,6 +170,7 @@ public class GameManager : MonoBehaviour
             _lastLoadedLevelDateTime = DateTime.Now;
             return false;
         }
+
         //otherwise we check if enough time has passed that we can consider it a scene transition to the same scene (but different location?)
         if ((DateTime.Now - _lastLoadedLevelDateTime).TotalSeconds > 10)
         {
@@ -91,7 +181,7 @@ public class GameManager : MonoBehaviour
 
         return true;
     }
-    
+
 
     public void HandleCurrentScene()
     {
@@ -107,9 +197,11 @@ public class GameManager : MonoBehaviour
     }
 
 
-    private void Update() {
+    private void Update()
+    {
         //Game flow of states
-        switch(gameState){
+        switch (gameState)
+        {
             case State.IntroTutorial:
                 break;
             case State.PlayingGame:
@@ -139,7 +231,7 @@ public class GameManager : MonoBehaviour
 
     //Check if game is paused
     public bool IsPaused => gameState == State.Paused;
-   
+
 
     public void RegisterEnemyNoticed()
     {
@@ -148,6 +240,7 @@ public class GameManager : MonoBehaviour
         {
             return;
         }
+
         if (NumberOfEnemiesFocusedOnPlayer < 0)
             NumberOfEnemiesFocusedOnPlayer = 0;
         if (NumberOfEnemiesFocusedOnPlayer == 0)
@@ -161,5 +254,4 @@ public class GameManager : MonoBehaviour
             AudioManager.instance.PlayRegularVolumeAreaMusic();
         NumberOfEnemiesFocusedOnPlayer--;
     }
-
 }

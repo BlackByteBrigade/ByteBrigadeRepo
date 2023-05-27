@@ -1,8 +1,5 @@
-using System.Collections;
-using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
-using DG.Tweening;
 
 public class CollectableItem : MonoBehaviour
 {
@@ -27,6 +24,25 @@ public class CollectableItem : MonoBehaviour
         {
             // if we are a dropped enemy part, we need to spread out so we dont clump at the same position
             GetComponent<Rigidbody2D>().velocity = Random.insideUnitCircle * dropSpeed;
+        }
+    }
+
+    void FixedUpdate()
+    {
+        if (itemType != Item.ItemType.EnemyPart) return;
+        // only continue with this logic if this is an enemy part
+
+        if(GameManager.Instance.narrationHasSeenEnemyPart) return;
+        // only continue with this logic if the player has not yet been close to any enemy part
+
+        var playerPos = GameObject.Find("Player")?.transform.position;
+        if(playerPos == null)
+            return; //Player might be dead
+
+        var distanceToPlayer = Vector2.Distance(transform.position, playerPos.Value);
+        if (distanceToPlayer <= 10)
+        {
+            GameManager.Instance.PlayerCloseToEnemyPart();
         }
     }
 

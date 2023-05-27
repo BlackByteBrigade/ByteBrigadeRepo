@@ -110,10 +110,8 @@ public class Enemy : Cell
 
 
 
+    #region COLLISIONS
 
-
-    // -------------- COLLISIONS ----------------------
-    
     public void OnCollisionEnter2D(Collision2D collision)
     {
         var playerScript = Player.GetComponent<Player>();
@@ -136,7 +134,7 @@ public class Enemy : Cell
         }
     }
 
-    
+
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -146,6 +144,10 @@ public class Enemy : Cell
             DealDamage(playerScript);
         }
     }
+
+
+    #endregion
+
 
     protected virtual void DealDamage(Player playerScript) {
         playerScript.TakeDamage(DmgFromTouching);
