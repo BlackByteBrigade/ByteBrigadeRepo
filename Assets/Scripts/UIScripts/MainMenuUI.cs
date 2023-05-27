@@ -6,28 +6,42 @@ using UnityEngine.UI;
 
 public class MainMenuUI : MonoBehaviour
 {
+    [SerializeField] private string sceneToLoadWhenPlayIsClicked;
+
     [SerializeField] private Button playButton;
     [SerializeField] private Button settingsButton;
     [SerializeField] private Button exitButton;
     [SerializeField] private Button creditButton;
 
     private void Awake() {
+        //Play game
         playButton.onClick.AddListener(() => {
-            //Play game
-            Debug.Log("Play Game");
+            //Play Animation of exit buttons
+            
+            //Play button loads game scene
+            SceneManager.LoadScene(sceneToLoadWhenPlayIsClicked);
         });
+        //game settings
         settingsButton.onClick.AddListener(() => {
-            //game settings
-            Debug.Log("settings");
+            
+            
+            
         });
+        //Exit Game
         exitButton.onClick.AddListener(() => {
-            //Exit Game
+            
             Application.Quit();
-            Debug.Log("Quit Game");
         });
+        
+        //Game credits
         creditButton.onClick.AddListener(() => {
-            //Game credits
-            Debug.Log("Game credits");
+            //Play animation of menu button exit
+
+            //pause
+
+            //play entrance of credits 
+            
+            
         });
     }
 
