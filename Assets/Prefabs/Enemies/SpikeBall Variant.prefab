@@ -356,6 +356,11 @@ PrefabInstance:
       value: 
       objectReference: {fileID: -253803274, guid: a49c58372854fd24288215990f5f0954,
         type: 3}
+    - target: {fileID: 8280497065884850134, guid: 01186e01ce8840f458ac5efd76b31624,
+        type: 3}
+      propertyPath: radiusOffset
+      value: 0.7
+      objectReference: {fileID: 0}
     - target: {fileID: 8482820543175653172, guid: 01186e01ce8840f458ac5efd76b31624,
         type: 3}
       propertyPath: m_Sprite
@@ -389,10 +394,6 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 3282764629523550160, guid: 01186e01ce8840f458ac5efd76b31624,
         type: 3}
       insertIndex: -1
-      addedObject: {fileID: 370120527711684078}
-    - targetCorrespondingSourceObject: {fileID: 3282764629523550160, guid: 01186e01ce8840f458ac5efd76b31624,
-        type: 3}
-      insertIndex: -1
       addedObject: {fileID: 7941889133673939940}
     - targetCorrespondingSourceObject: {fileID: 3282764629523550160, guid: 01186e01ce8840f458ac5efd76b31624,
         type: 3}
@@ -421,12 +422,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 51a84c7916a26ab4a94a890b8312c829, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!58 &1933243631779781358 stripped
-CircleCollider2D:
-  m_CorrespondingSourceObject: {fileID: 9015988872948910472, guid: 01186e01ce8840f458ac5efd76b31624,
-    type: 3}
-  m_PrefabInstance: {fileID: 7479204420903474022}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &3828846387750111487 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5974503518593719193, guid: 01186e01ce8840f458ac5efd76b31624,
@@ -439,39 +434,6 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 7479204420903474022}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &370120527711684078
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5351896775220026550}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 51a84c7916a26ab4a94a890b8312c829, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  health: 20
-  invulnerableTime: 0.1
-  Weakspot: {fileID: 1933243631779781358}
-  spriteHandler: {fileID: 0}
-  IsInVulnerableState: 0
-  DmgFromTouching: 20
-  ReactsToPlayerDistance: 5
-  AlarmedByPlayerDistance: 2
-  CountdownTillRestAlertness: 5
-  DurationVulnerable: 3
-  upgradeCollectiblePrefab: {fileID: 0}
-  upgradeType: {fileID: 0}
-  AttackCooldown: 0
-  Projectile: {fileID: 3298211051596704996, guid: 9104e3240a9845c40a2439ebf1423a9a,
-    type: 3}
-  _numberOfprojectiles: 6
-  radiusOffset: 0.7
-  projectileSize: 1
-  eyeRenderer: {fileID: 2637283945809377964}
-  exposedCoreSprite: {fileID: 1634644197, guid: a49c58372854fd24288215990f5f0954,
-    type: 3}
 --- !u!50 &7941889133673939940
 Rigidbody2D:
   serializedVersion: 4
@@ -512,7 +474,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mode: 1
-  enemy: {fileID: 370120527711684078}
+  enemy: {fileID: 0}
   drawReactionDistance: 1
   drawAlarmDistance: 1
 --- !u!114 &9140153705367126527
