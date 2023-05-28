@@ -187,7 +187,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 47170436}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -10}
+  m_LocalPosition: {x: 0, y: -8.54, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -492,7 +492,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 330585543}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -10}
+  m_LocalPosition: {x: 0, y: -8.54, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -801,7 +801,7 @@ PrefabInstance:
     - target: {fileID: 1175800768595701741, guid: 64834dcae3f4b5345a9f4b504a86e255,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: -8.54
       objectReference: {fileID: 0}
     - target: {fileID: 1175800768595701741, guid: 64834dcae3f4b5345a9f4b504a86e255,
         type: 3}
@@ -889,6 +889,37 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 778c4baa74a78f142810e2aae05f9268, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &1363916231
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1363916232}
+  m_Layer: 0
+  m_Name: TargetForCameraOpenTutorial
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1363916232
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1363916231}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.06, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 10
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1403020909
 GameObject:
   m_ObjectHideFlags: 0
@@ -2720,6 +2751,8 @@ MonoBehaviour:
   textBox2: {fileID: 1963000044}
   textBox3: {fileID: 1476724286}
   bloodVesselEntrance: {fileID: 636478586}
+  camera: {fileID: 47170436}
+  TargetForCameraOpenTutorial: {fileID: 1363916231}
   fadeInCanvasGroup: {fileID: 7655736849252769892}
   TimeToFadeIn: 0.5
 --- !u!222 &1296204691316113328
