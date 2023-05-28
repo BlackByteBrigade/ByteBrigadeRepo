@@ -29,6 +29,9 @@ public class EnemyWurm : Enemy
         //GameObject temp = Instantiate(bodyparts[0], transform.position,transform.rotation,transform);
         base.Start();
         IsInVulnerableState = true;
+        //spwan weakbody part index randomly
+        weakBodyIndex = UnityEngine.Random.Range(0, bodyNum);
+
         for (int i = 0; i < bodyNum; i++)
         {
             if (i != weakBodyIndex)
