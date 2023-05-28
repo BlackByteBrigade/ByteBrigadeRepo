@@ -54,7 +54,7 @@ public class PlayerMovement : MonoBehaviour
         movementInput = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical")).normalized;
 
         // we check for dashes every frame so that we dont accidentally miss a frame when we are pressing space
-        if (canDash && Input.GetMouseButtonDown(0)) StartCoroutine(Dash());
+        if (canDash && Input.GetKeyDown(KeyCode.Space)) StartCoroutine(Dash());
     }
 
     private void UpdateMovement()
@@ -88,10 +88,7 @@ public class PlayerMovement : MonoBehaviour
 
         AudioManager.instance.PlaySfX(SoundEffects.PlayerDash);
 
-
-        Vector3 mousePos = Input.mousePosition;
-        mousePos.z = -Camera.main.transform.position.z;
-        Vector2 dashDir = (Camera.main.ScreenToWorldPoint(mousePos) - transform.position).normalized;
+        Vector2 dashDir = movementInput.magnitude > 0.1f ? movementInput.normalized : Body.velocity.normalized;
         Body.velocity = dashDir * dashSpeed;
         Body.mass = float.MaxValue;
 
