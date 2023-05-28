@@ -13,6 +13,9 @@ public class MainMenuController : MonoBehaviour
     // credit menu
     [SerializeField] private Button creditBackButton;
 
+    //sounds
+    [SerializeField] private GameObject bloodFlow;
+
     private Animator animator;
 
     private void Awake() {

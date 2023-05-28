@@ -8,7 +8,7 @@ public class Tutorial : MonoBehaviour
     
     
     //use to start tutorial mode on and off
-    public bool gameBeginsStartTutorial = true;
+    public bool gameBeginsStartTutorial = false;
 
     //index for steps in tutorial
     private int index = 0;
@@ -54,6 +54,11 @@ public class Tutorial : MonoBehaviour
     }
 
     private void Update() {
+        //check if tutorial mode is needed
+        if(GameManager.Instance.IsPlayingIntroTutorial == true){
+            gameBeginsStartTutorial = true;
+        }
+
         //Fade in from Black screen to the scene  
         if(fadeIn ==true){
             FadeIn();
