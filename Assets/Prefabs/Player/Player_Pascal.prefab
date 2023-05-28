@@ -2268,6 +2268,8 @@ GameObject:
   - component: {fileID: 961510884283983382}
   - component: {fileID: 2919411805492370010}
   - component: {fileID: 7143136859682591877}
+  - component: {fileID: 6888089977285599533}
+  - component: {fileID: 8490720897266490571}
   m_Layer: 3
   m_Name: Player_Pascal
   m_TagString: Player
@@ -2362,13 +2364,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 26112783466855f46befa1e15245ffb5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  movementSpeed: 10
+  movementSpeed: 25
   movementMaxSpeed: 5
-  movementDrag: 2
-  idleSpeed: 1
-  dashSpeed: 8
-  dashTime: 0.5
-  dashCooldown: 0.5
+  movementDrag: 7
+  idleSpeed: 0.5
+  dashSpeed: 15
+  afterDashSpeed: 6
+  dashImpact: 4
+  dashTime: 0.2
+  dashCooldown: 0.7
   isDashCancelable: 1
   dashVFXSprite: {fileID: 6287947269313378793}
 --- !u!114 &4854803041254772039
