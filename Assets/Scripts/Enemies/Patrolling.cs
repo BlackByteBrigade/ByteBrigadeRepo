@@ -10,14 +10,21 @@ public class Patrol : MonoBehaviour
         Movement,
         Wait
     }
+
     [SerializeField] private float distanceToMove;
     [SerializeField] private float timeToReach;
     [SerializeField] private float timeBtwMoves;
+    [Tooltip("Allowed maximum distance to move from the anchor point.")]
     [SerializeField] private float maxDistance;
+    [Tooltip("Start point must be (0,0) and end point(1,1). You can set the movement with the slope of the curve.")]
     [SerializeField] private AnimationCurve movementCurve;
+    [Tooltip("It keeps track of distance to that point. If it is further than maxDistance, turns back.")]
     [SerializeField] private Vector3 anchorPoint;
+    [Tooltip("After the movement if it decides to move same direction wait time between moves becomes 0 and moves without delay")]
     [SerializeField] private bool canMoveContinuously;
+    [Tooltip("When it is in waiting state, it continues to move(kinda make more sense for cells)")]
     [SerializeField] private bool isFloating;
+    [Tooltip("Waiting state movement speed)")]
     [SerializeField] private float floatingSpeed;
 
     private PatrolStates state;
@@ -43,6 +50,10 @@ public class Patrol : MonoBehaviour
     }
 
     private void Update()
+    {
+        PatrolMovement(); //We should call this method in the enemy idle(patrol) state instead of here
+    }
+    public void PatrolMovement()
     {
         // print(state);
         switch (state)
