@@ -474,7 +474,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mode: 1
-  enemy: {fileID: 0}
+  enemy: {fileID: 1522574010125157552}
   drawReactionDistance: 1
   drawAlarmDistance: 1
 --- !u!114 &9140153705367126527
