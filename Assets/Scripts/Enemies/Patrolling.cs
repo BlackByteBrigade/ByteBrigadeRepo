@@ -105,8 +105,8 @@ public class Patrol : MonoBehaviour
         else
         {
             var RaycastHitUp = Physics2D.Raycast(transform.position, Vector2.up, distanceToMove, mask);
-            var RaycastHitDown = Physics2D.Raycast(transform.position, Vector2.down, distanceToMove , mask);
-            var RaycastHitLeft = Physics2D.Raycast(transform.position, Vector2.left, distanceToMove , mask);
+            var RaycastHitDown = Physics2D.Raycast(transform.position, Vector2.down, distanceToMove, mask);
+            var RaycastHitLeft = Physics2D.Raycast(transform.position, Vector2.left, distanceToMove, mask);
             var RaycastHitRight = Physics2D.Raycast(transform.position, Vector2.right, distanceToMove, mask);
 
             var listOfDirections = new List<Vector2>();
@@ -130,16 +130,18 @@ public class Patrol : MonoBehaviour
 
             if (listOfDirections.Count == 0)
             {
-                movementVector = transform.position;                  //If there is no place to go
+                // movementVector = transform.position;                  //If there is no place to go
+                directionVector = -oldDirectionVector;
             }
             else
             {
                 directionVector = (Vector3)listOfDirections[Random.Range(0, listOfDirections.Count)];
-                toRotate = Quaternion.LookRotation(Vector3.forward, directionVector);
-
-                movementVector = transform.position + directionVector * distanceToMove;
             }
+
+            toRotate = Quaternion.LookRotation(Vector3.forward, directionVector);
+            movementVector = transform.position + directionVector * distanceToMove;
             listOfDirections.Clear();
+
             if (directionVector == oldDirectionVector && canMoveContinuously)
             {
                 waitTimeCounter = Mathf.Infinity;
@@ -153,7 +155,7 @@ public class Patrol : MonoBehaviour
         }
     }
 
-    private  bool IsNullOrNotSpecifiedCollider(RaycastHit2D RaycastHitUp)
+    private bool IsNullOrNotSpecifiedCollider(RaycastHit2D RaycastHitUp)
     {
         return RaycastHitUp.collider == null;
     }
