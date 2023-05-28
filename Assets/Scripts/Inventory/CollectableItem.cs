@@ -1,8 +1,5 @@
-using System.Collections;
-using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
-using DG.Tweening;
 
 public class CollectableItem : MonoBehaviour
 {
@@ -14,6 +11,7 @@ public class CollectableItem : MonoBehaviour
     [SerializeField] float dropSpeed;
 
     [HideInInspector] public bool dropped = false;
+    [HideInInspector] public bool pickedUpAlready = false;
 
     private void Start()
     {
@@ -29,12 +27,33 @@ public class CollectableItem : MonoBehaviour
         }
     }
 
+    void FixedUpdate()
+    {
+        if (itemType != Item.ItemType.EnemyPart) return;
+        // only continue with this logic if this is an enemy part
+
+        if(GameManager.Instance.narrationHasSeenEnemyPart) return;
+        // only continue with this logic if the player has not yet been close to any enemy part
+
+        var playerPos = GameObject.Find("Player")?.transform.position;
+        if(playerPos == null)
+            return; //Player might be dead
+
+        var distanceToPlayer = Vector2.Distance(transform.position, playerPos.Value);
+        if (distanceToPlayer <= 10)
+        {
+            GameManager.Instance.PlayerCloseToEnemyPart();
+        }
+    }
+
     public Item GetItem(){
         return new Item {itemType = itemType, itemAmount = itemAmount};
     }
 
     public void PickUp()
     {
+        pickedUpAlready = true;
+
         if (itemType != Item.ItemType.EnemyPart) return;
         // only continue with this logic if this is an enemy part
 

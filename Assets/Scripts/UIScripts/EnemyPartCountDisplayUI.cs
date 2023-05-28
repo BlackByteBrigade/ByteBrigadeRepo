@@ -7,7 +7,6 @@ public class EnemyPartCountDisplayUI : MonoBehaviour
 {
 
     private const string ENEMY_PART_TAG = "EnemyPart";
-    private int totalEnemyPartsToBeCollected = 0;
     private Item.ItemType itemBeingCollected = Item.ItemType.EnemyPart;
 
     [SerializeField] private TMP_Text enemyPartCounterText;
@@ -39,7 +38,7 @@ public class EnemyPartCountDisplayUI : MonoBehaviour
     private void CountNumberofEnemyPartsInLevel(){
         GameObject[] enemyParts = GameObject.FindGameObjectsWithTag(ENEMY_PART_TAG);
         foreach (GameObject enemyPart in enemyParts){
-            totalEnemyPartsToBeCollected++;
+            GameManager.Instance.totalEnemyPartsToBeCollectedCurrLevel++;
         }
     }
 
@@ -48,6 +47,6 @@ public class EnemyPartCountDisplayUI : MonoBehaviour
         InventoryManager InventoryManager = InventoryManager.Instance;
 
         //Update enemy part Counter text
-        enemyPartCounterText.text = InventoryManager.GetItemAmountForType(itemBeingCollected) + "/" + totalEnemyPartsToBeCollected;
+        enemyPartCounterText.text = InventoryManager.GetItemAmountForType(itemBeingCollected) + "/" + GameManager.Instance.totalEnemyPartsToBeCollectedCurrLevel;
     }
 }

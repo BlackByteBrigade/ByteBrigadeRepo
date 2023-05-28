@@ -7,7 +7,8 @@ public class Cell : MonoBehaviour
 {
 
     // signals
-    public Action<int> a_TakeDamage;    // int: damageTaken
+    public Action<int> OnDamageTaken;    // int: damageTaken
+    public Action<bool> OnInvulnerableChange; // bool: isImmune?
     public event Action<Cell> OnDeath;
 
     public int health;
@@ -16,6 +17,8 @@ public class Cell : MonoBehaviour
 
     public bool IsInvulnerable { get; private set; }
     public bool IsDead { get; private set; }
+
+    
 
     /// <summary>
     /// Cell takes specified damage
@@ -27,9 +30,10 @@ public class Cell : MonoBehaviour
         if (IsInvulnerable || IsDead) return IsDead; // dont want to go forward if we have already died/are currently invulnerable
 
         health = Mathf.Max(health - damage, 0); // so that health never goes below zero (for player healthbar to not go below zero)
-        IsInvulnerable = true;
+        MakeInvulnerable();
+
         Invoke(nameof(MakeVulnerable), invulnerableTime);
-        a_TakeDamage?.Invoke(damage); // signal for all subscribers
+        OnDamageTaken?.Invoke(damage); // signal for all subscribers
 
         IsDead = health <= 0;
         if (IsDead)
@@ -41,13 +45,21 @@ public class Cell : MonoBehaviour
         return IsDead;
     }
 
-    private void MakeVulnerable()
+    protected virtual void MakeInvulnerable() {
+        IsInvulnerable = true;
+        OnInvulnerableChange?.Invoke(true);
+    }
+
+    protected virtual void MakeVulnerable()
     {
         IsInvulnerable = false;
+        OnInvulnerableChange?.Invoke(false);
     }
 
     public virtual void Die()
     {
         Destroy(gameObject);
     }
+
+    
 }

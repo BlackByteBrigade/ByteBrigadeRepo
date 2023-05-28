@@ -7,6 +7,8 @@ using UnityEngine;
 [RequireComponent(typeof(PlayerMovement))]
 public class Player : Cell
 {
+
+    public Action<bool> OnDashReady; // bool: isDashReady?
     public static Player instance = null;
 
     [Tooltip("Amount of damage from dash")]
@@ -77,13 +79,15 @@ public class Player : Cell
 
     // On Damage Effects
     public override bool TakeDamage(int damage) {
-        CameraShake.Shake();
+        
+        bool wasInvulnerable = IsInvulnerable;
         bool isDead = base.TakeDamage(damage);
         PlayerManager.Instance.currentHealth = health;
-        if (!isDead) {
+        if (!isDead && !wasInvulnerable) {
+            CameraShake.Shake();
             AudioManager.instance.PlaySfX(SoundEffects.PlayerTakingDamage);
             PlayerHUD.instance.UpdateHealthbar(health/ (float)PlayerManager.Instance.maxHealth);
-        } else
+        } else if (isDead)
             AudioManager.instance.PlaySfX(SoundEffects.PlayerDeath);
 
         return isDead;

@@ -11,16 +11,16 @@ public class PlayerItemController : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision) {
 
         //Collect item - add to inventory and destroy object in world
-        if (collision.GetComponent<CollectableItem>() != null){   //Touching collectable item
-            
+        if (collision.GetComponent<CollectableItem>() != null && !collision.GetComponent<CollectableItem>().pickedUpAlready)
+        {   //Touching collectable item
+
             // Access the inventory instance
             InventoryManager InventoryManager = InventoryManager.Instance;
 
             // Add the item to the inventory
             InventoryManager.AddItem(collision.GetComponent<CollectableItem>().GetItem());
             
-            //Play sound effect
-            AudioManager.instance.PlaySfX(SoundEffects.CollectingEnemyPart);
+            GameManager.Instance.PlayerPicksUpEnemyPart();
 
             collision.GetComponent<CollectableItem>().PickUp();
 
@@ -39,17 +39,13 @@ public class PlayerItemController : MonoBehaviour
                 //what item to remove
                 Item enemyPartItem = new Item { itemType = Item.ItemType.EnemyPart, itemAmount = 1 };
 
-                while (InventoryManager.GetItemAmountForType(Item.ItemType.EnemyPart) > 0){
-                    //Add to Enemy part Drop Off
-                    collision.GetComponent<EnemyPartDropOff>().DropOffEnemyPart();
-                
-                    //remove item from inventory
-                    InventoryManager.RemoveItem(enemyPartItem);
-                }
+                var ammountOfEnemyPartsToBeDelivered = InventoryManager.GetItemAmountForType(Item.ItemType.EnemyPart);
+                //Handle enemy part drop off
+                GameManager.Instance.PlayerDropsOffEnemyParts(ammountOfEnemyPartsToBeDelivered);
+                //remove enemy parts from inventory
+                InventoryManager.RemoveItemsOfType(Item.ItemType.EnemyPart);
 
             }
-
-            
         }
     }
 }

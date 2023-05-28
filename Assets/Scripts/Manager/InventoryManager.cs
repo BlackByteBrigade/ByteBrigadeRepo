@@ -1,8 +1,7 @@
 using System;
-using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
-
 
 public class InventoryManager : MonoBehaviour
 {   
@@ -80,16 +79,31 @@ public class InventoryManager : MonoBehaviour
     public List<Item> GetPlayerInventoryList(){
         return playerInventoryList;
     }
+    /// <summary>
+    /// returns how many items the player has of a given type 
+    /// </summary>
+    /// <param name="itemType">The amount to query</param>
+    /// <returns></returns>
+    public int GetItemAmountForType(Item.ItemType itemType)
+    {
+        var itemOfType = playerInventoryList.FirstOrDefault(o => o.itemType.Equals(itemType));
+        return itemOfType?.itemAmount ?? 0;
+    }
 
-    // How many items do you have of a type?
-    public int GetItemAmountForType(Item.ItemType itemType){
-        foreach(Item inventoryItem in playerInventoryList){
-            if (inventoryItem.itemType == itemType){
-                return inventoryItem.itemAmount;
+    /// <summary>
+    /// Removes all Items of type <see cref="itemType"/>
+    /// </summary>
+    /// <param name="itemType">the item type to be removed</param>
+    public void RemoveItemsOfType(Item.ItemType itemType)
+    {
+        Item itemToDelete;
+        do
+        {
+            itemToDelete = playerInventoryList.FirstOrDefault(o => o.itemType.Equals(itemType));
+            if (itemToDelete != null)
+            {
+                playerInventoryList.Remove(itemToDelete);
             }
-        }
-        
-        int NoitemFound = 0;
-        return NoitemFound;
+        } while (itemToDelete != null);
     }
 }
