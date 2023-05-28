@@ -9,10 +9,9 @@ public class MainMenuUI : MonoBehaviour
     [SerializeField] private string sceneToLoadWhenPlayIsClicked;
 
     [SerializeField] private Button playButton;
-    [SerializeField] private Button settingsButton;
     [SerializeField] private Button exitButton;
-    [SerializeField] private Button creditButton;
-
+    
+    //For Settings and credit buttons go to the MainMenuController script
     private void Awake() {
         //Play game
         playButton.onClick.AddListener(() => {
@@ -21,12 +20,7 @@ public class MainMenuUI : MonoBehaviour
             //Play button loads game scene
             SceneManager.LoadScene(sceneToLoadWhenPlayIsClicked);
         });
-        //game settings
-        settingsButton.onClick.AddListener(() => {
-            
-            
-            
-        });
+        
         //Exit Game
         exitButton.onClick.AddListener(() => {
             
@@ -34,15 +28,6 @@ public class MainMenuUI : MonoBehaviour
         });
         
         //Game credits
-        creditButton.onClick.AddListener(() => {
-            //Play animation of menu button exit
-
-            //pause
-
-            //play entrance of credits 
-            
-            
-        });
     }
 
 }
