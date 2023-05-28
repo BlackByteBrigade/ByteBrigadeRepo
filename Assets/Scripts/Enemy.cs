@@ -58,7 +58,7 @@ public class Enemy : Cell
         if (Player != null)
             DistanceToPlayer = Vector2.Distance(transform.position, Player.transform.position);
         HandleAlertness();
-        if (BecameVulnerable != default && (DateTime.Now - BecameVulnerable).TotalSeconds >= DurationVulnerable)
+        if (DurationVulnerable > 0 && BecameVulnerable != default && (DateTime.Now - BecameVulnerable).TotalSeconds >= DurationVulnerable)
         {
             BecameVulnerable = default;
             IsInVulnerableState = false;
