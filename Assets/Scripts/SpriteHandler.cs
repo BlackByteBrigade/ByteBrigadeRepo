@@ -20,7 +20,7 @@ public class SpriteHandler : MonoBehaviour {
         CopyMaterial();
         owner.OnDamageTaken += HandleDamage;
         owner.OnDeath += HandleDeath;
-        Debug.Log("awake "+owner.name);
+        //Debug.Log("awake "+owner.name);
     }
 
     protected virtual void HandleDamage(int damageTaken) {

@@ -105,16 +105,17 @@ public class AudioManager : MonoBehaviour
     /// Insert the <see cref="name"/> To play the narration with that given name
     /// </summary>
     /// <param name="name"></param>
-    public void PlayNarration(string name)
+    public float PlayNarration(string name)
     {
         // here we get the Sound from our array with the name passed in the methods parameters
         var s = FindSound(Narration, name);
         if (s == null)
         {
             Debug.LogError("Unable to play narration " + name);
-            return;
+            return 0;
         }
         s.source.Play(); // play the sound
+        return s.clip.length;
     }
 
     public void PlayMusic()
