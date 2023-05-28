@@ -17,12 +17,11 @@ public class Tutorial : MonoBehaviour
     private bool pauseTutorial = false;
 
     //tutorial dialogue
-    private TutorialDialogue tutorialDialogue;
     private bool firstTimeDialoguePlaying = true;
     
     //enemys to battle with
-    //[SerializeField] private GameObject firstEnemy;
-    //[SerializeField] private GameObject secondEnemy;
+    [SerializeField] private GameObject firstEnemy;
+    [SerializeField] private GameObject secondEnemy;
 
     //Narration wait times
     [SerializeField] private float waitTimeBeforeStartingNarrationOne;
@@ -36,15 +35,21 @@ public class Tutorial : MonoBehaviour
     [SerializeField] private float narrationEightWaitTime;
     [SerializeField] private float narrationNineWaitTime;
 
+    //tutorial text boxes
+    [SerializeField] private GameObject textBox1;
+    [SerializeField] private GameObject textBox2;
+    [SerializeField] private GameObject textBox3;
+
+    //allows player to leave
+    [SerializeField] private GameObject bloodVesselEntrance;
+
 
     // Start is called before the first frame update
     private void Start()
     {   
         //Make sure all parts are deactivated. Will bring them in order.
-        //firstEnemy.SetActive(false);
-        //secondEnemy.SetActive(false);
-
-        tutorialDialogue = gameObject.GetComponent<TutorialDialogue>();
+        firstEnemy.SetActive(false);
+        secondEnemy.SetActive(false);
 
     }
 
@@ -76,14 +81,16 @@ public class Tutorial : MonoBehaviour
             //pause at beginning before jumping straight into voice
             timerMax = waitTimeBeforeStartingNarrationOne;
             startTimer = true;
-            var player = GameObject.Find("Player");
-            var playerSpriteRenderComponent = player.GetComponent<SpriteRenderer>();
-            playerSpriteRenderComponent.enabled = false;
 
         }
 
         //Voice narrator: “today we will have a look at...”
         if (index == 1){
+            //if tutorial player cannot leave spleen
+            if(gameBeginsStartTutorial == true){
+                bloodVesselEntrance.SetActive(false);
+            }
+            
             //play narration
             //string narrationStringName = "NarraionOne";
             //AudioManager.instance.PlayNarration(name);
@@ -124,7 +131,6 @@ public class Tutorial : MonoBehaviour
         if (index == 5){
             //TODO; zoom - start camera
             Debug.Log("camera zoom");
-            
             index++;
         }        
         
@@ -145,26 +151,20 @@ public class Tutorial : MonoBehaviour
             if(firstTimeDialoguePlaying == true){
                 var player = GameObject.Find("Player");
 
-                
                 //slight movement before start
                 var playerMovementComponent = player.GetComponent<PlayerMovement>();
                 playerMovementComponent.Body.velocity = new Vector2(0,-0.3f) *Time.fixedDeltaTime;
-                tutorialDialogue.ShowDialogueBox(0);
+                
+                //show dash text
+                textBox1.SetActive(true);
                 firstTimeDialoguePlaying = false;
             }
             //Space bar ends dialogue, go to next step
             if(Input.GetKeyDown(KeyCode.Space)){
-                tutorialDialogue.HideDialogueBox();
-
-                var player = GameObject.Find("Player");
-
-                //make player appear
-                var playerSpriteRenderComponent = player.GetComponent<SpriteRenderer>();
-                playerSpriteRenderComponent.enabled = true;
-
-                //reset firstTimeDialoguePlaying for next dialogue
+                //hide Dash text
+                textBox1.SetActive(false);
+                //resets
                 firstTimeDialoguePlaying = true;
-
                 index++;
             }
         }
@@ -206,12 +206,15 @@ public class Tutorial : MonoBehaviour
         //Tutorial text: “Move using WSAD; use Dash (space) to kill the enemy.”
         if (index == 12){
             if(firstTimeDialoguePlaying == true){
-                tutorialDialogue.ShowDialogueBox(1);
+                textBox2.SetActive(true);
                 firstTimeDialoguePlaying = false;
+                
+                //first enemy appears
+                firstEnemy.SetActive(true);
             }
-            //Space bar ends dialogue, go to next step
-            if(Input.GetKeyDown(KeyCode.Space)){
-                tutorialDialogue.HideDialogueBox();
+            //Kill first enemy
+            if(firstEnemy == null){
+                textBox2.SetActive(false);
                 index++;
 
                 //reset firstTimeDialoguePlaying for next dialogue
@@ -257,7 +260,21 @@ public class Tutorial : MonoBehaviour
         //[Player Kills Enemy]
         if (index == 17){
             Debug.Log("kill enemy 2");
-            index++;            
+            if(firstTimeDialoguePlaying == true){
+                textBox2.SetActive(true);
+                firstTimeDialoguePlaying = false;
+                
+                //first enemy appears
+                secondEnemy.SetActive(true);
+            }
+            //Kill first enemy
+            if(secondEnemy == null){
+                textBox2.SetActive(false);
+                index++;
+
+                //reset firstTimeDialoguePlaying for next dialogue
+                firstTimeDialoguePlaying = true;
+            }         
         }
         
         //Voice narrator: “Well done! Well done! Now quickly, go and find out what causes this; there must be a source of the infection somewhere!”
@@ -274,8 +291,10 @@ public class Tutorial : MonoBehaviour
         //Tutorial Text: “Use the blood vessel to get to investigate the source of infection.”
         if (index == 19){
             if(firstTimeDialoguePlaying == true){
-                tutorialDialogue.ShowDialogueBox(2);
+                textBox3.SetActive(true);
                 firstTimeDialoguePlaying = false;
+                //allows player to leave
+                bloodVesselEntrance.SetActive(true);
             }
             //Stops the tutorial
             gameBeginsStartTutorial = false;
