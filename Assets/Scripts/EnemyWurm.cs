@@ -28,6 +28,7 @@ public class EnemyWurm : Enemy
     {
         //GameObject temp = Instantiate(bodyparts[0], transform.position,transform.rotation,transform);
         base.Start();
+        IsInVulnerableState = true;
         for (int i = 0; i < bodyNum; i++)
         {
             if (i != weakBodyIndex)
@@ -37,7 +38,8 @@ public class EnemyWurm : Enemy
             else
             {
                 GameObject temp = Instantiate(weakbodyPart);
-                Weakspot = temp.GetComponent<Collider2D>();
+                Weakspot = temp.GetComponent<CircleCollider2D>();
+                temp.GetComponent<wurmBodyCollid>().parent = this;
                 bodyparts.Add(temp);
             }
         }
@@ -45,6 +47,15 @@ public class EnemyWurm : Enemy
         PositionHistory.Insert(0, this.transform.position);
         QuaternionsHistory.Insert(0, this.transform.rotation);
         countup = 0;
+        OnDeath += EnemyWurm_OnDeath;
+    }
+
+    private void EnemyWurm_OnDeath(Cell obj)
+    {
+        foreach (var part in bodyparts)
+        {
+            Destroy(part);
+        }
     }
 
     // Update is called once per frame
@@ -91,6 +102,12 @@ public class EnemyWurm : Enemy
     private void addBody()
     {
         GameObject temp = Instantiate(bodypart);
+        temp.GetComponent<wurmBodyCollid>().parent = this;
         bodyparts.Add(temp);
+    }
+
+    public void OnCollisionEnter2D(Collision2D collision)
+    {
+        base.OnCollisionEnter2D(collision);
     }
 }

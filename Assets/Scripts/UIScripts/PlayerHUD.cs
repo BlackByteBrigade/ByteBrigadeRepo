@@ -66,7 +66,7 @@ public class PlayerHUD : MonoBehaviour
     {
         healthbarFillImage.fillAmount = Mathf.Lerp(healthbarFillImage.fillAmount, playerHealth, healthbarFillSpeed * Time.deltaTime);
         plasmaCounter.text = plasma.ToString();
-        partCounter.text = part.ToString()+" / "+totalParts.ToString()+"  ";
+        //partCounter.text = part.ToString()+" / "+totalParts.ToString()+"  ";
         plasmaCounter.fontSize = Mathf.Lerp(plasmaCounter.fontSize, 36, healthbarFillSpeed * Time.deltaTime);
         if(isShaking)
         {
