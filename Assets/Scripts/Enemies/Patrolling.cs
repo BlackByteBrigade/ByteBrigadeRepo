@@ -10,14 +10,21 @@ public class Patrol : MonoBehaviour
         Movement,
         Wait
     }
+
     [SerializeField] private float distanceToMove;
     [SerializeField] private float timeToReach;
     [SerializeField] private float timeBtwMoves;
+    [Tooltip("Allowed maximum distance to move from the anchor point.")]
     [SerializeField] private float maxDistance;
+    [Tooltip("Start point must be (0,0) and end point(1,1). You can set the movement with the slope of the curve.")]
     [SerializeField] private AnimationCurve movementCurve;
+    [Tooltip("It keeps track of distance to that point. If it is further than maxDistance, turns back.")]
     [SerializeField] private Vector3 anchorPoint;
+    [Tooltip("After the movement if it decides to move same direction wait time between moves becomes 0 and moves without delay")]
     [SerializeField] private bool canMoveContinuously;
+    [Tooltip("When it is in waiting state, it continues to move(kinda make more sense for cells)")]
     [SerializeField] private bool isFloating;
+    [Tooltip("Waiting state movement speed)")]
     [SerializeField] private float floatingSpeed;
 
     private PatrolStates state;
@@ -43,6 +50,10 @@ public class Patrol : MonoBehaviour
     }
 
     private void Update()
+    {
+        PatrolMovement(); //We should call this method in the enemy idle(patrol) state instead of here
+    }
+    public void PatrolMovement()
     {
         // print(state);
         switch (state)
@@ -94,8 +105,8 @@ public class Patrol : MonoBehaviour
         else
         {
             var RaycastHitUp = Physics2D.Raycast(transform.position, Vector2.up, distanceToMove, mask);
-            var RaycastHitDown = Physics2D.Raycast(transform.position, Vector2.down, distanceToMove , mask);
-            var RaycastHitLeft = Physics2D.Raycast(transform.position, Vector2.left, distanceToMove , mask);
+            var RaycastHitDown = Physics2D.Raycast(transform.position, Vector2.down, distanceToMove, mask);
+            var RaycastHitLeft = Physics2D.Raycast(transform.position, Vector2.left, distanceToMove, mask);
             var RaycastHitRight = Physics2D.Raycast(transform.position, Vector2.right, distanceToMove, mask);
 
             var listOfDirections = new List<Vector2>();
@@ -119,16 +130,18 @@ public class Patrol : MonoBehaviour
 
             if (listOfDirections.Count == 0)
             {
-                movementVector = transform.position;                  //If there is no place to go
+                // movementVector = transform.position;                  //If there is no place to go
+                directionVector = -oldDirectionVector;
             }
             else
             {
                 directionVector = (Vector3)listOfDirections[Random.Range(0, listOfDirections.Count)];
-                toRotate = Quaternion.LookRotation(Vector3.forward, directionVector);
-
-                movementVector = transform.position + directionVector * distanceToMove;
             }
+
+            toRotate = Quaternion.LookRotation(Vector3.forward, directionVector);
+            movementVector = transform.position + directionVector * distanceToMove;
             listOfDirections.Clear();
+
             if (directionVector == oldDirectionVector && canMoveContinuously)
             {
                 waitTimeCounter = Mathf.Infinity;
@@ -142,7 +155,7 @@ public class Patrol : MonoBehaviour
         }
     }
 
-    private  bool IsNullOrNotSpecifiedCollider(RaycastHit2D RaycastHitUp)
+    private bool IsNullOrNotSpecifiedCollider(RaycastHit2D RaycastHitUp)
     {
         return RaycastHitUp.collider == null;
     }
