@@ -102,10 +102,11 @@ public class GameManager : MonoBehaviour
             // Game over; player has collected all enemy parts
             AudioManager.instance.PlayNarration($"narrationLastDropOffEnemyPart");
             gameState = State.GameWin;
+            GameObject.Find("VideoManager").GetComponent<VideoPlayer>().PlayVictoryVideo();
             return;
         }
 
-        if (_lastEnemyPartDropOff == default || (DateTime.Now - _lastEnemyPartDropOff).TotalMinutes > 1)
+        if (amount>0 && (_lastEnemyPartDropOff == default || (DateTime.Now - _lastEnemyPartDropOff).TotalMinutes > 1))
         {
             //Play sound effect
             AudioManager.instance.PlaySfX(SoundEffects.DropingOffEnememyParts);
