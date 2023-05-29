@@ -105,5 +105,6 @@ public class InventoryManager : MonoBehaviour
                 playerInventoryList.Remove(itemToDelete);
             }
         } while (itemToDelete != null);
+        OnPlayerInventoryListChanged?.Invoke(this, EventArgs.Empty);
     }
 }
