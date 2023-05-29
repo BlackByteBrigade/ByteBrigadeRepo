@@ -1,6 +1,9 @@
+using System;
 using System.Collections.Generic;
+using System.Linq;
 using Unity.Mathematics;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class EnemyWurm : Enemy
 {
@@ -18,6 +21,12 @@ public class EnemyWurm : Enemy
     public int Gap = 30;
     public float timeGap = 0.01f;
     [SerializeField] float countup = 0f;
+
+
+    //we use these to combine collisions and try to only trigger the one containing a weakspot
+    private List<Collision2D> _collisions = new List<Collision2D>();
+    private DateTime _firstContact;
+
 
     void Start()
     {
@@ -104,8 +113,42 @@ public class EnemyWurm : Enemy
         bodyparts.Add(temp);
     }
 
+    public void RegisterCollisionFromBody(Collision2D collision)
+    {
+        _collisions.Add(collision);
+        if (_firstContact == default(DateTime))
+        {
+            _firstContact = DateTime.Now;
+            Invoke(nameof(TriggerColliderLogic), 0.2f);
+        }
+    }
+
+    private void TriggerColliderLogic()
+    {
+        //make copy and clear, might be more incomming
+        var copy = _collisions.ToList();
+        _collisions.Clear();
+        _firstContact = default(DateTime);
+
+        var weakSpotHit =
+            _collisions.FirstOrDefault(contact => contact.collider == Weakspot || contact.otherCollider == Weakspot);
+
+        //Weakspot hit, we don't care about the others
+        if (weakSpotHit != null)
+        {
+            ((Enemy)this).OnCollisionEnter2D(weakSpotHit);
+            return;
+        }
+
+        var randomCollision = _collisions[Random.Range(0, _collisions.Count)];
+
+        base.OnCollisionEnter2D(randomCollision);
+    }
+
+
     public void OnCollisionEnter2D(Collision2D collision)
     {
-        base.OnCollisionEnter2D(collision);
+        //Debug.Log($"Bump head!");
+        RegisterCollisionFromBody(collision);
     }
 }

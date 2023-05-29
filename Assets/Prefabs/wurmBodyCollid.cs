@@ -9,7 +9,7 @@ public class wurmBodyCollid : MonoBehaviour
     
     public void OnCollisionEnter2D(Collision2D collision)
     {
-        parent.OnCollisionEnter2D(collision);
+        parent.RegisterCollisionFromBody(collision);
     }
 
 }
