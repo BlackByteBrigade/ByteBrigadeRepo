@@ -131,7 +131,7 @@ public class EnemyWurm : Enemy
         _firstContact = default(DateTime);
 
         var weakSpotHit =
-            _collisions.FirstOrDefault(contact => contact.collider == Weakspot || contact.otherCollider == Weakspot);
+            copy.FirstOrDefault(contact => contact.collider == Weakspot || contact.otherCollider == Weakspot);
 
         //Weakspot hit, we don't care about the others
         if (weakSpotHit != null)
@@ -140,7 +140,7 @@ public class EnemyWurm : Enemy
             return;
         }
 
-        var randomCollision = _collisions[Random.Range(0, _collisions.Count)];
+        var randomCollision = copy[Random.Range(0, _collisions.Count)];
 
         base.OnCollisionEnter2D(randomCollision);
     }
