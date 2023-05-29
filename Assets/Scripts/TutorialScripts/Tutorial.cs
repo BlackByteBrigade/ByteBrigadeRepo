@@ -72,7 +72,7 @@ public class Tutorial : MonoBehaviour
         bloodVesselEntrance.SetActive(false);
 
         //Voice narrator: “today we will have a look at...”
-        //yield return new WaitForSeconds(PlayNarrationAndReturnWaitTime("Narration1"));
+        yield return new WaitForSeconds(PlayNarrationAndReturnWaitTime("Narration1"));
         //*********PlayNarrationAndReturnWaitTime("Narration1");
         //[fades in, we see the hub area]
         do
@@ -85,11 +85,11 @@ public class Tutorial : MonoBehaviour
         //Voice narrator: “The Immune System, a bottomless pit of complexity; though from the view of a cell, life is essentially in 2 Dimensions.”
         yield return new WaitForSeconds(PlayNarrationAndReturnWaitTime("Narration2"));
         //Voice narrator: “We begin our journey in the Spleen; here Dendritic cells deposit a snapshot from an infection site; a battleground so to speak.”
-        yield return new WaitForSeconds(PlayNarrationAndReturnWaitTime("Narration3"));
+        //yield return new WaitForSeconds(PlayNarrationAndReturnWaitTime("Narration3"));
 
 
         //Voice narrator: “Now where is out little fella?”
-        yield return new WaitForSeconds(PlayNarrationAndReturnWaitTime("Narration4"));
+        yield return new WaitForSeconds(PlayNarrationAndReturnWaitTime("Narration3"));
 
 
         //[INPUT PROMT: “Press Space to Dash”]
@@ -118,7 +118,7 @@ public class Tutorial : MonoBehaviour
         Debug.Log("player enters");
 
         //Voice narrator: “Ah there he is! Watch out little one, you could hurt someone with that!”
-        yield return new WaitForSeconds(PlayNarrationAndReturnWaitTime("Narration5"));
+        yield return new WaitForSeconds(PlayNarrationAndReturnWaitTime("Narration4"));
 
         //[An Enemy (base enemy) appears]
         Debug.Log("base enemy enters");
@@ -128,7 +128,7 @@ public class Tutorial : MonoBehaviour
         CameraLookAt(virtualCamera, firstEnemy.transform);
 
         //Voice narrator: “This is very odd! Normally we don’t see [ENEMY] here; quickly get rid of him!”
-        yield return new WaitForSeconds(PlayNarrationAndReturnWaitTime("Narration6"));
+        yield return new WaitForSeconds(PlayNarrationAndReturnWaitTime("Narration5"));
         CameraLookAt(virtualCamera, player.transform);
 
         //Tutorial text: “Move using WSAD; use Dash (space) to kill the enemy.”
@@ -146,14 +146,14 @@ public class Tutorial : MonoBehaviour
 
 
         //Voice narrator: “Very good! Now with that taken care of.....”
-        yield return new WaitForSeconds(PlayNarrationAndReturnWaitTime("Narration7"));
+        yield return new WaitForSeconds(PlayNarrationAndReturnWaitTime("Narration6"));
 
         //[Another Enemy (dasher) Appears]
         secondEnemy.SetActive(true);
         CameraLookAt(virtualCamera, secondEnemy.transform);
 
         //Voice narrator: “Ill be damned; both Bacterial and viruses at the same time; usually these two are arch enemies! Take care of him; but be careful; this one seems a lot more capable than the last one!”
-        yield return new WaitForSeconds(PlayNarrationAndReturnWaitTime("Narration8"));
+        yield return new WaitForSeconds(PlayNarrationAndReturnWaitTime("Narration7"));
 
         CameraLookAt(virtualCamera, player.transform);
         textBox2.SetActive(true);
@@ -168,7 +168,7 @@ public class Tutorial : MonoBehaviour
         textBox2.SetActive(false);
 
         //Voice narrator: “Well done! Well done! Now quickly, go and find out what causes this; there must be a source of the infection somewhere!”
-        yield return new WaitForSeconds(PlayNarrationAndReturnWaitTime("Narration9"));
+        yield return new WaitForSeconds(PlayNarrationAndReturnWaitTime("Narration8"));
 
         //Tutorial Text: “Use the blood vessel to get to investigate the source of infection.”
         textBox3.SetActive(true);

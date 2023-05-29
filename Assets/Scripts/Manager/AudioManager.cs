@@ -48,6 +48,7 @@ public class AudioManager : MonoBehaviour
         createAudioSources(sounds, evol);     // create sources for effects
         createAudioSources(playlist, mvol);   // create sources for music
         createAudioSources(playlistAreas, mvol);   // create sources for combat music
+        createAudioSources(Narration, 1);   // create sources for combat music
 
     }
 

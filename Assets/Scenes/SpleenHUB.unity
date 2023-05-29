@@ -3694,7 +3694,7 @@ MonoBehaviour:
     source: {fileID: 0}
     loop: 0
     Area: 0
-  - name: Narration9
+  - name: narrationFirstTimeMainScene
     clip: {fileID: 8300000, guid: a42c8827793ef284383a7c72ed1802da, type: 3}
     volume: 0.5
     pitch: 0
@@ -4234,7 +4234,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &6609863197669770365
 MonoBehaviour:
   m_ObjectHideFlags: 0
