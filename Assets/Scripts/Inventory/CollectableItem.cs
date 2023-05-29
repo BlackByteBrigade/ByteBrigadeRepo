@@ -59,7 +59,7 @@ public class CollectableItem : MonoBehaviour
             return; //Player might be dead
 
         var distanceToPlayer = Vector2.Distance(transform.position, playerPos.Value);
-        if (distanceToPlayer <= 10)
+        if (distanceToPlayer <= 5)
         {
             GameManager.Instance.PlayerCloseToEnemyPart();
         }
