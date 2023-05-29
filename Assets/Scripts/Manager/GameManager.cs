@@ -133,9 +133,6 @@ public class GameManager : MonoBehaviour
             //Play sound effect
             AudioManager.instance.PlaySfX(SoundEffects.DropingOffEnememyParts);
 
-            if (narrationHasPickedUpEnemyPart)
-                return;
-            narrationHasPickedUpEnemyPart = true;
 
             //loop narrations
             AudioManager.instance.PlayNarration($"narrationDropOffEnemyPart_{++_lastEnemyPartDropOffNarrationPlayed}");
