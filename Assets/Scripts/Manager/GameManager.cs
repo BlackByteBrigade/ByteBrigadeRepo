@@ -25,7 +25,8 @@ public class GameManager : MonoBehaviour
         GameOver,
     }
 
-    private State gameState;
+    //game starts in IntroTutorial
+    private State gameState = State.IntroTutorial;
 
     private string _lastLoadedLevel { get; set; }
     private DateTime _lastLoadedLevelDateTime { get; set; }
@@ -47,6 +48,7 @@ public class GameManager : MonoBehaviour
 
     public void PlayerEntersMainScene()
     {
+        gameState = State.PlayingGame;
         if(narrationFirstTimeMainScene)
             return;
         narrationFirstTimeMainScene = true;
@@ -141,8 +143,6 @@ public class GameManager : MonoBehaviour
         DontDestroyOnLoad(gameObject);
 
 
-        //game starts in IntroTutorial
-        gameState = State.IntroTutorial;
     }
 
     private void Start()
@@ -198,6 +198,7 @@ public class GameManager : MonoBehaviour
         switch (_currScene.name.ToLower())
         {
             case "mainscene":
+            case "coderedtest":
                 AudioManager.instance.PlayRegularVolumeAreaMusic(true);
                 PlayerEntersMainScene();
                 break;
