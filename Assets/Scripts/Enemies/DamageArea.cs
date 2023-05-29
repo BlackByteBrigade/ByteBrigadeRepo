@@ -25,6 +25,7 @@ public class DamageArea : Enemy {
     protected override void OnDealDamage() {
         Debug.Log("play damage sound");
         audioPlayer?.Play(damageSound);
+        GameManager.Instance.PlayerTakesWorldDmg();
         // TODO add vfx
     } 
 }
