@@ -92,7 +92,7 @@ public class GameManager : MonoBehaviour
     public void PlayerPicksUpEnemyPart()
     {
         //Play sound effect
-        AudioManager.instance.PlaySfX(SoundEffects.CollectingEnemyPart);
+        AudioManager.instance.PlaySfX(SoundEffects.CollectingDna);
 
         if (narrationHasPickedUpEnemyPart)
             return;
