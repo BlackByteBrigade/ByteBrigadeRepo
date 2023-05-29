@@ -9,7 +9,7 @@ public class GameManager : MonoBehaviour
     public static GameManager Instance { get; private set; }
 
     public int totalEnemyPartsToBeCollectedCurrLevel = 0;
-    public int totalEnemyPartsToBeCollectedTotal = 50; //todo !!! set this !!!
+    public int totalEnemyPartsToBeCollectedTotal = 20; //todo !!! set this !!!
 
     public int storedEnemyParts;
     public List<int> collectedEnemyParts = new List<int>();
