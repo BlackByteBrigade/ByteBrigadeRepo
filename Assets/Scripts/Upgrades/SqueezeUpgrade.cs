@@ -7,11 +7,24 @@ public class SqueezeUpgrade : DNAUpgrade
     public float newSoftbodyFlex;
     public float newRadius;
     public PhysicsMaterial2D newMat;
+    public GameObject infoText;
+    public float textLastTime = 10;
 
     private float oldRadius;
     private float oldSoftbodyRadius;
     private float oldSoftbodyFlex;
     private PhysicsMaterial2D oldMat;
+
+
+    private void Start()
+    {
+        Invoke(nameof(DestroyInfoText), textLastTime);
+    }
+
+    private void DestroyInfoText()
+    {
+        Destroy(infoText);
+    }
 
     public override void ApplyUpgrade(Player player)
     {
