@@ -106,6 +106,11 @@ public class GameManager : MonoBehaviour
         //check if all enemy parts have been collected
         if (storedEnemyParts >= totalEnemyPartsToBeCollectedTotal)
         {
+            Debug.Log("Game Complete");
+            //disable HUD
+            var playerHud = GameObject.Find("PlayerHUD");
+            playerHud.SetActive(false);
+
             // Game over; player has collected all enemy parts
             AudioManager.instance.PlayNarration($"narrationLastDropOffEnemyPart");
             gameState = State.GameWin;

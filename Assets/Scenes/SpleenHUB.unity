@@ -1777,8 +1777,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 96d8a51b8a1778d4b846d98bbe8a0111, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  totalEnemyPartsToBeCollectedCurrLevel: 0
-  totalEnemyPartsToBeCollectedTotal: 50
+  totalEnemyPartsOnPlayer: 0
+  totalEnemyPartsToBeCollectedTotal: 20
   storedEnemyParts: 0
   collectedEnemyParts: 
   storedplasmaCoins: 0
