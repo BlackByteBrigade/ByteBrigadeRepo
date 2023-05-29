@@ -170,6 +170,7 @@ public class Enemy : Cell
         {
             DNACollectible collectible = Instantiate(upgradeCollectiblePrefab, transform.position, Quaternion.identity);
             collectible.dnaUpgrade = upgradeType;
+            GameManager.Instance.EnemyDropsPowerUp();
         }
         base.Die();
     }

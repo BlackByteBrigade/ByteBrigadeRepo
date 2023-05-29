@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -49,13 +50,17 @@ public class GameManager : MonoBehaviour
 
     #endregion
 
-    public void PlayerEntersMainScene()
+    public IEnumerator PlayerEntersMainScene()
     {
         gameState = State.PlayingGame;
-        if(narrationFirstTimeMainScene)
-            return;
-        narrationFirstTimeMainScene = true;
-        AudioManager.instance.PlayNarration("narrationFirstTimeMainScene");
+        if (!narrationFirstTimeMainScene)
+        {
+            narrationFirstTimeMainScene = true;
+            Player.instance.Movement.enabled = false;
+            Player.instance.Movement.Body.velocity = Vector3.zero;
+            yield return new WaitForSeconds(AudioManager.instance.PlayNarration("narrationFirstTimeMainScene"));
+            Player.instance.Movement.enabled = true;
+        }
     }
 
     public void PlayerCloseToEnemyPart()
@@ -87,7 +92,7 @@ public class GameManager : MonoBehaviour
     public void PlayerPicksUpEnemyPart()
     {
         //Play sound effect
-        AudioManager.instance.PlaySfX(SoundEffects.CollectingEnemyPart);
+        AudioManager.instance.PlaySfX(SoundEffects.CollectingDna);
 
         if (narrationHasPickedUpEnemyPart)
             return;
@@ -208,7 +213,7 @@ public class GameManager : MonoBehaviour
             case "mainscene":
             case "coderedtest":
                 AudioManager.instance.PlayRegularVolumeAreaMusic(true);
-                PlayerEntersMainScene();
+                StartCoroutine(PlayerEntersMainScene());
                 break;
             case "spleenhub":
                 AudioManager.instance.PlayMusic();

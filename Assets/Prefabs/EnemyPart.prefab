@@ -32,7 +32,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &3465546612671107383
 SpriteRenderer:
@@ -54,7 +54,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
+  - {fileID: 2100000, guid: c51b2ce04cc52b5459808e9ffc09bddc, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -75,7 +75,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 602000015, guid: 3751a48a33ca6c74eb4a221903049626, type: 3}
+  m_Sprite: {fileID: 21300000, guid: c7a77bb203fb32444b203081783718bc, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -101,8 +101,12 @@ MonoBehaviour:
   id: 0
   itemType: 0
   itemAmount: 1
-  dropDist: 3
+  dropRadius: 0
+  dropTime: 0
+  vfxPrefab: {fileID: 6771290179292566956, guid: e34a88567632eef42acf0d181d0cc606,
+    type: 3}
   dropped: 0
+  pickedUpAlready: 0
 --- !u!58 &401568049369359642
 CircleCollider2D:
   m_ObjectHideFlags: 0
