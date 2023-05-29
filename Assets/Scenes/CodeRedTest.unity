@@ -2090,7 +2090,7 @@ MonoBehaviour:
   Weakspot: {fileID: 0}
   spriteHandler: {fileID: 0}
   IsInVulnerableState: 0
-  DmgFromTouching: 30
+  DmgFromTouching: 15
   ReactsToPlayerDistance: 0
   AlarmedByPlayerDistance: 0
   CountdownTillRestAlertness: 0
@@ -2241,7 +2241,7 @@ MonoBehaviour:
   Weakspot: {fileID: 0}
   spriteHandler: {fileID: 0}
   IsInVulnerableState: 0
-  DmgFromTouching: 30
+  DmgFromTouching: 15
   ReactsToPlayerDistance: 0
   AlarmedByPlayerDistance: 0
   CountdownTillRestAlertness: 0
@@ -5348,7 +5348,7 @@ MonoBehaviour:
   Weakspot: {fileID: 0}
   spriteHandler: {fileID: 0}
   IsInVulnerableState: 0
-  DmgFromTouching: 30
+  DmgFromTouching: 15
   ReactsToPlayerDistance: 0
   AlarmedByPlayerDistance: 0
   CountdownTillRestAlertness: 0
@@ -5550,7 +5550,7 @@ MonoBehaviour:
   Weakspot: {fileID: 0}
   spriteHandler: {fileID: 0}
   IsInVulnerableState: 0
-  DmgFromTouching: 30
+  DmgFromTouching: 15
   ReactsToPlayerDistance: 0
   AlarmedByPlayerDistance: 0
   CountdownTillRestAlertness: 0
@@ -5819,7 +5819,7 @@ MonoBehaviour:
   Weakspot: {fileID: 0}
   spriteHandler: {fileID: 0}
   IsInVulnerableState: 0
-  DmgFromTouching: 30
+  DmgFromTouching: 15
   ReactsToPlayerDistance: 0
   AlarmedByPlayerDistance: 0
   CountdownTillRestAlertness: 0
@@ -6684,7 +6684,7 @@ MonoBehaviour:
   Weakspot: {fileID: 0}
   spriteHandler: {fileID: 0}
   IsInVulnerableState: 0
-  DmgFromTouching: 30
+  DmgFromTouching: 15
   ReactsToPlayerDistance: 0
   AlarmedByPlayerDistance: 0
   CountdownTillRestAlertness: 0
@@ -6950,7 +6950,7 @@ MonoBehaviour:
   Weakspot: {fileID: 0}
   spriteHandler: {fileID: 0}
   IsInVulnerableState: 0
-  DmgFromTouching: 30
+  DmgFromTouching: 15
   ReactsToPlayerDistance: 0
   AlarmedByPlayerDistance: 0
   CountdownTillRestAlertness: 0
@@ -7911,7 +7911,7 @@ MonoBehaviour:
   Weakspot: {fileID: 0}
   spriteHandler: {fileID: 0}
   IsInVulnerableState: 0
-  DmgFromTouching: 30
+  DmgFromTouching: 15
   ReactsToPlayerDistance: 0
   AlarmedByPlayerDistance: 0
   CountdownTillRestAlertness: 0
@@ -8643,7 +8643,7 @@ MonoBehaviour:
   Weakspot: {fileID: 0}
   spriteHandler: {fileID: 0}
   IsInVulnerableState: 0
-  DmgFromTouching: 30
+  DmgFromTouching: 15
   ReactsToPlayerDistance: 0
   AlarmedByPlayerDistance: 0
   CountdownTillRestAlertness: 0
@@ -9030,7 +9030,7 @@ MonoBehaviour:
   Weakspot: {fileID: 0}
   spriteHandler: {fileID: 0}
   IsInVulnerableState: 0
-  DmgFromTouching: 30
+  DmgFromTouching: 15
   ReactsToPlayerDistance: 0
   AlarmedByPlayerDistance: 0
   CountdownTillRestAlertness: 0
@@ -9486,7 +9486,7 @@ MonoBehaviour:
   Weakspot: {fileID: 0}
   spriteHandler: {fileID: 0}
   IsInVulnerableState: 0
-  DmgFromTouching: 30
+  DmgFromTouching: 15
   ReactsToPlayerDistance: 0
   AlarmedByPlayerDistance: 0
   CountdownTillRestAlertness: 0
@@ -9776,7 +9776,7 @@ MonoBehaviour:
   Weakspot: {fileID: 0}
   spriteHandler: {fileID: 0}
   IsInVulnerableState: 0
-  DmgFromTouching: 30
+  DmgFromTouching: 15
   ReactsToPlayerDistance: 0
   AlarmedByPlayerDistance: 0
   CountdownTillRestAlertness: 0
@@ -10500,7 +10500,7 @@ MonoBehaviour:
   Weakspot: {fileID: 0}
   spriteHandler: {fileID: 0}
   IsInVulnerableState: 0
-  DmgFromTouching: 30
+  DmgFromTouching: 15
   ReactsToPlayerDistance: 0
   AlarmedByPlayerDistance: 0
   CountdownTillRestAlertness: 0
@@ -11666,7 +11666,7 @@ MonoBehaviour:
   Weakspot: {fileID: 0}
   spriteHandler: {fileID: 0}
   IsInVulnerableState: 0
-  DmgFromTouching: 30
+  DmgFromTouching: 15
   ReactsToPlayerDistance: 0
   AlarmedByPlayerDistance: 0
   CountdownTillRestAlertness: 0
@@ -12111,7 +12111,7 @@ MonoBehaviour:
   Weakspot: {fileID: 0}
   spriteHandler: {fileID: 0}
   IsInVulnerableState: 0
-  DmgFromTouching: 30
+  DmgFromTouching: 15
   ReactsToPlayerDistance: 0
   AlarmedByPlayerDistance: 0
   CountdownTillRestAlertness: 0
@@ -18414,7 +18414,7 @@ MonoBehaviour:
   Weakspot: {fileID: 0}
   spriteHandler: {fileID: 0}
   IsInVulnerableState: 0
-  DmgFromTouching: 30
+  DmgFromTouching: 15
   ReactsToPlayerDistance: 0
   AlarmedByPlayerDistance: 0
   CountdownTillRestAlertness: 0
@@ -19428,7 +19428,7 @@ MonoBehaviour:
   Weakspot: {fileID: 0}
   spriteHandler: {fileID: 0}
   IsInVulnerableState: 0
-  DmgFromTouching: 30
+  DmgFromTouching: 15
   ReactsToPlayerDistance: 0
   AlarmedByPlayerDistance: 0
   CountdownTillRestAlertness: 0
@@ -20155,7 +20155,7 @@ MonoBehaviour:
   Weakspot: {fileID: 0}
   spriteHandler: {fileID: 0}
   IsInVulnerableState: 0
-  DmgFromTouching: 30
+  DmgFromTouching: 15
   ReactsToPlayerDistance: 0
   AlarmedByPlayerDistance: 0
   CountdownTillRestAlertness: 0
@@ -21207,7 +21207,7 @@ MonoBehaviour:
   Weakspot: {fileID: 0}
   spriteHandler: {fileID: 0}
   IsInVulnerableState: 0
-  DmgFromTouching: 30
+  DmgFromTouching: 15
   ReactsToPlayerDistance: 0
   AlarmedByPlayerDistance: 0
   CountdownTillRestAlertness: 0
@@ -21361,7 +21361,7 @@ MonoBehaviour:
   Weakspot: {fileID: 0}
   spriteHandler: {fileID: 0}
   IsInVulnerableState: 0
-  DmgFromTouching: 30
+  DmgFromTouching: 15
   ReactsToPlayerDistance: 0
   AlarmedByPlayerDistance: 0
   CountdownTillRestAlertness: 0
@@ -23235,7 +23235,7 @@ MonoBehaviour:
   Weakspot: {fileID: 0}
   spriteHandler: {fileID: 0}
   IsInVulnerableState: 0
-  DmgFromTouching: 30
+  DmgFromTouching: 15
   ReactsToPlayerDistance: 0
   AlarmedByPlayerDistance: 0
   CountdownTillRestAlertness: 0
@@ -24085,7 +24085,7 @@ MonoBehaviour:
   Weakspot: {fileID: 0}
   spriteHandler: {fileID: 0}
   IsInVulnerableState: 0
-  DmgFromTouching: 30
+  DmgFromTouching: 15
   ReactsToPlayerDistance: 0
   AlarmedByPlayerDistance: 0
   CountdownTillRestAlertness: 0
@@ -24541,7 +24541,7 @@ MonoBehaviour:
   Weakspot: {fileID: 0}
   spriteHandler: {fileID: 0}
   IsInVulnerableState: 0
-  DmgFromTouching: 30
+  DmgFromTouching: 15
   ReactsToPlayerDistance: 0
   AlarmedByPlayerDistance: 0
   CountdownTillRestAlertness: 0
@@ -25042,7 +25042,7 @@ MonoBehaviour:
   Weakspot: {fileID: 0}
   spriteHandler: {fileID: 0}
   IsInVulnerableState: 0
-  DmgFromTouching: 30
+  DmgFromTouching: 15
   ReactsToPlayerDistance: 0
   AlarmedByPlayerDistance: 0
   CountdownTillRestAlertness: 0
@@ -26068,7 +26068,7 @@ MonoBehaviour:
   Weakspot: {fileID: 0}
   spriteHandler: {fileID: 0}
   IsInVulnerableState: 0
-  DmgFromTouching: 30
+  DmgFromTouching: 15
   ReactsToPlayerDistance: 0
   AlarmedByPlayerDistance: 0
   CountdownTillRestAlertness: 0
@@ -26291,7 +26291,7 @@ MonoBehaviour:
   Weakspot: {fileID: 0}
   spriteHandler: {fileID: 0}
   IsInVulnerableState: 0
-  DmgFromTouching: 30
+  DmgFromTouching: 15
   ReactsToPlayerDistance: 0
   AlarmedByPlayerDistance: 0
   CountdownTillRestAlertness: 0
@@ -27958,7 +27958,7 @@ MonoBehaviour:
   Weakspot: {fileID: 0}
   spriteHandler: {fileID: 0}
   IsInVulnerableState: 0
-  DmgFromTouching: 30
+  DmgFromTouching: 15
   ReactsToPlayerDistance: 0
   AlarmedByPlayerDistance: 0
   CountdownTillRestAlertness: 0
@@ -28205,7 +28205,7 @@ MonoBehaviour:
   Weakspot: {fileID: 0}
   spriteHandler: {fileID: 0}
   IsInVulnerableState: 0
-  DmgFromTouching: 30
+  DmgFromTouching: 15
   ReactsToPlayerDistance: 0
   AlarmedByPlayerDistance: 0
   CountdownTillRestAlertness: 0
@@ -29686,7 +29686,7 @@ MonoBehaviour:
   Weakspot: {fileID: 0}
   spriteHandler: {fileID: 0}
   IsInVulnerableState: 0
-  DmgFromTouching: 30
+  DmgFromTouching: 15
   ReactsToPlayerDistance: 0
   AlarmedByPlayerDistance: 0
   CountdownTillRestAlertness: 0
@@ -30191,7 +30191,7 @@ MonoBehaviour:
   Weakspot: {fileID: 0}
   spriteHandler: {fileID: 0}
   IsInVulnerableState: 0
-  DmgFromTouching: 30
+  DmgFromTouching: 15
   ReactsToPlayerDistance: 0
   AlarmedByPlayerDistance: 0
   CountdownTillRestAlertness: 0
@@ -30455,7 +30455,7 @@ MonoBehaviour:
   Weakspot: {fileID: 0}
   spriteHandler: {fileID: 0}
   IsInVulnerableState: 0
-  DmgFromTouching: 30
+  DmgFromTouching: 15
   ReactsToPlayerDistance: 0
   AlarmedByPlayerDistance: 0
   CountdownTillRestAlertness: 0
@@ -30833,14 +30833,6 @@ PrefabInstance:
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 5432526820493999406, guid: 64834dcae3f4b5345a9f4b504a86e255,
-        type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1309840718}
-    - targetCorrespondingSourceObject: {fileID: 5432526820493999406, guid: 64834dcae3f4b5345a9f4b504a86e255,
-        type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1309840734}
     - targetCorrespondingSourceObject: {fileID: 7973383677692512346, guid: 64834dcae3f4b5345a9f4b504a86e255,
         type: 3}
       insertIndex: -1
@@ -31792,7 +31784,7 @@ MonoBehaviour:
   Weakspot: {fileID: 0}
   spriteHandler: {fileID: 0}
   IsInVulnerableState: 0
-  DmgFromTouching: 30
+  DmgFromTouching: 15
   ReactsToPlayerDistance: 0
   AlarmedByPlayerDistance: 0
   CountdownTillRestAlertness: 0
@@ -32378,7 +32370,7 @@ MonoBehaviour:
   Weakspot: {fileID: 0}
   spriteHandler: {fileID: 0}
   IsInVulnerableState: 0
-  DmgFromTouching: 30
+  DmgFromTouching: 15
   ReactsToPlayerDistance: 0
   AlarmedByPlayerDistance: 0
   CountdownTillRestAlertness: 0
@@ -33050,7 +33042,7 @@ MonoBehaviour:
   Weakspot: {fileID: 0}
   spriteHandler: {fileID: 0}
   IsInVulnerableState: 0
-  DmgFromTouching: 30
+  DmgFromTouching: 15
   ReactsToPlayerDistance: 0
   AlarmedByPlayerDistance: 0
   CountdownTillRestAlertness: 0
@@ -33317,7 +33309,7 @@ MonoBehaviour:
   Weakspot: {fileID: 0}
   spriteHandler: {fileID: 0}
   IsInVulnerableState: 0
-  DmgFromTouching: 30
+  DmgFromTouching: 15
   ReactsToPlayerDistance: 0
   AlarmedByPlayerDistance: 0
   CountdownTillRestAlertness: 0
@@ -33685,7 +33677,7 @@ MonoBehaviour:
   Weakspot: {fileID: 0}
   spriteHandler: {fileID: 0}
   IsInVulnerableState: 0
-  DmgFromTouching: 30
+  DmgFromTouching: 15
   ReactsToPlayerDistance: 0
   AlarmedByPlayerDistance: 0
   CountdownTillRestAlertness: 0
@@ -34809,7 +34801,7 @@ MonoBehaviour:
   Weakspot: {fileID: 0}
   spriteHandler: {fileID: 0}
   IsInVulnerableState: 0
-  DmgFromTouching: 30
+  DmgFromTouching: 15
   ReactsToPlayerDistance: 0
   AlarmedByPlayerDistance: 0
   CountdownTillRestAlertness: 0
@@ -34960,7 +34952,7 @@ MonoBehaviour:
   Weakspot: {fileID: 0}
   spriteHandler: {fileID: 0}
   IsInVulnerableState: 0
-  DmgFromTouching: 30
+  DmgFromTouching: 15
   ReactsToPlayerDistance: 0
   AlarmedByPlayerDistance: 0
   CountdownTillRestAlertness: 0
@@ -35704,7 +35696,7 @@ MonoBehaviour:
   Weakspot: {fileID: 0}
   spriteHandler: {fileID: 0}
   IsInVulnerableState: 0
-  DmgFromTouching: 30
+  DmgFromTouching: 15
   ReactsToPlayerDistance: 0
   AlarmedByPlayerDistance: 0
   CountdownTillRestAlertness: 0
@@ -36270,7 +36262,7 @@ MonoBehaviour:
   Weakspot: {fileID: 0}
   spriteHandler: {fileID: 0}
   IsInVulnerableState: 0
-  DmgFromTouching: 30
+  DmgFromTouching: 15
   ReactsToPlayerDistance: 0
   AlarmedByPlayerDistance: 0
   CountdownTillRestAlertness: 0
@@ -36966,7 +36958,7 @@ MonoBehaviour:
   Weakspot: {fileID: 0}
   spriteHandler: {fileID: 0}
   IsInVulnerableState: 0
-  DmgFromTouching: 30
+  DmgFromTouching: 15
   ReactsToPlayerDistance: 0
   AlarmedByPlayerDistance: 0
   CountdownTillRestAlertness: 0
@@ -38143,7 +38135,7 @@ MonoBehaviour:
   Weakspot: {fileID: 0}
   spriteHandler: {fileID: 0}
   IsInVulnerableState: 0
-  DmgFromTouching: 30
+  DmgFromTouching: 15
   ReactsToPlayerDistance: 0
   AlarmedByPlayerDistance: 0
   CountdownTillRestAlertness: 0
@@ -38484,7 +38476,7 @@ MonoBehaviour:
   Weakspot: {fileID: 0}
   spriteHandler: {fileID: 0}
   IsInVulnerableState: 0
-  DmgFromTouching: 30
+  DmgFromTouching: 15
   ReactsToPlayerDistance: 0
   AlarmedByPlayerDistance: 0
   CountdownTillRestAlertness: 0
@@ -40994,7 +40986,7 @@ MonoBehaviour:
   Weakspot: {fileID: 0}
   spriteHandler: {fileID: 0}
   IsInVulnerableState: 0
-  DmgFromTouching: 30
+  DmgFromTouching: 15
   ReactsToPlayerDistance: 0
   AlarmedByPlayerDistance: 0
   CountdownTillRestAlertness: 0
@@ -41145,7 +41137,7 @@ MonoBehaviour:
   Weakspot: {fileID: 0}
   spriteHandler: {fileID: 0}
   IsInVulnerableState: 0
-  DmgFromTouching: 30
+  DmgFromTouching: 15
   ReactsToPlayerDistance: 0
   AlarmedByPlayerDistance: 0
   CountdownTillRestAlertness: 0
@@ -41441,7 +41433,7 @@ MonoBehaviour:
   Weakspot: {fileID: 0}
   spriteHandler: {fileID: 0}
   IsInVulnerableState: 0
-  DmgFromTouching: 30
+  DmgFromTouching: 15
   ReactsToPlayerDistance: 0
   AlarmedByPlayerDistance: 0
   CountdownTillRestAlertness: 0
@@ -42104,7 +42096,7 @@ MonoBehaviour:
   Weakspot: {fileID: 0}
   spriteHandler: {fileID: 0}
   IsInVulnerableState: 0
-  DmgFromTouching: 30
+  DmgFromTouching: 15
   ReactsToPlayerDistance: 0
   AlarmedByPlayerDistance: 0
   CountdownTillRestAlertness: 0
@@ -42424,7 +42416,7 @@ MonoBehaviour:
   Weakspot: {fileID: 0}
   spriteHandler: {fileID: 0}
   IsInVulnerableState: 0
-  DmgFromTouching: 30
+  DmgFromTouching: 15
   ReactsToPlayerDistance: 0
   AlarmedByPlayerDistance: 0
   CountdownTillRestAlertness: 0
@@ -42688,7 +42680,7 @@ MonoBehaviour:
   Weakspot: {fileID: 0}
   spriteHandler: {fileID: 0}
   IsInVulnerableState: 0
-  DmgFromTouching: 30
+  DmgFromTouching: 15
   ReactsToPlayerDistance: 0
   AlarmedByPlayerDistance: 0
   CountdownTillRestAlertness: 0
@@ -42952,7 +42944,7 @@ MonoBehaviour:
   Weakspot: {fileID: 0}
   spriteHandler: {fileID: 0}
   IsInVulnerableState: 0
-  DmgFromTouching: 30
+  DmgFromTouching: 15
   ReactsToPlayerDistance: 0
   AlarmedByPlayerDistance: 0
   CountdownTillRestAlertness: 0
@@ -43097,7 +43089,7 @@ MonoBehaviour:
   Weakspot: {fileID: 0}
   spriteHandler: {fileID: 0}
   IsInVulnerableState: 0
-  DmgFromTouching: 30
+  DmgFromTouching: 15
   ReactsToPlayerDistance: 0
   AlarmedByPlayerDistance: 0
   CountdownTillRestAlertness: 0
@@ -44039,59 +44031,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1213681674}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1309840716 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5432526820493999406, guid: 64834dcae3f4b5345a9f4b504a86e255,
-    type: 3}
-  m_PrefabInstance: {fileID: 937144431}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1309840718
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1309840716}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 778c4baa74a78f142810e2aae05f9268, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!58 &1309840734
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1309840716}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_ForceSendLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ForceReceiveLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ContactCaptureLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_CallbackLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  serializedVersion: 2
-  m_Radius: 0.5
 --- !u!1001 &1327731512
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -45940,7 +45879,7 @@ MonoBehaviour:
   Weakspot: {fileID: 0}
   spriteHandler: {fileID: 0}
   IsInVulnerableState: 0
-  DmgFromTouching: 30
+  DmgFromTouching: 15
   ReactsToPlayerDistance: 0
   AlarmedByPlayerDistance: 0
   CountdownTillRestAlertness: 0
@@ -47263,7 +47202,7 @@ MonoBehaviour:
   Weakspot: {fileID: 0}
   spriteHandler: {fileID: 0}
   IsInVulnerableState: 0
-  DmgFromTouching: 30
+  DmgFromTouching: 15
   ReactsToPlayerDistance: 0
   AlarmedByPlayerDistance: 0
   CountdownTillRestAlertness: 0
@@ -51529,7 +51468,7 @@ MonoBehaviour:
   Weakspot: {fileID: 0}
   spriteHandler: {fileID: 0}
   IsInVulnerableState: 0
-  DmgFromTouching: 30
+  DmgFromTouching: 15
   ReactsToPlayerDistance: 0
   AlarmedByPlayerDistance: 0
   CountdownTillRestAlertness: 0
@@ -53689,7 +53628,7 @@ MonoBehaviour:
   Weakspot: {fileID: 0}
   spriteHandler: {fileID: 0}
   IsInVulnerableState: 0
-  DmgFromTouching: 30
+  DmgFromTouching: 15
   ReactsToPlayerDistance: 0
   AlarmedByPlayerDistance: 0
   CountdownTillRestAlertness: 0
@@ -54053,7 +53992,7 @@ MonoBehaviour:
   Weakspot: {fileID: 0}
   spriteHandler: {fileID: 0}
   IsInVulnerableState: 0
-  DmgFromTouching: 30
+  DmgFromTouching: 15
   ReactsToPlayerDistance: 0
   AlarmedByPlayerDistance: 0
   CountdownTillRestAlertness: 0
@@ -55039,7 +54978,7 @@ MonoBehaviour:
   Weakspot: {fileID: 0}
   spriteHandler: {fileID: 0}
   IsInVulnerableState: 0
-  DmgFromTouching: 30
+  DmgFromTouching: 15
   ReactsToPlayerDistance: 0
   AlarmedByPlayerDistance: 0
   CountdownTillRestAlertness: 0
@@ -55986,7 +55925,7 @@ MonoBehaviour:
   Weakspot: {fileID: 0}
   spriteHandler: {fileID: 0}
   IsInVulnerableState: 0
-  DmgFromTouching: 30
+  DmgFromTouching: 15
   ReactsToPlayerDistance: 0
   AlarmedByPlayerDistance: 0
   CountdownTillRestAlertness: 0
@@ -57113,7 +57052,7 @@ MonoBehaviour:
   Weakspot: {fileID: 0}
   spriteHandler: {fileID: 0}
   IsInVulnerableState: 0
-  DmgFromTouching: 30
+  DmgFromTouching: 15
   ReactsToPlayerDistance: 0
   AlarmedByPlayerDistance: 0
   CountdownTillRestAlertness: 0
@@ -57305,7 +57244,7 @@ MonoBehaviour:
   Weakspot: {fileID: 0}
   spriteHandler: {fileID: 0}
   IsInVulnerableState: 0
-  DmgFromTouching: 30
+  DmgFromTouching: 15
   ReactsToPlayerDistance: 0
   AlarmedByPlayerDistance: 0
   CountdownTillRestAlertness: 0
@@ -57751,7 +57690,7 @@ MonoBehaviour:
   Weakspot: {fileID: 0}
   spriteHandler: {fileID: 0}
   IsInVulnerableState: 0
-  DmgFromTouching: 30
+  DmgFromTouching: 15
   ReactsToPlayerDistance: 0
   AlarmedByPlayerDistance: 0
   CountdownTillRestAlertness: 0
@@ -58497,6 +58436,11 @@ PrefabInstance:
       propertyPath: path.Array.data[2]
       value: 
       objectReference: {fileID: 1032132930}
+    - target: {fileID: 1608251747811562003, guid: 1936a0dc540e62a4abbf3282813845b7,
+        type: 3}
+      propertyPath: upgradeCollectiblePrefab
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 4551196804201295959, guid: 1936a0dc540e62a4abbf3282813845b7,
         type: 3}
       propertyPath: m_RootOrder
@@ -60401,7 +60345,7 @@ MonoBehaviour:
   Weakspot: {fileID: 0}
   spriteHandler: {fileID: 0}
   IsInVulnerableState: 0
-  DmgFromTouching: 30
+  DmgFromTouching: 15
   ReactsToPlayerDistance: 0
   AlarmedByPlayerDistance: 0
   CountdownTillRestAlertness: 0
@@ -63523,7 +63467,7 @@ MonoBehaviour:
   Weakspot: {fileID: 0}
   spriteHandler: {fileID: 0}
   IsInVulnerableState: 0
-  DmgFromTouching: 30
+  DmgFromTouching: 15
   ReactsToPlayerDistance: 0
   AlarmedByPlayerDistance: 0
   CountdownTillRestAlertness: 0
@@ -64661,7 +64605,7 @@ MonoBehaviour:
   Weakspot: {fileID: 0}
   spriteHandler: {fileID: 0}
   IsInVulnerableState: 0
-  DmgFromTouching: 30
+  DmgFromTouching: 15
   ReactsToPlayerDistance: 0
   AlarmedByPlayerDistance: 0
   CountdownTillRestAlertness: 0
@@ -65785,7 +65729,7 @@ MonoBehaviour:
   Weakspot: {fileID: 0}
   spriteHandler: {fileID: 0}
   IsInVulnerableState: 0
-  DmgFromTouching: 30
+  DmgFromTouching: 15
   ReactsToPlayerDistance: 0
   AlarmedByPlayerDistance: 0
   CountdownTillRestAlertness: 0
@@ -66291,7 +66235,7 @@ MonoBehaviour:
   Weakspot: {fileID: 0}
   spriteHandler: {fileID: 0}
   IsInVulnerableState: 0
-  DmgFromTouching: 30
+  DmgFromTouching: 15
   ReactsToPlayerDistance: 0
   AlarmedByPlayerDistance: 0
   CountdownTillRestAlertness: 0

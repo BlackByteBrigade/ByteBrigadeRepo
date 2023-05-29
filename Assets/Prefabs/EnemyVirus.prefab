@@ -137,14 +137,17 @@ MonoBehaviour:
   health: 20
   invulnerableTime: 0.1
   Weakspot: {fileID: 9015988872948910472}
+  spriteHandler: {fileID: 0}
   IsInVulnerableState: 0
   DmgFromTouching: 20
   ReactsToPlayerDistance: 5
   AlarmedByPlayerDistance: 3
   CountdownTillRestAlertness: 5
   DurationVulnerable: 3
-  upgradeCollectiblePrefab: {fileID: 0}
-  upgradeType: {fileID: 0}
+  upgradeCollectiblePrefab: {fileID: 3985933236073633054, guid: 6f3fffdf514e69041888fb1b452bb476,
+    type: 3}
+  upgradeType: {fileID: 8430185959490150386, guid: 06decb8e0043b244192bb6f9def8189b,
+    type: 3}
   AttackCooldown: 0
   Projectile: {fileID: 3298211051596704996, guid: 9104e3240a9845c40a2439ebf1423a9a,
     type: 3}

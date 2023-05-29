@@ -127,7 +127,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aa2ede5edba398148a846a05ed221466, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 0
+  health: 5
   invulnerableTime: 0.1
   Weakspot: {fileID: 0}
   spriteHandler: {fileID: 0}
