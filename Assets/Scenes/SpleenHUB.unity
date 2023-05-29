@@ -388,6 +388,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: BasicEnemy
       objectReference: {fileID: 0}
+    - target: {fileID: 7549149773302452642, guid: 1936a0dc540e62a4abbf3282813845b7,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2102,6 +2107,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: SpikeBall Variant
       objectReference: {fileID: 0}
+    - target: {fileID: 5351896775220026550, guid: e2fa55048a395ba4a84ee635d663bbe5,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2143,7 +2153,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1780029565}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -960.00006, y: -441.1, z: 0}
+  m_LocalPosition: {x: -960.00006, y: -525.8, z: 0}
   m_LocalScale: {x: 2.2429907, y: 2.2429907, z: 2.2429907}
   m_ConstrainProportionsScale: 0
   m_Children: []
