@@ -65,13 +65,13 @@ public static class AudioHelper
                 var enemyDieSounds = AudioManager.instance.sounds.Where(o => o.clip.name.IndexOf("Enemy_Death_",StringComparison.CurrentCultureIgnoreCase)>=0).ToList();
                 return enemyDieSounds[Random.Range(0, enemyDieSounds.Count)].name;
             case SoundEffects.PlayerDeath:
-                return "Player Death"; //todo
+                return "Player Death";
             case SoundEffects.CollectingEnemyPart:
                 return "Pick_Up_Enemy_Part";
             case SoundEffects.CollectingDna:
                 return "Pick_Up_Enemy_DNA_Upgrade";
             case SoundEffects.Collision:
-                return "Collision"; //todo
+                return "Collision";
             case SoundEffects.DropingOffEnememyParts:
                 return "Hand In";
             case SoundEffects.MainMenuSelection:
@@ -81,7 +81,7 @@ public static class AudioHelper
             case SoundEffects.PewPew:
                 return "Harpoony_Thing";
             case SoundEffects.Teleporting:
-                return "Teleporting";
+                return "Teleport";
         }
         return soundEffect.ToString("G");
     }

@@ -2576,24 +2576,38 @@ MonoBehaviour:
     source: {fileID: 0}
     loop: 0
     Area: 0
-  playlist:
-  - name: ambient1
-    clip: {fileID: 8300000, guid: 78aa3bd449a1f564db754829404fbee4, type: 3}
-    volume: 0.828
+  - name: Player Death
+    clip: {fileID: 8300000, guid: 769022184189d7a408af52b93bc41d39, type: 3}
+    volume: 0.959
     pitch: 0
     source: {fileID: 0}
     loop: 0
+    Area: 0
+  - name: Collision
+    clip: {fileID: 8300000, guid: 9591fc8ba1388374c909817624540766, type: 3}
+    volume: 0.959
+    pitch: 0
+    source: {fileID: 0}
+    loop: 0
+    Area: 0
+  playlist:
+  - name: ambient1
+    clip: {fileID: 8300000, guid: a613fa8e9ad1a1a4580691574f83c946, type: 3}
+    volume: 0.828
+    pitch: 0
+    source: {fileID: 0}
+    loop: 1
     Area: 2
   playlistAreas:
   - name: Area1
-    clip: {fileID: 8300000, guid: 77d08af85f3a8494b93f642414b48037, type: 3}
+    clip: {fileID: 8300000, guid: 7027d13f2565e394f86926d24e10b471, type: 3}
     volume: 0.5
     pitch: 0
     source: {fileID: 0}
     loop: 1
     Area: 3
   - name: Area1
-    clip: {fileID: 8300000, guid: ac3db00eb44100543b775074bc7b2a8c, type: 3}
+    clip: {fileID: 8300000, guid: 4ef304ef899b2664b86e8059ef1813ec, type: 3}
     volume: 0.5
     pitch: 0
     source: {fileID: 0}
