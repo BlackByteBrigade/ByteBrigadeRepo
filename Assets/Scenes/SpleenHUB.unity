@@ -3701,14 +3701,14 @@ MonoBehaviour:
     source: {fileID: 0}
     loop: 0
     Area: 0
-  - name: Narration10
+  - name: narrationFirstSeenPowerUp
     clip: {fileID: 8300000, guid: d1cd284bf32a3d247bd1e94a4a295ba0, type: 3}
     volume: 0.5
     pitch: 0
     source: {fileID: 0}
     loop: 0
     Area: 0
-  - name: Narration11
+  - name: narrationFirstTakenWorldDmg
     clip: {fileID: 8300000, guid: d75d10fcab15d024cb4c1c308ea28249, type: 3}
     volume: 0.5
     pitch: 0
@@ -3729,35 +3729,35 @@ MonoBehaviour:
     source: {fileID: 0}
     loop: 0
     Area: 0
-  - name: Narration14
+  - name: narrationDropOffEnemyPart_0
     clip: {fileID: 8300000, guid: 1bff91f6d35dae34aa1a3d6d31e0b6bc, type: 3}
     volume: 0.5
     pitch: 0
     source: {fileID: 0}
     loop: 0
     Area: 0
-  - name: Narration15
+  - name: narrationDropOffEnemyPart_2
     clip: {fileID: 8300000, guid: 37ae77688339d124c842d0f7ef63a2ff, type: 3}
     volume: 0.5
     pitch: 0
     source: {fileID: 0}
     loop: 0
     Area: 0
-  - name: Narration16
+  - name: narrationDropOffEnemyPart_3
     clip: {fileID: 8300000, guid: 9c911dd982b263940a255d9e9996f2a0, type: 3}
     volume: 0.5
     pitch: 0
     source: {fileID: 0}
     loop: 0
     Area: 0
-  - name: Narration17
+  - name: narrationDropOffEnemyPart_4
     clip: {fileID: 8300000, guid: 7251fec462e12ec49b6f1aeee070b3d1, type: 3}
     volume: 0.5
     pitch: 0
     source: {fileID: 0}
     loop: 0
     Area: 0
-  - name: Narration18
+  - name: narrationLastDropOffEnemyPart
     clip: {fileID: 8300000, guid: cf359d4b9eb489943b52b52b4059b1ee, type: 3}
     volume: 0.5
     pitch: 0
