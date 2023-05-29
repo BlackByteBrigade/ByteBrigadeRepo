@@ -118,6 +118,7 @@ public class Player : Cell
             {
                 GameManager.Instance.storedplasmaCoins--;
                 health = Math.Min(health+HealPerPlasmaCoin, PlayerManager.Instance.maxHealth);
+                PlayerManager.Instance.currentHealth = health;
                 PlayerHUD.instance.UpdateHealthbar(health / (float)PlayerManager.Instance.maxHealth);
                 AudioManager.instance.PlaySound("Heal");
                 yield return new WaitForSeconds(1);
