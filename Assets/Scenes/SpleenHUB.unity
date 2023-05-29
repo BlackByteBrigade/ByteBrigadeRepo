@@ -932,7 +932,7 @@ GameObject:
   - component: {fileID: 1403020912}
   - component: {fileID: 1403020911}
   - component: {fileID: 1403020910}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Wall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2751,8 +2751,6 @@ MonoBehaviour:
   textBox2: {fileID: 1963000044}
   textBox3: {fileID: 1476724286}
   bloodVesselEntrance: {fileID: 636478586}
-  camera: {fileID: 47170436}
-  TargetForCameraOpenTutorial: {fileID: 1363916231}
   fadeInCanvasGroup: {fileID: 7655736849252769892}
   TimeToFadeIn: 0.5
 --- !u!222 &1296204691316113328
