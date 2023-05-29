@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.12731713, g: 0.13414736, b: 0.12107852, a: 1}
+  m_IndirectSpecularColor: {r: 0.12731749, g: 0.13414757, b: 0.1210787, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -3871,7 +3871,7 @@ MonoBehaviour:
     source: {fileID: 0}
     loop: 0
     Area: 0
-  - name: Pickup Enemy Part
+  - name: Pick_Up_Enemy_Part
     clip: {fileID: 8300000, guid: dd3cf9bb26761b445a04a106da88fa8e, type: 3}
     volume: 0.959
     pitch: 0
