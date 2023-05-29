@@ -3352,7 +3352,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8ae6b9fbc9cc820419c3dca274a4f9d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sceneToLoadWhenPlayIsClicked: SpleenHUB
+  sceneToLoadWhenPlayIsClicked: SpleenHub
   playButton: {fileID: 295720459}
   exitButton: {fileID: 1717235770}
 --- !u!222 &1488612510

@@ -8,8 +8,8 @@ public class MainMenuUI : MonoBehaviour
 {
     [SerializeField] private string sceneToLoadWhenPlayIsClicked;
 
-    [SerializeField] private Button playButton;
-    [SerializeField] private Button exitButton;
+    [SerializeField] public Button playButton;
+    [SerializeField] public Button exitButton;
 
     private Animator animator;
     
