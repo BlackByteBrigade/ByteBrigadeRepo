@@ -1,184 +1,169 @@
+using System;
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using DG.Tweening;
-
-
-/*
-            STINGER BEHAVIOUR:
-            ------------------
-
-    Alertness {Idle, Noticed, Engaged}
-
-    Idle: 
-        slowly move around
-        no dashes
-        random patrol within radius of anchorpoint
-
-
-    Noticed:
-        noticed animation + sound
-    
-    Engaged:
-
-        WindUp
-            1. rotate towards player
-                if angle > threshold swim in a tight radius
-                else turn on spot
-
-        Wind Up
-            2. save player position as target position
-            3. short delay with maybe an additional telegraph
-                tail wind up
-
-        Dashing
-            4. fast dash towards saved target position
-                tail unwinds
-                Dash sound
-        
-        Recovering
-            5. Stay in place for <durationBetweenDashes>
-            6. if player out of range 
-                => return to anchorpoint
-            7. if player still within range
-                => WindUp state
-
-*/
-
-
-// Author: Pascal
 
 public class EnemyStinger : Enemy
 {
-
-
-    [Header("Dash")]
-    [SerializeField] float dashSpeed = 10f;
+    [Header("Dash")] [SerializeField] float dashSpeed = 10f;
     [SerializeField] float dashDistance = 20f;
     [SerializeField] float durationBetweenDashes = 5f;
-    [Tooltip("Time between end of turning and start of dash")] 
-    [SerializeField] float dashDelay = 0.5f;
+
+    [Tooltip("Time between end of turning and start of dash")] [SerializeField]
+    float dashDelay = 1.5f;
+
     [SerializeField] Sound dashSound;
     [SerializeField] int dashDamage;
 
     [SerializeField] StingerTail tail;
 
+    private Rigidbody2D _body;
+    public int TurnSpeed;
 
+    private Patrol _patrolComponent { get; set; }
 
-    
     AudioPlayer audioPlayer;
     Transform playerTransform;
-    Vector3 anchorPosition;
     int idleDamage;
     Vector3 savedTargetPosition;
     State state = State.Idle;
-    enum State {
+
+    enum State
+    {
         Idle = 0,
         WindUp = 1,
         Dashing = 2,
         Recovering = 3,
     }
-    
-    public void Start() {
-        
-        if (TryGetComponent<AudioPlayer>(out audioPlayer)) {
-            // audioPlayer.AddSound(ambientSound);
+
+    public void Start()
+    {
+        if (TryGetComponent(out audioPlayer))
+        {
             audioPlayer.AddSound(dashSound);
         }
 
-        anchorPosition = transform.position;
         idleDamage = DmgFromTouching;
         base.Start(); // enemy needs public virtual void Start
         playerTransform = Player.transform;
         tail.SetIdle();
+
+        _patrolComponent = GetComponent<Patrol>();
+        _body = GetComponent<Rigidbody2D>();
+
+        if (TurnSpeed == 0) TurnSpeed = 500;
     }
 
-    public void Update() {
+    public void Update()
+    {
         base.Update(); // enemy needs public virtual void Update
         if (AlertnessLevel >= Alertness.Engaged && state == State.Idle)
-            // System.Action callback = ()=> DashTowardsPlayer();
-            RotateTowardsPlayer();
+        {
+            _patrolComponent.DisablePatrolling();
+
+            StartCoroutine(TargetAndAttackPlayer());
+        }
+        else if (AlertnessLevel == Alertness.Idle && state == State.Idle)
+        {
+            _patrolComponent.EnablePatrolling();
+        }
     }
 
 
+    private IEnumerator TargetAndAttackPlayer()
+    {
+        if (IsDead) yield break;
 
-
-    // Wind Up
-    void RotateTowardsPlayer() {
         state = State.WindUp;
         tail.WindUp();
         savedTargetPosition = playerTransform.position - transform.position;
-        float targetAngle = Mathf.Atan2(savedTargetPosition.y, savedTargetPosition.x) * Mathf.Rad2Deg;
-        transform.DORotate(new Vector3(0f, 0f, targetAngle), 1f)
-            .SetEase(Ease.OutQuad)
-            .OnComplete( 
-                () => Invoke(nameof(DashTowardsPlayer), dashDelay)
-            );
+        var targetAngle = Mathf.Atan2(savedTargetPosition.y, savedTargetPosition.x) * Mathf.Rad2Deg;
+
+        Debug.Log("Rotate to target");
+
+
+        var targetAsQuaternion = Quaternion.Euler(0, 0, targetAngle - 90);
+        Debug.Log($"Target rotation: {targetAsQuaternion}");
+        do
+        {
+            //continuously check if the player has killed the enemy
+            if (IsDead) yield break;
+
+            float rotAmount = 225 * Time.fixedDeltaTime;
+            if (Quaternion.Angle(targetAsQuaternion, transform.rotation) <= rotAmount)
+            {
+                transform.rotation = targetAsQuaternion;
+            }
+            else
+            {
+                transform.rotation = Quaternion.Lerp(transform.rotation, targetAsQuaternion, Time.fixedDeltaTime * 5);
+            }
+
+            yield return new WaitForFixedUpdate();
+        } while (Quaternion.Angle(targetAsQuaternion, transform.rotation) >= 0.05f); //we just wanna get close enough
+
+        yield return new WaitForSeconds(dashDelay);
+
+        StartCoroutine(DashToTarget());
     }
 
-    // Dash
-    void DashTowardsPlayer() {
+    private IEnumerator DashToTarget()
+    {
+        Debug.Log("Dash to target");
+        if (IsDead) yield break;
         state = State.Dashing;
         tail.Dash();
         DmgFromTouching = dashDamage;
-
-        Vector3 targetPos = transform.position + savedTargetPosition.normalized * dashDistance;
-        float _time = dashDistance / dashSpeed;
-        transform.DOMove(targetPos, _time)
-            .SetEase(Ease.InQuad)
-            // .SetDelay(dashDelay)
-            .OnComplete(
-                () => Recover()
-            );
+        _body.GetComponent<Collider2D>().isTrigger = true;
+        var RaycastHit = Physics2D.Raycast(transform.position, transform.up, dashDistance, LayerMask.GetMask("Level"));
+        var targetPos = transform.position + savedTargetPosition.normalized *
+            MathF.Min(dashDistance, RaycastHit.collider != null ? RaycastHit.distance : 999);
+        if (RaycastHit.collider != null)
+            Debug.Log($"We hit: {RaycastHit.collider.gameObject.name}");
+        Vector2 targetPosVector2 = targetPos; //use as vector 2 to use same logic as EnemyBasic
 
         PlayDashSound();
-        // Invoke(nameof(PlayDashSound), dashDelay-0.1f);
+        do
+        {
+            //continuously check if the player has killed the enemy
+            if (IsDead) yield break;
+
+
+            Vector2 currentPos = transform.position; // easier to deal with the position as a vector2
+            var targetDir = (targetPosVector2 - currentPos).normalized;
+
+            transform.position += (Vector3)targetDir * 15.5f * Time.deltaTime;
+            transform.up = targetDir;
+
+            yield return null;
+        } while (GetDistanceTo(targetPos) >= 0.2f);
+
+        _body.GetComponent<Collider2D>().isTrigger = false;
+
+        _body.velocity = Vector2.zero;
+        Recover();
+    }
+
+    public float GetDistanceTo(Vector3 position)
+    {
+        return Vector3.Distance(transform.position, position);
     }
 
     void PlayDashSound() => audioPlayer?.Play(dashSound);
 
 
-    void Recover() {
+    void Recover()
+    {
+        Debug.Log("Recovering");
         tail.SetIdle();
         DmgFromTouching = idleDamage;
         state = State.Recovering;
         Invoke(nameof(SetIdle), durationBetweenDashes);
     }
 
-    void SetIdle() {
+    void SetIdle()
+    {
         tail.SetIdle();
         state = State.Idle;
         DmgFromTouching = idleDamage;
     }
-
-
-
-
-
-
-
-
-    // IEnumerator IE_Dash(Vector3 direction) {
-
-    //     state = State.Dashing;
-
-    //     // Vector3 direction = (playerTransform.position - transform.position).normalized;
-    //     float dashTimer = 0f;
-    //     float dashDuration = 1f;
-
-    //     while (dashTimer < dashDuration) {
-
-    //         dashTimer += Time.deltaTime;
-    //         transform.position += direction * dashSpeed * Time.deltaTime;
-    //         yield return null;
-    //     }
-
-    //     state = State.Recovering;
-
-    //     yield return new WaitForSeconds(durationBetweenDashes);
-    //     state = State.Idle;
-    // }
-
-
-    
 }

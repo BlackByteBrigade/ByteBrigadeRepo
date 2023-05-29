@@ -5,6 +5,7 @@ public class Patrol : MonoBehaviour
 {
     private enum PatrolStates
     {
+        Inactive,
         Decide,
         Prep,
         Movement,
@@ -49,6 +50,17 @@ public class Patrol : MonoBehaviour
 
     }
 
+    public void DisablePatrolling()
+    {
+        state = PatrolStates.Inactive;
+    }
+
+    public void EnablePatrolling()
+    {
+        if(state != PatrolStates.Inactive)
+            return;
+        state = PatrolStates.Decide;
+    }
     private void Update()
     {
         PatrolMovement(); //We should call this method in the enemy idle(patrol) state instead of here
