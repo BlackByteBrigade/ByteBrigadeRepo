@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 177901758891664872}
   - component: {fileID: 3065854994403447085}
   - component: {fileID: 8655937113652361980}
-  - component: {fileID: 244115048171784244}
+  - component: {fileID: 5944176956108238403}
   m_Layer: 0
   m_Name: BloodCell
   m_TagString: Untagged
@@ -131,7 +131,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.34, y: 2.01}
   m_EdgeRadius: 0
---- !u!114 &244115048171784244
+--- !u!114 &5944176956108238403
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -140,18 +140,34 @@ MonoBehaviour:
   m_GameObject: {fileID: 5839895967178472650}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2baa97384975b1748b93489e0c3e7a74, type: 3}
+  m_Script: {fileID: 11500000, guid: 66e43636b1890c3448f69385c2ecfb23, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 0
+  health: 1000
   invulnerableTime: 0.1
   Weakspot: {fileID: 0}
+  spriteHandler: {fileID: 0}
   IsInVulnerableState: 0
   DmgFromTouching: 30
   ReactsToPlayerDistance: 0
   AlarmedByPlayerDistance: 0
   CountdownTillRestAlertness: 0
   DurationVulnerable: 0
-  upgradeCollectiblePrefab: {fileID: 3985933236073633054, guid: 6f3fffdf514e69041888fb1b452bb476,
-    type: 3}
+  upgradeCollectiblePrefab: {fileID: 0}
   upgradeType: {fileID: 0}
+  ambientSound:
+    name: 
+    clip: {fileID: 0}
+    volume: 1
+    pitch: 1
+    source: {fileID: 0}
+    loop: 0
+    Area: 0
+  damageSound:
+    name: 
+    clip: {fileID: 0}
+    volume: 1
+    pitch: 1
+    source: {fileID: 0}
+    loop: 0
+    Area: 0

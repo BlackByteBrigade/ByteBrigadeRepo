@@ -117,15 +117,22 @@ public class Enemy : Cell
         var playerScript = Player.GetComponent<Player>();
         //Debug.Log($"Bump!");
         //we go though any because we don't want to dmg the player if the player is touching the enemy in a weakened state 
-        if (collision.contacts.Any(contact => contact.collider == Weakspot || contact.otherCollider == Weakspot) && collision.gameObject.CompareTag("Player") &&
-            IsInVulnerableState && playerScript.State == PlayerState.Dashing)
+        if (collision.contacts.Any(contact => contact.collider == Weakspot || contact.otherCollider == Weakspot) && IsInVulnerableState)
         {
-            var dmg = 100;
-            if (health <= dmg)
+            if (collision.gameObject.CompareTag("Player") && playerScript.State == PlayerState.Dashing)
             {
-                GameManager.Instance.UnregisterNoticedEnemy();
+                var dmg = 100;
+                if (health <= dmg)
+                {
+                    GameManager.Instance.UnregisterNoticedEnemy();
+                }
+                playerScript.Attack(this);
             }
-            playerScript.Attack(this);
+            else if (collision.gameObject.CompareTag("Bullet"))
+            {
+                PlayerProjectile bullet = collision.gameObject.GetComponent<PlayerProjectile>();
+                TakeDamage(bullet.Damage);
+            }
         }
         //else if (collision.contacts.Any(contact => contact.otherCollider == Player || contact.collider == Player)) // this didnt work since it was comparing a collider to a gameobject
         else if (collision.gameObject.CompareTag("Player")) // this will detect if it collides with any player colliders

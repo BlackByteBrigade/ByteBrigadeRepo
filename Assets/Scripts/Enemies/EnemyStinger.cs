@@ -5,7 +5,7 @@ using UnityEngine;
 [SelectionBase]
 public class EnemyStinger : Enemy
 {
-    [Header("Dash")] [SerializeField] float dashSpeed = 10f;
+    [Header("Dash")] [SerializeField] float dashSpeed = 15f;
     [SerializeField] float dashDistance = 20f;
     [SerializeField] float durationBetweenDashes = 5f;
 
@@ -132,7 +132,7 @@ public class EnemyStinger : Enemy
             Vector2 currentPos = transform.position; // easier to deal with the position as a vector2
             var targetDir = (targetPosVector2 - currentPos).normalized;
 
-            transform.position += (Vector3)targetDir * 15.5f * Time.deltaTime;
+            transform.position += (Vector3)targetDir * dashSpeed * Time.deltaTime;
             transform.up = targetDir;
 
             yield return null;

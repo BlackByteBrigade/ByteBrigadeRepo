@@ -28,7 +28,7 @@ public class BloodCellSpawner : MonoBehaviour
             audioPlayer.AddSound(ambientSound);
             audioPlayer.Play(ambientSound);
         }
-        bloodCells = new();
+        bloodCells = new List<GameObject>();
         spawnTimer = spawnInterval;
 
     }
@@ -67,7 +67,7 @@ public class BloodCellSpawner : MonoBehaviour
     }
 
     void DespawnBloodCells() {
-        List<GameObject> toBeRemoved = new();
+        List<GameObject> toBeRemoved = new List<GameObject>();
 
         foreach (var bloodCell in bloodCells) {
             float distance = Vector3.Distance(bloodCell.transform.position,transform.position);
