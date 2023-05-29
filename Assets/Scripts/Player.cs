@@ -22,6 +22,7 @@ public class Player : Cell
     public DNAUpgrade dnaUpgrade { get; set; }
 
     public CircleCollider2D mainCollider;
+    public ParticleSystem healVFX;
 
     private void Awake()
     {
@@ -109,6 +110,7 @@ public class Player : Cell
     public IEnumerator StartHeal()
     {
         isHealing = true;
+        healVFX.Play();
         while (isHealing)
         {
             if (GameManager.Instance.storedplasmaCoins > 0 && health < PlayerManager.Instance.maxHealth)
@@ -125,6 +127,7 @@ public class Player : Cell
                     PlayerHUD.instance.isShaking = true;
                 }
                 isHealing = false;
+                healVFX.Stop();
             }
         }
     }
@@ -132,6 +135,7 @@ public class Player : Cell
     public void EndHeal()
     {
         isHealing = false;
+        healVFX.Stop();
     }
 }
 
