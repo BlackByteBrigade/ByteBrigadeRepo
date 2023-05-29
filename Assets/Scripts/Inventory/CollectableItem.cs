@@ -1,3 +1,4 @@
+using DG.Tweening;
 using System.Linq;
 using UnityEngine;
 
@@ -8,7 +9,8 @@ public class CollectableItem : MonoBehaviour
     [SerializeField] int itemAmount;
 
     [Tooltip("only applies for dropped enemy parts - defines how far they spread from the dead body")]
-    [SerializeField] float dropSpeed;
+    [SerializeField] float dropRadius;
+    [SerializeField] float dropTime;
 
     [HideInInspector] public bool dropped = false;
     [HideInInspector] public bool pickedUpAlready = false;
@@ -23,8 +25,25 @@ public class CollectableItem : MonoBehaviour
         else if (dropped && itemType == Item.ItemType.EnemyPart)
         {
             // if we are a dropped enemy part, we need to spread out so we dont clump at the same position
-            GetComponent<Rigidbody2D>().velocity = Random.insideUnitCircle * dropSpeed;
+            transform.DOMove(PickDropPosition(), dropTime);
         }
+    }
+
+    private Vector3 PickDropPosition()
+    {
+        Vector3 pos = transform.position;
+        int tries = 30;
+        for (int i = 0; i < tries; i++)
+        {
+            pos = transform.position + (Vector3)Random.insideUnitCircle * dropRadius;
+            Collider2D[] results = new Collider2D[2];
+            Physics2D.OverlapPointNonAlloc(pos, results);
+            if (results.Length > 1 || (results.Length > 0 && !results[0].TryGetComponent<CollectableItem>(out _)))
+            {
+                return pos;
+            }
+        }
+        return transform.position;
     }
 
     void FixedUpdate()

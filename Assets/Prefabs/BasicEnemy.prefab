@@ -5019,10 +5019,8 @@ MonoBehaviour:
   AlarmedByPlayerDistance: 30
   CountdownTillRestAlertness: 4
   DurationVulnerable: 0
-  upgradeCollectiblePrefab: {fileID: 3985933236073633054, guid: 6f3fffdf514e69041888fb1b452bb476,
-    type: 3}
-  upgradeType: {fileID: 766133348062222268, guid: d3ca19d55e6bdc54daecb3d1f06fb6bb,
-    type: 3}
+  upgradeCollectiblePrefab: {fileID: 0}
+  upgradeType: {fileID: 0}
   path:
   - {fileID: 0}
   - {fileID: 0}
