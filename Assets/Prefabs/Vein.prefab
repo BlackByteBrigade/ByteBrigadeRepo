@@ -50,6 +50,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   teleporterId: 0
   exitPoint: {fileID: 6984991833117315179}
+  distBeforeEnable: 3
   destinationScene: SpleenHUB
   destinationTeleporterId: 0
 --- !u!58 &108410094852499757
