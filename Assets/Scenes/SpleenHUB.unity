@@ -3637,7 +3637,133 @@ MonoBehaviour:
     source: {fileID: 0}
     loop: 1
     Area: 3
-  Narration: []
+  Narration:
+  - name: Narration1
+    clip: {fileID: 8300000, guid: e8decd52705eb694bab728cfce70d7d9, type: 3}
+    volume: 0.5
+    pitch: 0
+    source: {fileID: 0}
+    loop: 0
+    Area: 0
+  - name: Narration2
+    clip: {fileID: 8300000, guid: 250697a198f3a9e4cb040d5b96f29082, type: 3}
+    volume: 0.5
+    pitch: 0
+    source: {fileID: 0}
+    loop: 0
+    Area: 0
+  - name: Narration3
+    clip: {fileID: 8300000, guid: 66c3315c02facc34a9672f153a7ca211, type: 3}
+    volume: 0.5
+    pitch: 0
+    source: {fileID: 0}
+    loop: 0
+    Area: 0
+  - name: Narration4
+    clip: {fileID: 8300000, guid: 9c7515158fded434aa8cfca37b42c543, type: 3}
+    volume: 0.5
+    pitch: 0
+    source: {fileID: 0}
+    loop: 0
+    Area: 0
+  - name: Narration5
+    clip: {fileID: 8300000, guid: 2ba3af64e8571d44d9907b2897575923, type: 3}
+    volume: 0.5
+    pitch: 0
+    source: {fileID: 0}
+    loop: 0
+    Area: 0
+  - name: Narration6
+    clip: {fileID: 8300000, guid: 450a2dd931c30964d929ad88a2235c42, type: 3}
+    volume: 0.5
+    pitch: 0
+    source: {fileID: 0}
+    loop: 0
+    Area: 0
+  - name: Narration7
+    clip: {fileID: 8300000, guid: a9ed5334a5d38ad4fb44091e94584f9a, type: 3}
+    volume: 0.5
+    pitch: 0
+    source: {fileID: 0}
+    loop: 0
+    Area: 0
+  - name: Narration8
+    clip: {fileID: 8300000, guid: 0ce80b1f035b6a1479f4b437f9c0bcc9, type: 3}
+    volume: 0.5
+    pitch: 0
+    source: {fileID: 0}
+    loop: 0
+    Area: 0
+  - name: Narration9
+    clip: {fileID: 8300000, guid: a42c8827793ef284383a7c72ed1802da, type: 3}
+    volume: 0.5
+    pitch: 0
+    source: {fileID: 0}
+    loop: 0
+    Area: 0
+  - name: Narration10
+    clip: {fileID: 8300000, guid: d1cd284bf32a3d247bd1e94a4a295ba0, type: 3}
+    volume: 0.5
+    pitch: 0
+    source: {fileID: 0}
+    loop: 0
+    Area: 0
+  - name: Narration11
+    clip: {fileID: 8300000, guid: d75d10fcab15d024cb4c1c308ea28249, type: 3}
+    volume: 0.5
+    pitch: 0
+    source: {fileID: 0}
+    loop: 0
+    Area: 0
+  - name: Narration12
+    clip: {fileID: 8300000, guid: a7397714b9d00ec418a6a86d2d94ce35, type: 3}
+    volume: 0.5
+    pitch: 0
+    source: {fileID: 0}
+    loop: 0
+    Area: 0
+  - name: Narration13
+    clip: {fileID: 8300000, guid: 00376862145ba064e96e2cd4bb76962b, type: 3}
+    volume: 0.5
+    pitch: 0
+    source: {fileID: 0}
+    loop: 0
+    Area: 0
+  - name: Narration14
+    clip: {fileID: 8300000, guid: 1bff91f6d35dae34aa1a3d6d31e0b6bc, type: 3}
+    volume: 0.5
+    pitch: 0
+    source: {fileID: 0}
+    loop: 0
+    Area: 0
+  - name: Narration15
+    clip: {fileID: 8300000, guid: 37ae77688339d124c842d0f7ef63a2ff, type: 3}
+    volume: 0.5
+    pitch: 0
+    source: {fileID: 0}
+    loop: 0
+    Area: 0
+  - name: Narration16
+    clip: {fileID: 8300000, guid: 9c911dd982b263940a255d9e9996f2a0, type: 3}
+    volume: 0.5
+    pitch: 0
+    source: {fileID: 0}
+    loop: 0
+    Area: 0
+  - name: Narration17
+    clip: {fileID: 8300000, guid: 7251fec462e12ec49b6f1aeee070b3d1, type: 3}
+    volume: 0.5
+    pitch: 0
+    source: {fileID: 0}
+    loop: 0
+    Area: 0
+  - name: Narration18
+    clip: {fileID: 8300000, guid: cf359d4b9eb489943b52b52b4059b1ee, type: 3}
+    volume: 0.5
+    pitch: 0
+    source: {fileID: 0}
+    loop: 0
+    Area: 0
 --- !u!4 &2020019483
 Transform:
   m_ObjectHideFlags: 0
