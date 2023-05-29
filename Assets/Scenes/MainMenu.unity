@@ -430,7 +430,7 @@ MonoBehaviour:
   m_MinValue: 0
   m_MaxValue: 1
   m_WholeNumbers: 0
-  m_Value: 0
+  m_Value: 1
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -2318,6 +2318,7 @@ GameObject:
   m_Component:
   - component: {fileID: 950022063}
   - component: {fileID: 950022064}
+  - component: {fileID: 950022065}
   m_Layer: 5
   m_Name: SettingsUI - SCRIPT
   m_TagString: Untagged
@@ -2360,6 +2361,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b0a319a0e67c9ea499ee4b7ce0a9e6bf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &950022065
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 950022062}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a53b4d0136d3c040a87dcafce24806a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  musicVolumeSlider: {fileID: 1928433688}
+  effectsVolumeSlider: {fileID: 90040882}
 --- !u!1 &965743150
 GameObject:
   m_ObjectHideFlags: 0
@@ -4855,7 +4870,7 @@ MonoBehaviour:
   m_MinValue: 0
   m_MaxValue: 1
   m_WholeNumbers: 0
-  m_Value: 0
+  m_Value: 1
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
