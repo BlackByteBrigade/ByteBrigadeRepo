@@ -111,7 +111,7 @@ public class Player : Cell
     {
         isHealing = true;
         healVFX.Play();
-        AudioManager.instance.PlaySound("Heal");
+        
         while (isHealing)
         {
             if (GameManager.Instance.storedplasmaCoins > 0 && health < PlayerManager.Instance.maxHealth)
@@ -119,6 +119,7 @@ public class Player : Cell
                 GameManager.Instance.storedplasmaCoins--;
                 health = Math.Min(health+HealPerPlasmaCoin, PlayerManager.Instance.maxHealth);
                 PlayerHUD.instance.UpdateHealthbar(health / (float)PlayerManager.Instance.maxHealth);
+                AudioManager.instance.PlaySound("Heal");
                 yield return new WaitForSeconds(1);
             }
             else
