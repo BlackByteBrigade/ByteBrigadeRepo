@@ -15,16 +15,18 @@ public class PlayerHUD : MonoBehaviour
     [SerializeField] float healthbarFillSpeed = 3f; //i.e lerp speed
     [SerializeField] float playerHealth = 0f;
     [SerializeField] TMP_Text partCounter;
+    [SerializeField] TMP_Text healReminderText;
     public GameObject plasmaObject;
     public static PlayerHUD instance;
     public float test = 0.2f;
     public float magnitude = 1f;
     public float shackingduretion = 1f;
-    private bool isShaking = false;
+    public bool isShaking = false;
     Vector3 originalPos ;
+    bool blinkon = false;
 
 
-   
+
     public float elapsed = 0f;
     // TEMP: counts parts collected
     int part=0;
@@ -51,6 +53,8 @@ public class PlayerHUD : MonoBehaviour
     private void Start()
     {
         originalPos = plasmaObject.transform.position;
+        healReminderText.color = new Vector4(255,255,255,0);
+
     }
     private void Update()
     {
@@ -72,6 +76,7 @@ public class PlayerHUD : MonoBehaviour
         {
             shacking();
         }
+        healingReminder();
     }
 
     public void AddPlasma(int amount)
@@ -84,8 +89,12 @@ public class PlayerHUD : MonoBehaviour
     public void deletePlasma(int amount)
     {
         GameManager.Instance.storedplasmaCoins -= amount;
-        isShaking = true;
-        if (GameManager.Instance.storedplasmaCoins < 0) { GameManager.Instance.storedplasmaCoins = 0; }
+        
+        if (GameManager.Instance.storedplasmaCoins < 0) 
+        { 
+            GameManager.Instance.storedplasmaCoins = 0;
+            isShaking = true;
+        }
     }
     public void addPart(int amount)
     {
@@ -104,22 +113,55 @@ public class PlayerHUD : MonoBehaviour
         
         if (elapsed<shackingduretion)
         {
-            float x = Random.Range(-1f, 1f) * magnitude;
-            float y = Random.Range(-1f, 1f) * magnitude;
+            float x = Random.Range(-1.3f, 1.3f) * magnitude;
+            float y = Random.Range(-1.3f, 1.3f) * magnitude;
             plasmaObject.transform.position = new Vector3(x,y,0)+originalPos;
             plasmaCounter.text = GameManager.Instance.storedplasmaCoins.ToString();
+            plasmaCounter.color = new Vector4(255, 0, 0, 255);
             elapsed += Time.deltaTime;
         }
         else
         {
             elapsed = 0;
             isShaking = false;
+            plasmaCounter.color = new Vector4(255, 255, 255, 255);
             plasmaObject.transform.position = originalPos;
         }
         
-        
+    }
 
+    public void healingReminder()
+    {
+        float alpha = 0f;
+        float blinkspeed = 3f;
         
+        if(GameManager.Instance.storedplasmaCoins > 0 && playerHealth<=0.3f)
+        {
+            if (blinkon)
+            {
+                alpha=Mathf.Lerp(healReminderText.color.a, 1, blinkspeed * Time.deltaTime);
+                healReminderText.color = new Vector4(255, 255, 255, alpha);
+                if (healReminderText.color.a >= 0.9f)
+                {
+                    blinkon = false;
+                }
+            }
+            else
+            {
+                alpha=Mathf.Lerp(healReminderText.color.a, 0, blinkspeed * Time.deltaTime);
+                healReminderText.color = new Vector4(255, 255, 255, alpha);
+                if (healReminderText.color.a <= 0.1f)
+                {
+                    blinkon = true;
+                }
+                
+            }
+            
+        }
+        else
+        {
+            healReminderText.color = new Vector4(255, 255, 255, 0);
+        }
     }
 }
 

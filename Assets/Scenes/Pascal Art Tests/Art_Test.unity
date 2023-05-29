@@ -11927,10 +11927,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 96d8a51b8a1778d4b846d98bbe8a0111, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  totalEnemyPartsToBeCollectedCurrLevel: 0
+  totalEnemyPartsOnPlayer: 0
   totalEnemyPartsToBeCollectedTotal: 50
   storedEnemyParts: 0
   collectedEnemyParts: 
+  storedplasmaCoins: 0
 --- !u!4 &1162309577
 Transform:
   m_ObjectHideFlags: 0
@@ -13006,6 +13007,12 @@ Transform:
   m_Father: {fileID: 1138527477}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1337470303 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1627326785768443538, guid: 64834dcae3f4b5345a9f4b504a86e255,
+    type: 3}
+  m_PrefabInstance: {fileID: 1733646160}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1385436155
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -14889,6 +14896,21 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 457a3ab2b348f794bb955ffdb161e62c, type: 2}
+    - target: {fileID: 3308629188699821438, guid: 64834dcae3f4b5345a9f4b504a86e255,
+        type: 3}
+      propertyPath: healReminder
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 3308629188699821438, guid: 64834dcae3f4b5345a9f4b504a86e255,
+        type: 3}
+      propertyPath: plasmaObject
+      value: 
+      objectReference: {fileID: 1337470303}
+    - target: {fileID: 3308629188699821438, guid: 64834dcae3f4b5345a9f4b504a86e255,
+        type: 3}
+      propertyPath: healReminderText
+      value: 
+      objectReference: {fileID: 1786599120}
     - target: {fileID: 4854803041254772039, guid: 64834dcae3f4b5345a9f4b504a86e255,
         type: 3}
       propertyPath: invulnerableTime
@@ -15924,6 +15946,18 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1167792266}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1786599120 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 99363138710386987, guid: 64834dcae3f4b5345a9f4b504a86e255,
+    type: 3}
+  m_PrefabInstance: {fileID: 1733646160}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &1787031818 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6610291117398573356, guid: 462b136ddb4874b4db59065ee813893e,

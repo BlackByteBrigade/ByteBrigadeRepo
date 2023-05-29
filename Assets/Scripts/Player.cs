@@ -120,6 +120,10 @@ public class Player : Cell
             }
             else
             {
+                if(GameManager.Instance.storedplasmaCoins <= 0 && health!= 100)
+                {
+                    PlayerHUD.instance.isShaking = true;
+                }
                 isHealing = false;
             }
         }
