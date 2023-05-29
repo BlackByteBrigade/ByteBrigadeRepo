@@ -20,6 +20,7 @@ public class Player : Cell
     public PlayerState State { get; set; }
     public Softbody Softbody { get; set; }
     public DNAUpgrade dnaUpgrade { get; set; }
+    public ParticleSystem healVFX;
 
     public CircleCollider2D mainCollider;
 
@@ -109,6 +110,7 @@ public class Player : Cell
     public IEnumerator StartHeal()
     {
         isHealing = true;
+        healVFX?.Play();
         while (isHealing)
         {
             if (GameManager.Instance.storedplasmaCoins > 0 && health < PlayerManager.Instance.maxHealth)
@@ -116,11 +118,12 @@ public class Player : Cell
                 GameManager.Instance.storedplasmaCoins--;
                 health = Math.Min(health+HealPerPlasmaCoin, PlayerManager.Instance.maxHealth);
                 PlayerHUD.instance.UpdateHealthbar(health / (float)PlayerManager.Instance.maxHealth);
-                yield return new WaitForSeconds(1);
+                yield return new WaitForSeconds(0.5f);
             }
             else
             {
                 isHealing = false;
+                healVFX?.Stop();
             }
         }
     }
@@ -128,6 +131,7 @@ public class Player : Cell
     public void EndHeal()
     {
         isHealing = false;
+        healVFX?.Stop();
     }
 }
 

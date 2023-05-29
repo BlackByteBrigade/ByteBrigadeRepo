@@ -2271,7 +2271,7 @@ GameObject:
   - component: {fileID: 4567412180038886752}
   - component: {fileID: 447817077323214399}
   m_Layer: 3
-  m_Name: Player_Pascal
+  m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2391,6 +2391,8 @@ MonoBehaviour:
   health: 100
   invulnerableTime: 0.5
   dashDamage: 100
+  HealPerPlasmaCoin: 20
+  healVFX: {fileID: 5204654802208117241}
   mainCollider: {fileID: 7143136859682591877}
 --- !u!50 &949673349641784462
 Rigidbody2D:
