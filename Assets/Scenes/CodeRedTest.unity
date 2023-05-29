@@ -19036,6 +19036,13 @@ MonoBehaviour:
     source: {fileID: 0}
     loop: 0
     Area: 0
+  - name: Heal
+    clip: {fileID: 8300000, guid: fa20e13dbc204274586b2c141b9877eb, type: 3}
+    volume: 0.959
+    pitch: 0
+    source: {fileID: 0}
+    loop: 0
+    Area: 0
   playlist:
   - name: ambient1
     clip: {fileID: 8300000, guid: 78aa3bd449a1f564db754829404fbee4, type: 3}
