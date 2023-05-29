@@ -3729,7 +3729,7 @@ MonoBehaviour:
     source: {fileID: 0}
     loop: 0
     Area: 0
-  - name: narrationDropOffEnemyPart_0
+  - name: narrationDropOffEnemyPart_1
     clip: {fileID: 8300000, guid: 1bff91f6d35dae34aa1a3d6d31e0b6bc, type: 3}
     volume: 0.5
     pitch: 0
