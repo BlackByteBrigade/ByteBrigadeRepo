@@ -13,7 +13,6 @@ public class MainMenuController : MonoBehaviour
     // credit menu
     [SerializeField] private Button creditBackButton;
 
-
     private Animator animator;
 
     private void Awake() {
@@ -42,8 +41,7 @@ public class MainMenuController : MonoBehaviour
             //Play animation of settings exit
             animator.SetBool("Settings", false);
             //Play animation of Main Menu entrance
-            animator.SetBool("Menu", true);
-            
+            animator.SetBool("Menu", true);           
         });
 
         //move from credits to Main Menu 
@@ -52,8 +50,6 @@ public class MainMenuController : MonoBehaviour
             animator.SetBool("Credits", false);
             //Play animation of Main Menu entrance
             animator.SetBool("Menu", true);
-            
         });
     }
-
 }
