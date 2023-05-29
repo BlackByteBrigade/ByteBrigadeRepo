@@ -73,7 +73,7 @@ public class Tutorial : MonoBehaviour
 
         //Voice narrator: “today we will have a look at...”
         //yield return new WaitForSeconds(PlayNarrationAndReturnWaitTime("Narration1"));
-        PlayNarrationAndReturnWaitTime("Narration1");
+        //*********PlayNarrationAndReturnWaitTime("Narration1");
         //[fades in, we see the hub area]
         do
         {
