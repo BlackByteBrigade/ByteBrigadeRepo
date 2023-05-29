@@ -63,7 +63,12 @@ public class Tutorial : MonoBehaviour
 
         //disable HUD
        var playerHud = GameObject.Find("PlayerHUD");
-       playerHud.SetActive(false); 
+       playerHud.SetActive(false);
+
+        //player cannot move
+       Player.instance.Movement.enabled = false;
+       Player.instance.Movement.Body.velocity = Vector3.zero;
+
 
         //pause at beginning before jumping straight into voice
         yield return new WaitForSeconds(waitTimeBeforeStartingNarrationOne);
@@ -97,7 +102,7 @@ public class Tutorial : MonoBehaviour
         var playerMovementComponent = player.GetComponent<PlayerMovement>();
         //show dash text
         textBox1.SetActive(true);
-
+        Player.instance.Movement.enabled = true;
         //Space bar ends dialogue, go to next step
         do
         {
