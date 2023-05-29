@@ -48,7 +48,10 @@ public class Tutorial : MonoBehaviour
         }
     }
 
-
+    private void CameraLookAt(CinemachineVirtualCamera camera, Transform lookAt)
+    {
+        camera.Follow = lookAt;
+    }
     private IEnumerator IntroTutorial()
     {
         // [Black Screen]
@@ -112,16 +115,18 @@ public class Tutorial : MonoBehaviour
 
         //[An Enemy (base enemy) appears]
         Debug.Log("base enemy enters");
-        //todo spawn enemy
-        //Instantiate(firstEnemy, EnemySpawnPos.transform);
+
+        //first enemy appears
+        firstEnemy.SetActive(true);
+        CameraLookAt(virtualCamera, firstEnemy.transform);
 
         //Voice narrator: “This is very odd! Normally we don’t see [ENEMY] here; quickly get rid of him!”
         yield return new WaitForSeconds(PlayNarrationAndReturnWaitTime("Narration6"));
+        CameraLookAt(virtualCamera, player.transform);
 
         //Tutorial text: “Move using WSAD; use Dash (space) to kill the enemy.”
         textBox2.SetActive(true);
-        //first enemy appears
-        firstEnemy.SetActive(true);
+        
 
         //[Player kills enemy]
         while (firstEnemy != null && !firstEnemy.IsDestroyed())
@@ -138,10 +143,12 @@ public class Tutorial : MonoBehaviour
 
         //[Another Enemy (dasher) Appears]
         secondEnemy.SetActive(true);
+        CameraLookAt(virtualCamera, secondEnemy.transform);
 
         //Voice narrator: “Ill be damned; both Bacterial and viruses at the same time; usually these two are arch enemies! Take care of him; but be careful; this one seems a lot more capable than the last one!”
         yield return new WaitForSeconds(PlayNarrationAndReturnWaitTime("Narration8"));
 
+        CameraLookAt(virtualCamera, player.transform);
         textBox2.SetActive(true);
 
         //[Player Kills Enemy]
