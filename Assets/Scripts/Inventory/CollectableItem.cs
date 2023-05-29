@@ -11,6 +11,7 @@ public class CollectableItem : MonoBehaviour
     [Tooltip("only applies for dropped enemy parts - defines how far they spread from the dead body")]
     [SerializeField] float dropRadius;
     [SerializeField] float dropTime;
+    [SerializeField] GameObject vfxPrefab;
 
     [HideInInspector] public bool dropped = false;
     [HideInInspector] public bool pickedUpAlready = false;
@@ -75,6 +76,9 @@ public class CollectableItem : MonoBehaviour
 
         if (itemType != Item.ItemType.EnemyPart) return;
         // only continue with this logic if this is an enemy part
+
+        GameObject obj = Instantiate(vfxPrefab);
+        obj.transform.position = transform.position;
 
         if (dropped)
         {
