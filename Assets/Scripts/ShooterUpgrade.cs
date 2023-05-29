@@ -9,6 +9,7 @@ public class ShooterUpgrade : DNAUpgrade
     public int bulletNum = 3;
     public float shootInterval = 1f;
     public GameObject projectilePrefab;
+    public GameObject shootText;
 
     private bool canShoot = true;
 
@@ -24,6 +25,7 @@ public class ShooterUpgrade : DNAUpgrade
     {
         canShoot = false;
 
+        Destroy(shootText);
         Vector3 mousePos = Input.mousePosition;
         mousePos.z = -Camera.main.transform.position.z;
 
