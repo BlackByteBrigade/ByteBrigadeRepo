@@ -31658,10 +31658,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 96d8a51b8a1778d4b846d98bbe8a0111, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  totalEnemyPartsToBeCollectedCurrLevel: 0
+  totalEnemyPartsOnPlayer: 0
   totalEnemyPartsToBeCollectedTotal: 50
   storedEnemyParts: 0
   collectedEnemyParts: 
+  storedplasmaCoins: 0
 --- !u!1 &969046613
 GameObject:
   m_ObjectHideFlags: 0
@@ -66771,10 +66772,30 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1718227748}
     m_Modifications:
+    - target: {fileID: 307797179313374428, guid: 5a31cb10ac2fcd143a782e49742c6c16,
+        type: 3}
+      propertyPath: DmgFromTouching
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 491642839066086128, guid: 5a31cb10ac2fcd143a782e49742c6c16,
         type: 3}
       propertyPath: m_SortingOrder
       value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 961458124713355962, guid: 5a31cb10ac2fcd143a782e49742c6c16,
+        type: 3}
+      propertyPath: DmgFromTouching
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 961458124713355962, guid: 5a31cb10ac2fcd143a782e49742c6c16,
+        type: 3}
+      propertyPath: IsInVulnerableState
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4579927592155771405, guid: 5a31cb10ac2fcd143a782e49742c6c16,
+        type: 3}
+      propertyPath: DmgFromTouching
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7637500192260249692, guid: 5a31cb10ac2fcd143a782e49742c6c16,
         type: 3}
