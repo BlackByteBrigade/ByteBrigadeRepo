@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 8874187585940078032}
   - component: {fileID: 2327215526984390159}
   - component: {fileID: 4202498573324957905}
+  - component: {fileID: -3160537904771171240}
   m_Layer: 0
   m_Name: StingerEnemy
   m_TagString: Untagged
@@ -62,11 +63,13 @@ MonoBehaviour:
   AlarmedByPlayerDistance: 7
   CountdownTillRestAlertness: 0
   DurationVulnerable: 0
-  upgradeCollectiblePrefab: {fileID: 0}
-  upgradeType: {fileID: 0}
+  upgradeCollectiblePrefab: {fileID: 3985933236073633054, guid: 6f3fffdf514e69041888fb1b452bb476,
+    type: 3}
+  upgradeType: {fileID: 766133348062222268, guid: d3ca19d55e6bdc54daecb3d1f06fb6bb,
+    type: 3}
   dashSpeed: 50
   dashDistance: 8
-  durationBetweenDashes: 5
+  durationBetweenDashes: 3
   dashDelay: 0.5
   dashSound:
     name: Dash
@@ -78,6 +81,7 @@ MonoBehaviour:
     Area: 0
   dashDamage: 0
   tail: {fileID: 4211857251549442353}
+  TurnSpeed: 0
 --- !u!114 &5594602333522666867
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -106,6 +110,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc17ed3029f925e46a85a162386f9d35, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  maxDistance: 50
   sounds: []
 --- !u!70 &2327215526984390159
 CapsuleCollider2D:
@@ -169,6 +174,51 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 0
+--- !u!114 &-3160537904771171240
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 666442271317403593}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d3fe8eae6178ee146bf6ec555f90872c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  distanceToMove: 4
+  timeToReach: 5
+  timeBtwMoves: 3
+  maxDistance: 15
+  movementCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 2
+      outSlope: 2
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  anchorPoint: {x: 0, y: 0, z: 0}
+  canMoveContinuously: 1
+  isFloating: 1
+  floatingSpeed: 0.1
+  rotationSpeed: 500
 --- !u!1 &2351145827012323004
 GameObject:
   m_ObjectHideFlags: 0
@@ -194,14 +244,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2351145827012323004}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.63, y: 0, z: 0}
+  m_LocalRotation: {x: 0, y: 0, z: 0.7071068, w: 0.7071068}
+  m_LocalPosition: {x: 0.58, y: -1.18, z: 0}
   m_LocalScale: {x: 0.55, y: 0.55, z: 0.55}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 8403759596462209709}
   m_RootOrder: -1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
 --- !u!114 &4211857251549442353
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -376,14 +426,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6500614400907765739}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0.7071068, w: 0.7071068}
   m_LocalPosition: {x: 0.51614594, y: 0, z: 0}
   m_LocalScale: {x: 1.4285715, y: 1.4285715, z: 1.4285715}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 8403759596462209709}
   m_RootOrder: -1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
 --- !u!212 &1325447387924519338
 SpriteRenderer:
   m_ObjectHideFlags: 0

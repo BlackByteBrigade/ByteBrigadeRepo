@@ -388,6 +388,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: BasicEnemy
       objectReference: {fileID: 0}
+    - target: {fileID: 7549149773302452642, guid: 1936a0dc540e62a4abbf3282813845b7,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -889,6 +894,50 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 778c4baa74a78f142810e2aae05f9268, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &1202102543
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1202102544}
+  - component: {fileID: 1202102545}
+  m_Layer: 0
+  m_Name: VideoManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1202102544
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1202102543}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 5.4681363, y: 2.9670515, z: 30.981228}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 11
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1202102545
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1202102543}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ac3218ec813cd7b47b812bf70ddb3d1c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1363916231
 GameObject:
   m_ObjectHideFlags: 0
@@ -932,7 +981,7 @@ GameObject:
   - component: {fileID: 1403020912}
   - component: {fileID: 1403020911}
   - component: {fileID: 1403020910}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Wall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1715,6 +1764,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1434946610}
   - component: {fileID: 1434946612}
+  - component: {fileID: 1434946613}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -1753,6 +1803,18 @@ MonoBehaviour:
   totalEnemyPartsToBeCollectedTotal: 50
   storedEnemyParts: 0
   collectedEnemyParts: 
+--- !u!114 &1434946613
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1434946609}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ac3218ec813cd7b47b812bf70ddb3d1c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &1455632128 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8635655572585716640, guid: b3d50c933e132454193219216caa20b3,
@@ -2045,6 +2107,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: SpikeBall Variant
       objectReference: {fileID: 0}
+    - target: {fileID: 5351896775220026550, guid: e2fa55048a395ba4a84ee635d663bbe5,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2086,7 +2153,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1780029565}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -960.00006, y: -441.1, z: 0}
+  m_LocalPosition: {x: -960.00006, y: -525.8, z: 0}
   m_LocalScale: {x: 2.2429907, y: 2.2429907, z: 2.2429907}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2751,8 +2818,6 @@ MonoBehaviour:
   textBox2: {fileID: 1963000044}
   textBox3: {fileID: 1476724286}
   bloodVesselEntrance: {fileID: 636478586}
-  camera: {fileID: 47170436}
-  TargetForCameraOpenTutorial: {fileID: 1363916231}
   fadeInCanvasGroup: {fileID: 7655736849252769892}
   TimeToFadeIn: 0.5
 --- !u!222 &1296204691316113328

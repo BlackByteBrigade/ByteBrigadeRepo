@@ -34,7 +34,8 @@ public class PlayerItemController : MonoBehaviour
             // Access the inventory instance
             InventoryManager InventoryManager = InventoryManager.Instance;
 
-            if(InventoryManager.GetItemAmountForType(Item.ItemType.EnemyPart) > 0){
+            if(InventoryManager.GetItemAmountForType(Item.ItemType.EnemyPart) > 0)
+            {
                 
                 //what item to remove
                 Item enemyPartItem = new Item { itemType = Item.ItemType.EnemyPart, itemAmount = 1 };

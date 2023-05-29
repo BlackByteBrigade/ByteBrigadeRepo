@@ -58,7 +58,7 @@ MonoBehaviour:
   ambientSound:
     name: Ambient
     clip: {fileID: 8300000, guid: 3faa48c7019b21741b9710c47a32a1db, type: 3}
-    volume: 1
+    volume: 0.7
     pitch: 1
     source: {fileID: 0}
     loop: 1
@@ -127,6 +127,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc17ed3029f925e46a85a162386f9d35, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  maxDistance: 25
   sounds: []
 --- !u!1 &560895288335222876
 GameObject:

@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Threading;
 using UnityEngine;
 
 
@@ -77,8 +78,22 @@ public class BloodCellSpawner : MonoBehaviour
 
         toBeRemoved.ForEach( obj => {
             bloodCells.Remove(obj);
-            Destroy(obj);
+            StartCoroutine(DespawnRoutine(obj));
         });
+    }
+
+    private IEnumerator DespawnRoutine(GameObject obj)
+    {
+        Vector3 originalScale = obj.transform.localScale;
+        float timer = 1;
+        while (timer > 0)
+        {
+            timer -= Time.deltaTime;
+            obj.transform.position += transform.up * speed * Time.deltaTime;
+            obj.transform.localScale = originalScale * timer;
+            yield return null;
+        }
+        Destroy(obj);
     }
 
     void OnDrawGizmos() {

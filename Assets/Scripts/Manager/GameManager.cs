@@ -33,6 +33,7 @@ public class GameManager : MonoBehaviour
 
     #region Narration
 
+    public bool narrationFirstTimeMainScene { get; set; }
     public bool narrationHasSeenEnemyPart { get; set; }
     public bool narrationHasPickedUpEnemyPart { get; set; }
 
@@ -43,6 +44,14 @@ public class GameManager : MonoBehaviour
     private short _lastEnemyPartDropOffNarrationPlayed = 0;
 
     #endregion
+
+    public void PlayerEntersMainScene()
+    {
+        if(narrationFirstTimeMainScene)
+            return;
+        narrationFirstTimeMainScene = true;
+        AudioManager.instance.PlayNarration("narrationFirstTimeMainScene");
+    }
 
     public void PlayerCloseToEnemyPart()
     {
@@ -93,10 +102,11 @@ public class GameManager : MonoBehaviour
             // Game over; player has collected all enemy parts
             AudioManager.instance.PlayNarration($"narrationLastDropOffEnemyPart");
             gameState = State.GameWin;
+            GameObject.Find("VideoManager").GetComponent<VideoPlayer>().PlayVictoryVideo();
             return;
         }
 
-        if (_lastEnemyPartDropOff == default || (DateTime.Now - _lastEnemyPartDropOff).TotalMinutes > 1)
+        if (amount>0 && (_lastEnemyPartDropOff == default || (DateTime.Now - _lastEnemyPartDropOff).TotalMinutes > 1))
         {
             //Play sound effect
             AudioManager.instance.PlaySfX(SoundEffects.DropingOffEnememyParts);
@@ -189,6 +199,7 @@ public class GameManager : MonoBehaviour
         {
             case "mainscene":
                 AudioManager.instance.PlayRegularVolumeAreaMusic(true);
+                PlayerEntersMainScene();
                 break;
             case "spleenhub":
                 AudioManager.instance.PlayMusic();
