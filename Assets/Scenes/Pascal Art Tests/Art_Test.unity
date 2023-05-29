@@ -13013,6 +13013,12 @@ Transform:
   m_Father: {fileID: 1138527477}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1337470303 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1627326785768443538, guid: 64834dcae3f4b5345a9f4b504a86e255,
+    type: 3}
+  m_PrefabInstance: {fileID: 1733646160}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1385436155
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -14901,6 +14907,11 @@ PrefabInstance:
       propertyPath: healReminder
       value: 
       objectReference: {fileID: 1786599120}
+    - target: {fileID: 3308629188699821438, guid: 64834dcae3f4b5345a9f4b504a86e255,
+        type: 3}
+      propertyPath: plasmaObject
+      value: 
+      objectReference: {fileID: 1337470303}
     - target: {fileID: 3308629188699821438, guid: 64834dcae3f4b5345a9f4b504a86e255,
         type: 3}
       propertyPath: healReminderText
