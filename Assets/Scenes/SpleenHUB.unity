@@ -3715,14 +3715,14 @@ MonoBehaviour:
     source: {fileID: 0}
     loop: 0
     Area: 0
-  - name: Narration12
+  - name: narrationFirstSeenEnemyPart
     clip: {fileID: 8300000, guid: a7397714b9d00ec418a6a86d2d94ce35, type: 3}
     volume: 0.5
     pitch: 0
     source: {fileID: 0}
     loop: 0
     Area: 0
-  - name: Narration13
+  - name: narrationFirstPickedUpEnemyPart
     clip: {fileID: 8300000, guid: 00376862145ba064e96e2cd4bb76962b, type: 3}
     volume: 0.5
     pitch: 0
