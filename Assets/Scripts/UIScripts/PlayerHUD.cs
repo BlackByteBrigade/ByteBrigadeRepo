@@ -15,6 +15,7 @@ public class PlayerHUD : MonoBehaviour
     [SerializeField] float healthbarFillSpeed = 3f; //i.e lerp speed
     [SerializeField] float playerHealth = 0f;
     [SerializeField] TMP_Text partCounter;
+    [SerializeField] TMP_Text healReminderText;
     public GameObject plasmaObject;
     public static PlayerHUD instance;
     public float test = 0.2f;
@@ -22,9 +23,10 @@ public class PlayerHUD : MonoBehaviour
     public float shackingduretion = 1f;
     private bool isShaking = false;
     Vector3 originalPos ;
+    bool blinkon = false;
 
 
-   
+
     public float elapsed = 0f;
     // TEMP: counts parts collected
     int part=0;
@@ -51,6 +53,8 @@ public class PlayerHUD : MonoBehaviour
     private void Start()
     {
         originalPos = plasmaObject.transform.position;
+        healReminderText.color = new Vector4(255,255,255,0);
+
     }
     private void Update()
     {
@@ -72,6 +76,7 @@ public class PlayerHUD : MonoBehaviour
         {
             shacking();
         }
+        healingReminder();
     }
 
     public void AddPlasma(int amount)
@@ -117,9 +122,40 @@ public class PlayerHUD : MonoBehaviour
             plasmaObject.transform.position = originalPos;
         }
         
-        
+    }
 
+    public void healingReminder()
+    {
+        float alpha = 0f;
+        float blinkspeed = 3f;
         
+        if(GameManager.Instance.storedplasmaCoins > 0 && playerHealth<=0.3f)
+        {
+            if (blinkon)
+            {
+                alpha=Mathf.Lerp(healReminderText.color.a, 1, blinkspeed * Time.deltaTime);
+                healReminderText.color = new Vector4(255, 255, 255, alpha);
+                if (healReminderText.color.a >= 0.9f)
+                {
+                    blinkon = false;
+                }
+            }
+            else
+            {
+                alpha=Mathf.Lerp(healReminderText.color.a, 0, blinkspeed * Time.deltaTime);
+                healReminderText.color = new Vector4(255, 255, 255, alpha);
+                if (healReminderText.color.a <= 0.1f)
+                {
+                    blinkon = true;
+                }
+                
+            }
+            
+        }
+        else
+        {
+            healReminderText.color = new Vector4(255, 255, 255, 0);
+        }
     }
 }
 
