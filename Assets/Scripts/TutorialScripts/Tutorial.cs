@@ -69,10 +69,7 @@ public class Tutorial : MonoBehaviour
         yield return new WaitForSeconds(waitTimeBeforeStartingNarrationOne);
 
         //if tutorial player cannot leave spleen
-        if (gameBeginsStartTutorial)
-        {
-            bloodVesselEntrance.SetActive(false);
-        }
+        bloodVesselEntrance.SetActive(false);
 
         //Voice narrator: “today we will have a look at...”
         //yield return new WaitForSeconds(PlayNarrationAndReturnWaitTime("Narration1"));
