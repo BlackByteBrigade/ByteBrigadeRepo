@@ -56,10 +56,14 @@ public class GameManager : MonoBehaviour
         if (!narrationFirstTimeMainScene)
         {
             narrationFirstTimeMainScene = true;
-            Player.instance.Movement.enabled = false;
-            Player.instance.Movement.Body.velocity = Vector3.zero;
-            Debug.Log("a");
-            yield return new WaitForSeconds(AudioManager.instance.PlayNarration("narrationFirstTimeMainScene"));
+            float timer = AudioManager.instance.PlayNarration("narrationFirstTimeMainScene");
+            while (timer > 0)
+            {
+                timer -= Time.deltaTime;
+                Player.instance.Movement.enabled = false;
+                Player.instance.Movement.Body.velocity = Vector2.zero;
+                yield return null;
+            }
             Player.instance.Movement.enabled = true;
         }
     }
