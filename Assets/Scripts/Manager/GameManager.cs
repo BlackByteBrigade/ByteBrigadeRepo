@@ -156,7 +156,7 @@ public class GameManager : MonoBehaviour
     private void Start()
     {
         _currScene = SceneManager.GetActiveScene();
-        HandleCurrentScene();
+        //HandleCurrentScene();
     }
 
     void OnEnable()
