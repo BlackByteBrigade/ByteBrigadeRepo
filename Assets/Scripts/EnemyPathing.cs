@@ -20,6 +20,7 @@ public class EnemyPathing : Enemy
 
     public void TargetNextPoint()
     {
+        if (path.Length == 0) return;
         PathIndex = (PathIndex + 1) % path.Length;
         TargetPos = (Vector2)path[PathIndex].position + Random.insideUnitCircle * targetRadius;
     }

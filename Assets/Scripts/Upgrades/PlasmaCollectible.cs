@@ -8,6 +8,7 @@ using UnityEngine;
 public class PlasmaCollectible : MonoBehaviour
 {
     [SerializeField] int value = 1;
+    [SerializeField] GameObject collectionVFXPrefab;
     bool canPickup = true;
 
     void OnTriggerEnter2D(Collider2D collision) {
@@ -15,6 +16,9 @@ public class PlasmaCollectible : MonoBehaviour
             canPickup = false;
             PlayerHUD.instance.AddPlasma(value);
             AudioManager.instance.PlaySfX(SoundEffects.CollectingEnemyPart);
+
+            GameObject obj = Instantiate(collectionVFXPrefab);
+            obj.transform.position = transform.position;
             Destroy(gameObject);
         }
     }

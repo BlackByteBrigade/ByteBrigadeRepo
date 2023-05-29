@@ -159,7 +159,7 @@ public class Enemy : Cell
 
     public override void Die()
     {
-        if (upgradeType != null && PlayerManager.Instance.currentDNAUpgrade != upgradeType)
+        if ((upgradeType != null) && (upgradeCollectiblePrefab != null) && (PlayerManager.Instance.currentDNAUpgrade != upgradeType))
         {
             DNACollectible collectible = Instantiate(upgradeCollectiblePrefab, transform.position, Quaternion.identity);
             collectible.dnaUpgrade = upgradeType;

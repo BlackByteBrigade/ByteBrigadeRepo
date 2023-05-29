@@ -372,6 +372,11 @@ PrefabInstance:
       propertyPath: radiusOffset
       value: 0.7
       objectReference: {fileID: 0}
+    - target: {fileID: 8280497065884850134, guid: 01186e01ce8840f458ac5efd76b31624,
+        type: 3}
+      propertyPath: _numberOfprojectiles
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 8482820543175653172, guid: 01186e01ce8840f458ac5efd76b31624,
         type: 3}
       propertyPath: m_Sprite
@@ -485,7 +490,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mode: 1
-  enemy: {fileID: 0}
+  enemy: {fileID: 1522574010125157552}
   drawReactionDistance: 1
   drawAlarmDistance: 1
 --- !u!114 &9140153705367126527

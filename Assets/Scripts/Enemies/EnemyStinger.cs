@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using UnityEngine;
 
+[SelectionBase]
 public class EnemyStinger : Enemy
 {
     [Header("Dash")] [SerializeField] float dashSpeed = 10f;

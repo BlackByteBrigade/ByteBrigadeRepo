@@ -112,7 +112,7 @@ public class AudioManager : MonoBehaviour
         if (s == null)
         {
             Debug.LogError("Unable to play narration " + name);
-            return 0;
+            return 2f;
         }
         s.source.Play(); // play the sound
         return s.clip.length;
