@@ -23,8 +23,8 @@ public class PlayerHUD : MonoBehaviour
     private bool isShaking = false;
     Vector3 originalPos ;
 
-    // TEMP: counts plasma coins collected
-    int plasma =0;
+
+   
     public float elapsed = 0f;
     // TEMP: counts parts collected
     int part=0;
@@ -65,7 +65,7 @@ public class PlayerHUD : MonoBehaviour
     private void renderHud()
     {
         healthbarFillImage.fillAmount = Mathf.Lerp(healthbarFillImage.fillAmount, playerHealth, healthbarFillSpeed * Time.deltaTime);
-        plasmaCounter.text = plasma.ToString();
+        plasmaCounter.text = GameManager.Instance.storedplasmaCoins.ToString();
         //partCounter.text = part.ToString()+" / "+totalParts.ToString()+"  ";
         plasmaCounter.fontSize = Mathf.Lerp(plasmaCounter.fontSize, 36, healthbarFillSpeed * Time.deltaTime);
         if(isShaking)
@@ -76,16 +76,16 @@ public class PlayerHUD : MonoBehaviour
 
     public void AddPlasma(int amount)
     {
-        plasma += amount;
+        GameManager.Instance.storedplasmaCoins += amount;
         plasmaCounter.fontSize = 70;
         
     }
 
     public void deletePlasma(int amount)
     {
-        plasma -= amount;
+        GameManager.Instance.storedplasmaCoins -= amount;
         isShaking = true;
-        if (plasma < 0) { plasma = 0; }
+        if (GameManager.Instance.storedplasmaCoins < 0) { GameManager.Instance.storedplasmaCoins = 0; }
     }
     public void addPart(int amount)
     {
@@ -107,7 +107,7 @@ public class PlayerHUD : MonoBehaviour
             float x = Random.Range(-1f, 1f) * magnitude;
             float y = Random.Range(-1f, 1f) * magnitude;
             plasmaObject.transform.position = new Vector3(x,y,0)+originalPos;
-            plasmaCounter.text = plasma.ToString();
+            plasmaCounter.text = GameManager.Instance.storedplasmaCoins.ToString();
             elapsed += Time.deltaTime;
         }
         else

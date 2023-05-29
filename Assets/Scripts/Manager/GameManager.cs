@@ -13,6 +13,9 @@ public class GameManager : MonoBehaviour
 
     public int storedEnemyParts;
     public List<int> collectedEnemyParts = new List<int>();
+
+    public int storedplasmaCoins;
+
     public int NumberOfEnemiesFocusedOnPlayer { get; set; }
 
     //States of the game
@@ -141,8 +144,6 @@ public class GameManager : MonoBehaviour
 
         // do not destroy me when a new scene loads
         DontDestroyOnLoad(gameObject);
-
-
     }
 
     private void Start()

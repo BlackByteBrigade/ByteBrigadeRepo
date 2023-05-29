@@ -14,6 +14,8 @@ public class Player : Cell
     [Tooltip("Amount of damage from dash")]
     public int dashDamage;
 
+    public int HealPerPlasmaCoin = 20;
+    private bool isHealing;
     public PlayerMovement Movement { get; set; }
     public PlayerState State { get; set; }
     public Softbody Softbody { get; set; }
@@ -102,6 +104,30 @@ public class Player : Cell
         // TODO add partcies
 
         PlayerManager.Instance.RespawnPlayer();
+    }
+
+    public IEnumerator StartHeal()
+    {
+        isHealing = true;
+        while (isHealing)
+        {
+            if (GameManager.Instance.storedplasmaCoins > 0 && health < PlayerManager.Instance.maxHealth)
+            {
+                GameManager.Instance.storedplasmaCoins--;
+                health = Math.Min(health+HealPerPlasmaCoin, PlayerManager.Instance.maxHealth);
+                PlayerHUD.instance.UpdateHealthbar(health / (float)PlayerManager.Instance.maxHealth);
+                yield return new WaitForSeconds(1);
+            }
+            else
+            {
+                isHealing = false;
+            }
+        }
+    }
+
+    public void EndHeal()
+    {
+        isHealing = false;
     }
 }
 
