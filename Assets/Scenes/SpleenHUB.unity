@@ -3871,7 +3871,7 @@ MonoBehaviour:
     source: {fileID: 0}
     loop: 0
     Area: 0
-  - name: Puckup Enemy Part
+  - name: Pickup Enemy Part
     clip: {fileID: 8300000, guid: dd3cf9bb26761b445a04a106da88fa8e, type: 3}
     volume: 0.959
     pitch: 0
