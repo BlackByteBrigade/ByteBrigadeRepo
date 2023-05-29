@@ -77,8 +77,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 7482667652216324306, guid: 75f5f34dc1b5347e0b8351032682f224,
-    type: 3}
+  m_Sprite: {fileID: -1686804788, guid: 049b4a8f5ec0abb4b81700e4dfb32d11, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -131,14 +130,17 @@ MonoBehaviour:
   health: 0
   invulnerableTime: 0.1
   Weakspot: {fileID: 0}
+  spriteHandler: {fileID: 0}
   IsInVulnerableState: 0
-  DmgFromTouching: 0
+  DmgFromTouching: 30
   ReactsToPlayerDistance: 0
   AlarmedByPlayerDistance: 0
   CountdownTillRestAlertness: 0
   DurationVulnerable: 0
-  upgradeCollectiblePrefab: {fileID: 0}
-  upgradeType: {fileID: 0}
+  upgradeCollectiblePrefab: {fileID: 3985933236073633054, guid: 6f3fffdf514e69041888fb1b452bb476,
+    type: 3}
+  upgradeType: {fileID: 5386985033976745917, guid: 15b527f2472161b45bebf893482af7d3,
+    type: 3}
   speed: 280
   turnspeed: 180
   bodyparts: []
@@ -151,7 +153,7 @@ MonoBehaviour:
   bodyNum: 7
   weakBodyIndex: 3
   maxHistorySize: 250
-  Gap: 30
+  Gap: 10
   timeGap: 0.01
   countup: 0
 --- !u!60 &4204654553128729928
@@ -189,8 +191,8 @@ PolygonCollider2D:
   m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.28866667}
-    oldSize: {x: 1, y: 1}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1.15, y: 0.71}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0

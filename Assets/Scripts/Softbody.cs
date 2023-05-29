@@ -57,6 +57,10 @@ public class Softbody : MonoBehaviour
             if (colliders[i].isTrigger) continue;
             Vector2 hitOffset = (Vector2)transform.position - colliders[i].ClosestPoint(transform.position);
             body.velocity += hitOffset.normalized * (Time.fixedDeltaTime * (5 * radius) * bounce / Mathf.Max(hitOffset.magnitude * hitOffset.magnitude, 0.01f));
+            if (body.velocity.magnitude > 15)
+            {
+                body.velocity = body.velocity.normalized * 15;
+            }
         }
     }
 }

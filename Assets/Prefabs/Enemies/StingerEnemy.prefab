@@ -62,8 +62,10 @@ MonoBehaviour:
   AlarmedByPlayerDistance: 7
   CountdownTillRestAlertness: 0
   DurationVulnerable: 0
-  upgradeCollectiblePrefab: {fileID: 0}
-  upgradeType: {fileID: 0}
+  upgradeCollectiblePrefab: {fileID: 3985933236073633054, guid: 6f3fffdf514e69041888fb1b452bb476,
+    type: 3}
+  upgradeType: {fileID: 766133348062222268, guid: d3ca19d55e6bdc54daecb3d1f06fb6bb,
+    type: 3}
   dashSpeed: 50
   dashDistance: 8
   durationBetweenDashes: 5
@@ -106,6 +108,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc17ed3029f925e46a85a162386f9d35, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  maxDistance: 50
   sounds: []
 --- !u!70 &2327215526984390159
 CapsuleCollider2D:

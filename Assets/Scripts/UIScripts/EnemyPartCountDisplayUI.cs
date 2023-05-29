@@ -47,6 +47,6 @@ public class EnemyPartCountDisplayUI : MonoBehaviour
         InventoryManager InventoryManager = InventoryManager.Instance;
 
         //Update enemy part Counter text
-        enemyPartCounterText.text = InventoryManager.GetItemAmountForType(itemBeingCollected) + "/" + GameManager.Instance.totalEnemyPartsToBeCollectedCurrLevel;
+        enemyPartCounterText.text = InventoryManager.GetItemAmountForType(itemBeingCollected).ToString();
     }
 }

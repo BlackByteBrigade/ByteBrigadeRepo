@@ -49,6 +49,7 @@ MonoBehaviour:
     enemyPrefab: {fileID: 1608251747811562003, guid: 1936a0dc540e62a4abbf3282813845b7,
       type: 3}
     pathRoot: {fileID: 0}
+    pathTargetRadius: 0
     enemies: []
   spawnRadius: 5
-  timeBetweenRespawns: 5
+  timeBetweenRespawns: 20

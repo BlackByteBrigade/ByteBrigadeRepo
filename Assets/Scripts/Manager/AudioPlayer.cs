@@ -9,6 +9,7 @@ using UnityEngine;
 
 public class AudioPlayer : MonoBehaviour
 {
+    public float maxDistance = 20;
     [SerializeField] List<Sound> sounds;
 
 
@@ -29,6 +30,8 @@ public class AudioPlayer : MonoBehaviour
         sound.source.volume = sound.volume * AudioManager.VolumeSFX;
         sound.source.pitch = 1; 
         sound.source.spatialBlend = 1f; // important else no audio falloff in distance
+        sound.source.maxDistance = maxDistance;
+        sound.source.rolloffMode = AudioRolloffMode.Linear;
         sound.source.loop = sound.loop;
     }
 
