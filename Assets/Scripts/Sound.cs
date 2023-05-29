@@ -45,7 +45,8 @@ public enum SoundEffects
     MainMenuSelection,
     LogoSound,
     PewPew,
-    Teleporting
+    Teleporting,
+    Heal,
 }
 
 public static class AudioHelper
@@ -82,6 +83,8 @@ public static class AudioHelper
                 return "Harpoony_Thing";
             case SoundEffects.Teleporting:
                 return "Teleport";
+            case SoundEffects.Heal:
+                return "Heal";
         }
         return soundEffect.ToString("G");
     }

@@ -111,6 +111,7 @@ public class Player : Cell
     {
         isHealing = true;
         healVFX.Play();
+        AudioManager.instance.PlaySound("Heal");
         while (isHealing)
         {
             if (GameManager.Instance.storedplasmaCoins > 0 && health < PlayerManager.Instance.maxHealth)

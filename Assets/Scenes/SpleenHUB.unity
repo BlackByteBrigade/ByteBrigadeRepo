@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.12731749, g: 0.13414757, b: 0.1210787, a: 1}
+  m_IndirectSpecularColor: {r: 0.12731713, g: 0.13414736, b: 0.12107852, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -3872,7 +3872,7 @@ MonoBehaviour:
     loop: 0
     Area: 0
   - name: Puckup Enemy Part
-    clip: {fileID: 8300000, guid: a80e343ca78793746bc649ee32188735, type: 3}
+    clip: {fileID: 8300000, guid: dd3cf9bb26761b445a04a106da88fa8e, type: 3}
     volume: 0.959
     pitch: 0
     source: {fileID: 0}
@@ -3922,6 +3922,13 @@ MonoBehaviour:
     Area: 0
   - name: Collision
     clip: {fileID: 8300000, guid: 9591fc8ba1388374c909817624540766, type: 3}
+    volume: 0.959
+    pitch: 0
+    source: {fileID: 0}
+    loop: 0
+    Area: 0
+  - name: Heal
+    clip: {fileID: 8300000, guid: fa20e13dbc204274586b2c141b9877eb, type: 3}
     volume: 0.959
     pitch: 0
     source: {fileID: 0}
