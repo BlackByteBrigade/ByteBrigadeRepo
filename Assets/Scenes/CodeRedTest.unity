@@ -4889,7 +4889,7 @@ PolygonCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 197268918}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 0}
   m_IncludeLayers:
@@ -5027,7 +5027,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1703755919
   m_SortingLayer: -1
-  m_SortingOrder: 3
+  m_SortingOrder: -4
   m_Sprite: {fileID: 921771956, guid: 43d1b3b209c38b945b439b37cf08e0eb, type: 3}
   m_Color: {r: 0.7529412, g: 0.54509807, b: 1, a: 1}
   m_FlipX: 0
@@ -32770,7 +32770,7 @@ PolygonCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1014216626}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 0}
   m_IncludeLayers:
@@ -32910,7 +32910,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1703755919
   m_SortingLayer: -1
-  m_SortingOrder: 3
+  m_SortingOrder: -4
   m_Sprite: {fileID: 936326169, guid: 43d1b3b209c38b945b439b37cf08e0eb, type: 3}
   m_Color: {r: 0.7529412, g: 0.54509807, b: 1, a: 1}
   m_FlipX: 0
@@ -47640,7 +47640,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1465972196}
   m_LocalRotation: {x: -0, y: -0, z: -0.06012182, w: 0.99819106}
-  m_LocalPosition: {x: -0.016, y: -0.399, z: -1}
+  m_LocalPosition: {x: -0.0141, y: -0.425, z: -1}
   m_LocalScale: {x: 0.031809565, y: 0.07292396, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -47654,7 +47654,7 @@ CapsuleCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1465972196}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 0}
   m_IncludeLayers:
@@ -47722,7 +47722,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1703755919
   m_SortingLayer: -1
-  m_SortingOrder: 3
+  m_SortingOrder: -4
   m_Sprite: {fileID: 1628737285, guid: 43d1b3b209c38b945b439b37cf08e0eb, type: 3}
   m_Color: {r: 0.7529412, g: 0.54509807, b: 1, a: 1}
   m_FlipX: 0
@@ -64905,7 +64905,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1703755919
   m_SortingLayer: -1
-  m_SortingOrder: -3
+  m_SortingOrder: -5
   m_Sprite: {fileID: 7482667652216324306, guid: db750325989564987a34393247d883b4,
     type: 3}
   m_Color: {r: 0.1764706, g: 0.13032512, b: 0.21698111, a: 1}
@@ -66784,6 +66784,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 307797179313374428, guid: 5a31cb10ac2fcd143a782e49742c6c16,
         type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 307797179313374428, guid: 5a31cb10ac2fcd143a782e49742c6c16,
+        type: 3}
       propertyPath: DmgFromTouching
       value: 0
       objectReference: {fileID: 0}
@@ -66791,6 +66796,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_SortingOrder
       value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 961458124713355962, guid: 5a31cb10ac2fcd143a782e49742c6c16,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 961458124713355962, guid: 5a31cb10ac2fcd143a782e49742c6c16,
         type: 3}
@@ -66802,15 +66812,35 @@ PrefabInstance:
       propertyPath: IsInVulnerableState
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2333476642521285032, guid: 5a31cb10ac2fcd143a782e49742c6c16,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4579927592155771405, guid: 5a31cb10ac2fcd143a782e49742c6c16,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4579927592155771405, guid: 5a31cb10ac2fcd143a782e49742c6c16,
         type: 3}
       propertyPath: DmgFromTouching
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6975722253630939387, guid: 5a31cb10ac2fcd143a782e49742c6c16,
+        type: 3}
+      propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7637500192260249692, guid: 5a31cb10ac2fcd143a782e49742c6c16,
         type: 3}
       propertyPath: m_SortingOrder
       value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8135448184268243575, guid: 5a31cb10ac2fcd143a782e49742c6c16,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8427958319742407208, guid: 5a31cb10ac2fcd143a782e49742c6c16,
         type: 3}
