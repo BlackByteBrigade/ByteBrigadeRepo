@@ -3967,7 +3967,7 @@ MonoBehaviour:
     Area: 0
   - name: Pick_Up_Enemy_Part
     clip: {fileID: 8300000, guid: dd3cf9bb26761b445a04a106da88fa8e, type: 3}
-    volume: 0.959
+    volume: 0.6
     pitch: 0
     source: {fileID: 0}
     loop: 0
