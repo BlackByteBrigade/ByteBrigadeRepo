@@ -57,7 +57,7 @@ public class Patrol : MonoBehaviour
 
     public void EnablePatrolling()
     {
-        if(state != PatrolStates.Inactive)
+        if (state != PatrolStates.Inactive)
             return;
         state = PatrolStates.Decide;
     }
@@ -116,10 +116,10 @@ public class Patrol : MonoBehaviour
         }
         else
         {
-            var RaycastHitUp = Physics2D.Raycast(transform.position, Vector2.up, distanceToMove, mask);
-            var RaycastHitDown = Physics2D.Raycast(transform.position, Vector2.down, distanceToMove, mask);
-            var RaycastHitLeft = Physics2D.Raycast(transform.position, Vector2.left, distanceToMove, mask);
-            var RaycastHitRight = Physics2D.Raycast(transform.position, Vector2.right, distanceToMove, mask);
+            var RaycastHitUp = Physics2D.Raycast(transform.position, Vector2.up, distanceToMove + 1.5f, mask);
+            var RaycastHitDown = Physics2D.Raycast(transform.position, Vector2.down, distanceToMove + 1.5f, mask);
+            var RaycastHitLeft = Physics2D.Raycast(transform.position, Vector2.left, distanceToMove + 1.5f, mask);
+            var RaycastHitRight = Physics2D.Raycast(transform.position, Vector2.right, distanceToMove + 1.5f, mask);
 
             var listOfDirections = new List<Vector2>();
 
