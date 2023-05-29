@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.12731713, g: 0.13414736, b: 0.12107852, a: 1}
+  m_IndirectSpecularColor: {r: 0.12731749, g: 0.13414757, b: 0.1210787, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -135,7 +135,7 @@ GameObject:
   - component: {fileID: 3844379}
   - component: {fileID: 3844378}
   - component: {fileID: 3844377}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Closed Sprite Shape (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -464,8 +464,7 @@ SpriteShapeRenderer:
   m_Sprites:
   - {fileID: -1016151842, guid: bad99f05b969fa64bafef01f1cd0023a, type: 3}
   - {fileID: 116647605, guid: d80463b3c1bf5ec4fb455fa97f696c65, type: 3}
-  - {fileID: -980406180, guid: bad99f05b969fa64bafef01f1cd0023a, type: 3}
-  - {fileID: 1011122933, guid: bad99f05b969fa64bafef01f1cd0023a, type: 3}
+  - {fileID: -1365943053, guid: 8ef8e10cbe9842545a7aa288b253d973, type: 3}
   - {fileID: 21300000, guid: 608e61deb05c54660bebf5a4dd2ee02d, type: 3}
   - {fileID: 21300000, guid: 608e61deb05c54660bebf5a4dd2ee02d, type: 3}
   - {fileID: 21300000, guid: 608e61deb05c54660bebf5a4dd2ee02d, type: 3}
@@ -490,7 +489,7 @@ GameObject:
   - component: {fileID: 7409611}
   - component: {fileID: 7409610}
   - component: {fileID: 7409609}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Closed Sprite Shape (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -831,8 +830,7 @@ SpriteShapeRenderer:
   m_Sprites:
   - {fileID: -1016151842, guid: bad99f05b969fa64bafef01f1cd0023a, type: 3}
   - {fileID: 116647605, guid: d80463b3c1bf5ec4fb455fa97f696c65, type: 3}
-  - {fileID: -980406180, guid: bad99f05b969fa64bafef01f1cd0023a, type: 3}
-  - {fileID: 1011122933, guid: bad99f05b969fa64bafef01f1cd0023a, type: 3}
+  - {fileID: -1365943053, guid: 8ef8e10cbe9842545a7aa288b253d973, type: 3}
   - {fileID: 21300000, guid: 608e61deb05c54660bebf5a4dd2ee02d, type: 3}
   - {fileID: 21300000, guid: 608e61deb05c54660bebf5a4dd2ee02d, type: 3}
   - {fileID: 21300000, guid: 608e61deb05c54660bebf5a4dd2ee02d, type: 3}
@@ -916,7 +914,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 551580571
-  m_SortingLayer: -1
+  m_SortingLayer: -2
   m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: 444e3a7a6408e2146a4ef05c62ade53e, type: 3}
   m_Color: {r: 0.30118954, g: 0.14489138, b: 0.6226415, a: 1}
@@ -972,7 +970,7 @@ GameObject:
   - component: {fileID: 28710056}
   - component: {fileID: 28710058}
   - component: {fileID: 28710057}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Nerve
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1270,7 +1268,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 551580571
-  m_SortingLayer: -1
+  m_SortingLayer: -2
   m_SortingOrder: 6
   m_Sprite: {fileID: 21300000, guid: 12aa7a8d01b53b842843dc5313cf04ac, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 0.46666667}
@@ -1501,7 +1499,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 551580571
-  m_SortingLayer: -1
+  m_SortingLayer: -2
   m_SortingOrder: 2
   m_Sprite: {fileID: -656115813, guid: d41736a6fda165945beb14339c7b1c58, type: 3}
   m_Color: {r: 0.7254902, g: 0.08627451, b: 0.2784314, a: 0.49411765}
@@ -1731,7 +1729,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 551580571
-  m_SortingLayer: -1
+  m_SortingLayer: -2
   m_SortingOrder: 2
   m_Sprite: {fileID: -1313454693, guid: d41736a6fda165945beb14339c7b1c58, type: 3}
   m_Color: {r: 0.7075472, g: 0.0044498947, b: 0.6743364, a: 0.49411765}
@@ -2129,7 +2127,7 @@ GameObject:
   - component: {fileID: 339776528}
   - component: {fileID: 339776530}
   - component: {fileID: 339776529}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Rocks_3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2374,7 +2372,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 372570820}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Epidermis
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2469,7 +2467,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 551580571
-  m_SortingLayer: -1
+  m_SortingLayer: -2
   m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: 444e3a7a6408e2146a4ef05c62ade53e, type: 3}
   m_Color: {r: 1, g: 0.7718709, b: 0.41960788, a: 1}
@@ -2719,7 +2717,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 551580571
-  m_SortingLayer: -1
+  m_SortingLayer: -2
   m_SortingOrder: -1
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6,
     type: 3}
@@ -2886,7 +2884,7 @@ GameObject:
   - component: {fileID: 482155848}
   - component: {fileID: 482155847}
   - component: {fileID: 482155846}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: DermisLeft
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3536,7 +3534,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 551580571
-  m_SortingLayer: -1
+  m_SortingLayer: -2
   m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: 444e3a7a6408e2146a4ef05c62ade53e, type: 3}
   m_Color: {r: 0.13088298, g: 0.047466457, b: 0.3018868, a: 1}
@@ -3676,7 +3674,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 551580571
-  m_SortingLayer: -1
+  m_SortingLayer: -2
   m_SortingOrder: 2
   m_Sprite: {fileID: 1246713533, guid: d41736a6fda165945beb14339c7b1c58, type: 3}
   m_Color: {r: 0.8113208, g: 0.051026378, b: 0.7868561, a: 0.49411765}
@@ -3713,6 +3711,11 @@ PrefabInstance:
       propertyPath: Gap
       value: 14
       objectReference: {fileID: 0}
+    - target: {fileID: 5715879410593152036, guid: b0172f3dd40a23a4bb96071ac673852d,
+        type: 3}
+      propertyPath: DmgFromTouching
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 5876870459874205848, guid: b0172f3dd40a23a4bb96071ac673852d,
         type: 3}
       propertyPath: m_RootOrder
@@ -3721,12 +3724,12 @@ PrefabInstance:
     - target: {fileID: 5876870459874205848, guid: b0172f3dd40a23a4bb96071ac673852d,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -1.65
+      value: -2.86
       objectReference: {fileID: 0}
     - target: {fileID: 5876870459874205848, guid: b0172f3dd40a23a4bb96071ac673852d,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.34
+      value: 0.33
       objectReference: {fileID: 0}
     - target: {fileID: 5876870459874205848, guid: b0172f3dd40a23a4bb96071ac673852d,
         type: 3}
@@ -4569,6 +4572,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: ElectricArea
       objectReference: {fileID: 0}
+    - target: {fileID: 2208342686461110448, guid: e5d2025fe1949ce4581c1888113c286c,
+        type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 2666845252543937275, guid: e5d2025fe1949ce4581c1888113c286c,
         type: 3}
       propertyPath: damageSound.volume
@@ -4809,7 +4817,7 @@ SpriteShapeRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 551580571
-  m_SortingLayer: -1
+  m_SortingLayer: -2
   m_SortingOrder: 3
   m_Color: {r: 0.40000004, g: 0.09411766, b: 0.32156864, a: 1}
   m_MaskInteraction: 0
@@ -5745,7 +5753,7 @@ GameObject:
   - component: {fileID: 1020698034}
   - component: {fileID: 1020698033}
   - component: {fileID: 1020698032}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Closed Sprite Shape (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6074,8 +6082,7 @@ SpriteShapeRenderer:
   m_Sprites:
   - {fileID: -1016151842, guid: bad99f05b969fa64bafef01f1cd0023a, type: 3}
   - {fileID: 116647605, guid: d80463b3c1bf5ec4fb455fa97f696c65, type: 3}
-  - {fileID: -980406180, guid: bad99f05b969fa64bafef01f1cd0023a, type: 3}
-  - {fileID: 1011122933, guid: bad99f05b969fa64bafef01f1cd0023a, type: 3}
+  - {fileID: -1365943053, guid: 8ef8e10cbe9842545a7aa288b253d973, type: 3}
   - {fileID: 21300000, guid: 608e61deb05c54660bebf5a4dd2ee02d, type: 3}
   - {fileID: 21300000, guid: 608e61deb05c54660bebf5a4dd2ee02d, type: 3}
   - {fileID: 21300000, guid: 608e61deb05c54660bebf5a4dd2ee02d, type: 3}
@@ -6106,7 +6113,7 @@ GameObject:
   - component: {fileID: 1076581850}
   - component: {fileID: 1076581849}
   - component: {fileID: 1076581848}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: EpidermisLeft
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -11473,7 +11480,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1138527477}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: WALLS
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -11514,7 +11521,7 @@ GameObject:
   - component: {fileID: 1150041068}
   - component: {fileID: 1150041067}
   - component: {fileID: 1150041069}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Floor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -11711,8 +11718,7 @@ SpriteShapeRenderer:
   m_Sprites:
   - {fileID: -1016151842, guid: bad99f05b969fa64bafef01f1cd0023a, type: 3}
   - {fileID: 116647605, guid: d80463b3c1bf5ec4fb455fa97f696c65, type: 3}
-  - {fileID: -980406180, guid: bad99f05b969fa64bafef01f1cd0023a, type: 3}
-  - {fileID: 1011122933, guid: bad99f05b969fa64bafef01f1cd0023a, type: 3}
+  - {fileID: -1365943053, guid: 8ef8e10cbe9842545a7aa288b253d973, type: 3}
   - {fileID: 21300000, guid: 608e61deb05c54660bebf5a4dd2ee02d, type: 3}
   - {fileID: 21300000, guid: 608e61deb05c54660bebf5a4dd2ee02d, type: 3}
   - {fileID: 21300000, guid: 608e61deb05c54660bebf5a4dd2ee02d, type: 3}
@@ -11921,6 +11927,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 96d8a51b8a1778d4b846d98bbe8a0111, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  totalEnemyPartsToBeCollectedCurrLevel: 0
+  totalEnemyPartsToBeCollectedTotal: 50
   storedEnemyParts: 0
   collectedEnemyParts: 
 --- !u!4 &1162309577
@@ -12171,7 +12179,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 551580571
-  m_SortingLayer: -1
+  m_SortingLayer: -2
   m_SortingOrder: 2
   m_Sprite: {fileID: -656115813, guid: d41736a6fda165945beb14339c7b1c58, type: 3}
   m_Color: {r: 0.518769, g: 0.0862745, b: 0.7254902, a: 0.49411765}
@@ -12496,7 +12504,7 @@ GameObject:
   - component: {fileID: 1288370060}
   - component: {fileID: 1288370059}
   - component: {fileID: 1288370058}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: DermisLeft (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -12973,7 +12981,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1324513494}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Rocks
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -13097,7 +13105,7 @@ GameObject:
   - component: {fileID: 1429211992}
   - component: {fileID: 1429211994}
   - component: {fileID: 1429211993}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Rocks_4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -13436,7 +13444,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 551580571
-  m_SortingLayer: -1
+  m_SortingLayer: -2
   m_SortingOrder: 2
   m_Sprite: {fileID: -9572325, guid: d41736a6fda165945beb14339c7b1c58, type: 3}
   m_Color: {r: 0.7254902, g: 0.08627451, b: 0.2784314, a: 0.49411765}
@@ -13545,6 +13553,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: ElectricArea2 (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7212433242021351149, guid: 43b101578a9cd2b4ba5172207b62f467,
+        type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 8266421191293681659, guid: 43b101578a9cd2b4ba5172207b62f467,
         type: 3}
@@ -13899,6 +13912,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: ElectricArea2
       objectReference: {fileID: 0}
+    - target: {fileID: 7212433242021351149, guid: 43b101578a9cd2b4ba5172207b62f467,
+        type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 8266421191293681659, guid: 43b101578a9cd2b4ba5172207b62f467,
         type: 3}
       propertyPath: m_RootOrder
@@ -14047,7 +14065,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1724607644}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Dermis
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -14250,7 +14268,7 @@ GameObject:
   - component: {fileID: 1732555887}
   - component: {fileID: 1732555886}
   - component: {fileID: 1732555885}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: DermisLeft (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -15021,7 +15039,7 @@ GameObject:
   - component: {fileID: 1733882894}
   - component: {fileID: 1733882896}
   - component: {fileID: 1733882895}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Rocks_0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -15514,7 +15532,7 @@ GameObject:
   - component: {fileID: 1779874621}
   - component: {fileID: 1779874620}
   - component: {fileID: 1779874619}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: EpidermisRight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -15924,7 +15942,7 @@ GameObject:
   - component: {fileID: 1789156858}
   - component: {fileID: 1789156857}
   - component: {fileID: 1789156856}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Closed Sprite Shape
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -16253,8 +16271,7 @@ SpriteShapeRenderer:
   m_Sprites:
   - {fileID: -1016151842, guid: bad99f05b969fa64bafef01f1cd0023a, type: 3}
   - {fileID: 116647605, guid: d80463b3c1bf5ec4fb455fa97f696c65, type: 3}
-  - {fileID: -980406180, guid: bad99f05b969fa64bafef01f1cd0023a, type: 3}
-  - {fileID: 1011122933, guid: bad99f05b969fa64bafef01f1cd0023a, type: 3}
+  - {fileID: -1365943053, guid: 8ef8e10cbe9842545a7aa288b253d973, type: 3}
   - {fileID: 21300000, guid: 608e61deb05c54660bebf5a4dd2ee02d, type: 3}
   - {fileID: 21300000, guid: 608e61deb05c54660bebf5a4dd2ee02d, type: 3}
   - {fileID: 21300000, guid: 608e61deb05c54660bebf5a4dd2ee02d, type: 3}
@@ -16437,7 +16454,7 @@ GameObject:
   - component: {fileID: 1844366974}
   - component: {fileID: 1844366976}
   - component: {fileID: 1844366975}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Nerve Bottom
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -16675,7 +16692,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 551580571
-  m_SortingLayer: -1
+  m_SortingLayer: -2
   m_SortingOrder: 6
   m_Sprite: {fileID: 21300000, guid: 12aa7a8d01b53b842843dc5313cf04ac, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 0.46666667}
@@ -17108,7 +17125,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 551580571
-  m_SortingLayer: -1
+  m_SortingLayer: -2
   m_SortingOrder: 2
   m_Sprite: {fileID: 1246713533, guid: d41736a6fda165945beb14339c7b1c58, type: 3}
   m_Color: {r: 0.7254902, g: 0.08627451, b: 0.2784314, a: 0.49411765}
@@ -17198,7 +17215,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 551580571
-  m_SortingLayer: -1
+  m_SortingLayer: -2
   m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: 444e3a7a6408e2146a4ef05c62ade53e, type: 3}
   m_Color: {r: 0.30118954, g: 0.14489138, b: 0.6226415, a: 1}
@@ -17223,6 +17240,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: ElectricArea2 (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7212433242021351149, guid: 43b101578a9cd2b4ba5172207b62f467,
+        type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 8266421191293681659, guid: 43b101578a9cd2b4ba5172207b62f467,
         type: 3}
@@ -17294,7 +17316,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1992433261}
   - component: {fileID: 1992433262}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: nerves_1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -17378,7 +17400,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1992517162}
   - component: {fileID: 1992517163}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: nervesEnd
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -17930,7 +17952,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2089834210}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Platforms
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -18093,7 +18115,7 @@ SpriteShapeRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 551580571
-  m_SortingLayer: -1
+  m_SortingLayer: -2
   m_SortingOrder: 3
   m_Color: {r: 0.3301887, g: 0.08929628, b: 0.26842144, a: 1}
   m_MaskInteraction: 0
@@ -18258,6 +18280,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: ElectricArea
+      objectReference: {fileID: 0}
+    - target: {fileID: 2208342686461110448, guid: e5d2025fe1949ce4581c1888113c286c,
+        type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 2666845252543937275, guid: e5d2025fe1949ce4581c1888113c286c,
         type: 3}
@@ -18540,6 +18567,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: ElectricArea2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7212433242021351149, guid: 43b101578a9cd2b4ba5172207b62f467,
+        type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 8266421191293681659, guid: 43b101578a9cd2b4ba5172207b62f467,
         type: 3}
