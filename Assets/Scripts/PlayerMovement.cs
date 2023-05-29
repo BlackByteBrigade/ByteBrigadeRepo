@@ -55,6 +55,11 @@ public class PlayerMovement : MonoBehaviour
 
         // we check for dashes every frame so that we dont accidentally miss a frame when we are pressing space
         if (canDash && Input.GetKeyDown(KeyCode.Space)) StartCoroutine(Dash());
+
+        if(Input.GetKeyDown(KeyCode.LeftShift))
+            StartCoroutine(Player.StartHeal());
+        if (Input.GetKeyUp(KeyCode.LeftShift))
+            Player.EndHeal();
     }
 
     private void UpdateMovement()
