@@ -58,6 +58,7 @@ public class GameManager : MonoBehaviour
             narrationFirstTimeMainScene = true;
             Player.instance.Movement.enabled = false;
             Player.instance.Movement.Body.velocity = Vector3.zero;
+            Debug.Log("a");
             yield return new WaitForSeconds(AudioManager.instance.PlayNarration("narrationFirstTimeMainScene"));
             Player.instance.Movement.enabled = true;
         }
