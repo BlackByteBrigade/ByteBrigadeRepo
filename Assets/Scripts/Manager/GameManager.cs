@@ -8,7 +8,7 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager Instance { get; private set; }
 
-    public int totalEnemyPartsToBeCollectedCurrLevel = 0;
+    public int totalEnemyPartsOnPlayer = 0;
     public int totalEnemyPartsToBeCollectedTotal = 20; //todo !!! set this !!!
 
     public int storedEnemyParts;
@@ -100,10 +100,17 @@ public class GameManager : MonoBehaviour
     {
         //Add to number of part dropped off
         storedEnemyParts += amount;
+        totalEnemyPartsOnPlayer -= amount;
+        Debug.Log($"EnermyParts stored In T-Cell: {storedEnemyParts}");
 
         //check if all enemy parts have been collected
         if (storedEnemyParts >= totalEnemyPartsToBeCollectedTotal)
         {
+            Debug.Log("Game Complete");
+            //disable HUD
+            var playerHud = GameObject.Find("PlayerHUD");
+            playerHud.SetActive(false);
+
             // Game over; player has collected all enemy parts
             AudioManager.instance.PlayNarration($"narrationLastDropOffEnemyPart");
             gameState = State.GameWin;

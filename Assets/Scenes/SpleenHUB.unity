@@ -1777,10 +1777,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 96d8a51b8a1778d4b846d98bbe8a0111, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  totalEnemyPartsToBeCollectedCurrLevel: 0
-  totalEnemyPartsToBeCollectedTotal: 50
+  totalEnemyPartsOnPlayer: 0
+  totalEnemyPartsToBeCollectedTotal: 20
   storedEnemyParts: 0
   collectedEnemyParts: 
+  storedplasmaCoins: 0
 --- !u!114 &1434946613
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2025,6 +2026,21 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1618254166}
     m_Modifications:
+    - target: {fileID: 1522574010125157552, guid: e2fa55048a395ba4a84ee635d663bbe5,
+        type: 3}
+      propertyPath: upgradeType
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 1522574010125157552, guid: e2fa55048a395ba4a84ee635d663bbe5,
+        type: 3}
+      propertyPath: DurationVulnerable
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1522574010125157552, guid: e2fa55048a395ba4a84ee635d663bbe5,
+        type: 3}
+      propertyPath: _numberOfprojectiles
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 3828846387750111487, guid: e2fa55048a395ba4a84ee635d663bbe5,
         type: 3}
       propertyPath: m_RootOrder
@@ -2560,24 +2576,38 @@ MonoBehaviour:
     source: {fileID: 0}
     loop: 0
     Area: 0
-  playlist:
-  - name: ambient1
-    clip: {fileID: 8300000, guid: 78aa3bd449a1f564db754829404fbee4, type: 3}
-    volume: 0.828
+  - name: Player Death
+    clip: {fileID: 8300000, guid: 769022184189d7a408af52b93bc41d39, type: 3}
+    volume: 0.959
     pitch: 0
     source: {fileID: 0}
     loop: 0
+    Area: 0
+  - name: Collision
+    clip: {fileID: 8300000, guid: 9591fc8ba1388374c909817624540766, type: 3}
+    volume: 0.959
+    pitch: 0
+    source: {fileID: 0}
+    loop: 0
+    Area: 0
+  playlist:
+  - name: ambient1
+    clip: {fileID: 8300000, guid: a613fa8e9ad1a1a4580691574f83c946, type: 3}
+    volume: 0.828
+    pitch: 0
+    source: {fileID: 0}
+    loop: 1
     Area: 2
   playlistAreas:
   - name: Area1
-    clip: {fileID: 8300000, guid: 77d08af85f3a8494b93f642414b48037, type: 3}
+    clip: {fileID: 8300000, guid: 7027d13f2565e394f86926d24e10b471, type: 3}
     volume: 0.5
     pitch: 0
     source: {fileID: 0}
     loop: 1
     Area: 3
   - name: Area1
-    clip: {fileID: 8300000, guid: ac3db00eb44100543b775074bc7b2a8c, type: 3}
+    clip: {fileID: 8300000, guid: 4ef304ef899b2664b86e8059ef1813ec, type: 3}
     volume: 0.5
     pitch: 0
     source: {fileID: 0}
@@ -2930,7 +2960,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0.000061035156}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &3362061473450320115

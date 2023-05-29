@@ -60,6 +60,11 @@ public class Tutorial : MonoBehaviour
         var startFollow = GameObject.Find("CameraStartPos").transform;
         var virtualCamera = GameObject.Find("Virtual Camera").GetComponent<CinemachineVirtualCamera>();
         virtualCamera.Follow = startFollow;
+
+        //disable HUD
+       var playerHud = GameObject.Find("PlayerHUD");
+       playerHud.SetActive(false); 
+
         //pause at beginning before jumping straight into voice
         yield return new WaitForSeconds(waitTimeBeforeStartingNarrationOne);
 
@@ -102,7 +107,12 @@ public class Tutorial : MonoBehaviour
             playerMovementComponent.Body.velocity = new Vector2(0, -0.3f) * Time.fixedDeltaTime;
             yield return null;
         } while (!Input.GetKeyDown(KeyCode.Space));
+        
+        //follow player & Show HUD
         virtualCamera.Follow = player.transform;
+        playerHud.SetActive(true);
+
+
         //hide Dash text
         textBox1.SetActive(false);
         //resets

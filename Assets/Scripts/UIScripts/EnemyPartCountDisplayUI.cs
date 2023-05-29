@@ -38,7 +38,7 @@ public class EnemyPartCountDisplayUI : MonoBehaviour
     private void CountNumberofEnemyPartsInLevel(){
         GameObject[] enemyParts = GameObject.FindGameObjectsWithTag(ENEMY_PART_TAG);
         foreach (GameObject enemyPart in enemyParts){
-            GameManager.Instance.totalEnemyPartsToBeCollectedCurrLevel++;
+            GameManager.Instance.totalEnemyPartsOnPlayer++;
         }
     }
 
