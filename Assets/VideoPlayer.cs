@@ -27,7 +27,7 @@ public class VideoPlayer : MonoBehaviour
 
         // Set the video to play. URL supports local absolute or relative paths.
         // Here, using absolute.
-        videoPlayer.url = Application.dataPath+"/video/victoryScreen.mp4";
+        videoPlayer.url = System.IO.Path.Combine(Application.streamingAssetsPath, "victoryScreen.mp4");
 
         // Skip the first 100 frames.
         videoPlayer.frame = 100;
