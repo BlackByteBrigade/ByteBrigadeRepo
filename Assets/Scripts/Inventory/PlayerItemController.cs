@@ -30,7 +30,8 @@ public class PlayerItemController : MonoBehaviour
         }
 
         //Drop off enemy part to the HUB collection point
-        if(collision.GetComponent<EnemyPartDropOff>() != null){
+        var dropOff = collision.GetComponent<EnemyPartDropOff>();
+        if(dropOff != null){
             // Access the inventory instance
             InventoryManager InventoryManager = InventoryManager.Instance;
 
@@ -45,6 +46,8 @@ public class PlayerItemController : MonoBehaviour
                 GameManager.Instance.PlayerDropsOffEnemyParts(ammountOfEnemyPartsToBeDelivered);
                 //remove enemy parts from inventory
                 InventoryManager.RemoveItemsOfType(Item.ItemType.EnemyPart);
+                //vfx
+                dropOff.Animate();
 
             }
         }

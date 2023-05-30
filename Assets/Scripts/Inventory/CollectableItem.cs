@@ -39,7 +39,7 @@ public class CollectableItem : MonoBehaviour
             pos = transform.position + (Vector3)Random.insideUnitCircle * dropRadius;
             Collider2D[] results = new Collider2D[2];
             Physics2D.OverlapPointNonAlloc(pos, results);
-            if (results.Length > 1 || (results.Length > 0 && !results[0].TryGetComponent<CollectableItem>(out _)))
+            if (results[0] == null || results[0].TryGetComponent<CollectableItem>(out _))
             {
                 return pos;
             }
