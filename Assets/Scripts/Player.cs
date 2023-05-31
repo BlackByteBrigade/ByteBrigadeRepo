@@ -51,7 +51,7 @@ public class Player : Cell
 
         if (PlayerManager.Instance.currentDNAUpgrade != null)
         {
-            ChangeDNA(PlayerManager.Instance.currentDNAUpgrade);
+            ChangeDNA(PlayerManager.Instance.currentDNAUpgrade, false);
         }
         else
         {
@@ -59,7 +59,7 @@ public class Player : Cell
         }
     }
 
-    public void ChangeDNA(DNAUpgrade newDNA)
+    public void ChangeDNA(DNAUpgrade newDNA, bool firstTime=true)
     {
         if (dnaUpgrade != null)
         {
@@ -70,7 +70,7 @@ public class Player : Cell
 
         PlayerManager.Instance.currentDNAUpgrade = newDNA;
         dnaUpgrade = Instantiate(newDNA, transform);
-        dnaUpgrade.ApplyUpgrade(this);
+        dnaUpgrade.ApplyUpgrade(this, firstTime);
     }
 
     public void Attack(Enemy enemy)

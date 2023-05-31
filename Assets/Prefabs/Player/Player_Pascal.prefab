@@ -2467,7 +2467,7 @@ MonoBehaviour:
   radius: 0.2
   collisionLayer:
     serializedVersion: 2
-    m_Bits: 55
+    m_Bits: 119
   flex: 500
   rigidness: 50
   bounce: 2

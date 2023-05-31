@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using UnityEngine;
+using UnityEngine.Rendering.Universal;
 
 [RequireComponent(typeof(Rigidbody2D))]
 public class PlayerMovement : MonoBehaviour
@@ -102,8 +103,13 @@ public class PlayerMovement : MonoBehaviour
 
         yield return new WaitForSeconds(dashTime);
 
-        Body.velocity = Body.velocity.normalized * Mathf.Min(Body.velocity.magnitude, afterDashSpeed);
+        yield return new WaitForFixedUpdate();
+        Body.isKinematic = true;
         EndDash();
+        Body.velocity = Body.velocity.normalized * Mathf.Min(Body.velocity.magnitude, afterDashSpeed);
+
+        yield return new WaitForFixedUpdate();
+        Body.isKinematic = false;
 
         yield return new WaitForSeconds(dashCooldown);
 

@@ -36,8 +36,13 @@ public class Softbody : MonoBehaviour
         {
             if (Vector2.Distance(bones[i].transform.localPosition, bonePositions[i]) > TOO_FAR)
             {
-                bones[i].transform.localPosition = bonePositions[i];
-                bones[i].velocity = Vector2.zero;
+                for (int j = 0; j < bones.Count; j++)
+                {
+                    Debug.Log("a");
+                    bones[j].transform.localPosition = bonePositions[j];
+                    bones[j].velocity = Vector2.zero;
+                }
+                break;
             }
 
             Vector3 currentPos = bones[i].transform.localPosition;
@@ -54,9 +59,10 @@ public class Softbody : MonoBehaviour
         int hits = Physics2D.OverlapCircleNonAlloc(transform.position, radius, colliders, collisionLayer);
         for (int i = 0; i < hits; i++)
         {
-            if (colliders[i].isTrigger) continue;
+            if (colliders[i] == null || colliders[i].isTrigger) continue;
             Vector2 hitOffset = (Vector2)transform.position - colliders[i].ClosestPoint(transform.position);
             body.velocity += hitOffset.normalized * (Time.fixedDeltaTime * (5 * radius) * bounce / Mathf.Max(hitOffset.magnitude * hitOffset.magnitude, 0.01f));
+            Debug.Log(body.velocity.magnitude);
             if (body.velocity.magnitude > 15)
             {
                 body.velocity = body.velocity.normalized * 15;

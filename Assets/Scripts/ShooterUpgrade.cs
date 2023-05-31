@@ -45,9 +45,9 @@ public class ShooterUpgrade : DNAUpgrade
         canShoot = true;
     }
 
-    public override void ApplyUpgrade(Player player)
+    public override void ApplyUpgrade(Player player, bool firstTime)
     {
-
+        shootText.SetActive(firstTime);
     }
 
     public override void RemoveUpgrade(Player player)

@@ -66,7 +66,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: You can now squeeze between small gaps
+  m_text: You can now squeeze between small gaps!
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 84fb4210029fe2a4c8a8499b37252946, type: 2}
   m_sharedMaterial: {fileID: 6279805971031219879, guid: 84fb4210029fe2a4c8a8499b37252946,
@@ -365,4 +365,4 @@ MonoBehaviour:
   newRadius: 0.1
   newMat: {fileID: 6200000, guid: 186afc915505b7a44988d5a460052713, type: 2}
   infoText: {fileID: 109720777985325329}
-  textLastTime: 10
+  textLastTime: 7

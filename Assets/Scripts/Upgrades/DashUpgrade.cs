@@ -3,6 +3,9 @@ using UnityEngine;
 
 public class DashUpgrade : DNAUpgrade
 {
+    public GameObject infoText;
+    public float textLastTime;
+
     public float movementSpeed;
     public float movementMaxSpeed;
     public float dashSpeed;
@@ -17,8 +20,22 @@ public class DashUpgrade : DNAUpgrade
     private float oldDashTime;
     private float oldDashCooldown;
 
-    public override void ApplyUpgrade(Player player)
+    private void DestroyInfoText()
     {
+        Destroy(infoText);
+    }
+
+    public override void ApplyUpgrade(Player player, bool firstTime)
+    {
+        if (firstTime)
+        {
+            Invoke(nameof(DestroyInfoText), textLastTime);
+        }
+        else
+        {
+            DestroyInfoText();
+        }
+
         oldMovementSpeed = player.Movement.movementSpeed;
         oldMovementMaxSpeed = player.Movement.movementMaxSpeed;
         oldDashSpeed = player.Movement.dashSpeed;

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public abstract class DNAUpgrade : MonoBehaviour
 {
-    public abstract void ApplyUpgrade(Player player);
+    public abstract void ApplyUpgrade(Player player, bool firstTime);
 
     public abstract void RemoveUpgrade(Player player);
 }

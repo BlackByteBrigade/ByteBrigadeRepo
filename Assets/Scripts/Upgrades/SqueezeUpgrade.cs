@@ -16,18 +16,22 @@ public class SqueezeUpgrade : DNAUpgrade
     private PhysicsMaterial2D oldMat;
 
 
-    private void Start()
-    {
-        Invoke(nameof(DestroyInfoText), textLastTime);
-    }
-
     private void DestroyInfoText()
     {
         Destroy(infoText);
     }
 
-    public override void ApplyUpgrade(Player player)
+    public override void ApplyUpgrade(Player player, bool firstTime)
     {
+        if (firstTime)
+        {
+            Invoke(nameof(DestroyInfoText), textLastTime);
+        }
+        else
+        {
+            DestroyInfoText();
+        }
+
         oldRadius = player.mainCollider.radius;
         oldSoftbodyFlex = player.Softbody.flex;
         oldSoftbodyRadius = player.Softbody.radius;
